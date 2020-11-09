@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->string('email');
             $table->text('request', 300);
+            $table->integer('viewed')->default(0);
             $table->timestamps();
         });
     }

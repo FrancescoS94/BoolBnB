@@ -21,6 +21,7 @@ class CreateFlatsTable extends Migration
             $table->integer('mq');
             $table->string('image');
             $table->text('description', 500);
+            $table->dataTime('end_rate');
             $table->timestamps();
         });
     }

@@ -16,7 +16,6 @@ class UpdateFlatsTable extends Migration
         Schema::table('flats', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('address_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('service_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -30,6 +29,7 @@ class UpdateFlatsTable extends Migration
         Schema::table('flats', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropColumn('user_id');
+
             $table->dropForeign(['address_id']);
             $table->dropColumn('address_id');
         });
