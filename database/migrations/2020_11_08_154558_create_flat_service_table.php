@@ -14,9 +14,6 @@ class CreateFlatServiceTable extends Migration
     public function up()
     {
         Schema::create('flat_service', function (Blueprint $table) {
-            // $table->id();
-
-            // PROVA
             $table->unsignedBigInteger('flat_id');
             $table->foreign('flat_id')->references('id')->on('flats')->onDelete('cascade')->onUpdate('cascade');
 
