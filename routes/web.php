@@ -19,4 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// rotte accessibili agli user
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
+    Route::resource('users','UserController');
+    Route::resource('flats','FlatController');
+    Route::resource('addresses','AddressController');
+    Route::resource('payments','PaymentController');
+    Route::resource('messages','MessageController');
+});
+
+// rotte accessibili a tutti senza autenticazione
+Route::get('/', 'FlatController@index')->name('home'); // single page app
+Route::get('/show/{id}', 'FlatController@show')->name('flat');

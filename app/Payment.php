@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
-    public function user() {
-        return $this->belongsTo('App\User');
-    }
+    protected $fillable = [
+        'end_rate'
+    ];
 
     public function flat() {
         return $this->belongsTo('App\Flat');

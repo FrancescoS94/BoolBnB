@@ -25,7 +25,6 @@ class FlatsTableSeeder extends Seeder
             $newFlat->mq = $faker->numberBetween(35, 500);
             $newFlat->image = $faker->imageUrl(640, 480);
             $newFlat->description = $faker->realText();
-            $newFlat->end_rate = $faker->dateTime();
 
             $newFlat->user_id = $users->random()->id;
             $newFlat->address_id = $addresses->random()->id;
