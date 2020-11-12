@@ -73,9 +73,9 @@ class MessageController extends Controller
         // };
     }
     
-    public function destroy(Post $post){
-        // $post->delete();
-        // return redirect()->route('admin.posts.index')->with('status','Articolo cancellato correttamente');
+    public function destroy(Message $message){
+        $message->delete();
+        return redirect()->route('admin.messages.index')->with('status','Messaggio cancellato correttamente');
     }
     
     public function edit(Post $post){
