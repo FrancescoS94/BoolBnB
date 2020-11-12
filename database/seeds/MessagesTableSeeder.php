@@ -17,6 +17,8 @@ class MessagesTableSeeder extends Seeder
         $flats = Flat::all();
         for($i = 0; $i < 10; $i++) {
             $newMessage = new Message();
+            $newMessage->name = $faker->firstname;
+            $newMessage->lastname = $faker->lastname;
             $newMessage->email = $faker->email;
             $newMessage->request = $faker->realText();
             $newMessage->viewed = $faker->numberBetween(0, 1);
