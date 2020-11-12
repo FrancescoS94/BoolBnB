@@ -31,5 +31,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 });
 
 // rotte accessibili a tutti senza autenticazione
-Route::get('/', 'FlatController@index')->name('home'); // single page app
+Route::get('/', 'FlatController@index')->name('home');
+Route::get('/search', 'FlatController@index')->name('search');
 Route::get('/show/{id}', 'FlatController@show')->name('flat');
