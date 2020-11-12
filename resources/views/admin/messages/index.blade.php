@@ -35,6 +35,7 @@
         <td class="align-middle">
           <a href="{{ route('admin.messages.show', $message['id']) }}" class="btn btn-dark">Leggi messaggio</a>
         </td>
+<<<<<<< HEAD
         <td class="align-middle">
             <form action="{{ route('admin.messages.destroy', $message['id']) }}" method="post">
                 @csrf
@@ -42,6 +43,10 @@
                 <input class="btn btn-dark" type="submit" value="Cancella messaggio">
             </form>
         </td>
+=======
+        <td>Segna come letto</td>
+        <td>Elimina</td>
+>>>>>>> crud-messages
       </tr>
       @endforeach
     </tbody>
