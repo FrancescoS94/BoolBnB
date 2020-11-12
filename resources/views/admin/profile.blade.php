@@ -17,13 +17,13 @@
                       <p class="card-text">Creazione profilo {{$user->created_at}}</p>
                       <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
                       <p class="card-text">Data di nascita{{$user->date_of_birth}}</p>
-                      <p class="card-text">{{$user->avatar}}</p>
-                      <button type="button" class="btn btn-success">Completa il tuo profilo</button>
+                      <p class="card-text">{{$user->avatar}}</p>  <!--modfica 12-11 aggiunta controllo valori null -->
+                    <button type="button" class="btn btn-success">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Modifica il tuo profilo'}}</button>
                     </div>
                   </div>
                 </div>
 
-
+                
                 <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -49,7 +49,7 @@
             
             </div>
 
-        
+            
         </div>
 
         
@@ -57,5 +57,17 @@
         
     </div>
 </div>
+<!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script>
+     $("#fade").modal({
+        fadeDuration: 100
+    });
+</script>
+
 
 @endsection
