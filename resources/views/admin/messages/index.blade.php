@@ -24,7 +24,11 @@
     </thead>
     <tbody>
       @foreach($messages as $message)
-      <tr>
+      <tr
+      @if($message['viewed'] == 0)
+        class="font-weight-bold"
+      @endif      
+      >
         <td>{{ $message['name'] }}</td>
         <td>{{ $message['lastname'] }}</td>
         <td>{{ $message['email'] }}</td>

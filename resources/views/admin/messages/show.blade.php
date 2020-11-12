@@ -22,7 +22,7 @@
     @if($message['viewed'] == 0)
       <a href="{{ route('admin.messages.update', $message['id']) }}" class="btn btn-dark">Segna come letto</a>
     @else
-      <a href="{{ route('admin.messages.update', $message['id']) }}" class="btn btn-dark">Segna come non letto</a>
+      <a href="{{ route('admin.messages.update', $message['id']) }}" class="btn btn-dark">Segna come da leggere</a>
     @endif
   </div>
 </div>
