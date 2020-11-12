@@ -19,7 +19,7 @@ class UserController extends Controller
 
     function index(){
         $user = User::find(Auth::id());
-        return view('admin/profile',compact('user'));
+        return view('admin/users/profile',compact('user'));
     }
 
     public function store(Request $request)
@@ -36,6 +36,8 @@ class UserController extends Controller
         ]);
 
         $user->update($data);
+
+        return redirect('admin/users')->with('status', 'Profilo aggiornato');#->json(['code'=> 200, 'message' => 'Profilo aggiornato con successo','data' => $user], 200);
     }
 
     public function show($id)
