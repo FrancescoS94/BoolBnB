@@ -13,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
 
 // rotte accessibili agli user
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('users','UserController');
     Route::resource('flats','FlatController');
     Route::resource('addresses','AddressController');
@@ -34,3 +35,8 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 Route::get('/home', 'FlatController@index')->name('home');
 Route::get('/search', 'FlatController@index')->name('search');
 Route::get('/show/{id}', 'FlatController@show')->name('flat');
+
+Route::get('/', function () {
+    return view('welcome'); /// formare index
+});
+

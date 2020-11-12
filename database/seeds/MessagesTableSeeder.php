@@ -22,6 +22,8 @@ class MessagesTableSeeder extends Seeder
             $newMessage->name = $faker->firstname;
             $newMessage->lastname = $faker->lastname;
             $newMessage->email = $faker->email;
+            $newMessage->name = $faker->firstname;
+            $newMessage->lastname = $faker->lastname;
             $newMessage->request = $faker->realText();
             $newMessage->viewed = $faker->numberBetween(0, 1);
             $newMessage->flat_id = $flats->random()->id;

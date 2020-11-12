@@ -15,8 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    
                 </div>
             </div>
+
+            pagina home 
         </div>
     </div>
 </div>

@@ -59,6 +59,9 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
+                                        <!-- Aggiunta link -->
+                                        <a class="nav-link" href="{{ route('admin.users.create') }}">{{ __('Completa il tuo profilo') }}</a>
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Gestisci appartamenti') }}</a>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
