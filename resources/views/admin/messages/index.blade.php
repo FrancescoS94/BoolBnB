@@ -19,7 +19,6 @@
         <th scope="col">Appartamento</th>
         <th scope="col"></th>
         <th scope="col"></th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +35,6 @@
         <td class="align-middle">
           <a href="{{ route('admin.messages.show', $message['id']) }}" class="btn btn-dark">Leggi messaggio</a>
         </td>
-        <td>Segna come letto</td>
         <td class="align-middle">
             <form action="{{ route('admin.messages.destroy', $message['id']) }}" method="post">
                 @csrf
