@@ -116,7 +116,7 @@
                 
                     
 
-                <form action="{{ route('admin.users.destroy', $flat->id) }}" method="POST">
+                <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
                     @csrf 
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Cancella questo appartamento</button>

@@ -30,7 +30,7 @@ class FlatController extends Controller
             'image' => 'image'
         ]);
 
-        
+
         $newFlat= new Flat();
         $newFlat['user_id'] = Auth::id(); #id dell'utente loggato
 
@@ -65,9 +65,9 @@ class FlatController extends Controller
         
     }
 
-    public function destroy(Flat $flats)
+    public function destroy(Flat $flat)
     {
-        $flats->delete();
-        return redirect()->route('login');
+        $flat->delete();
+        return redirect()->route('admin.flats.index');
     }
 }
