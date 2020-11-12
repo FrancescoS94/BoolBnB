@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Message;
 use App\Flat;
+use App\User;
 
 class MessagesTableSeeder extends Seeder
 {
@@ -15,8 +16,11 @@ class MessagesTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $flats = Flat::all();
-        for($i = 0; $i < 10; $i++) {
+        $users = User::all();
+        for($i = 0; $i < 100; $i++) {
             $newMessage = new Message();
+            $newMessage->name = $faker->firstname;
+            $newMessage->lastname = $faker->lastname;
             $newMessage->email = $faker->email;
             $newMessage->request = $faker->realText();
             $newMessage->viewed = $faker->numberBetween(0, 1);
