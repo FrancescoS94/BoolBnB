@@ -10,6 +10,7 @@ use App\Flat;
 
 class MessageController extends Controller
 {
+    // 12-11 struttura superflua
     public function __construct()
     {
         $this->middleware('auth');

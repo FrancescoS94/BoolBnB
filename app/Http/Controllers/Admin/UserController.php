@@ -9,6 +9,14 @@ use App\User;
 
 class UserController extends Controller
 {
+
+    // aggiunga 12-11 controllo stato autenticazione
+    /* public function __construct()
+    {
+        $this->middleware('auth');
+    } */
+
+
     function index(){
         $user = User::find(Auth::id());
         return view('admin/profile',compact('user'));
