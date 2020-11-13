@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flat;
 use Illuminate\Http\Request;
+use App\Payment;
 
 class FlatController extends Controller
 {
