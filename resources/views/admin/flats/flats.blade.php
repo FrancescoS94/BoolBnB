@@ -12,7 +12,7 @@
                     </div>
                 </div>
 
-                
+
                  {{-- validazione campi  --}}
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -64,6 +64,7 @@
                                 <button type="submit" class="btn btn-danger">Cancella questo appartamento</button>
                             </form>
                         </td>
+                        <td><a class="btn btn-primary" role="button" href="{{route('admin.flats.show', $flat->id)}}" class="card-link">Visualizza appartamento</a></td>
                       </tr>
                         @endforeach <!-- Chiusura padre contenitore foreach -->
                     </tbody>

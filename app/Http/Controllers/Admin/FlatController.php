@@ -82,8 +82,8 @@ class FlatController extends Controller
         /* return redirect()->route('admin.flats.index'); */
     }
 
-    function show(){
-        
+    function show(Flat $flat){
+        return view('admin.flats.flats-show',compact('flat'));
     }
 
     public function destroy(Flat $flat)

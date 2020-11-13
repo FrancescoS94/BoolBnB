@@ -23,7 +23,6 @@ Auth::routes();
 
 // rotte accessibili agli user
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('users','UserController');
     Route::resource('flats','FlatController');
     Route::resource('addresses','AddressController');
