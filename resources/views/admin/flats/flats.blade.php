@@ -15,24 +15,31 @@
                     @foreach ($flats as $flat)
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
+                          <h5 class="card-title">{{$flat->title}}</h5>
                           <h6 class="card-subtitle mb-2 text-muted">{{$flat->created_at}}</h6>
                           <p class="card-text">{{$flat->description}}</p>
                           <p class="card-text">{{$flat->bed}}</p>
                           <p class="card-text">{{$flat->room}}</p>
                           <p class="card-text">{{$flat->wc}}</p>
                           <p class="card-text">{{$flat->mq}}</p>
+                        <img src="{{asset('storage/'. $flat->image)}}" alt="{{$flat->title}}">
                           <a href="{{route('admin.flats.show', $flat->id)}}" class="card-link">Visualizza nel dettaglio</a>
-                          <a class="card-link" href="#ex1" rel="modal:open"><button type="button" class="btn btn-success">Modifica</button></a>
+                          {{-- <a class="card-link" href="#ex1" rel="modal:open"><button type="button" class="btn btn-success">Modifica</button></a> --}}
                         </div>
                     </div>
 
-                    <div id="ex1" class="modal">
+                    {{-- <div id="ex1" class="modal"> --}}
                         
                         <div>Modifica appartamento</div>
                         <form action="{{ route('admin.flats.update', $flat->id)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
+
+                            <div class="form-group">
+                                <label for="title">Titolo</label>
+                                <input type="text" class="form-control" name="title">
+                            </div>
+
                             <div class="form-group">
                                 <label for="room">Stanze</label>
                                 <input type="text" class="form-control" name="room">
@@ -65,17 +72,23 @@
 
                             <button type="submit" class="btn btn-primary">Invia il modulo</button>
                         </form>
-                            <a href="#" rel="modal:close">Close</a>
-                    </div>
+                            {{-- <a href="#" rel="modal:close">Close</a> --}}
+                    {{-- </div> --}}
 
 
-                    <div id="ex2" class="modal">
+                    {{-- <div id="ex2" class="modal"> --}}
 
                         <div>Aggiunta appartamento</div>
                         
                         <form action="{{ route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
+
+                            <div class="form-group">
+                                <label for="title">Titolo</label>
+                                <input type="text" class="form-control" name="title">
+                            </div>
+
                             <div class="form-group">
                                 <label for="room">Stanze</label>
                                 <input type="text" class="form-control" name="room">
@@ -108,8 +121,8 @@
 
                             <button type="submit" class="btn btn-primary">Invia il modulo</button>
                         </form>
-                            <a href="#" rel="modal:close">Close</a>
-                    </div>
+                            {{-- <a href="#" rel="modal:close">Close</a> --}}
+                    {{-- </div> --}}
                     
                 </div> <!-- Chiusura padre contenitore foreach -->
 
