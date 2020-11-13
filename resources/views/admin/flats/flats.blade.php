@@ -5,13 +5,10 @@
         <div class="row">
             <div class="col-md-8">
 
-                <div class="card">
-                    <div class="card-body">
-                       Ciao {{ Auth::user()->name }}
-                        <a href="{{ route('admin.addresses.create') }}" class="card-link"><button type="button" class="btn btn-success">Aggiungi un'appartamento</button></a>
-                    </div>
-                </div>
-
+                <h1>Ciao {{ Auth::user()->name }}</h1>
+                <a href="{{ route('admin.addresses.create') }}" class="card-link"> {{-- il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create --}}
+                    <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
+                </a>
 
                  {{-- validazione campi  --}}
                     @if ($errors->any())
@@ -49,7 +46,6 @@
                         <th scope="row">{{$flat->id}}</th>
                         <td>{{$flat->title}}</td>
                         <td>{{$flat->created_at}}</td>
-                        {{-- <td>{{$flat->description}}</td> --}}
                         <td>{{$flat->bed}}</td>
                         <td>{{$flat->room}}</td>
                         <td>{{$flat->wc}}</td>

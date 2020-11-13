@@ -29,7 +29,6 @@ class AddressController extends Controller
 
         if($address->save()){
             return view('admin.flats.flats-create', compact('address'))->with('status', 'Hai aggiunto correttamente l\'indirizzo del nuovo appartamento');
-            // return redirect()->route('admin.flats.create', compact('address'))->with('status', 'Hai aggiunto correttamente l\'indirizzo del nuovo appartamento');
         }else{
             abort(404);
         }

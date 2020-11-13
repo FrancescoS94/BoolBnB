@@ -93,10 +93,10 @@ class FlatController extends Controller
         return redirect()->route('admin.flats.index');
     }
 
-
-    public function create(){
-        return view('admin.flats.flats-create', compact('address'));
-    }
+    // NON SERVE PERCHE' VADO ALLA VIEW FLATS-CREATE DIRETTAMENTE DALLO STORE DELL'ADDRESS
+    // public function create(){
+    //     return view('admin.flats.flats-create', compact('address'));
+    // }
 
     public function edit(Flat $flat){
         return view('admin.flats.flats-update', compact('flat'));

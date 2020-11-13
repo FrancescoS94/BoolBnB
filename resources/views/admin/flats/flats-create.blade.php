@@ -28,12 +28,13 @@
                     <h2>Descrivi il tuo appartamento a i nostri utenti</h2>
                     
                     {{-- form creazione punta al Admin/controllerFlat  --}}
-                    <form action="{{ route('admin.flats.store', $address)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
                     {{-- <form action="{{ route('admin.flats.store', $address['id'])}}" method="post" enctype="multipart/form-data"> --}}
                         @csrf
                         @method('POST')
 
-                        <input hidden type="text" class="form-control" name="address" value="{{ $address->id }}">
+                        {{-- passo in un input nascosto l'id dell'address --}}
+                        <input hidden type="text" class="form-control" name="address" value="{{ $address->id }}"> 
         
                         <div class="form-group">
                             <label for="title">Titolo</label>
