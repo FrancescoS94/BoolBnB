@@ -62,8 +62,8 @@
     </div>
 
     <div class="col">
-      <span><i class="fas fa-globe"></i>Italiano (IT)</span>
-      <span><i class="fas fa-euro-sign"></i>EUR</span>
+      <span><i class="fas fa-globe"></i><strong>Italiano (IT)</strong></span>
+      <span><i class="fas fa-euro-sign"></i><strong>EUR</strong></span> 
       <span><i class="fab fa-facebook-f"></i></span>
       <span><i class="fab fa-twitter"></i></span>
       <span><i class="fab fa-instagram-square"></i></span>

@@ -16,6 +16,10 @@
   list-style: none;
 }
 
+#footer ul a {
+  color: #222222;
+}
+
 #footer-bottom {
   border-top: 1px solid darkgrey;
 }
