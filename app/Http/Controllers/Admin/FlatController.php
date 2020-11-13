@@ -7,16 +7,41 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Flat;
+use App\Address;
+use FFI;
 
 class FlatController extends Controller
 {
     function index(){
         $flats = Flat::all()->where('user_id', Auth::id());
-        return view('admin.flats', compact('flats'));
+        #dd($flats);
+        return view('admin.flats.flats', compact('flats'));
     }
 
-    function store(){
-        return view('', compact());
+    function store(Request $request){
+
+        $data = $request->all();
+        $request->validate([ #validazione e controllo dei dati passati
+            'room' => 'required',
+            'bed' => 'required',
+            'wc' => 'required',
+            'mq' => 'required',
+            'description' => 'required|max:300',
+            'image' => 'image'
+        ]);
+
+
+        $newFlat= new Flat();
+        $newFlat['user_id'] = Auth::id(); #id dell'utente loggato
+
+        $newFlat->fill($data); #rimepio i vari campi dopo la validazione
+        $newFlat->save();
+
+        if($newFlat->save()){
+            return redirect()->route('admin.flats.index');
+        }else{
+            abort(404);
+        }
     }
 
     function update(Request $request, Flat $flat){
@@ -40,9 +65,9 @@ class FlatController extends Controller
         
     }
 
-    public function destroy(Flat $flats)
+    public function destroy(Flat $flat)
     {
-        $flats->delete();
-        return redirect()->route('login');
+        $flat->delete();
+        return redirect()->route('admin.flats.index');
     }
 }
