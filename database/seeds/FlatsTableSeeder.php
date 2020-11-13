@@ -24,7 +24,7 @@ class FlatsTableSeeder extends Seeder
             $newFlat->bed = $faker->numberBetween(1, 10);
             $newFlat->wc = $faker->numberBetween(1, 3);
             $newFlat->mq = $faker->numberBetween(35, 500);
-            $newFlat->image = $faker->imageUrl(640, 480);
+            $newFlat->image = $faker->imageUrl(640, 480,'city');
             $newFlat->description = $faker->realText();
 
             $newFlat->user_id = $users->random()->id;

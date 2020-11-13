@@ -22,6 +22,28 @@
             Progetto Boolean 16, pagina home
         </div>
     </div>
+
+    {{-- appartamenti sponsorizzati (vale) --}}
+
+    <div>
+        <h2>Appartamenti sponsorizzati</h2>
+        <div class="card-group">
+            @foreach ($flatsSpons as $flatSpons)
+            {{-- bisognerà aggiungere qui la città --}}
+            <div class="card">
+                {{-- risolvere questione immagini --}}
+                <span class="badge badge-secondary">{{ $flatSpons->address->city }}</span>
+                <img src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $flatSpons->title}}</h5>
+                    <p class="card-text">{{ $flatSpons->description}}</p>
+                    <a href="{{ route('flat', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
 </div>
 @endsection
 
