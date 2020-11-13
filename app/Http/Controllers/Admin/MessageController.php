@@ -84,18 +84,12 @@ class MessageController extends Controller
         // return view('admin.posts.create', compact('post','tags'));
     }
     
+    public function update(Message $message){
 
-    // TENTATIVO PER SOVRASCRIVERE VALORE VIEWED MA NON ENTRA IN UPDATE
+        $message['viewed'] = !$message['viewed'];
 
-    public function update(Request $request, Message $message){
-
-        $data = $request->all();
-        dd($data);
+        $message->update();
         
-        $data['viewed'] = !$message['viewed'];
-
-        $message->update($data);
-        
-        return redirect()->route('admin.messages.index')->with('status','Messaggio impostato come letto');
+        return redirect()->route('admin.messages.index');
     }
 }

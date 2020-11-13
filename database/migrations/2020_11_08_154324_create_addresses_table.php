@@ -18,7 +18,7 @@ class CreateAddressesTable extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('address');
-            $table->string('cap');
+            $table->integer('cap');
             $table->string('district');
             $table->timestamps();
         });
