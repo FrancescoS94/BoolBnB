@@ -43,7 +43,7 @@ class FlatController extends Controller
         $newFlat->save();
 
         if($newFlat->save()){
-            return redirect()->route('admin.flats.index');
+            return redirect()->route('admin.flats.index')->with('status', 'Hai aggiunto correttamente un nuovo appartamento');
         }else{
             abort(404);
         }
@@ -58,7 +58,7 @@ class FlatController extends Controller
             'bed' => 'required|numeric|max:20|min:1',
             'wc' => 'required|numeric|max:10|min:1',
             'mq' => 'required|numeric|max:1000|min:15',
-            'description' => 'required|max:1200|min:150',
+            'description' => 'required|max:1200|min:15',
             'image' => 'image|required'
         ]);
 
@@ -74,16 +74,30 @@ class FlatController extends Controller
 
         $flat->update($data);
 
-        return redirect()->route('admin.flats.index');
+        if($flat->update($data)){
+            return redirect()->route('admin.flats.index')->with('status', 'Hai modificato corretamente il tuo profilo');
+        }else{
+            abort(404);
+        }
+        /* return redirect()->route('admin.flats.index'); */
     }
 
-    function show(){
-        
+    function show(Flat $flat){
+        return view('admin.flats.flats-show',compact('flat'));
     }
 
     public function destroy(Flat $flat)
     {
         $flat->delete();
         return redirect()->route('admin.flats.index');
+    }
+
+
+    public function create(){
+        return view('admin.flats.flats-create');
+    }
+
+    public function edit(Flat $flat){
+        return view('admin.flats.flats-update', compact('flat'));
     }
 }
