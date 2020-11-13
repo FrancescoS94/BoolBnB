@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flat;
 use Illuminate\Http\Request;
+use App\Payment;
 
 class FlatController extends Controller
 {
@@ -14,8 +15,20 @@ class FlatController extends Controller
      */
     public function index()
     {
-        $flats = Flat::all();        
-        return view('search',compact('flats'));
+        // tutti gli appartamenti, per risultato di ricerca
+        $flats = Flat::all();
+        
+        // filtro per appartamenti sponsorizzati
+        $momentoAttuale = date("Y-m-d H:i:s"); // ATTENZIONE sistemare ora legale  memorizzo in una var data e ora attuale, nello stesso formato del created_at 
+        $sponsAttive = Payment::all()->where('end_rate', '>', $momentoAttuale); // memorizzo in una var tutti i pagamenti con end_rate successivo al momento attuale (vuol dire che sono sponsorizzati)
+        $flatsIdSpons = [];                                                     // imposto un array vuoto
+        foreach($sponsAttive as $sponsAttiva){
+            array_push($flatsIdSpons, $sponsAttiva->flat_id);                   // memorizzo nell'array vuoto tutti gli id degli appartamenti sponsorizzati
+        }
+        $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
+        
+        // alla view ritorno entrambe le variabili
+        return view('search',compact('flats', 'flatsSpons'));
     }
 
     /**
