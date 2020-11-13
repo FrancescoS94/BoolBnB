@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-body">
                        Ciao {{ Auth::user()->name }}
-                        <a href="{{ route('admin.flats.create') }}" class="card-link"><button type="button" class="btn btn-success">Aggiungi un'appartamento</button></a>
+                        <a href="{{ route('admin.addresses.create') }}" class="card-link"><button type="button" class="btn btn-success">Aggiungi un'appartamento</button></a>
                     </div>
                 </div>
 

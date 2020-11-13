@@ -19,11 +19,18 @@
     <p>{{ $message['request'] }}</p>
   </div>
   <div class="lettura">
-    {{-- TENTATIVO PER SOVRASCRIVERE VALORE VIEWED MA NON ENTRA IN UPDATE --}}
     @if($message['viewed'] == 0)
-      <a href="{{ route('admin.messages.update', $message['id']) }}" class="btn btn-dark">Segna come letto</a>
-    @else
-      <a href="{{ route('admin.messages.update', $message['id']) }}" class="btn btn-dark">Segna come da leggere</a>
+      <form action="{{ route('admin.messages.update', $message['id']) }}" method="post">
+          @csrf
+          @method('PATCH')
+          <input class="btn btn-dark" type="submit" value="Segna come letto">
+      </form>
+      @else
+      <form action="{{ route('admin.messages.update', $message['id']) }}" method="post">
+          @csrf
+          @method('PATCH')
+          <input class="btn btn-dark" type="submit" value="Segna come da leggere">
+      </form>
     @endif
   </div>
 </div>

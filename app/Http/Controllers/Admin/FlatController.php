@@ -33,6 +33,7 @@ class FlatController extends Controller
 
 
         $newFlat= new Flat();
+        $newFlat['address_id'] = $data['address'];
         $newFlat['user_id'] = Auth::id(); #id dell'utente loggato
 
         if(!empty($data['image'])){
@@ -94,7 +95,7 @@ class FlatController extends Controller
 
 
     public function create(){
-        return view('admin.flats.flats-create');
+        return view('admin.flats.flats-create', compact('address'));
     }
 
     public function edit(Flat $flat){
