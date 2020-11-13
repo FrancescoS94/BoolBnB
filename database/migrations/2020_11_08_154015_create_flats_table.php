@@ -15,12 +15,13 @@ class CreateFlatsTable extends Migration
     {
         Schema::create('flats', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 200);
             $table->integer('room');
             $table->integer('bed');
             $table->integer('wc');
             $table->integer('mq');
             $table->string('image');
-            $table->text('description', 500);
+            $table->text('description', 1200);
             $table->timestamps();
         });
     }

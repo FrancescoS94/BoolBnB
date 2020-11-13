@@ -19,6 +19,7 @@ class FlatsTableSeeder extends Seeder
         $addresses = Address::all();
         for($i = 0; $i < 10; $i++) {
             $newFlat = new Flat();
+            $newFlat->title= $faker->realText(200);
             $newFlat->room  = $faker->numberBetween(1, 10);
             $newFlat->bed = $faker->numberBetween(1, 10);
             $newFlat->wc = $faker->numberBetween(1, 3);
