@@ -15,9 +15,6 @@
                 </div>
                 @endif
 
-
-
-
                 {{-- per ciascun appartamento posso modificare i valori grazie all'id --}}
                 <div>Modifica appartamento</div>
                 <form action="{{ route('admin.flats.update', $flat->id)}}" method="post" enctype="multipart/form-data">
