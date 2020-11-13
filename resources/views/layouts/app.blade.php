@@ -56,14 +56,18 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    
+                                    
+                                    <a class="nav-link" href="{{ route('admin.users.index') }}">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Gestisci il tuo profilo' }}
+                                    {{-- <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Completa il tuo profilo') }}</a> --}}
+                                    <a class="nav-link" href="{{ route('admin.flats.index') }}">{{ __('Gestisci appartamenti') }}</a>
+                                    <a class="nav-link" href="{{ route('admin.messages.index') }}">{{ __('Messaggi ricevuti') }}</a>
+
+                                    <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                         <!-- Aggiunta link -->
-                                        <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Completa il tuo profilo') }}</a>
-                                        <a class="nav-link" href="{{ route('admin.flats.index') }}">{{ __('Gestisci appartamenti') }}</a>
-                                        <a class="nav-link" href="{{ route('admin.messages.index') }}">{{ __('Messaggi ricevuti') }}</a>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
