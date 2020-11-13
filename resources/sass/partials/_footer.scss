@@ -1,0 +1,18 @@
+#footer{
+  border: 1px solid black;
+  height: 600px;
+  background-color: #f7f7f7;
+  ul{
+    list-style: none;
+  }
+}
+
+#footer-bottom{
+  border-top: 1px solid darkgrey;
+}
+
+#footer-bottom-left {
+  p{
+    display: inline-block;
+  }
+}
