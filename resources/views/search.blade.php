@@ -1,4 +1,5 @@
+{{-- PAGINA DI RICERCA --}}
 @extends('layouts.app')
 @section('content')
-<p>SEARCH</p>
+    <p>SEARCH</p>
 @endsection

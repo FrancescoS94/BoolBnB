@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Flat extends Model
 {
     protected $fillable = [
-        'room', 'bed', 'wc', 'mq', 'image', 'description'
+        'title','room', 'bed', 'wc', 'mq', 'image', 'description'
     ];
 
     public function user() {

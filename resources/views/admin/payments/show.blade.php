@@ -1,4 +1,4 @@
-{{-- SHOW DEL SINGOLO APPARTAMENTO DELL'UTENTE LOGGATO --}}
+{{-- DETTAGLI SINGOLO PAGAMENTO DELL'UTENTE LOGGATO --}}
 @extends('layouts.app')
 @section('content')
     
