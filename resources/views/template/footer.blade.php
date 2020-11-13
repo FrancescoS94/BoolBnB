@@ -1,6 +1,6 @@
 <div class="container-fluid" id="footer">
   <div class="row">
-    <div class="col">
+    <div class="col-md-6 col-lg-3 col-sm-12">
       <ul>
         <a href="#"><li><strong>INFORMAZIONI</strong></li></a>
         <a href="#"><li>Newsroom</li></a>
@@ -13,7 +13,7 @@
       </ul>
     </div>
 
-    <div class="col">
+    <div class="col-md-6 col-lg-3 col-sm-12">
       <ul>
         <a href="#"><li><strong>COMMUNITY</strong></li></a>
         <a href="#"><li>Diversità e appartenenza</li></a>
@@ -26,7 +26,7 @@
       </ul>
     </div>
 
-    <div class="col">
+    <div class="col-md-6 col-lg-3 col-sm-12">
       <ul>
         <a href="#"><li><strong>OSPITA</strong></li></a>
         <a href="#"><li>Diventa un host</li></a>
@@ -39,7 +39,7 @@
       </ul>
     </div>
 
-    <div class="col">
+    <div class="col-md-6 col-lg-3 col-sm-12">
       <ul>
         <a href="#"><li><strong>ASSISTENZA</strong></li></a>
         <a href="#"><li>La nostra risposta all'emergenza COVID-19</li></a>
@@ -52,21 +52,21 @@
 
   </div>
 
-  <div class="row" id="footer-bottom">
+  <div class="row footer-bottom">
 
-    <div class="col" id="footer-bottom-left">
+    <div class="col-md-6 col-sm-12 footer-bottom-left">
       <p>© 2020 Boolbnb, Inc. All rights reserved</p>
       <p>Privacy</p>
       <p>Termini</p>
       <p>Dettagli dell'azienda</p>
     </div>
 
-    <div class="col">
-      <span><i class="fas fa-globe"></i><strong>Italiano (IT)</strong></span>
-      <span><i class="fas fa-euro-sign"></i><strong>EUR</strong></span> 
-      <span><i class="fab fa-facebook-f"></i></span>
-      <span><i class="fab fa-twitter"></i></span>
-      <span><i class="fab fa-instagram-square"></i></span>
+    <div class="col-md-6 col-sm-12 footer-bottom-right">
+      <span><i class="fas fa-globe"></i><strong> Italiano (IT)</strong></span>
+      <span><i class="fas fa-euro-sign"></i><strong> EUR</strong></span>
+      <span><i class="fab fa-facebook-f" id="social"></i></span>
+      <span><i class="fab fa-twitter" id="social"></i></span>
+      <span><i class="fab fa-instagram-square" id="social"></i></span>
     </div>
 
   </div>
