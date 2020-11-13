@@ -1,26 +1,27 @@
+{{-- PAGINA INDEX --}}
 @extends('layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<div class="flex-center position-ref full-height">
+    @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+                <a href="{{ url('admin/home') }}">Home</a>
+            @else
+            
+                <a href="{{ route('login') }}">Login</a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Register</a>
+                @endif
+            @endauth
+        </div>
+    @endif
 
-                    {{ __('You are logged in!') }}
-                    
-                </div>
-            </div>
-
-            pagina home 
+    <div class="content">
+        <div class="title m-b-md">
+            Progetto Boolean 16, pagina home
         </div>
     </div>
 </div>
 @endsection
+

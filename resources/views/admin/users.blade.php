@@ -1,3 +1,4 @@
+{{-- DA RIVALUTARE PAGINA INDEX AREA RISERVATA --}}
 @extends('layouts.app')
 
 @section('content')

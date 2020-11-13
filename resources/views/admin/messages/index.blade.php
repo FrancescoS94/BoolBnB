@@ -1,3 +1,4 @@
+{{-- TUTTI I MESSAGGI RICEVUTI DELL'UTENTE LOGGATO --}}
 @extends('layouts.app')
 
 @section('content')
