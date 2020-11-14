@@ -1,6 +1,7 @@
 {{-- PAGINA USER LOGGATO --}}
 @extends('layouts.app')
 @section('content')
+{{-- @dd(Auth::user()->status) --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,6 +19,7 @@
                     <div class="card-body">
                     <h5 class="card-title">{{$user->name}}</h5>
                       <p class="card-text">{{$user->lastname}}</p>
+                      <p class="card-text">{{$user->status}}</p>
                       <p class="card-text">{{$user->email}}</p>
                       <p class="card-text">Creazione profilo {{$user->created_at}}</p>
                       <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
