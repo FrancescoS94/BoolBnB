@@ -32,6 +32,11 @@
           <input class="btn btn-dark" type="submit" value="Segna come da leggere">
       </form>
     @endif
+    <form action="{{ route('admin.messages.destroy', $message['id']) }}" method="post">
+        @csrf
+        @method('DELETE')
+        <input class="btn btn-dark" type="submit" value="Cancella messaggio">
+    </form>
   </div>
 </div>
 @endsection
