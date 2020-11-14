@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Message;
 use Illuminate\Http\Request;
+use App\Flat;
 
 class MessageController extends Controller
 {
@@ -14,7 +15,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        // non serve, il guest non vedrà mai tutti i messaggi inviati
     }
 
     /**
@@ -24,7 +25,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        // non serve, il form per creare messaggio è nella pagina flat (FlatController)
     }
 
     /**
@@ -33,11 +34,29 @@ class MessageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request, Message $message){
+        $data = $request->all();
 
+        $request->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'email'=> 'email',
+            'request'=> 'required'
+        ]);
+        
+        $message['flat_id'] = $data['flat'];
+
+        $message->fill($data);
+        $salvato = $message->save();
+        
+        // individuo l'appartamento per cui è stato mandato il messaggio
+        $flat = Flat::all()->find($message->flat_id);
+
+        if($salvato){
+            // torno nella show dell'appartamento per cui è stato mandato il messaggio
+            return redirect()->route('flats.show', compact('flat'))->with('status', 'Messaggio inviato correttamente');
+        };
+    }
     /**
      * Display the specified resource.
      *
@@ -46,7 +65,7 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        //
+        // non serve, lo show del messaggio è nella parte admin
     }
 
     /**
@@ -57,7 +76,7 @@ class MessageController extends Controller
      */
     public function edit(Message $message)
     {
-        //
+        // non serve, il messaggio non sarà mai modificabile
     }
 
     /**
@@ -69,7 +88,7 @@ class MessageController extends Controller
      */
     public function update(Request $request, Message $message)
     {
-        //
+        // non serve, il messaggio non sarà mai modificabile per il guest 
     }
 
     /**
@@ -80,6 +99,6 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        // non serve, il guest non potrà mai cancellare un messaggio
     }
 }

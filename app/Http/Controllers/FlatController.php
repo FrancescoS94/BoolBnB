@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Flat;
 use Illuminate\Http\Request;
+use App\Flat;
 use App\Payment;
+use Carbon\Carbon;
 
 class FlatController extends Controller
 {
@@ -19,7 +20,7 @@ class FlatController extends Controller
         $flats = Flat::all();
         
         // filtro per appartamenti sponsorizzati
-        $momentoAttuale = date("Y-m-d H:i:s"); // ATTENZIONE sistemare ora legale  memorizzo in una var data e ora attuale, nello stesso formato del created_at 
+        $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at 
         $sponsAttive = Payment::all()->where('end_rate', '>', $momentoAttuale); // memorizzo in una var tutti i pagamenti con end_rate successivo al momento attuale (vuol dire che sono sponsorizzati)
         $flatsIdSpons = [];                                                     // imposto un array vuoto
         foreach($sponsAttive as $sponsAttiva){
@@ -55,21 +56,22 @@ class FlatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Flat  $flat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function show($id)
     public function show(Flat $flat)
     {
-        //
+        return view('flat', compact('flat'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Flat  $flat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Flat $flat)
+    public function edit($id)
     {
         //
     }
@@ -78,10 +80,10 @@ class FlatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Flat  $flat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Flat $flat)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -89,10 +91,10 @@ class FlatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Flat  $flat
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flat $flat)
+    public function destroy($id)
     {
         //
     }
