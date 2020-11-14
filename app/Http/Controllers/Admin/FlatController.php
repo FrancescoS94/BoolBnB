@@ -79,7 +79,7 @@ class FlatController extends Controller
         }else{
             abort(404);
         }
-        /* return redirect()->route('admin.flats.index'); */
+        
     }
 
     function show(Flat $flat){
