@@ -18,7 +18,7 @@ class AddressesTableSeeder extends Seeder
             $newAddress->country = $faker->state;
             $newAddress->city = $faker->city;
             $newAddress->address = $faker->streetAddress;
-            $newAddress->cap = $faker->postcode;
+            $newAddress->cap = $faker->numberbetween(10000,99999);
             $newAddress->district = $faker->stateAbbr;
 
             $newAddress->save();
