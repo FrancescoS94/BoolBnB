@@ -6,8 +6,33 @@
         <div id="form-messaggio">
     
             <h2>Manda un messaggio al proprietario di questo appartamento</h2>
-    
-            <form>
+            
+            {{-- status --}}
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            {{-- controllo errori --}}
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            
+            <form action="{{ route('messages.store') }}" method="post">
+
+                @csrf
+                @method('POST')
+
+                {{-- passo l'id del flat in un input nascosto --}}
+                <input hidden type="text" name="flat" class="form-control" value="{{ $flat->id }}">
+
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="name">Nome</label>

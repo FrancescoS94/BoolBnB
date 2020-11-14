@@ -45,43 +45,20 @@ class MessageController extends Controller
     }
     
     public function create(){
-        // $tags = Tag::all();
-        // return view('admin.posts.create', compact('tags'));
-    }
-
-    public function store(Request $request){
-        // $data = $request->all();
-
-        // $request->validate([
-        //     'titolo' => 'required|unique:posts',
-        //     'articolo' => 'required|unique:posts',
-        //     'img'=> 'image'
-        // ]);
-        
-        // $data['user_id'] = Auth::id();
-        // $data['slug'] = Str::slug($data['titolo'], '-');
-        // $newPost = new Post;
-        // if(!empty($data['img'])){
-        //     $data['img'] = Storage::disk('public')->put('images',$data['img']);
-        // }
-        // $newPost->fill($data);
-        // $salvato = $newPost->save();
-        // // dd($data['tags']); // vedo i dati
-        // $newPost->tags()->attach($data['tags']); // inserisco i dati
-        // $newPost->tags()->sync($data['tags']);
-        // if($salvato){
-        //     return redirect()->route('admin.posts.index')->with('status', 'Articolo inserito correttamente');
-        // };
+        // non serve, il form per creare messaggio è nella pagina flat (FlatController fz show) [non c'entra admin]
     }
     
-    public function destroy(Post $post){
-        // $post->delete();
-        // return redirect()->route('admin.posts.index')->with('status','Articolo cancellato correttamente');
+    public function store(Request $request, Message $message){
+        // non serve, il form per creare messaggio è nella pagina flat (FlatController fz show) [non c'entra admin]
+    }
+    
+    public function destroy(Message $message){
+        $message->delete();
+        return redirect()->route('admin.messages.index')->with('status','Messaggio cancellato correttamente');
     }
     
     public function edit(Post $post){
-        // $tags = Tag::all();
-        // return view('admin.posts.create', compact('post','tags'));
+        // non serve, il messaggio non sarà modificabile
     }
     
     public function update(Message $message){
