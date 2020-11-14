@@ -118,8 +118,6 @@ class FlatController extends Controller
 
     public function destroy(Flat $flat, User $user ,Request $request)
     {
-        
-        
         $flat->delete();
         $f = Flat::all()->find('user_id');
         if(is_null($f)){
