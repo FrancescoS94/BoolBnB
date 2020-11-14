@@ -56,7 +56,8 @@ class UserController extends Controller
         $user->update($data);
 
         if($user->update($data)){
-            return redirect()->route('admin.users.profile')->with('status', 'Profilo aggiornato');
+            /* return redirect()->route('admin.users.profile')->with('status', 'Profilo aggiornato'); */
+            return view('admin.users.profile',compact('user'))->with('status', 'Profilo aggiornato');
         }else{
             abort(404);
         }
