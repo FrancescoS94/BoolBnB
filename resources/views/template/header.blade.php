@@ -1,21 +1,31 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<section class="bg-white">
+<nav class="navbar navbar-light container">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="logo" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Laravel') }} --}}
-            AirBnb
+            <strong>
+                Boolbnb
+            </strong>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+        <div class="search">
+            <input class="search-text" type="text" name="" placeholder="Inizia la ricerca">
+            <a href="#" class="search-btn">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="dropdown" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-
-            </ul>
+            {{-- <ul class="navbar-nav mr-auto">
+            </ul> --}}
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto dropdown-menu dropdown-menu-right pl-2">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -33,8 +43,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            
-                            
                             <a class="nav-link" href="{{ route('admin.users.index') }}">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Gestisci il tuo profilo' }}
                             {{-- <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Completa il tuo profilo') }}</a> --}}
                             <a class="nav-link" href="{{ route('admin.flats.index') }}">{{ __('Gestisci appartamenti') }}</a>
