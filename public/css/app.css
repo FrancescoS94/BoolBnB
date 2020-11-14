@@ -6,6 +6,46 @@
   box-sizing: border-box;
 }
 
+footer {
+  border-top: 1px solid darkgrey;
+  padding-top: 35px;
+  background-color: #f7f7f7;
+}
+
+footer #footer ul {
+  list-style: none;
+}
+
+footer #footer ul li {
+  padding-bottom: 12px;
+}
+
+footer #footer ul a {
+  color: #222222;
+}
+
+footer #footer ul a:hover {
+  color: #404040;
+}
+
+footer .footer-bottom {
+  border-top: 1px solid darkgrey;
+  padding-top: 20px;
+}
+
+footer .footer-bottom-left p {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+footer .footer-bottom-right span {
+  margin-right: 15px;
+}
+
+footer #social {
+  font-size: 20px;
+}
+
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

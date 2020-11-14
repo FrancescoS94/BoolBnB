@@ -1,0 +1,41 @@
+footer{
+  border-top: 1px solid darkgrey;
+  padding-top: 35px;
+  background-color: #f7f7f7;
+  #footer{
+    ul{
+      list-style: none;
+      li{
+        padding-bottom: 12px;
+      }
+      a{
+        color: #222222;
+        &:hover{
+          color: #404040;
+        }
+      }
+    }
+  }
+
+  .footer-bottom{
+    border-top: 1px solid darkgrey;
+    padding-top: 20px;
+  }
+
+  .footer-bottom-left {
+    p{
+      display: inline-block;
+      margin-right: 15px;
+    }
+  }
+
+  .footer-bottom-right{
+    span{
+      margin-right: 15px;
+    }
+  }
+
+  #social{
+    font-size: 20px;
+  }
+}
