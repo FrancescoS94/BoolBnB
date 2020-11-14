@@ -6,6 +6,106 @@
   box-sizing: border-box;
 }
 
+header .navbar-light {
+  color: black;
+}
+
+header .navbar-light .navbar-brand {
+  color: #ff385c;
+  font-size: 24px;
+}
+
+header .navbar-light .navbar-brand:hover {
+  color: #ff385c;
+}
+
+header .navbar {
+  height: 80px;
+}
+
+header .search {
+  border: 1px solid #e5e5e5;
+  height: 50px;
+  border-radius: 40px;
+  padding: 5px;
+  padding-left: 15px;
+  line-height: 35px;
+}
+
+header .search a {
+  text-decoration: none;
+}
+
+header .search a:hover {
+  color: white;
+}
+
+header .search-btn {
+  color: white;
+  background: #ff385c;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+header .search-text {
+  border: none;
+  background: none;
+  float: left;
+}
+
+header .admin-item .dropdown-menu {
+  border: none;
+}
+
+header .admin-item .hov2 {
+  padding-left: 10px;
+}
+
+header .admin-item .hov2:hover {
+  background-color: #e5e5e5;
+}
+
+header .navbar-nav .nav-item .hov:hover {
+  background-color: #e5e5e5;
+}
+
+header .navbar-nav .nav-item a {
+  padding-left: 10px;
+}
+
+header .navbar-light .navbar-nav .nav-link {
+  color: black;
+}
+
+header .navbar-light .navbar-nav .nav-link:hover {
+  color: black;
+}
+
+main .jumbotron {
+  background-color: rgba(250, 250, 250, 0.7);
+}
+
+main h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+main .bg-img {
+  background-image: url("https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 614px;
+  padding-top: 129px;
+}
+
 footer {
   border-top: 1px solid darkgrey;
   padding-top: 35px;
