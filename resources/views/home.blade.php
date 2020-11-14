@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $flatSpons->title}}</h5>{{-- titolo dell'appartamento --}}
                     <p class="card-text">{{ $flatSpons->description}}</p>{{-- descrizione dell'appartamento --}}
-                    <a href="{{ route('flat', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a> {{-- bottone per andare nella show dell'appartamento --}}
+                    <a href="{{ route('flats.show', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a> {{-- bottone per andare nella show dell'appartamento --}}
                 </div>
             </div>
             @endforeach
