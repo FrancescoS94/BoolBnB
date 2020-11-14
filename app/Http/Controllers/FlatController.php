@@ -60,7 +60,7 @@ class FlatController extends Controller
      */
     public function show(Flat $flat)
     {
-        //
+        return view('flat', compact('flat'));
     }
 
     /**
