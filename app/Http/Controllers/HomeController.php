@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $momentoAttuale = date("Y-m-d H:i:s"); // ATTENZIONE sistemare ora legale  memorizzo in una var data e ora attuale, nello stesso formato del created_at 
+        $momentoAttuale = Carbon::now();; // ATTENZIONE sistemare ora legale  memorizzo in una var data e ora attuale, nello stesso formato del created_at 
+        // $momentoAttuale = date("Y-m-d H:i:s"); // ATTENZIONE sistemare ora legale  memorizzo in una var data e ora attuale, nello stesso formato del created_at 
         $sponsAttive = Payment::all()->where('end_rate', '>', $momentoAttuale); // memorizzo in una var tutti i pagamenti con end_rate successivo al momento attuale (vuol dire che sono sponsorizzati)
         $flatsIdSpons = [];                                                     // imposto un array vuoto
         foreach($sponsAttive as $sponsAttiva){
