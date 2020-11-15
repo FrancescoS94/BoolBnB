@@ -1,21 +1,49 @@
-main{
-  background-color: #ffffff;
-}
+main {
+    // BANNER
+    .jumbotron {
+        background-color: rgba(250, 250, 250, 0.7);
+    }
 
-.container-fluid.search{
-  // height: 600px;
-  // overflow-y: scroll;
+    h1 {
+        text-transform: uppercase;
+        font-size: 50px;
+    }
 
-  #img-search{
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-  }
+    .bg-img {
+        background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 614px;
+        margin-top: 80px;
+        padding-top: 129px;
+    }
 
-  .flat{
-    padding: 20px 0px;
-    border-top: 1px solid darkgrey;
-  }
+    // APPARTAMENTI SPONSORIZZATI
+    .box-cards {
+        display: flex;
+        flex-direction: row;
+    }
 
+    .card-group {
+        display: block;
+        width: 33%;
+        padding-left: 2px;
+    }
 
+    // PAGINA SEARCH
+    .container-fluid.search{
+      // height: 600px;
+      // overflow-y: scroll;
+
+      #img-search{
+        width: 300px;
+        height: 200px;
+        border-radius: 10px;
+      }
+
+      .flat{
+        padding: 20px 0px;
+        border-top: 1px solid darkgrey;
+      }
 }
