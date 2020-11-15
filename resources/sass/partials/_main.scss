@@ -34,9 +34,15 @@ main {
     }
 
     // PAGINA SEARCH
+
+    .container-fluid.search::-webkit-scrollbar {
+      display: none;  /*Nasconde scroll, necessario su Safari e Chrome */
+    }
+
     .container-fluid.search{
-      // height: 600px;
-      // overflow-y: scroll;
+      height: 600px;
+      overflow-y: scroll;
+      scrollbar-width: none; /*Nasconde scroll firefox*/
 
       #img-search{
         width: 300px;
@@ -47,6 +53,11 @@ main {
       .flat{
         padding: 20px 0px;
         border-top: 1px solid darkgrey;
+      }
+
+      .mappa{
+        background-color: lightgreen;
+        overflow-y:hidden;
       }
 
     }
