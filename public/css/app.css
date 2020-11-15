@@ -6,6 +6,29 @@
   box-sizing: border-box;
 }
 
+main {
+  background-color: #ffffff;
+}
+
+.container-fluid.search #img-search,
+.search.container-xl #img-search,
+.search.container-lg #img-search,
+.search.container-md #img-search,
+.search.container-sm #img-search {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.container-fluid.search .flat,
+.search.container-xl .flat,
+.search.container-lg .flat,
+.search.container-md .flat,
+.search.container-sm .flat {
+  padding: 20px 0px;
+  border-top: 1px solid darkgrey;
+}
+
 footer {
   border-top: 1px solid darkgrey;
   padding-top: 35px;
