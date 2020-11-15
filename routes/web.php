@@ -32,7 +32,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 
 // rotte accessibili a tutti senza autenticazione
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('flats','FlatController'); // rotte per la pagina searche eper gli show dei flat
+Route::resource('flats','FlatController'); // rotte per la pagina searche e per gli show dei flat
 Route::resource('messages','MessageController');
 
 
