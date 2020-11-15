@@ -103,7 +103,19 @@ main .bg-img {
   background-size: cover;
   background-position: center;
   height: 614px;
+  margin-top: 80px;
   padding-top: 129px;
+}
+
+main .box-cards {
+  display: flex;
+  flex-direction: row;
+}
+
+main .card-group {
+  display: block;
+  width: 33%;
+  padding-left: 2px;
 }
 
 footer {

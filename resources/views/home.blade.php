@@ -18,7 +18,7 @@
     @endif
 </div> --}}
 
-
+{{-- BANNER --}}
 <section class="bg-img">
     <div class="container-fluid">
         <div class="jumbotron col-sm-8 col-md-6 col-lg-6">
@@ -27,11 +27,71 @@
     </div>
 </section>
 
-<div class="conteiner-fluid">
-    <div class="title m-b-md">
-        Progetto Boolean 16, pagina home
+<div class="container-fluid sponsor">
+    <div class="box-cards">
+
+        <div class="card-group">
+            <div class="card">
+                <a href="#">
+                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+        <div class="card-group">
+            <div class="card">
+                <a href="#">
+                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+
+        <div class="card-group">
+            <div class="card">
+                <a href="#">
+                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+
+        <div class="card-group">
+            <div class="card">
+                <a href="#">
+                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
     </div>
+
+
+
+
+
+
+
+
 </div>
+
+
 {{-- appartamenti sponsorizzati (vale) --}}
 
 <div>
@@ -39,7 +99,7 @@
         {{-- RAGA per visualizzare questa parte in homepage dovete
         1. andare su mysql nella tabella payments
         2. impostare a qualche pagamento un valore end_rate la data di domani --}}
-    <div class="card-group">
+    <div class="card-grou">
         @foreach ($flatsSpons as $flatSpons)
         <div class="card">
             <span class="badge badge-secondary">{{ $flatSpons->address->city }}</span> {{-- badge in cui metterei la città. da qualche parte va segnalato --}}
