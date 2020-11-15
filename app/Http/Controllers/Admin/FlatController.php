@@ -99,6 +99,10 @@ class FlatController extends Controller
             $data['image'] = Storage::disk('public')->put('images', $data['image']);
         }
 
+    
+        // se è vuoto, creo la relazione pivot e faccio l'update!
+        !empty($data['service']) ? $flat->services()->sync($data['service']) : $flat->tags()->detach();
+
         
         $flat->update($data);
 
@@ -111,14 +115,7 @@ class FlatController extends Controller
     }
 
     function show(Flat $flat){
-        //$service = Service::where();
-        //$flat = Flat::all();
-        /* $f = $flat->services();
-        $s = $service->flats();
-        dd($s); */
-        //$f = Flat::all();
         $service= $flat->services;
-        //dd($flat->services()->service);
         return view('admin.flats.flats-show',compact('flat','service'));
     }
 
@@ -137,8 +134,9 @@ class FlatController extends Controller
     //     return view('admin.flats.flats-create', compact('address'));
     // }
 
-    public function edit(Flat $flat, Address $address){
-        return view('admin.flats.flats-update', compact('flat'));
+    public function edit(Flat $flat, Address $address, Service $service){
+        $service= Service::all();
+        return view('admin.flats.flats-update', compact('flat','service'));
     }
 }
 
