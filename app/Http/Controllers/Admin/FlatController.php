@@ -85,8 +85,6 @@ class FlatController extends Controller
             'image' => 'image|required'
         ]);
 
-         
-
         //controllo sulle immagini
         if(!empty($data['image'])){
             if(!empty($flat->image)){
@@ -98,17 +96,8 @@ class FlatController extends Controller
         
         $flat->update($data);
 
-        /* if($flat->save()){
-            if(Auth::user()->status === 1){
-                User::find(Auth::id())->decrement('status'); // incrementa il valore status dell'utente loggato
-            }   
-        } */
-
         if($flat->update($data)){
-           /*  return redirect()->route('admin.flats.index')->with('status', 'Hai modificato correttamente il tuo profilo'); */
-           //return redirect()->route('admin.addresses.edit', compact('flat', 'address')); ///->with('status', 'Hai modificato correttamente il tuo profilo'); 
-           return view('admin.addresses.update', compact('flat'));//->with('status', 'Hai modificato le info del tuo appartamento');
-            //admin.address.edit
+           return view('admin.addresses.update', compact('flat'));
         }else{
             abort(404);
         }
@@ -136,8 +125,6 @@ class FlatController extends Controller
     // }
 
     public function edit(Flat $flat, Address $address){
-        /* return view('admin.flats.flats-update', compact('flat','address')); */
-        /* die($flat); */
         return view('admin.flats.flats-update', compact('flat'));
     }
 }

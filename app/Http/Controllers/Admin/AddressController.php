@@ -58,7 +58,6 @@ class AddressController extends Controller
 
     public function edit(Flat $flat, Address $address){
         return view('admin.addresses.update', compact('flat', 'address'));
-        // qui passo l'id dell'appartamento 
     }
 
 }
