@@ -1,7 +1,7 @@
 {{-- PAGINA DI RICERCA --}}
 @extends('layouts.app')
 @section('content')
-  
+
 <h2>SEARCH</h2>
 
 {{-- RAGA per visualizzare questa parte in homepage dovete
@@ -16,15 +16,17 @@
         @foreach ($flatsSpons as $flatSpons)
         <div class="row flat">
           <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
-            <img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}">
+            <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"></a>
           </div>
 
-          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-            <div class="">
-              <h5 class="card-title">{{ $flatSpons->title}}</h5>
-              <p class="card-text">{{ $flatSpons->description}}</p>
-              <a href="{{ route('flats.show', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a>
-            </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 k">
+            <a href="{{ route('flats.show', $flatSpons->id) }}">
+              <div class="">
+                <h5 class="card-title">{{ $flatSpons->title}}</h5>
+                <p class="card-text">{{ $flatSpons->description}}</p>
+
+              </div>
+            </a>
           </div>
         </div>
         @endforeach

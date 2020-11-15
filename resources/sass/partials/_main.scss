@@ -1,6 +1,7 @@
 main {
     min-height: calc(100vh - 400px);
     margin-top:80px;
+
     // BANNER
     .jumbotron {
         background-color: rgba(250, 250, 250, 0.7);
@@ -56,7 +57,7 @@ main {
       }
 
       .mappa{
-        background-color: lightgreen;
+        background-color: gray;
         overflow-y:hidden;
       }
 

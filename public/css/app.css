@@ -167,7 +167,7 @@ main .search.container-xl .mappa,
 main .search.container-lg .mappa,
 main .search.container-md .mappa,
 main .search.container-sm .mappa {
-  background-color: lightgreen;
+  background-color: gray;
   overflow-y: hidden;
 }
 
