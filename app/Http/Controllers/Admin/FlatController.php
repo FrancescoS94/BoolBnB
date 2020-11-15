@@ -64,7 +64,7 @@ class FlatController extends Controller
         }
     }
 
-    function update(Request $request, Flat $flat){
+    function update(Request $request, Flat $flat, Address $address){
 
         $data = $request->all();
         $request->validate([ #validazione e controllo dei dati passati
@@ -105,7 +105,10 @@ class FlatController extends Controller
         } */
 
         if($flat->update($data)){
-            return redirect()->route('admin.flats.index')->with('status', 'Hai modificato corretamente il tuo profilo');
+           /*  return redirect()->route('admin.flats.index')->with('status', 'Hai modificato correttamente il tuo profilo'); */
+           //return redirect()->route('admin.addresses.edit', compact('flat', 'address')); ///->with('status', 'Hai modificato correttamente il tuo profilo'); 
+           return view('admin.addresses.update', compact('flat'));//->with('status', 'Hai modificato le info del tuo appartamento');
+            //admin.address.edit
         }else{
             abort(404);
         }
@@ -113,6 +116,7 @@ class FlatController extends Controller
     }
 
     function show(Flat $flat){
+        dd($flat);
         return view('admin.flats.flats-show',compact('flat'));
     }
 
@@ -131,7 +135,9 @@ class FlatController extends Controller
     //     return view('admin.flats.flats-create', compact('address'));
     // }
 
-    public function edit(Flat $flat){
+    public function edit(Flat $flat, Address $address){
+        /* return view('admin.flats.flats-update', compact('flat','address')); */
+        /* die($flat); */
         return view('admin.flats.flats-update', compact('flat'));
     }
 }
