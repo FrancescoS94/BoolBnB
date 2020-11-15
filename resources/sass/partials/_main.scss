@@ -2,7 +2,9 @@ main{
   background-color: #ffffff;
 }
 
-.search{
+.container-fluid.search{
+  // height: 600px;
+  // overflow-y: scroll;
 
   #img-search{
     width: 300px;
@@ -14,4 +16,6 @@ main{
     padding: 20px 0px;
     border-top: 1px solid darkgrey;
   }
+
+
 }

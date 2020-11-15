@@ -2,30 +2,32 @@
 @extends('layouts.app')
 @section('content')
 
-    <h2>SEARCH</h2>
+<h2>SEARCH</h2>
 
-    <div class="container-fluid search">
+<div class="container-fluid search">
 
-      @foreach ($flatsSpons as $flatSpons)
-      <div class="row flat">
+  @foreach ($flatsSpons as $flatSpons)
+    <div class="row flat">
 
-        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-          <img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"> {{-- immagine della casa. non si vede perchè lorempicsum fa schifo, dovremmo acambiare delle impostazioni --}}
+      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+        <img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"> {{-- immagine della casa. non si vede perchè lorempicsum fa schifo, dovremmo acambiare delle impostazioni --}}
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <div class="">
+          <h5 class="card-title">{{ $flatSpons->title}}</h5>{{-- titolo dell'appartamento --}}
+          <p class="card-text">{{ $flatSpons->description}}</p>{{-- descrizione dell'appartamento --}}
+          <a href="{{ route('flat', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a> {{-- bottone per andare nella show dell'appartamento --}}
         </div>
+      </div>
 
-        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-          <div class="">
-            <h5 class="card-title">{{ $flatSpons->title}}</h5>{{-- titolo dell'appartamento --}}
-            <p class="card-text">{{ $flatSpons->description}}</p>{{-- descrizione dell'appartamento --}}
-            <a href="{{ route('flat', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a> {{-- bottone per andare nella show dell'appartamento --}}
-          </div>
-        </div>
+      <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 map">
 
       </div>
-      @endforeach
 
     </div>
+  @endforeach
 
-
+</div>
 
 @endsection
