@@ -21,6 +21,13 @@
                     @csrf
                     @method('PATCH')
 
+                    
+                    {{-- passo in un input nascosto l'id dell'address, PER ESEGUIRE LA MODIFICA --}}
+                    <input hidden type="text" class="form-control" name="address" value="{{ $flat->address_id }}">
+
+                    {{-- passo in un input nascosto l'id dell'address --}}
+                    {{-- <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}">  --}}
+
                     <div class="form-group">
                         <label for="title">Titolo</label>
                         <input type="text" class="form-control" name="title" value="{{ old('title') }}">

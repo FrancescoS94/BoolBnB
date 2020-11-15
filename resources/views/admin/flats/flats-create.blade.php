@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1>Aggiungi un'appartamento</h1>
+                <h1>Aggiungi un appartamento</h1>
 
                 {{-- status --}}
                 @if(session('status'))
