@@ -14,7 +14,7 @@ class AddressController extends Controller
         return view('admin.addresses.create');
     }
 
-    public function store(Request $request, Address $address,Service $service){
+    public function store(Request $request, Address $address, Service $service){
 
         $data = $request->all();
 

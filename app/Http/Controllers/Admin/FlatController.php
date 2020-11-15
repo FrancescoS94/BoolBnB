@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Flat;
 use App\Address;
+use App\Service;
 use FFI;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -110,8 +111,15 @@ class FlatController extends Controller
     }
 
     function show(Flat $flat){
-        dd($flat);
-        return view('admin.flats.flats-show',compact('flat'));
+        //$service = Service::where();
+        //$flat = Flat::all();
+        /* $f = $flat->services();
+        $s = $service->flats();
+        dd($s); */
+        //$f = Flat::all();
+        $service= $flat->services;
+        //dd($flat->services()->service);
+        return view('admin.flats.flats-show',compact('flat','service'));
     }
 
     public function destroy(Flat $flat, User $user ,Request $request)
