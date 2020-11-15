@@ -51,6 +51,11 @@ class FlatController extends Controller
         $newFlat->fill($data); #rimepio i vari campi dopo la validazione
         $newFlat->save();
 
+        // se è vuoto, creo la relazione pivot e salvo i tags!
+        if(!empty($data['service'])){
+            $newFlat->services()->attach($data['service']);
+        }
+
         if($newFlat->save()){
             if(Auth::user()->status === 0){
                 User::find(Auth::id())->increment('status'); // incrementa il valore status dell'utente loggato
