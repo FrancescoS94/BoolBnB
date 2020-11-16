@@ -122,6 +122,26 @@ main .card-group {
   padding-left: 2px;
 }
 
+main .container-fluid.search::-webkit-scrollbar,
+main .search.container-xl::-webkit-scrollbar,
+main .search.container-lg::-webkit-scrollbar,
+main .search.container-md::-webkit-scrollbar,
+main .search.container-sm::-webkit-scrollbar {
+  display: none;
+  /*Nasconde scroll, necessario su Safari e Chrome */
+}
+
+main .container-fluid.search,
+main .search.container-xl,
+main .search.container-lg,
+main .search.container-md,
+main .search.container-sm {
+  height: 600px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  /*Nasconde scroll firefox*/
+}
+
 main .container-fluid.search #img-search,
 main .search.container-xl #img-search,
 main .search.container-lg #img-search,
@@ -139,6 +159,15 @@ main .search.container-md .flat,
 main .search.container-sm .flat {
   padding: 20px 0px;
   border-top: 1px solid darkgrey;
+}
+
+main .container-fluid.search .mappa,
+main .search.container-xl .mappa,
+main .search.container-lg .mappa,
+main .search.container-md .mappa,
+main .search.container-sm .mappa {
+  background-color: gray;
+  overflow-y: hidden;
 }
 
 footer {
