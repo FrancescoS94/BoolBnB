@@ -24,8 +24,12 @@
                       <p class="card-text">Creazione profilo {{$user->created_at}}</p>
                       <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
                       <p class="card-text">Data di nascita{{$user->date_of_birth}}</p>
-                      <p class="card-text">{{$user->avatar}}</p>  <!--modfica 12-11 aggiunta controllo valori null -->
-                      <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a>
+                     
+                      {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
+                      <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
+                     
+                     {{--  rotta show, al momento inutile, NON cancellare!
+                           <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
                     </div>
                   </div>
                 </div>

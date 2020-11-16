@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Address;
 use App\Flat;
+use App\Service;
 
 class AddressController extends Controller
 {
@@ -13,7 +14,7 @@ class AddressController extends Controller
         return view('admin.addresses.create');
     }
 
-    public function store(Request $request, Address $address){
+    public function store(Request $request, Address $address, Service $service){
 
         $data = $request->all();
 
@@ -29,7 +30,8 @@ class AddressController extends Controller
         $address->save();
 
         if($address->save()){
-            return view('admin.flats.flats-create', compact('address'))->with('status', 'Hai aggiunto correttamente l\'indirizzo del nuovo appartamento');
+            $service = Service::all();
+            return view('admin.flats.flats-create', compact('address', 'service'))->with('status', 'Hai aggiunto correttamente l\'indirizzo del nuovo appartamento');
         }else{
             abort(404);
         }

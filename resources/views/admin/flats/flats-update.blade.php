@@ -63,6 +63,14 @@
                         <input type="file" class="form-control-file" name="image">
                     </div>
 
+                    {{-- aggiunta servizi --}}
+                    <div class="form-group">
+                        @foreach ($service as $service)
+                            <label for="tag">{{ $service->service }}</label>
+                            <input type="checkbox" name="service[]" value="{{ $service->id }}">
+                        @endforeach
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Invia il modulo</button>
                 </form>
             </div>

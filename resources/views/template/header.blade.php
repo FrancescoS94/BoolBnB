@@ -17,13 +17,24 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
+            {{-- se l'utente è loggato entro nella condizione if --}}
+            @if(Auth::check())
+
+                Ciao {{Auth::user()->name}}
+                {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
+                <img style="width: 30px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
+            @endif
+
         </button>
+
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             {{-- <ul class="navbar-nav mr-auto">
 
             </ul> --}}
+            
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav dropdown-menu dropdown-menu-right mr-4">

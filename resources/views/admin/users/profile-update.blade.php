@@ -40,6 +40,12 @@
                         @csrf
                         @method('PATCH')
 
+                        {{-- aggiunto il 16-11-20, modifica email --}}
+                        <div class="form-group">
+                            <label for="email">Inserisci una nuova email</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+
                         <div class="form-group">
                             <label for="name">Nome</label>
                             <input type="text" class="form-control" name="name">
@@ -65,6 +71,13 @@
                             <small id="emailHelp" class="form-text text-muted">Fai attenzione a quello che metti!</small>
                             <input type="password" class="form-control-file" name="password">
                         </div>
+
+                        {{-- aggiunto il 16-11-20, conferma modifica password --}}
+                        <div class="form-group">
+                            <label for="password">Conferma la modifica</label>
+                            <input type="password" class="form-control-file" name="password_confirmation">
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
                     </form>
                 @endif

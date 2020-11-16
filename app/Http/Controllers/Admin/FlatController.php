@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Flat;
 use App\Address;
+use App\Service;
 use FFI;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -51,6 +52,11 @@ class FlatController extends Controller
         $newFlat->fill($data); #rimepio i vari campi dopo la validazione
         $newFlat->save();
 
+        // se è vuoto, creo la relazione pivot e salvo i tags!
+        if(!empty($data['service'])){
+            $newFlat->services()->attach($data['service']);
+        }
+
         if($newFlat->save()){
             if(Auth::user()->status === 0){
                 User::find(Auth::id())->increment('status'); // incrementa il valore status dell'utente loggato
@@ -93,6 +99,10 @@ class FlatController extends Controller
             $data['image'] = Storage::disk('public')->put('images', $data['image']);
         }
 
+    
+        // se è vuoto, creo la relazione pivot e faccio l'update!
+        !empty($data['service']) ? $flat->services()->sync($data['service']) : $flat->tags()->detach();
+
         
         $flat->update($data);
 
@@ -105,8 +115,8 @@ class FlatController extends Controller
     }
 
     function show(Flat $flat){
-        dd($flat);
-        return view('admin.flats.flats-show',compact('flat'));
+        $service= $flat->services;
+        return view('admin.flats.flats-show',compact('flat','service'));
     }
 
     public function destroy(Flat $flat, User $user ,Request $request)
@@ -124,8 +134,9 @@ class FlatController extends Controller
     //     return view('admin.flats.flats-create', compact('address'));
     // }
 
-    public function edit(Flat $flat, Address $address){
-        return view('admin.flats.flats-update', compact('flat'));
+    public function edit(Flat $flat, Address $address, Service $service){
+        $service= Service::all();
+        return view('admin.flats.flats-update', compact('flat','service'));
     }
 }
 
