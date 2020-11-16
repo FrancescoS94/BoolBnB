@@ -28,27 +28,27 @@
     
                         <div class="form-group">
                             <label for="country">Nazione</label>
-                            <input id="country" type="text" class="form-control" name="country" id="country">
+                            <input id="country" type="text" class="form-control" name="country">
                         </div>
     
                         <div class="form-group">
                             <label for="city">Città</label>
-                            <input id="city" type="text" class="form-control" name="city" id="city">
+                            <input id="city" type="text" class="form-control" name="city">
                         </div>
     
                         <div class="form-group">
                             <label for="address">Indirizzo</label>
-                            <input id="address" type="text" class="form-control" name="address" id="address">
+                            <input id="address" type="text" class="form-control" name="address">
                         </div>
                         
                         <div class="form-group">
                             <label for="cap">CAP</label>
-                            <input id="cap" type="text" class="form-control" name="cap" id="cap">
+                            <input id="cap" type="text" class="form-control" name="cap">
                         </div>
                         
                         <div class="form-group">
                             <label for="district">Provincia</label>
-                            <input id="district" type="text" class="form-control" name="district" id="district">
+                            <input id="district" type="text" class="form-control" name="district">
                         </div>
                
                         <button type="submit" class="btn btn-primary">Registra l'indirizzo dell'appartamento</button>

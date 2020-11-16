@@ -60,9 +60,9 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function show($id)
-    public function show(Flat $flat)
-    {
-        return view('flat', compact('flat')); 
+    function show(Flat $flat){
+        $service = $flat->services;
+        return view('flat',compact('flat','service'));
     }
 
     /**
