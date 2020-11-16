@@ -1,4 +1,3 @@
-@dd($flatsSpons);
 {{-- PAGINA INDEX --}}
 @extends('layouts.app')
 @section('content')

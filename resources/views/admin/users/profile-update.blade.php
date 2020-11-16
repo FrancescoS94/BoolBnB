@@ -20,7 +20,7 @@
                 
 
                 @if (is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
-                    <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" onsubmit="return validateRegistr()">
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
@@ -75,15 +75,25 @@
                         {{-- aggiunto il 16-11-20, conferma modifica password --}}
                         <div class="form-group">
                             <label for="password">Conferma la modifica</label>
-                            <input type="password" class="form-control-file" name="password_confirmation">
+                            <input type="password" class="form-control-file" name="password_confirmation" autocomplete="password"">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
                     </form>
                 @endif
 
+
+                
+
                 
             </div>
         </div>
+        <script>
+            function validateRegistr(){
+
+	            return false;
+        }
+
+        </script>
     </div>
 @endsection

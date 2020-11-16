@@ -9,6 +9,10 @@ use App\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 
+
+use Illuminate\Validation\Rule;
+
+
 class UserController extends Controller
 {
     function index(){
@@ -36,14 +40,21 @@ class UserController extends Controller
             $request->validate([ #validazione e controllo dei dati passati
                 'name' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|required_with:password_confirmation|same:password_confirmation',
-                'password_confirmation' => 'required|string|min:8',
+                'password' => 'required|min:8|confirmed',
                 'date_of_birth' => 'required',
                 'avatar' => 'image|required',
+                'email' => [
+                    'required',
+                    'string',
+                    'email',
+                    'max:255',
+                    Rule::unique('users')->ignore($user)
+                ]
             ]);
-
-            $user['password'] = Hash::make($request['password']);
+            
+            // update password
+            $data['password'] = Hash::make($data['password']);
+            
         }
 
         //controllo sulle immagini
