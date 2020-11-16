@@ -2,41 +2,40 @@
 @extends('layouts.app')
 @section('content')
 
-<h2>SEARCH</h2>
+<h2>Risultati Ricerca</h2>
 
 {{-- RAGA per visualizzare questa parte in homepage dovete
     1. andare su mysql nella tabella payments
     2. impostare a qualche pagamento un valore end_rate la data di domani --}}
 
-<div class="container-fluid search">
+<div class="layout">
 
-    <div class="row">
-
-      <div class="col">
-        @foreach ($flatsSpons as $flatSpons)
-        <div class="row flat">
-          <div class="col-5">
-            <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"></a>
-          </div>
-
-          <div class="col-6">
-            <a href="{{ route('flats.show', $flatSpons->id) }}">
-              <div class="">
-                <h5 class="card-title">{{ $flatSpons->title}}</h5>
-                <p class="card-text">{{ $flatSpons->description}}</p>
-
-              </div>
-            </a>
-          </div>
+  <div class="left-layout">
+    <div class="container-fluid search">
+      @foreach ($flatsSpons as $flatSpons)
+      <div class="row flat">
+        <div class="col-5">
+          <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"></a>
         </div>
-        @endforeach
+        <div class="col-6">
+            <div class="">
+              <h5 class="card-title">{{ $flatSpons->title}}</h5>
+              <p class="card-text">{{ $flatSpons->description}}</p>
+            </div>
+        </div>
       </div>
-      <div class="col-4 mappa">
-         mappa
-      </div>
-
+      @endforeach
     </div>
+  </div>
+
+  <div class="right-layout">
+    <p>Mappa Mappa Mappa Mappa Mappa Mappa</p>
+  </div>
 
 </div>
+
+
+
+
 
 @endsection
