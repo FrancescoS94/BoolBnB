@@ -27,68 +27,79 @@
     </div>
 </section>
 
-<div class="container-fluid sponsor">
-    <div class="box-cards">
+<div class="container-fluid">
 
-<div class="card-group">
-    <div class="card">
-        <a href="#">
-            <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
-        </a>
+{{-- A: {{ route('flats.show', $flatSpons->id) }} --}}
+{{-- IMG: {{ $flatSpons->image }} --}}
+{{-- H6: {{ $flatSpons->title}} --}}
+{{-- H5: aggiungere nel database la città --}}
+    <div class="row sponsor">
+        {{-- @foreach ($flatsSpons as $flatSpons) --}}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="box-img">
+                <a href="#">
+                    <img class="" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+                <div class="box-descr">
+                    <h5>Milano</h5>
+                    <h6>Nome appartamento</h6>
+                </div>
+            </div>
+        </div>
+        {{-- @endforeach --}}
+
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="box-img">
+                <a href="#">
+                    <img class="" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="box-descr">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="box-img">
+                <a href="#">
+                    <img class="" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="box-descr">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="box-img">
+                <a href="#">
+                    <img class="" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="box-descr">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="box-img">
+                <a href="#">
+                    <img class="" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="box-descr">
+                <h5>Milano</h5>
+                <h6>Nome appartamento</h6>
+            </div>
+        </div>
+
+
+
     </div>
-    <div class="card-body">
-        <h5>Milano</h5>
-        <h6>Nome appartamento</h6>
-    </div>    
-
-
-    
-
-        <div class="card-group">
-            <div class="card">
-                <a href="#">
-                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-body">
-                <h5>Milano</h5>
-                <h6>Nome appartamento</h6>
-            </div>
-        </div>
-
-
-        <div class="card-group">
-            <div class="card">
-                <a href="#">
-                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-body">
-                <h5>Milano</h5>
-                <h6>Nome appartamento</h6>
-            </div>
-        </div>
-
-
-        <div class="card-group">
-            <div class="card">
-                <a href="#">
-                    <img class="img-fluid" src="https://www.viaggi-usa.it/wp-content/uploads/2016/12/copertina-opt-1.jpg" alt="">
-                </a>
-            </div>
-            <div class="card-body">
-                <h5>Milano</h5>
-                <h6>Nome appartamento</h6>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-
-
 
 
 </div>
@@ -96,23 +107,5 @@
 
 {{-- appartamenti sponsorizzati (vale) --}}
 
-<div>
-    <h2>Appartamenti sponsorizzati</h2>
-        {{-- RAGA per visualizzare questa parte in homepage dovete
-        1. andare su mysql nella tabella payments
-        2. impostare a qualche pagamento un valore end_rate la data di domani --}}
-    <div class="card-group">
-        @foreach ($flatsSpons as $flatSpons)
-        <div class="card">
-            <span class="badge badge-secondary">{{ $flatSpons->address->city }}</span> {{-- badge in cui metterei la città. da qualche parte va segnalato --}}
-            <img src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"> {{-- immagine della casa. non si vede perchè lorempicsum fa schifo, dovremmo acambiare delle impostazioni --}}
-            <div class="card-body">
-                <h5 class="card-title">{{ $flatSpons->title}}</h5>{{-- titolo dell'appartamento --}}
-                <p class="card-text">{{ $flatSpons->description}}</p>{{-- descrizione dell'appartamento --}}
-                <a href="{{ route('flats.show', $flatSpons->id) }}" class="btn btn-primary">Vai alla show dell'appartamento</a> {{-- bottone per andare nella show dell'appartamento --}}
-            </div>
-        </div>
-        @endforeach
-    </div>
-</div>
+
 @endsection
