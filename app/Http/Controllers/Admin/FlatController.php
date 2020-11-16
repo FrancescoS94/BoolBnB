@@ -115,7 +115,7 @@ class FlatController extends Controller
     }
 
     function show(Flat $flat){
-        $service= $flat->services;
+        $service = $flat->services;
         return view('admin.flats.flats-show',compact('flat','service'));
     }
 

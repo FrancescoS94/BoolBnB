@@ -22,9 +22,9 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Flat $flat)
     {
-        //
+        return view('admin.payments.create', compact('flat'));
     }
 
     /**
