@@ -22,7 +22,7 @@
 
                 Ciao {{Auth::user()->name}}
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
-                <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
+                <img style="width: 30px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
             @endif
 
         </button>

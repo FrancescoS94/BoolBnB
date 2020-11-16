@@ -36,8 +36,9 @@ class UserController extends Controller
             $request->validate([ #validazione e controllo dei dati passati
                 'name' => 'required|string|max:255',
                 'lastname' => 'required|string|max:255',
-                /* 'email' => 'required|string|email|max:255|unique:users', */
-                'password' => 'required|string|min:8',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:8|required_with:password_confirmation|same:password_confirmation',
+                'password_confirmation' => 'required|string|min:8',
                 'date_of_birth' => 'required',
                 'avatar' => 'image|required',
             ]);
