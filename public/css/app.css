@@ -142,6 +142,23 @@ main .search.container-sm {
   /*Nasconde scroll firefox*/
 }
 
+main .container-fluid.search a,
+main .search.container-xl a,
+main .search.container-lg a,
+main .search.container-md a,
+main .search.container-sm a {
+  color: #222222;
+}
+
+main .container-fluid.search a:hover,
+main .search.container-xl a:hover,
+main .search.container-lg a:hover,
+main .search.container-md a:hover,
+main .search.container-sm a:hover {
+  color: #404040;
+  text-decoration: none;
+}
+
 main .container-fluid.search #img-search,
 main .search.container-xl #img-search,
 main .search.container-lg #img-search,
