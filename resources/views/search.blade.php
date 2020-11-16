@@ -15,11 +15,11 @@
       <div class="col">
         @foreach ($flatsSpons as $flatSpons)
         <div class="row flat">
-          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
+          <div class="col-5">
             <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"></a>
           </div>
 
-          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 k">
+          <div class="col-6">
             <a href="{{ route('flats.show', $flatSpons->id) }}">
               <div class="">
                 <h5 class="card-title">{{ $flatSpons->title}}</h5>
