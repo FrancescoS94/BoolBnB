@@ -17,9 +17,9 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
+
             {{-- se l'utente è loggato entro nella condizione if --}}
             @if(Auth::check())
-
                 Ciao {{Auth::user()->name}}
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
                 <img style="width: 30px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
@@ -51,14 +51,16 @@
                 @else
                     <li class="nav-item dropdown admin-item">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle pl-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::check() ? Auth::user()->name : null }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+                            
+                            @if(Auth::check()) {{-- Condizione logican se l'utente è loggato vedrà questo elemento --}}
+                                <a class="nav-link hov2" href="{{ route('admin.users.index') }}">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Gestisci il tuo profilo' }}
+                            @endif
 
-                            <a class="nav-link hov2" href="{{ route('admin.users.index') }}">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Gestisci il tuo profilo' }}
-                            {{-- <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Completa il tuo profilo') }}</a> --}}
                             <a class="nav-link hov2" href="{{ route('admin.flats.index') }}">{{ __('Gestisci appartamenti') }}</a>
                             <a class="nav-link hov2" href="{{ route('admin.messages.index') }}">{{ __('Messaggi ricevuti') }}</a>
 
