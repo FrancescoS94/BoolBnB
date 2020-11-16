@@ -41,10 +41,10 @@
                         @method('PATCH')
 
                         {{-- aggiunto il 16-11-20, modifica email --}}
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="email">Inserisci una nuova email</label>
                             <input type="email" class="form-control" name="email">
-                        </div>
+                        </div> --}}
 
                         <div class="form-group">
                             <label for="name">Nome</label>
