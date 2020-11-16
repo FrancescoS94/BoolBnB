@@ -20,7 +20,7 @@
                 
 
                 @if (is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
-                    <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" onsubmit="return validateRegistr()">
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
@@ -88,5 +88,12 @@
                 
             </div>
         </div>
+        <script>
+            function validateRegistr(){
+
+	            return false;
+        }
+
+        </script>
     </div>
 @endsection
