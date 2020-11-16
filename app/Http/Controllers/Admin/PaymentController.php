@@ -18,7 +18,18 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $allFlats = Flat::all(); // memorizzo tutti gli appartamenti dell'utente loggato
+        $flatsId = [];                                  // creo un array vuoto
+        for($i = 0; $i < count($allFlats); $i++){       // per ogni appartamento
+            if($allFlats[$i]['user_id'] == Auth::id()){ // SE lo user_id di quell'appartamento è uguale allo user_id dell'utente loggato
+                $flatsId[] = $allFlats[$i]['id'];       // inserisco questo id nell'array vuoto
+            }
+        }
+        // dd($flatsId);
+        
+        $payments = Payment::all()->whereIn('flat_id', $flatsId);   // memorizzo in payments soltanto con i pagamenti in cui il flat_id è contenuto nell'array in cui ho memorizzato gli id degli appartamenti dell'utente loggato
+
+        return view('admin.payments.index', compact('payments'));
     }
 
     /**

@@ -50,6 +50,7 @@
                             {{-- <a class="nav-link" href="{{ route('admin.users.index') }}">{{ __('Completa il tuo profilo') }}</a> --}}
                             <a class="nav-link hov2" href="{{ route('admin.flats.index') }}">{{ __('Gestisci appartamenti') }}</a>
                             <a class="nav-link hov2" href="{{ route('admin.messages.index') }}">{{ __('Messaggi ricevuti') }}</a>
+                            <a class="nav-link hov2" href="{{ route('admin.payments.index') }}">{{ __('Pagamenti effettuati') }}</a>
 
                             <a class="nav-link hov2" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
