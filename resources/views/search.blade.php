@@ -19,8 +19,10 @@
         </div>
         <div class="col-6">
             <div class="">
-              <h5 class="card-title">{{ $flatSpons->title}}</h5>
-              <p class="card-text">{{ $flatSpons->description}}</p>
+              <a href="{{ route('flats.show', $flatSpons->id) }}">
+                <h5 class="card-title">{{ $flatSpons->title}}</h5>
+                <p class="card-text">{{ $flatSpons->description}}</p>
+              </a>
             </div>
         </div>
       </div>

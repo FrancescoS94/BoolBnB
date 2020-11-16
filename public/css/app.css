@@ -145,7 +145,7 @@ main .layout .left-layout .search.container-lg,
 main .layout .left-layout .search.container-md,
 main .layout .left-layout .search.container-sm {
   margin-left: 0;
-  height: 500px;
+  height: 550px;
   overflow-y: scroll;
   scrollbar-width: none;
   /*Nasconde scroll firefox*/
@@ -189,7 +189,7 @@ main .layout .left-layout .search.container-sm .flat #img-search {
 
 main .layout .right-layout {
   width: 40%;
-  height: 500px;
+  height: 550px;
   background-color: gray;
   overflow-y: hidden;
 }

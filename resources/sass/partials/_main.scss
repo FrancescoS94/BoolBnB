@@ -47,7 +47,7 @@ main {
         width: 60%;
         .container-fluid.search{
           margin-left: 0;
-          height: 500px;
+          height: 550px;
           overflow-y: scroll;
           scrollbar-width: none; /*Nasconde scroll firefox*/
           a{
@@ -70,7 +70,7 @@ main {
       }
       .right-layout{
         width: 40%;
-        height: 500px;
+        height: 550px;
         background-color: gray;
         overflow-y:hidden;
       }
