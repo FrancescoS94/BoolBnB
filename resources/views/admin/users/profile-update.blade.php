@@ -41,10 +41,10 @@
                         @method('PATCH')
 
                         {{-- aggiunto il 16-11-20, modifica email --}}
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label for="email">Inserisci una nuova email</label>
                             <input type="email" class="form-control" name="email">
-                        </div> --}}
+                        </div>
 
                         <div class="form-group">
                             <label for="name">Nome</label>
@@ -75,12 +75,15 @@
                         {{-- aggiunto il 16-11-20, conferma modifica password --}}
                         <div class="form-group">
                             <label for="password">Conferma la modifica</label>
-                            <input type="password" class="form-control-file" name="password_confirmation">
+                            <input type="password" class="form-control-file" name="password_confirmation" autocomplete="password"">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
                     </form>
                 @endif
+
+
+                
 
                 
             </div>
