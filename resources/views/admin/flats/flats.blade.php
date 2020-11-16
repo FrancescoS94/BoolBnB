@@ -44,7 +44,6 @@
                       <tr>
                         <th scope="row">{{$flat->id}}</th>
                         <td>{{$flat->title}}</td>
-                        <td>{{$flat->created_at}}</td>
                         <td>{{$flat->bed}}</td>
                         <td>{{$flat->room}}</td>
                         <td>{{$flat->wc}}</td>
@@ -53,7 +52,7 @@
                         <td><a class="btn btn-primary" role="button" href="{{route('admin.flats.edit', $flat->id )}}" class="card-link">Modifica</a></td>
                         {{-- <td><a class="btn btn-primary" role="button" href="{{route('admin.addresses.edit', [$flat->id, $flat->address->id] )}}" class="card-link">Modifica</a></td> --}}
                         <td><a class="btn btn-primary" role="button" href="{{route('admin.flats.show', $flat->id)}}" class="card-link">Visualizza</a></td>
-                        <td><a class="btn btn-primary" role="button" href="#" class="card-link">Sponsorizza</a></td>
+                        <td><a class="btn btn-primary" role="button" href="{{route('admin.payments.create', $flat->id)}}" class="card-link">Sponsorizza</a></td>
                         <td>{{-- distruggi l'appartamento, attraverso l'id --}}
                             <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
                                 @csrf 

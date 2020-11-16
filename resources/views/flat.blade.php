@@ -2,7 +2,20 @@
 @section('content')
     <div class="container">
         pagina show Singolo appartamento visualizzato dopo la ricerca guest
-    
+        
+        <h1>{{$flat->title}}</h1>
+        <img style="width:250px" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}" class="img-thumbnail">
+        <p class="text-justify">{{$flat->description}}</p>
+        @foreach ($service as $service)
+            <p class="text-justify">{{$service->service}}</p>
+        @endforeach
+        <ul>
+            <li>Letti: {{$flat->bed}}</li>
+            <li>Stanze: {{$flat->room}}</li>
+            <li>Bagni: {{$flat->wc}}</li>
+            <li>Metri quadrati: {{$flat->mq}}</li>
+        </ul>
+
         <div id="form-messaggio">
     
             <h2>Manda un messaggio al proprietario di questo appartamento</h2>

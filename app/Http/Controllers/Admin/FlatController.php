@@ -105,8 +105,8 @@ class FlatController extends Controller
     }
 
     function show(Flat $flat){
-        dd($flat);
-        return view('admin.flats.flats-show',compact('flat'));
+        $service = $flat->services;
+        return view('admin.flats.flats-show',compact('flat','service'));
     }
 
     public function destroy(Flat $flat, User $user ,Request $request)
