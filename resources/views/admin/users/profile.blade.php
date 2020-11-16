@@ -24,8 +24,9 @@
                       <p class="card-text">Creazione profilo {{$user->created_at}}</p>
                       <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
                       <p class="card-text">Data di nascita{{$user->date_of_birth}}</p>
-                      <p class="card-text">{{$user->avatar}}</p>  <!--modfica 12-11 aggiunta controllo valori null -->
-                      <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a>
+                      <img style="width: 100px" src="{{asset('storage/'. $user->avatar)}}" alt="immagine profilo"> 
+                      <!--modfica 12-11 aggiunta controllo valori null -->
+                     {{--  <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
                     </div>
                   </div>
                 </div>

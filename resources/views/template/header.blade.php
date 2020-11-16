@@ -17,13 +17,20 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
+            @if(Auth::check())
+                Ciao {{Auth::user()->name}}
+                <img style="width: 30px" src="{{asset('storage/'. $user->avatar)}}" alt="immagine profilo"> 
+            @endif
         </button>
+
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             {{-- <ul class="navbar-nav mr-auto">
 
             </ul> --}}
+            
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav dropdown-menu dropdown-menu-right mr-4">
