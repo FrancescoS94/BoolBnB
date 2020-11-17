@@ -13,6 +13,7 @@
     <div class="row">
 
       <div class="col">
+        <input type="search" id="address-input" placeholder="Where are we going?" />
         @foreach ($flatsSpons as $flatSpons)
         <div class="row flat">
           <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5">
@@ -36,7 +37,14 @@
       </div>
 
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script>
+        var placesAutocomplete = places({
+            appId: 'plO1TPEC5GEF',
+            apiKey: '320a8e600bcf0d2590a8e31ad067d31c',
+            container: document.querySelector('#address-input')
+          });
+    </script>
 </div>
 
 @endsection
