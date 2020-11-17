@@ -195,6 +195,48 @@ main .search.container-sm .mappa {
   overflow-y: hidden;
 }
 
+main .flat-show ul {
+  list-style-type: none;
+  padding-top: 50px;
+}
+
+main .flat-show ul img {
+  height: 25px;
+  padding: 0px 5px 5px 0px;
+}
+
+main .flat-show button {
+  background-color: #ff385c;
+  padding: 7px 15px;
+  margin-bottom: 20px;
+}
+
+main .flat-show .col-12,
+main .flat-show .col-md-6,
+main .flat-show .col-md-7,
+main .flat-show .col-lg-6 {
+  padding-left: 0px;
+}
+
+main .flat-title h1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 15px 0px;
+}
+
+main .flat-img img {
+  padding: 0px;
+}
+
+main .flat-descr {
+  padding-top: 50px;
+  padding-right: 20px;
+}
+
+main .padd {
+  padding-top: 50px;
+}
+
 footer {
   border-top: 1px solid darkgrey;
   padding-top: 35px;

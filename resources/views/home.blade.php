@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="box-descr">
-                <h5>Milano</h5>
+                <h5>{{ $flatSpons->address->city }}</h5>
                 <h6>{{ $flatSpons->title}}</h6>
             </div>
         </div>
