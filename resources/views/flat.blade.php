@@ -49,20 +49,20 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="name">Nome</label>
-                        <input name="name" type="text" class="form-control" id="name">
+                        <input name="name" type="text" class="form-control" id="name" value="{{ old('name') }}">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lastname">Cognome</label>
-                        <input name="lastname" type="text" class="form-control" id="lastname">
+                        <input name="lastname" type="text" class="form-control" id="lastname" value="{{ old('lastname') }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input name="email" type="mail" class="form-control" id="email" placeholder="Inserisci la tua email">
+                    <input name="email" type="mail" class="form-control" id="email" placeholder="Inserisci la tua email" value="{{ old('email') }}">
                 </div>
                 <div class="form-group">
                     <label for="request">Messaggio</label>
-                    <textarea name="request" type="text" class="form-control" id="request" placeholder="Invia un messaggio al proprietario"></textarea>
+                    <textarea name="request" type="text" class="form-control" id="request" placeholder="Invia un messaggio al proprietario" value="{{ old('request') }}"></textarea>
                 </div>
     
                 <button type="submit" class="btn btn-primary">Sign in</button>
