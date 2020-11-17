@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+header #avatar-img {
+  height: 45px;
+  width: 45px;
+}
+
 header .navbar-light {
   color: black;
 }

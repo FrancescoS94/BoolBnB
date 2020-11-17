@@ -22,19 +22,19 @@
             @if(Auth::check())
                 Ciao {{Auth::user()->name}}
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
-                <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
+                <img id="avatar-img" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
             @endif
 
         </button>
 
-        
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             {{-- <ul class="navbar-nav mr-auto">
 
             </ul> --}}
-            
+
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav dropdown-menu dropdown-menu-right mr-4">
@@ -56,7 +56,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                            
+
                             @if(Auth::check()) {{-- Condizione logican se l'utente è loggato vedrà questo elemento --}}
                                 <a class="nav-link hov2" href="{{ route('admin.users.index') }}">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Gestisci il tuo profilo' }}
                             @endif
