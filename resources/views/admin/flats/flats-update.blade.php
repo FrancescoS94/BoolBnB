@@ -21,46 +21,42 @@
                     @csrf
                     @method('PATCH')
 
-                    
                     {{-- passo in un input nascosto l'id dell'address, PER ESEGUIRE LA MODIFICA --}}
                     <input hidden type="text" class="form-control" name="address" value="{{ $flat->address_id }}">
 
-                    {{-- passo in un input nascosto l'id dell'address --}}
-                    {{-- <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}">  --}}
-
                     <div class="form-group">
                         <label for="title">Titolo</label>
-                        <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                        <input type="text" class="form-control" name="title" value="{{ $flat->title }}">
                     </div>
 
                     <div class="form-group">
                         <label for="room">Stanze</label>
-                        <input type="text" class="form-control" name="room" value="{{ old('room') }}">
+                        <input type="text" class="form-control" name="room" value="{{ $flat->room }}">
                     </div>
 
                     <div class="form-group">
                         <label for="bed">Letti</label>
-                        <input type="text" class="form-control" name="bed" value="{{ old('bed') }}">
+                        <input type="text" class="form-control" name="bed" value="{{ $flat->bed }}">
                     </div>
 
                     <div class="form-group">
                         <label for="wc">WC</label>
-                        <input type="text" class="form-control" name="wc" value="{{ old('wc') }}">
+                        <input type="text" class="form-control" name="wc" value="{{ $flat->wc }}">
                     </div>
 
                     <div class="form-group">
                         <label for="mq">Metri quadrati</label>
-                        <input type="text" class="form-control" name="mq" value="{{ old('mq') }}">
+                        <input type="text" class="form-control" name="mq" value="{{ $flat->mq }}">
                     </div>
 
                     <div class="form-group">
                     <label for="description">Descrizione</label>
-                    <input type="text" class="form-control-file" name="description" value="{{ old('description') }}">
+                    <input type="text" class="form-control-file" name="description" value="{{ $flat->description }}">
                     </div>
 
                     <div class="form-group">
                         <label for="image">Inserisci una fotografia dell'appartamento</label>
-                        <input type="file" class="form-control-file" name="image">
+                        <input type="file" class="form-control-file" name="image" value="{{ $flat->image }}">
                     </div>
 
                     {{-- aggiunta servizi --}}

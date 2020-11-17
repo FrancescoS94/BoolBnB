@@ -25,12 +25,12 @@
                         @method('PATCH')
                         <div class="form-group">
                             <label for="birthday">La tua data di nascita</label>
-                            <input type="date" class="form-control" name="date_of_birth">
+                            <input type="date" class="form-control" name="date_of_birth" value="{{ old['date_of_birth'] }}">
                         </div>
                     
                         <div class="form-group">
                             <label for="file">Inserisci una tua fotografia</label>
-                            <input type="file" class="form-control-file" name="avatar">
+                            <input type="file" class="form-control-file" name="avatar" value="{{ old['avatar'] }}">
                         </div>
                     
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
@@ -48,22 +48,22 @@
 
                         <div class="form-group">
                             <label for="name">Nome</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" value="{{ $user->name }}">
                         </div>
                     
                         <div class="form-group">
                             <label for="lastname">Cognome</label>
-                            <input type="text" class="form-control-file" name="lastname">
+                            <input type="text" class="form-control-file" name="lastname" value="{{ $user->lastname }}">
                         </div>
 
                         <div class="form-group">
                             <label for="birthday">La tua data di nascita</label>
-                            <input type="date" class="form-control" name="date_of_birth">
+                            <input type="date" class="form-control" name="date_of_birth" value="{{ $user->date_of_birth }}">
                         </div>
                     
                         <div class="form-group">
                             <label for="avatar">Inserisci una tua fotografia</label>
-                            <input type="file" class="form-control-file" name="avatar">
+                            <input type="file" class="form-control-file" name="avatar" value="{{ $user->avatar }}">
                         </div>
 
                         <div class="form-group">
@@ -75,7 +75,7 @@
                         {{-- aggiunto il 16-11-20, conferma modifica password --}}
                         <div class="form-group">
                             <label for="password">Conferma la modifica</label>
-                            <input type="password" class="form-control-file" name="password_confirmation" autocomplete="password"">
+                            <input type="password" class="form-control-file" name="password_confirmation" autocomplete="password">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
