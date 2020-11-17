@@ -21,7 +21,7 @@
         @foreach ($flatsSpons as $flatSpons)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
             <div class="box-img">
-                <a href="#">
+                <a href="{{ route('flats.show', $flatSpons->id) }}">
                     <img class="" src="{{ $flatSpons->image }}" alt="">
                 </a>
             </div>
