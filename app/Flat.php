@@ -2,18 +2,10 @@
 
 namespace App;
 
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Flat extends Model
 {
-    use Searchable;
-
-    // public function searchableAs()
-    // {
-    //     return 'flats_index';
-    // }
-
     protected $fillable = [
         'title','room', 'bed', 'wc', 'mq', 'image', 'description'
     ];
