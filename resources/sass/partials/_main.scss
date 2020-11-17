@@ -1,6 +1,6 @@
 main {
-    min-height: calc(100vh - 400px);
-    margin-top:80px;
+  min-height: calc(100vh - 400px);
+  margin-top:80px;
 
     // BANNER
     .jumbotron {
@@ -59,30 +59,43 @@ main {
 
     // PAGINA SEARCH
 
+    /*Nasconde scroll, necessario su Safari e Chrome */
     .container-fluid.search::-webkit-scrollbar {
-      display: none;  /*Nasconde scroll, necessario su Safari e Chrome */
+      display: none;
     }
 
-    .container-fluid.search{
-      height: 600px;
-      overflow-y: scroll;
-      scrollbar-width: none; /*Nasconde scroll firefox*/
-
-      #img-search{
-        width: 300px;
-        height: 200px;
-        border-radius: 10px;
+    .layout {
+      display: flex;
+      .left-layout {
+        width: 60%;
+        .container-fluid.search{
+          margin-left: 0;
+          height: 550px;
+          overflow-y: scroll;
+          scrollbar-width: none; /*Nasconde scroll firefox*/
+          a{
+            color: #222222;
+            &:hover{
+              color: #404040;
+              text-decoration: none;
+            }
+          }
+          .flat{
+            padding: 20px 0px;
+            border-top: 1px solid darkgrey;
+            #img-search{
+              width: 300px;
+              height: 200px;
+              border-radius: 10px;
+            }
+          }
+        }
       }
-
-      .flat{
-        padding: 20px 0px;
-        border-top: 1px solid darkgrey;
-      }
-
-      .mappa{
+      .right-layout{
+        width: 40%;
+        height: 550px;
         background-color: gray;
         overflow-y:hidden;
       }
-
     }
 }
