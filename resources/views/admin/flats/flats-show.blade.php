@@ -14,7 +14,11 @@
                 <h2>Servizi disponibili</h2>
 
                 @foreach ($service as $service)
-                <p class="text-justify">{{$service->service}}</p>
+                {{-- <p class="text-justify">{{$service->service}}</p> --}}
+                @if($flat->id)
+                    
+                @endif
+                <p class="text-justify">{{$flat->services->service}}</p>
                 @endforeach
                
                 <ul>
@@ -23,6 +27,7 @@
                     <li>Stanze: {{$flat->room}}</li>
                     <li>Bagni: {{$flat->wc}}</li>
                     <li>Metri quadrati: {{$flat->mq}}</li>
+                    <li>Indirizzo: {{$flat->address->address}}</li>
                 </ul>
                 <a class="btn btn-primary" role="button" href="{{route('admin.flats.edit', $flat->id )}}" class="card-link">Modifica</a>
                 <a class="btn btn-primary" role="button" href="{{ route('admin.payments.create', $flat->id)}}" class="card-link">Sponsorizza</a>
