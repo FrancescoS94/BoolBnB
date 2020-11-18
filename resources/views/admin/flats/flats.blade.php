@@ -6,9 +6,14 @@
             <div class="col-md-8">
 
                 <h1>Ciao {{ Auth::user()->name }}</h1>
-                <a href="{{ route('admin.addresses.create') }}" class="card-link"> {{-- il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create --}}
-                    <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
-                </a>
+                @if(is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
+                    <h2>Completa il tuo profilo prima di inserire un appartamento!</h2>
+                @else
+                    <a href="{{ route('admin.addresses.create') }}" class="card-link"> {{-- il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create --}}
+                        <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
+                    </a>
+                @endif
+                
 
                  {{-- validazione campi  --}}
                     @if ($errors->any())
