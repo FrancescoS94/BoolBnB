@@ -34,6 +34,3 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('flats','FlatController'); // rotte per la pagina searche e per gli show dei flat
 Route::resource('messages','MessageController');
-
-
-

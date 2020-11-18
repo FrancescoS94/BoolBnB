@@ -217,11 +217,41 @@ main .layout .left-layout .search.container-sm .flat #img-search {
   border-radius: 10px;
 }
 
+main .layout .left-layout .container-fluid.search .flat ul,
+main .layout .left-layout .search.container-xl .flat ul,
+main .layout .left-layout .search.container-lg .flat ul,
+main .layout .left-layout .search.container-md .flat ul,
+main .layout .left-layout .search.container-sm .flat ul {
+  list-style-type: none;
+}
+
+main .layout .left-layout .container-fluid.search .flat ul img,
+main .layout .left-layout .search.container-xl .flat ul img,
+main .layout .left-layout .search.container-lg .flat ul img,
+main .layout .left-layout .search.container-md .flat ul img,
+main .layout .left-layout .search.container-sm .flat ul img {
+  height: 25px;
+  padding: 0px 5px 5px 0px;
+  margin-left: 4px;
+}
+
 main .layout .right-layout {
   width: 40%;
   height: 550px;
   background-color: gray;
   overflow-y: hidden;
+}
+
+main .sidenav {
+  height: 100vh;
+  width: 200px;
+  background-color: orange;
+  float: left;
+  overflow-y: hidden;
+}
+
+main .provas {
+  background-color: green;
 }
 
 footer {

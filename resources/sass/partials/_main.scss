@@ -88,6 +88,14 @@ main {
               height: 200px;
               border-radius: 10px;
             }
+            ul {
+              list-style-type: none;
+              img {
+                height: 25px;
+                padding: 0px 5px 5px 0px;
+                margin-left: 4px;
+              }
+            }
           }
         }
       }
@@ -97,5 +105,22 @@ main {
         background-color: gray;
         overflow-y:hidden;
       }
+    }
+
+
+  // Inizio prova
+
+    .sidenav{
+      height: 100vh;
+      width: 200px;
+      background-color: orange;
+      float: left;
+      overflow-y: hidden;
+    }
+
+    .provas{
+      background-color: green;
+
+
     }
 }

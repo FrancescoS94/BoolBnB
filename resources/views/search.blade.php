@@ -21,7 +21,26 @@
             <div class="">
               <a href="{{ route('flats.show', $flatSpons->id) }}">
                 <h5 class="card-title">{{ $flatSpons->title}}</h5>
-                <p class="card-text">Camere da letto: {{ $flatSpons->room}}, Letti: {{ $flatSpons->bed}}, Bagni: {{ $flatSpons->wc}}, mq: {{ $flatSpons->mq}}</p>
+                {{-- <p class="card-text">Camere da letto: {{ $flatSpons->room}}, Letti: {{ $flatSpons->bed}}, Bagni: {{ $flatSpons->wc}}, mq: {{ $flatSpons->mq}}</p> --}}
+                <ul>
+                  <li>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                    Letti: {{$flatSpons->bed}}
+                  </li>
+                  <li>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                    Stanze: {{$flatSpons->room}}
+                  </li>
+                  <li>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                    WC: {{$flatSpons->wc}}
+                  </li>
+                  <li>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                    Mq: {{$flatSpons->mq}}
+                  </li>
+
+                </ul>
                 <p class="card-text">Servizi:</p>
               </a>
             </div>
