@@ -14,13 +14,19 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id();
+            /* $table->id();
             $table->string('country');
             $table->string('address');
             $table->double('lat', 8, 6);
             $table->double('lng', 9, 6);
-            $table->timestamps();
+            $table->timestamps(); */
 
+            
+            $table->id();
+            $table->string('address');
+            $table->string('position');
+            $table->timestamps();
+            
         });
     }
 

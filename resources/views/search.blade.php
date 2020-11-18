@@ -1,3 +1,4 @@
+
 {{-- PAGINA DI RICERCA --}}
 @extends('layouts.app')
 @section('content')
@@ -22,6 +23,12 @@
               <a href="{{ route('flats.show', $flatSpons->id) }}">
                 <h5 class="card-title">{{ $flatSpons->title}}</h5>
                 <p class="card-text">{{ $flatSpons->description}}</p>
+                <ul>
+                  
+                  @foreach($flatSpons->services as $service)
+                        <li>{{ $service->service }}</li>
+                  @endforeach
+                </ul>
               </a>
             </div>
         </div>

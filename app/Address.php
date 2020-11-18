@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
-        'country', 'address', 'lat', 'lng'
+        // 'country', 'address', 'lat', 'lng'
+        'address', 'position'
     ];
+
+    /* protected $fillable = [
+        'country', 'address', 'lat', 'lng'
+    ]; */
 
 
     public function flats() {

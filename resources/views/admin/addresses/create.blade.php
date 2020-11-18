@@ -18,10 +18,10 @@
                 </div>
                 @endif
 
-
+                <h2>Dove si trova l'appartamento che vuoi inserire?</h2>
                 {{-- aggiunta 18-11-20 tomtom --}}
                 <div class='map-view'>
-                    <div class='tt-side-panel'>
+                    <div class='tt-side-panel' style="height: 40vh;">
                         <header class='tt-side-panel__header'>
                         </header>
                         <div class='tt-tabs js-tabs'>
@@ -34,65 +34,20 @@
                             </div>
                         </div>
                     </div>
-                    <div id='map' class='full-map'></div>
-                </div>
+                    <div id='map' class='full-map' style="height: 40vh;"></div>
+                </div> {{-- fine tomtom --}}
                 
-
-
-
-                
-                <div >
-                    <h2>Dove si trova l'appartamento che vuoi inserire?</h2>
-                    
+                <div>
                     {{-- form creazione indirizzo, punta al controller Admin/AddressController  --}}
-
                     <form action="{{ route('admin.addresses.store') }}" method="post">
                         @csrf
                         @method('POST')
 
-                        <input id="address" hidden type="text" class="form-control" name="address" value=""> 
-                        <input id="country" hidden type="text" class="form-control" name="country" value=""> 
-
-                        <input id="lng" hidden type="text" class="form-control" name="lat" value=""> 
-                        <input id="lng" hidden type="text" class="form-control" name="lng" value=""> 
-
-                    </form>
-
-
-                  {{--  <div style="display: none">
-                    <form action="{{ route('admin.addresses.store') }}" method="post">
-                        @csrf
-                        @method('POST')
-    
-                        <div class="form-group">
-                            <label for="country">Nazione</label>
-                            <input id="country" type="text" class="form-control" name="country" value="{{old('country')}}">
-                        </div>
-    
-                        <div class="form-group">
-                            <label for="city">Città</label>
-                            <input id="city" type="text" class="form-control" name="city" value="{{old('city')}}">
-                        </div>
-    
-                        <div class="form-group">
-                            <label for="address">Indirizzo</label>
-                            <input id="address" type="text" class="form-control" name="address" value="{{old('address')}}">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cap">CAP</label>
-                            <input id="cap" type="text" class="form-control" name="cap" value="{{old('cap')}}">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="district">Provincia</label>
-                            <input id="district" type="text" class="form-control" name="district" value="{{old('district')}}">
-                        </div>
-               
+                        <input id="address" hidden type="text" class="form-control" name="address"> 
+                        <input id="position" hidden type="text" class="form-control" name="position">
+        
                         <button type="submit" class="btn btn-primary">Registra l'indirizzo dell'appartamento</button>
-                    </form>
-                   </div>  --}}
-                   
+                    </form> 
                 </div>
 
             </div>
@@ -352,10 +307,46 @@
                         resultsManager.append(resultList);
                     }
 
-                    var addressLat = document.getElementById("lat").value=latLon['_lngLat']['lat'];
-                    var addressLng = document.getElementById("lng").value=latLon['_lngLat']['lng'];
 
-                    console.log(addressLat.value);
+
+                    
+                    $(document).ready(function(){
+                        $(document).on('click','.tt-search-box-result-list', function(){
+                            
+                            /* var addressLat = document.getElementById("lat").value=lat;
+                            var addressLng = document.getElementById("lng").value=lng; */
+                            /* var lat1 = $('#lat').val(lat);
+                            var lat2 = $('#lng').val(lng); */
+                            /* var i = $('.pop-up-result-position').val();
+                            console.log(i); */
+                            /* var i = $(this).children('.tt-search-box-result-list-bold').val(); */
+                            var address  = $('.pop-up-content').children('.pop-up-result-address').text();
+                            var position = $('.pop-up-content').children('.pop-up-result-position').text();
+                            /* alert('ciao'); */
+                            console.log(position);     
+                            
+                            //.replWace(' ', '_')
+
+                            /* $('#address').val(address); */
+                            document.getElementById('address').value = address;
+                            document.getElementById('position').value = position;
+
+                            /* 'address', 'position' */
+                            /* console.log(); */
+
+                            /* <input id="address" hidden type="text" class="form-control" name="address" value=""> 
+                        <input id="country" hidden type="text" class="form-control" name="country" value=""> 
+
+                        <input id="lat" hidden type="text" class="form-control" name="lat" value=""> */ 
+
+                            
+                            
+                            /* <div class="pop-up-result-name">Corso Italia</div>
+                            <div class="pop-up-result-address">Corso Italia, 32043 Cortina d'Ampezzo, ITA</div>
+                            <div class="pop-up-result-distance">756 km</div>
+                            <div class="pop-up-result-position">46.5409, 12.13527</div> */
+                        });
+                    });
                 </script>
 
 

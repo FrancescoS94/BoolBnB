@@ -18,6 +18,7 @@
  * - search-markers.css (included in our examples)
  * - poi-icons.css (shipped with the SDK and also available via CDN - check our downloads page)
  */
+
 function SearchMarker(poiData, options) {   // risultati suggeriti
     this.poiData = poiData;
     this.options = options || {};
@@ -35,15 +36,14 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
     //  QUIIIIIIIIIIIIII
     //console.log(latLon['_lngLat']['lng'], latLon['_lngLat']['lat']);
 
-    var lat = latLon['_lngLat']['lat'];
-    var lng = latLon['_lngLat']['lng'];
-
+    /* if(latLon){
+        var lat = latLon['_lngLat']['lat'];
+        var lng = latLon['_lngLat']['lng'];
+    } */
     /* if(latLon){
         var addressLat = document.getElementById("lat").value=latLon['_lngLat']['lat'];
         var addressLng = document.getElementById("lng").value=latLon['_lngLat']['lng'];
     } */
-    
-
 }
 
 

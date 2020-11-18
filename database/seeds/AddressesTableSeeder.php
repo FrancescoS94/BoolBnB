@@ -20,7 +20,7 @@ class AddressesTableSeeder extends Seeder
             $newAddress->lat = $faker->latitude;
             $newAddress->lng = $faker->longitude;
 
-            $newAddress->save();
+            /* $newAddress->save(); */
 
         }
     }
