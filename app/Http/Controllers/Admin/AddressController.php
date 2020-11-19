@@ -51,12 +51,16 @@ class AddressController extends Controller
     public function update(Request $request, Address $address, Flat $flats){
 
         $data= $request->all();
-        $request->validate([
+        /* $request->validate([
             'country' => 'required|string',
             'city' => 'required|string',
             'address' => 'required|string',
             'cap' => 'required|numeric',
             'district' => 'required|string'
+        ]); */
+        $request->validate([
+            'address' => 'required|string',
+            'position' => 'required|string',
         ]);
 
         $address->update($data);
