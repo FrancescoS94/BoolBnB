@@ -54,14 +54,14 @@
 
   <div class="row footer-bottom">
 
-    <div class="col-md-6 col-sm-12 footer-bottom-left">
+    <div class="col-lg-6 col-md-6 col-sm-12 footer-bottom-left">
       <p>© 2020 Boolbnb, Inc. All rights reserved</p>
       <p>Privacy</p>
       <p>Termini</p>
       <p>Dettagli dell'azienda</p>
     </div>
 
-    <div class="col-md-6 col-sm-12 footer-bottom-right">
+    <div class="offset-lg-3 col-lg-3 col-md-6 col-sm-12 footer-bottom-right">
       <span><i class="fas fa-globe"></i><strong> Italiano (IT)</strong></span>
       <span><i class="fas fa-euro-sign"></i><strong> EUR</strong></span>
       <span><i class="fab fa-facebook-f" id="social"></i></span>

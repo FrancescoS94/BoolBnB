@@ -1,4 +1,4 @@
-<section class="bg-white fixed-top">
+<section class="bg-white fixed-top shadow">
 <nav class="navbar navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand logo" href="{{ url('/') }}">
@@ -27,14 +27,14 @@
 
         </button>
 
-        
+
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             {{-- <ul class="navbar-nav mr-auto">
 
             </ul> --}}
-            
+
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav dropdown-menu dropdown-menu-right mr-4">
@@ -56,7 +56,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                            
+
                             @if(Auth::check()) {{-- Condizione logican se l'utente è loggato vedrà questo elemento --}}
                                 <a class="nav-link hov2" href="{{ route('admin.users.index') }}">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Gestisci il tuo profilo' }}
                             @endif
