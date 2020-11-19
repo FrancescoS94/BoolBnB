@@ -5,12 +5,6 @@
 <div class="container">
   <h1>Tutti i messaggi ricevuti</h1>
 
-  @if(session('status'))
-      <div class="alert alert-success">
-          {{ session('status') }}
-      </div>
-  @endif
-
   <table class="table">
     <thead>
       <tr>
@@ -23,7 +17,8 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($messages as $message)
+  
+      @foreach($messages as $message) 
       <tr
       @if($message['viewed'] == 0)
         class="font-weight-bold"
@@ -45,6 +40,7 @@
         </td>
       </tr>
       @endforeach
+
     </tbody>
   </table>
   {{ $messages->links() }}
