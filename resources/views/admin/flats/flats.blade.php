@@ -6,10 +6,15 @@
             <div class="col-md-8">
 
                 <h1>Ciao {{ Auth::user()->name }}</h1>
-                <a href="{{ route('admin.addresses.create') }}" class="card-link"> {{-- il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create --}}
-                    <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
-                </a>
-
+                {{-- se l'utente non ha completato la registrazione non potrà inserire appartamenti --}}
+                @if(is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
+                    <h2>Completa il tuo profilo prima di inserire un appartamento!</h2>
+                @else
+                    <a href="{{ route('admin.addresses.create') }}" class="card-link"> {{-- il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create --}}
+                        <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
+                    </a>
+                @endif
+                
                  {{-- validazione campi  --}}
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -20,13 +25,13 @@
                             </ul>
                         </div>
                     @endif
-                
+
                     {{-- esito dell'operazione  --}}
                     @if(session('status'))
-                            <div class="alert alert-success">{{ session('status') }}</div>  
+                            <div class="alert alert-success">{{ session('status') }}</div>
                     @endif
-                    
-                 {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}} 
+
+                 {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}}
                  <table class="table table-dark">
                     <thead>
                       <tr>
@@ -63,12 +68,12 @@
                         </td>
                         <td>{{-- distruggi l'appartamento, attraverso l'id --}}
                             <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
-                                @csrf 
+                                @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Cancella</button>
                             </form>
                         </td>
-                        
+
                       </tr>
                         @endforeach <!-- Chiusura padre contenitore foreach -->
                     </tbody>

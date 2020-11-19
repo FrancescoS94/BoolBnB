@@ -25,12 +25,12 @@
                         @method('PATCH')
                         <div class="form-group">
                             <label for="birthday">La tua data di nascita</label>
-                            <input type="date" class="form-control" name="date_of_birth" value="{{ old['date_of_birth'] }}">
+                            <input type="date" class="form-control" name="date_of_birth" {{-- value="{{ old['date_of_birth'] }}" --}}>
                         </div>
                     
                         <div class="form-group">
                             <label for="file">Inserisci una tua fotografia</label>
-                            <input type="file" class="form-control-file" name="avatar" value="{{ old['avatar'] }}">
+                            <input type="file" class="form-control-file" name="avatar" {{-- value="{{ old['avatar'] }}" --}}>   {{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
                         </div>
                     
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
@@ -91,7 +91,7 @@
         <script>
             function validateRegistr(){
 
-	            return false;
+	            return true;
         }
 
         </script>

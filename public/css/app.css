@@ -6,6 +6,11 @@
   box-sizing: border-box;
 }
 
+header #avatar-img {
+  height: 40px;
+  width: 40px;
+}
+
 header .navbar-light {
   color: black;
 }
@@ -91,6 +96,7 @@ header .navbar-light .navbar-nav .nav-link:hover {
 main {
   min-height: calc(100vh - 400px);
   margin-top: 80px;
+  background-color: white;
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
@@ -110,10 +116,6 @@ main .bg-img {
   background-position: center;
   height: 614px;
   padding-top: 129px;
-}
-
-main .sponsor .row {
-  margin: 10px 0px;
 }
 
 main .sponsor .col-12,
@@ -217,6 +219,49 @@ main .layout .right-layout {
   height: 550px;
   background-color: gray;
   overflow-y: hidden;
+}
+
+main .flat-show ul {
+  list-style-type: none;
+  padding-top: 50px;
+}
+
+main .flat-show ul img {
+  height: 25px;
+  padding: 0px 5px 5px 0px;
+}
+
+main .flat-show button {
+  background-color: #ff385c;
+  padding: 7px 15px;
+  margin-bottom: 20px;
+}
+
+main .flat-show .col-12,
+main .flat-show .col-md-6,
+main .flat-show .col-md-7,
+main .flat-show .col-lg-5,
+main .flat-show .col-lg-6 {
+  padding-left: 0px;
+}
+
+main .flat-title h1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 15px 0px;
+}
+
+main .flat-img img {
+  padding: 0px;
+}
+
+main .flat-descr {
+  padding-top: 50px;
+  padding-right: 20px;
+}
+
+main .padd {
+  padding-top: 50px;
 }
 
 footer {
