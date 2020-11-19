@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
+use App\Service;
 use Carbon\Carbon;
 
 class FlatController extends Controller
@@ -18,6 +19,7 @@ class FlatController extends Controller
     {
         // tutti gli appartamenti, per risultato di ricerca
         $flats = Flat::all();
+        $service = Service::all();
         
         // filtro per appartamenti sponsorizzati
         $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at 
@@ -29,7 +31,7 @@ class FlatController extends Controller
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
         
         // alla view ritorno entrambe le variabili
-        return view('search',compact('flats', 'flatsSpons'));
+        return view('search',compact('flats', 'flatsSpons', 'service'));
     }
 
     /**

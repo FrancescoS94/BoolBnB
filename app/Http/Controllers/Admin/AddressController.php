@@ -18,7 +18,16 @@ class AddressController extends Controller
 
         $data = $request->all();
 
-        $request->validate([ #validazione e controllo dei dati passati
+        $request->validate([
+            'address' => 'required|string',
+            'position' => 'required|string',
+        ]);
+
+        
+
+        //dd($data);
+
+        /* $request->validate([ #validazione e controllo dei dati passati
             'country' => 'required|string',
             'city' => 'required|string',
             'address' => 'required|string',
@@ -26,7 +35,8 @@ class AddressController extends Controller
             'district' => 'required|string'
         ]);
 
-        $address->fill($data); #riempio i vari campi dopo la validazione
+       #riempio i vari campi dopo la validazione */
+        $address->fill($data);
         $address->save();
 
         if($address->save()){

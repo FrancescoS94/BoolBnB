@@ -1,4 +1,4 @@
-<section class="bg-white fixed-top">
+<section class="bg-white fixed-top shadow">
 <nav class="navbar navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand logo" href="{{ url('/') }}">

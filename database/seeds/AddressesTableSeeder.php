@@ -16,12 +16,12 @@ class AddressesTableSeeder extends Seeder
         for($i = 0; $i < 10; $i++) {
             $newAddress = new Address;
             $newAddress->country = $faker->state;
-            $newAddress->city = $faker->city;
-            $newAddress->address = $faker->streetAddress;
-            $newAddress->cap = $faker->numberbetween(10000,99999);
-            $newAddress->district = $faker->stateAbbr;
+            $newAddress->address = $faker->address;
+            $newAddress->lat = $faker->latitude;
+            $newAddress->lng = $faker->longitude;
 
-            $newAddress->save();
+            /* $newAddress->save(); */
+
         }
     }
 }

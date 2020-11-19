@@ -29,7 +29,7 @@
                     
                     {{-- form creazione punta al Admin/controllerFlat  --}}
                     <form action="{{ route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
-                    {{-- <form action="{{ route('admin.flats.store', $address['id'])}}" method="post" enctype="multipart/form-data"> --}}
+                    
                         @csrf
                         @method('POST')
 
@@ -38,37 +38,37 @@
         
                         <div class="form-group">
                             <label for="title">Titolo</label>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
     
                         <div class="form-group">
                             <label for="room">Stanze</label>
-                            <input type="text" class="form-control" name="room">
+                            <input type="text" class="form-control" name="room" value="{{ old('room') }}">
                         </div>
     
                         <div class="form-group">
                             <label for="bed">Letti</label>
-                            <input type="text" class="form-control" name="bed">
+                            <input type="text" class="form-control" name="bed" value="{{ old('bed') }}">
                         </div>
     
                         <div class="form-group">
                             <label for="wc">WC</label>
-                            <input type="text" class="form-control" name="wc">
+                            <input type="text" class="form-control" name="wc" value="{{ old('wc') }}">
                         </div>
     
                         <div class="form-group">
                             <label for="mq">Metri quadrati</label>
-                            <input type="text" class="form-control" name="mq">
+                            <input type="text" class="form-control" name="mq" value="{{ old('mq') }}">
                         </div>
     
                         <div class="form-group">
                             <label for="description">Descrizione</label>
-                            <input type="text" class="form-control-file" name="description" >
+                            <textarea type="text" class="form-control-file" name="description">{{ old('title') }}</textarea>
                         </div>
     
                         <div class="form-group">
                             <label for="image">Inserisci una fotografia dell'appartamento</label>
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="file" class="form-control-file" name="image" value="{{ old('image') }}">
                         </div>
 
                         {{-- aggiunta servizi --}}
