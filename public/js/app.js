@@ -37276,6 +37276,22 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+$(document).ready(function () {
+  // in home: scorrere le liste con le freccette
+  $('i.right').click(function () {
+    var elemDaScrollare = $(this).siblings('.lista');
+    var currentPosition = elemDaScrollare.scrollLeft();
+    currentPosition += 350;
+    elemDaScrollare.scrollLeft(currentPosition);
+  });
+  $('i.left').click(function () {
+    var elemDaScrollare = $(this).siblings('.lista');
+    var currentPosition = elemDaScrollare.scrollLeft();
+    currentPosition -= 350;
+    elemDaScrollare.scrollLeft(currentPosition);
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

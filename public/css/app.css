@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+textarea {
+  padding: 0 10px;
+}
+
 header nav {
   height: 105px;
   background-color: #fff;
@@ -105,40 +109,41 @@ main .bg-img {
   padding-top: 129px;
 }
 
+main .sponsor {
+  padding: 50px 0;
+}
+
 main .sponsor .row {
   margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-main .sponsor .col-12,
-main .col-sm-6,
-main .col-md-4,
-main .col-lg-3 {
-  padding: 0px 10px;
+main .sponsor .row i {
+  font-size: 30px;
 }
 
-main .box-group {
+main .sponsor .row .lista.appartamenti {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  /* disattiva la scrollbar perchè ora hai le frecce */
+}
+
+main .sponsor .row .lista.appartamenti .box-group {
   margin: 50px 0px;
+  border: 3px solid red;
+  border-radius: 30px;
 }
 
-main .box-img a img {
+main .sponsor .row .lista.appartamenti .box-group .box-img a img {
   width: 100%;
   border-radius: 5px;
-}
-
-main .box-group .box-descr {
-  position: absolute;
-  bottom: 0%;
-  color: white;
-  width: 94.6%;
-  padding: 10px 5px 0px;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 5%, #000 97%);
-  word-wrap: break-word;
-  border-radius: 0px 0px 5px 5px;
-}
-
-main .sponsor .box-group:hover {
-  transform: scale(1.1);
-  transition: 0.5s;
 }
 
 main .container-fluid.search::-webkit-scrollbar,

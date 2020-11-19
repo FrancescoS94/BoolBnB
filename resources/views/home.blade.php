@@ -11,13 +11,36 @@
     </div>
 </section>
 
-<div class="container-fluid sponsor">
+<section class="container-fluid sponsor">
 
+    <h2>Scorri i nostri migliori appartamenti</h2>
+    <div class="row">
+        <i class="fas fa-chevron-left left"></i>
+        <div class="lista appartamenti">
+            @foreach ($flatsSpons as $flatSpons)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+                <div class="box-img">
+                    <a href="{{ route('flats.show', $flatSpons->id) }}">
+                        <img class="" src="{{ asset('storage/' . $flatSpons->image) }}" alt="">
+                    </a>
+                </div>
+                <div class="box-descr">
+                    <h5>Milano</h5>
+                    <h6>{{ $flatSpons->title}}</h6>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <i class="fas fa-chevron-right right"></i>
+
+    </div>
+
+    {{-- FRANCESCO --}}
 {{-- A: {{ route('flats.show', $flatSpons->id) }} --}}
 {{-- IMG: {{ $flatSpons->image }} --}}
 {{-- H6: {{ $flatSpons->title}} --}}
 {{-- H5: aggiungere nel database la città --}}
-    <div class="row">
+    {{-- <div class="row">
         @foreach ($flatsSpons as $flatSpons)
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
             <div class="box-img">
@@ -31,8 +54,8 @@
             </div>
         </div>
         @endforeach
-    </div>
-</div>
+    </div> --}}
+</section>
 @endsection
 
 

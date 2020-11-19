@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                     <label for="request">Messaggio</label>
-                    <textarea name="request" type="text" class="form-control" id="request" placeholder="Invia un messaggio al proprietario" value="{{ old('request') }}"></textarea>
+                    <textarea rows="3" name="request" type="text" class="form-control" id="request" placeholder="Invia un messaggio al proprietario" value="{{ old('request') }}"></textarea>
                 </div>
     
                 <button type="submit" class="btn btn-primary">Sign in</button>
