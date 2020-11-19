@@ -91,6 +91,7 @@ header .navbar-light .navbar-nav .nav-link:hover {
 main {
   min-height: calc(100vh - 400px);
   margin-top: 80px;
+  background-color: white;
 }
 
 main .jumbotron {
@@ -109,10 +110,6 @@ main .bg-img {
   background-position: center;
   height: 614px;
   padding-top: 129px;
-}
-
-main .sponsor .row {
-  margin: 10px 0px;
 }
 
 main .sponsor .col-12,
@@ -214,6 +211,7 @@ main .flat-show button {
 main .flat-show .col-12,
 main .flat-show .col-md-6,
 main .flat-show .col-md-7,
+main .flat-show .col-lg-5,
 main .flat-show .col-lg-6 {
   padding-left: 0px;
 }

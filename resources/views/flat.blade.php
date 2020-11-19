@@ -14,25 +14,25 @@
             <div class="col-md-6 col-lg-6">
                 <p class="text-justify flat-descr">{{$flat->description}}</p>
             </div>
-            <div class="offset-md-1 col-md-6 offset-lg-1 col-lg-5">
+            <div class="offset-md-1 col-md-5 offset-lg-1 col-lg-5">
                 @foreach ($service as $service)
                     <p class="text-justify">{{$service->service}}</p>
                 @endforeach
                 <ul>
                     <li>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                        <img src="{{asset('images\bed.png')}}" alt="Icon Bed">
                         Letti: {{$flat->bed}}
                     </li>
                     <li>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                        <img src="{{asset('images\room.png')}}" alt="Icon Room">
                         Stanze: {{$flat->room}}
                     </li>
                     <li>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
-                        Bagni: {{$flat->wc}}
+                        <img src="{{asset('images\bath.png')}}" alt="Icon WC">
+                        WC: {{$flat->wc}}
                     </li>
                     <li>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                        <img src="{{asset('images\plans.png')}}" alt="Icon Mq">
                         Mq: {{$flat->mq}}
                     </li>
                 </ul>
@@ -45,7 +45,7 @@
                     {{-- INSERIRE TOMTOM --}}
                 </div>
             </div>
-            <div class="col-md-5 col-lg-6 padd">
+            <div class="col-md-5 offset-lg-1 col-lg-5 padd">
                 <div id="form-messaggio">
                     <h2>Contatta l'host</h2>
                     {{-- STATUS --}}
@@ -89,13 +89,10 @@
                             <label for="request">Messaggio</label>
                             <textarea name="request" type="text" class="form-control" id="request" placeholder="Invia un messaggio al proprietario"></textarea>
                         </div>
-
                         <button type="submit" class="btn">Invia</button>
                     </form>
                 </div>
             </div>
-
-
 
         </div>
     </div>
