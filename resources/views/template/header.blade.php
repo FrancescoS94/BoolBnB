@@ -22,7 +22,7 @@
             @if(Auth::check())
                 Ciao {{Auth::user()->name}}
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
-                <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
+                <img id="avatar-img" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
             @endif
 
         </button>
