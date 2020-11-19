@@ -20,13 +20,13 @@
                             </ul>
                         </div>
                     @endif
-                
+
                     {{-- esito dell'operazione  --}}
                     @if(session('status'))
-                            <div class="alert alert-success">{{ session('status') }}</div>  
+                            <div class="alert alert-success">{{ session('status') }}</div>
                     @endif
-                    
-                 {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}} 
+
+                 {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}}
                  <table class="table table-dark">
                     <thead>
                       <tr>
@@ -63,12 +63,12 @@
                         </td>
                         <td>{{-- distruggi l'appartamento, attraverso l'id --}}
                             <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
-                                @csrf 
+                                @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Cancella</button>
                             </form>
                         </td>
-                        
+
                       </tr>
                         @endforeach <!-- Chiusura padre contenitore foreach -->
                     </tbody>
