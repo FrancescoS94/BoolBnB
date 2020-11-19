@@ -1,7 +1,15 @@
 {{-- PAGINA USER LOGGATO --}}
 @extends('layouts.app')
 @section('content')
-{{-- @dd(Auth::user()->status) --}}
+
+<script type="text/javascript">
+    window.loading_screen = window.pleaseWait({
+      logo: "/images/logo.svg",
+      backgroundColor: '#ffffff',
+      loadingHtml: 'Add html here'
+    });
+</script>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
