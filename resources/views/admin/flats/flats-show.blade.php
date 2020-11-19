@@ -14,11 +14,7 @@
                 <h2>Servizi disponibili</h2>
 
                 @foreach ($service as $service)
-                {{-- <p class="text-justify">{{$service->service}}</p> --}}
-                @if($flat->id)
-                    
-                @endif
-                <p class="text-justify">{{$flat->services->service}}</p>
+                    <p class="text-justify">{{$service->service}}</p>
                 @endforeach
                
                 <ul>
