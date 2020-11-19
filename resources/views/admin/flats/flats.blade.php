@@ -49,7 +49,8 @@
                         <td>{{$flat->wc}}</td>
                         <td>{{$flat->mq}}</td>
                         <td>
-                            <img style="width:30px" src="{{asset('storage/'. $flat->image)}}" alt="{{$flat->title}}">
+                            <img class="img-fluid" src="{{url('storage/'. $flat->image)}}" alt="{{$flat->title}}">
+                            {{-- <img class="img-fluid" src="{{ Storage::url("/storage/app/{$flat->image}") }}" alt="{{$flat->title}}"> --}}
                         </td>
                         <td>
                             <a class="btn btn-primary" role="button" href="{{route('admin.flats.edit', $flat->id )}}" class="card-link">Modifica</a>

@@ -60,7 +60,7 @@ class UserController extends Controller
         //controllo sulle immagini
         if(!empty($data['avatar'])){
             if(!empty($user->avatar)){
-                Storage::disk('public')->delete($user->avatar);
+                Storage::disk('public')->delete('images', $user->avatar);
             }
             $data['avatar'] = Storage::disk('public')->put('images', $data['avatar']);
         }

@@ -68,7 +68,7 @@
     
                         <div class="form-group">
                             <label for="image">Inserisci una fotografia dell'appartamento</label>
-                            <input type="file" class="form-control-file" name="image" value="{{ old('image') }}">
+                            <input type="file" class="form-control-file" name="image"  accept="image/*" value="{{ old('image') }}">
                         </div>
 
                         {{-- aggiunta servizi --}}
