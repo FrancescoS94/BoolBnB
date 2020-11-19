@@ -11,7 +11,6 @@ textarea {
 }
 
 header nav {
-  height: 105px;
   background-color: #fff;
   display: flex;
   flex-direction: row;

@@ -1,6 +1,6 @@
 <nav class="container-fluid navbar navbar-light fixed-top">
     <a class="navbar-brand logo" href="{{ url('/') }}">
-        <img src="{{ asset('image/logo-boolbnb.png')}}" alt="Boolbnb">
+        <img src="{{ asset('storage/images/logo-boolbnb.png')}}" alt="Boolbnb">
     </a>
 
     <div class="search">
