@@ -36,8 +36,9 @@ class MessageController extends Controller
             // sovrascrivo messages soltanto con i messaggi in cui il flat_id è contenuto nell'array in cui ho memorizzato gli id degli appartamenti dell'utente loggato
             $messages = Message::where('flat_id', $flatsId)->orderBy('created_at','desc')->paginate(5);
             return view('admin.messages.index', compact('messages'));
-
+        
         }
+
     }
 
     public function show(Message $message){
