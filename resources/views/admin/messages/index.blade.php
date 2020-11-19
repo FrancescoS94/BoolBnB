@@ -1,8 +1,8 @@
-
 {{-- TUTTI I MESSAGGI RICEVUTI DELL'UTENTE LOGGATO --}}
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
   <h1>Tutti i messaggi ricevuti</h1>
 
