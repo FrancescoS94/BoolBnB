@@ -47,4 +47,7 @@ var SearchResultsParser = {
     getResultDistance: getResultDistance
 };
 
+
+
+
 window.SearchResultsParser = window.SearchResultsParser || SearchResultsParser;

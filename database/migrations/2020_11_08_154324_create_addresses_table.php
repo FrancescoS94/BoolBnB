@@ -24,7 +24,8 @@ class CreateAddressesTable extends Migration
             
             $table->id();
             $table->string('address');
-            $table->string('position');
+            $table->double('lat', 8, 6);
+            $table->double('lng', 9, 6);
             $table->timestamps();
             
         });

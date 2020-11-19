@@ -244,6 +244,7 @@
                         tt.services.fuzzySearch(options)
                             .go()
                             .then(function (response) {
+                                
                                 if (state.callbackId !== currentCallbackId) {
                                     return;
                                 }
@@ -261,6 +262,8 @@
                                     };
                                 });
                                 fitToViewport(response.results);
+                                /* console.log(response.results) */
+                                
                             })
                             .catch(function (error) {
                                 if (error.data && error.data.errorText) {

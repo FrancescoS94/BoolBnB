@@ -20,8 +20,10 @@
  */
 
 function SearchMarker(poiData, options) {   // risultati suggeriti
+    
     this.poiData = poiData;
     this.options = options || {};
+
     this.marker = new tt.Marker({
         element: this.createMarker(),
         anchor: 'bottom'
@@ -33,17 +35,25 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
     ]);
     this.marker.setPopup(new SearchMarkerPopup(this.poiData, this.options));
 
-    //  QUIIIIIIIIIIIIII
-    //console.log(latLon['_lngLat']['lng'], latLon['_lngLat']['lat']);
 
-    /* if(latLon){
-        var lat = latLon['_lngLat']['lat'];
-        var lng = latLon['_lngLat']['lng'];
-    } */
-    /* if(latLon){
-        var addressLat = document.getElementById("lat").value=latLon['_lngLat']['lat'];
-        var addressLng = document.getElementById("lng").value=latLon['_lngLat']['lng'];
-    } */
+   var lat= this.poiData['position']['lat'];
+   var lng= this.poiData['position']['lng'];
+
+
+    var formData= `address=${this.poiData['address']}`;
+    formData += `&lat=${lat}`;
+    formData += `&lng=${lng}`;
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8000/api/addresses",
+        data : formData,
+        success: function(esito)
+        {
+            console.log('dati passati'+ esito);
+        },error: function(error){
+            console.log('errore'+ error);
+        }
+    });    
 }
 
 
