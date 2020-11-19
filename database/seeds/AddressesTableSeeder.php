@@ -15,12 +15,11 @@ class AddressesTableSeeder extends Seeder
     {
         for($i = 0; $i < 10; $i++) {
             $newAddress = new Address;
-            $newAddress->country = $faker->state;
             $newAddress->address = $faker->address;
             $newAddress->lat = $faker->latitude;
             $newAddress->lng = $faker->longitude;
 
-            /* $newAddress->save(); */
+            $newAddress->save();
 
         }
     }

@@ -28,7 +28,7 @@ class FlatsTableSeeder extends Seeder
             $newFlat->description = $faker->realText();
 
             $newFlat->user_id = $users->random()->id;
-            /* $newFlat->address_id = $addresses->random()->id; */
+            $newFlat->address_id = $addresses->random()->id;
 
             $newFlat->save();
         }
