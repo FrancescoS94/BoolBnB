@@ -100,7 +100,7 @@ main {
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
-main .jumbotron {
+main .bg-img .jumbotron {
   background-color: rgba(250, 250, 250, 0.7);
 }
 
@@ -121,7 +121,8 @@ main .bg-img {
 main .sponsor .col-12,
 main .col-sm-6,
 main .col-md-4,
-main .col-lg-3 {
+main .col-lg-3,
+main .col-lg-6 {
   padding: 0px 10px;
 }
 

@@ -15,9 +15,6 @@
                 <p class="text-justify flat-descr">{{$flat->description}}</p>
             </div>
             <div class="offset-md-1 col-md-5 offset-lg-1 col-lg-5">
-                @foreach ($service as $service)
-                    <p class="text-justify">{{$service->service}}</p>
-                @endforeach
                 <ul>
                     <li>
                         <img src="{{asset('images\bed.png')}}" alt="Icon Bed">
@@ -36,6 +33,13 @@
                         Mq: {{$flat->mq}}
                     </li>
                 </ul>
+            </div>
+            {{-- SERVICES --}}
+            <div class="col-7">
+                <h2>Servizi</h2>
+                @foreach ($service as $service)
+                    <p class="text-justify">{{$service->service}}</p>
+                @endforeach
             </div>
             {{-- TOMTOM & FORM --}}
             <div class="col-md-7 col-lg-6 padd">
