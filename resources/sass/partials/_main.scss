@@ -90,6 +90,14 @@ main {
               height: 200px;
               border-radius: 10px;
             }
+            ul{
+              list-style-type: none;
+              padding-top: 50px;
+              img{
+                height: 25px;
+                padding: 0px 5px 5px 0px;
+              }
+            }
           }
         }
       }
@@ -144,7 +152,5 @@ main {
     .padd {
         padding-top: 50px;
     }
-
-
 
 }
