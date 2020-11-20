@@ -8,8 +8,8 @@
 
                 {{-- dettagli inseriti come esempio --}}
                 <h1>{{$flat->title}}</h1>
-                <img style="width:250px" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}" class="img-thumbnail">
-                <span>Data di creazione: {{$flat->created_at}}</span>
+                <img  class="img-thumbnail" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}">
+                <span>Data di creazione: {{ Carbon\Carbon::parse($flat->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</span>
                 <p class="text-justify">{{$flat->description}}</p>
                 <h2>Servizi disponibili</h2>
 
