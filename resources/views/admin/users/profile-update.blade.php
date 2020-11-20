@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="birthday">La tua data di nascita</label>
+                            <label for="birthday">Data di nascita</label>
                             <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}">
                         </div>
 
