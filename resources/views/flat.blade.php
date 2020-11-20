@@ -11,7 +11,7 @@
                 </div>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
-            <div class="col-md-12 col-lg-5">
+            <div class="col-md-12 col-lg-5 jumbotron">
                 <div>
                     <p class="text-justify flat-descr">{{$flat->description}}</p>
                 </div>
@@ -41,9 +41,14 @@
                 </div>
             </div>
             {{-- TOMTOM & FORM --}}
-            <div class="col-md-7 col-lg-6 pos">
+            <div class="col-md-7 col-lg-6">
                 <h2>Posizione</h2>
-                <p>INSERIRE LA CITTA'</p>
+                <ul>
+                    <li>
+                        <img src="{{asset('image\plans.png')}}" alt="Icon Mq">
+                        Mq: {{$flat->mq}}
+                    </li>
+                </ul>
                 <div class="">
                     {{-- INSERIRE TOMTOM --}}
                 </div>

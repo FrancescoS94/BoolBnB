@@ -1,6 +1,6 @@
 main {
   min-height: calc(100vh - 400px);
-  padding:155px 0 50px;
+  padding:107px 0 50px;
 
     // BANNER
     .bg-img {
@@ -15,7 +15,7 @@ main {
     }
 
     .bg-img {
-        /* background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg'); */
+        // background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg');
         background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -26,47 +26,55 @@ main {
     }
 
     // APPARTAMENTI SPONSORIZZATI
-    // .sponsor .row {
-    //     margin: 0px 0px;
-    //     padding: 10px 0px;
-    // }
-
-    .sponsor .col-12, .col-sm-6,
-    .col-md-4, .col-lg-3, .col-lg-6 {
-        padding: 0px 10px;
-    }
-
-    .box-group {
-        margin: 50px 0px;
+    .sponsor {
+        .col-12, .col-sm-6,
+        .col-md-4, .col-lg-3 {
+            padding: 0px;
+        }
     }
 
     .sponsor{
-      padding:50px 0;
-      .row{
-        margin: 10px 0px;
-        @include flex(row,center,center);
+        padding:50px 0;
+        .row{
+            margin: 10px 0px;
+            @include flex(row,center,center);
         i{
           font-size:30px;
         }
+
         .lista.appartamenti{
-          width:80%;
-          display:flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          overflow-y: hidden;
-          overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
-          .box-group {
-            margin: 50px 0px;
-            border:3px solid red;
-            border-radius:20px;
-            .box-img{
-              a{
-                img{
-                  width: 100%;
-                  border-radius: 5px;
+            width:85%;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            padding-right: 45px;
+            padding-left: 5px;
+            overflow-y: hidden;
+            overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
+            .box-group {
+                margin: 50px 5px;
+                // border: 1px solid black;
+                border-radius: 10px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                &:hover {
+                    transform: scale(1.05);
+                      transition: 0.5s;
+                      z-index: 1;
                 }
-              }
+                .box-img{
+                  a {
+                      img{
+                          width: 100%;
+                          border-radius: 10px 10px 0px 0px;
+                          // padding: 5px
+                        }
+                    }
+                }
             }
+            .box-descr{
+                padding: 5px;
+            }
+
             // .box-descr {
             //     position: absolute;
             //     bottom: 0%;
@@ -81,9 +89,7 @@ main {
             //   transform: scale(1.1);
             //   transition: 0.5s;
             // }
-          }
         }
-
       }
     }
 
@@ -163,6 +169,7 @@ main {
         .flat-img {;
             img {
                 padding: 0px;
+                margin-bottom: 32px;
             }
         }
 
@@ -176,15 +183,11 @@ main {
             padding-right: 15px;
         }
 
-        .pos {
-            padding-top: 60px;
-        }
-
         .jumbotron {
             background-color: white;
             border: 1px solid rgb(221, 221, 221);
-            box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
-            margin-top: 60px;
+            padding-top: 5px;
+            box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
         }
 
         button {
@@ -206,5 +209,6 @@ main {
             padding: 15px 0px;
         }
     }
+
 
 }
