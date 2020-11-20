@@ -25,38 +25,38 @@
                     <input hidden type="text" class="form-control" name="address" value="{{ $flat->address_id }}">
 
                     <div class="form-group">
-                        <label for="title">Titolo</label>
-                        <input type="text" class="form-control" name="title" value="{{ $flat->title }}">
+                        <label for="title">Nome dell'appartamento</label>
+                        <input type="text" class="form-control" name="title" id="title" value="{{ $flat->title }}">
                     </div>
 
                     <div class="form-group">
                         <label for="room">Stanze</label>
-                        <input type="text" class="form-control" name="room" value="{{ $flat->room }}">
+                        <input type="number" class="form-control" name="room" id="room" value="{{ $flat->room }}">
                     </div>
 
                     <div class="form-group">
                         <label for="bed">Letti</label>
-                        <input type="text" class="form-control" name="bed" value="{{ $flat->bed }}">
+                        <input type="number" class="form-control" name="bed" id="bed" value="{{ $flat->bed }}">
                     </div>
 
                     <div class="form-group">
                         <label for="wc">WC</label>
-                        <input type="text" class="form-control" name="wc" value="{{ $flat->wc }}">
+                        <input type="number" class="form-control" name="wc" id="wc" value="{{ $flat->wc }}">
                     </div>
 
                     <div class="form-group">
                         <label for="mq">Metri quadrati</label>
-                        <input type="text" class="form-control" name="mq" value="{{ $flat->mq }}">
+                        <input type="number" class="form-control" name="mq" id="mq" value="{{ $flat->mq }}">
                     </div>
 
                     <div class="form-group">
-                    <label for="description">Descrizione</label>
-                    <input type="text" class="form-control-file" name="description" value="{{ $flat->description }}">
+                        <label for="description">Descrizione</label>    
+                        <textarea rows="3" type="text" class="form-control-file" name="description" id="description">{{ $flat->description }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="image">Inserisci una fotografia dell'appartamento</label>
-                        <input type="file" class="form-control-file" name="image" value="{{ $flat->image }}">
+                        <input type="file" class="form-control-file" name="image" id="image" value="{{ $flat->image }}">
                     </div>
 
                     {{-- aggiunta servizi --}}
