@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 header #avatar-img {
   /* height: 40px; */
   width: 40px;
@@ -18,17 +19,25 @@ header .navbar-light {
 header .navbar-light .navbar-brand {
   color: #ff385c;
   font-size: 24px;
+=======
+textarea {
+  padding: 5px 10px;
+>>>>>>> navbar-e-storage
 }
 
-header .navbar-light .navbar-brand:hover {
-  color: #ff385c;
+header nav {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header .navbar {
+header nav .navbar-brand img {
   height: 80px;
 }
 
-header .search {
+header nav .search {
   border: 1px solid #e5e5e5;
   height: 50px;
   border-radius: 40px;
@@ -37,15 +46,18 @@ header .search {
   line-height: 35px;
 }
 
-header .search a {
+header nav .search .search-text {
+  border: none;
+  background: none;
+  float: left;
+}
+
+header nav .search .search-text:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+header nav .search a.search-btn {
   text-decoration: none;
-}
-
-header .search a:hover {
-  color: white;
-}
-
-header .search-btn {
   color: white;
   background: #ff385c;
   float: right;
@@ -59,44 +71,53 @@ header .search-btn {
   cursor: pointer;
 }
 
-header .search-text {
-  border: none;
-  background: none;
-  float: left;
+header nav .search a.search-btn:hover {
+  color: #ff385c;
+  background: #fff;
+  border: 2px solid #ff385c;
 }
 
-header .admin-item .dropdown-menu {
+header nav .navbar-nav.guest {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header nav .navbar-nav.guest a {
+  padding-left: 20px;
+}
+
+header nav .navbar-toggler {
+  height: 65px;
   border: none;
 }
 
-header .admin-item .hov2 {
+header nav .navbar-toggler:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+header nav .navbar-toggler img {
+  height: 55px;
+  border-radius: 50%;
+}
+
+header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link {
   padding-left: 10px;
 }
 
-header .admin-item .hov2:hover {
+header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
   background-color: #e5e5e5;
-}
-
-header .navbar-nav .nav-item .hov:hover {
-  background-color: #e5e5e5;
-}
-
-header .navbar-nav .nav-item a {
-  padding-left: 10px;
-}
-
-header .navbar-light .navbar-nav .nav-link {
-  color: black;
-}
-
-header .navbar-light .navbar-nav .nav-link:hover {
-  color: black;
 }
 
 main {
   min-height: calc(100vh - 400px);
+<<<<<<< HEAD
   margin-top: 80px;
   background-color: white;
+=======
+  padding: 155px 0 50px;
+>>>>>>> navbar-e-storage
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
@@ -118,36 +139,49 @@ main .bg-img {
   padding-top: 129px;
 }
 
+<<<<<<< HEAD
 main .sponsor .col-12,
 main .col-sm-6,
 main .col-md-4,
 main .col-lg-3 {
   padding: 0px 10px;
+=======
+main .sponsor {
+  padding: 50px 0;
 }
 
-main .box-group {
+main .sponsor .row {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+main .sponsor .row i {
+  font-size: 30px;
+}
+
+main .sponsor .row .lista.appartamenti {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  /* disattiva la scrollbar perchè ora hai le frecce */
+>>>>>>> navbar-e-storage
+}
+
+main .sponsor .row .lista.appartamenti .box-group {
   margin: 50px 0px;
+  border: 3px solid red;
+  border-radius: 20px;
 }
 
-main .box-img a img {
+main .sponsor .row .lista.appartamenti .box-group .box-img a img {
   width: 100%;
   border-radius: 5px;
-}
-
-main .box-group .box-descr {
-  position: absolute;
-  bottom: 0%;
-  color: white;
-  width: 94.6%;
-  padding: 10px 5px 0px;
-  background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0) 5%, #000 97%);
-  word-wrap: break-word;
-  border-radius: 0px 0px 5px 5px;
-}
-
-main .sponsor .box-group:hover {
-  transform: scale(1.1);
-  transition: 0.5s;
 }
 
 main .container-fluid.search::-webkit-scrollbar,

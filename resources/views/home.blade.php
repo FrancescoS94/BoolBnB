@@ -11,28 +11,37 @@
     </div>
 </section>
 
-<div class="container sponsor">
-
-{{-- A: {{ route('flats.show', $flatSpons->id) }} --}}
-{{-- IMG: {{ $flatSpons->image }} --}}
-{{-- H6: {{ $flatSpons->title}} --}}
-{{-- H5: aggiungere nel database la città --}}
+<section class="container-fluid sponsor">
+    
+    {{-- FRANCESCO --}}
+    {{-- A: {{ route('flats.show', $flatSpons->id) }} --}}
+    {{-- IMG: {{ $flatSpons->image }} --}}
+    {{-- H6: {{ $flatSpons->title}} --}}
+    {{-- H5: aggiungere nel database la città --}}
+    <h2>Scorri i nostri migliori appartamenti</h2>
     <div class="row">
-        @foreach ($flatsSpons as $flatSpons)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 box-group">
-            <div class="box-img">
-                <a href="{{ route('flats.show', $flatSpons->id) }}">
-                    <img class="" src="{{ $flatSpons->image }}" alt="">
-                </a>
+        <i class="fas fa-chevron-left left"></i>
+        <div class="lista appartamenti">
+            @foreach ($flatsSpons as $flatSpons)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+                <div class="box-img">
+                    <a href="{{ route('flats.show', $flatSpons->id) }}">
+                        <img class="" src="{{ asset('storage/' . $flatSpons->image) }}" alt="">
+                    </a>
+                </div>
+                <div class="box-descr">
+                    <h5>Milano</h5>
+                    <h6>{{ $flatSpons->title}}</h6>
+                </div>
             </div>
-            <div class="box-descr">
-                <h5>{{ $flatSpons->address->city }}</h5>
-                <h6>{{ $flatSpons->title}}</h6>
-            </div>
+            @endforeach
         </div>
-        @endforeach
+        <i class="fas fa-chevron-right right"></i>
+
     </div>
-</div>
+
+
+</section>
 @endsection
 
 

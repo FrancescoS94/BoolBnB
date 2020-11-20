@@ -46,8 +46,10 @@ class FlatController extends Controller
         $newFlat['user_id'] = Auth::id(); #id dell'utente loggato
 
         if(!empty($data['image'])){
-            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+            $data['image'] = Storage::disk('public')->put('images',$data['image']);
         }
+
+        // dd($data['image']);
 
         $newFlat->fill($data); #rimepio i vari campi dopo la validazione
         $newFlat->save();
@@ -94,7 +96,7 @@ class FlatController extends Controller
         //controllo sulle immagini
         if(!empty($data['image'])){
             if(!empty($flat->image)){
-                Storage::disk('public')->delete($flat->image);
+                Storage::disk('public')->delete('images', $flat->image);
             }
             $data['image'] = Storage::disk('public')->put('images', $data['image']);
         }

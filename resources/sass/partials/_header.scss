@@ -1,4 +1,5 @@
 header {
+<<<<<<< HEAD
 
     // Dimensioni img avatar
     #avatar-img {
@@ -15,75 +16,80 @@ header {
         font-size: 24px;
         &:hover {
             color: #ff385c;
+=======
+    nav {
+        // height:105px;
+        background-color:#fff;
+        @include flex(row,space-between,center);
+        .navbar-brand {
+            img{
+                height:80px;
+            }
+>>>>>>> navbar-e-storage
         }
-    }
-
-    .navbar {
-        height: 80px;
-    }
-
-    .search {
-        border: 1px solid #e5e5e5;
-        height: 50px;
-        border-radius: 40px;
-        padding: 5px;
-        padding-left: 15px;
-        line-height: 35px;
-
-        a {
-            text-decoration: none;
-            &:hover {
+        .search {
+            border: 1px solid #e5e5e5;
+            height: 50px;
+            border-radius: 40px;
+            padding: 5px;
+            padding-left: 15px;
+            line-height: 35px;
+            .search-text {
+                border: none;
+                background: none;
+                float: left;
+                &:focus {
+                    outline: -webkit-focus-ring-color auto 0px;;
+                }
+            }
+            a.search-btn {
+                text-decoration: none;
                 color: white;
+                background: #ff385c;
+                float: right;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-left: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                &:hover{
+                    color: #ff385c;
+                    background: #fff;
+                    border: 2px solid #ff385c;
+                }
             }
         }
-    }
-
-    .search-btn {
-        color: white;
-        background: #ff385c;
-        float: right;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-left: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .search-text {
-        border: none;
-        background: none;
-        float: left;
-        }
-
-    .admin-item {
-        .dropdown-menu {
-            border: none;
-        }
-
-        .hov2 {
-            &:hover {
-                background-color: #e5e5e5;
+        .navbar-nav.guest{
+            @include flex(row,flex-start,center);
+            a{
+                padding-left:20px;
             }
-            padding-left: 10px;
         }
-    }
-
-    .navbar-nav .nav-item {
-            .hov:hover {
-                background-color: #e5e5e5;
+        .navbar-toggler{
+            height:65px;
+            border:none;
+            &:focus {
+                outline: -webkit-focus-ring-color auto 0px;;
             }
-        a {
-            padding-left: 10px;
+            img{
+                height: 55px;
+                border-radius: 50%;
+            }
         }
-    }
-
-    .navbar-light .navbar-nav .nav-link {
-        color: black;
-        &:hover {
-            color: black;
+        #navbarSupportedContent{
+            .navbar-nav{
+                .nav-item {
+                    .nav-link{
+                        padding-left: 10px;
+                        &:hover {
+                            background-color: #e5e5e5;
+                        }
+                    }
+                }
+            }
         }
     }
 }
