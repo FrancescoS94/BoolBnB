@@ -62,6 +62,17 @@ header nav .search a.search-btn:hover {
   border: 2px solid #ff385c;
 }
 
+header nav .navbar-nav.guest {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header nav .navbar-nav.guest a {
+  padding-left: 20px;
+}
+
 header nav .navbar-toggler {
   height: 65px;
   border: none;

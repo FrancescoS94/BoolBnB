@@ -1,5 +1,5 @@
 header {
-   nav {
+    nav {
         // height:105px;
         background-color:#fff;
         @include flex(row,space-between,center);
@@ -41,6 +41,12 @@ header {
                     background: #fff;
                     border: 2px solid #ff385c;
                 }
+            }
+        }
+        .navbar-nav.guest{
+            @include flex(row,flex-start,center);
+            a{
+                padding-left:20px;
             }
         }
         .navbar-toggler{
