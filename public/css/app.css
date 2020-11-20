@@ -224,7 +224,7 @@ main .layout .right-layout {
 
 main .flat-show ul {
   list-style-type: none;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 main .flat-show ul img {
@@ -232,37 +232,55 @@ main .flat-show ul img {
   padding: 0px 5px 5px 0px;
 }
 
+main .flat-show ul .bed {
+  padding-right: 20px;
+}
+
+main .flat-show ul .wc {
+  padding-right: 30px;
+}
+
+main .flat-show .flat-img img {
+  padding: 0px;
+}
+
+main .flat-show .flat-descr {
+  padding-top: 25px;
+  padding-right: 20px;
+}
+
+main .flat-show .services p {
+  float: left;
+  padding-right: 15px;
+}
+
+main .flat-show .pos {
+  padding-top: 60px;
+}
+
+main .flat-show .jumbotron {
+  background-color: white;
+  border: 1px solid #dddddd;
+  box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
+  margin-top: 60px;
+}
+
 main .flat-show button {
   background-color: #ff385c;
   padding: 7px 15px;
-  margin-bottom: 20px;
+  color: white;
 }
 
-main .flat-show .col-12,
-main .flat-show .col-md-6,
-main .flat-show .col-md-7,
-main .flat-show .col-lg-5,
-main .flat-show .col-lg-6 {
-  padding-left: 0px;
+main .flat-show button:hover {
+  background-color: white;
+  color: #ff385c;
+  border: 2px solid #ff385c;
 }
 
 main .flat-title h1 {
   font-size: 30px;
   font-weight: bold;
   padding: 15px 0px;
-}
-
-main .flat-img img {
-  padding: 0px;
-}
-
-main .flat-descr {
-  padding-top: 50px;
-  padding-right: 20px;
-}
-
-main .padd {
-  padding-top: 50px;
 }
 
 footer {
