@@ -7,29 +7,29 @@
             <div class="col-md-12 col-lg-7">
                 <div class="flat-img">
                     {{-- src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}" --}}
-                    <img class="img-thumbnail border-0" src="https://www.triesteallnews.it/wp-content/images/2019/08/affitti-brevi-appartamenti.jpg"  alt="">
+                    <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt="">
                 </div>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
-            <div class="col-md-12 col-lg-5 jumbotron">
+            <div class="col-md-12 col-lg-5">
                 <div>
                     <p class="text-justify flat-descr">{{$flat->description}}</p>
                 </div>
                 <ul>
                     <li class="float-left bed">
-                        <img src="{{asset('image\bed.png')}}" alt="Icon Bed">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="Icon Bed">
                         Letti: {{$flat->bed}}
                     </li>
                     <li>
-                        <img src="{{asset('image\room.png')}}" alt="Icon Room">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="Icon Room">
                         Stanze: {{$flat->room}}
                     </li>
                     <li class="float-left wc">
-                        <img src="{{asset('image\bath.png')}}" alt="Icon WC">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="Icon WC">
                         WC: {{$flat->wc}}
                     </li>
                     <li>
-                        <img src="{{asset('image\plans.png')}}" alt="Icon Mq">
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="Icon Mq">
                         Mq: {{$flat->mq}}
                     </li>
                 </ul>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             {{-- TOMTOM & FORM --}}
-            <div class="col-md-7 col-lg-6">
+            <div class="col-md-7 col-lg-6 mt-5">
                 <h2>Posizione</h2>
                 <ul>
                     <li>
@@ -53,7 +53,7 @@
                     {{-- INSERIRE TOMTOM --}}
                 </div>
             </div>
-            <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron pos">
+            <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron mt-5">
                 <div id="form-messaggio">
                     <h2>Contatta l'host</h2>
                     {{-- STATUS --}}
