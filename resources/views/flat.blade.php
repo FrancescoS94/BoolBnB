@@ -1,51 +1,54 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container flat-show">
-        <div class="row flat-title">
-            <h1>Titolo appartamento</h1>
+    <div class="container flat-show flat-title">
+        <h1 class="pt-5">Titolo appartamento</h1>
+        <div class="row">
             {{-- IMAGE --}}
-            <div class="col-12">
+            <div class="col-md-12 col-lg-7">
                 <div class="flat-img">
                     {{-- src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}" --}}
                     <img class="img-thumbnail border-0" src="https://www.triesteallnews.it/wp-content/images/2019/08/affitti-brevi-appartamenti.jpg"  alt="">
                 </div>
             </div>
-            {{-- DESCRIPTION & SERVICES --}}
-            <div class="col-md-6 col-lg-6">
-                <p class="text-justify flat-descr">{{$flat->description}}</p>
-            </div>
-            <div class="offset-md-1 col-md-5 offset-lg-1 col-lg-5">
-                @foreach ($service as $service)
-                    <p class="text-justify">{{$service->service}}</p>
-                @endforeach
+            {{-- DESCRIPTION, FEATURES & SERVICES --}}
+            <div class="col-md-12 col-lg-5">
+                <div>
+                    <p class="text-justify flat-descr">{{$flat->description}}</p>
+                </div>
                 <ul>
-                    <li>
-                        <img src="{{asset('images\bed.png')}}" alt="Icon Bed">
+                    <li class="float-left bed">
+                        <img src="{{asset('image\bed.png')}}" alt="Icon Bed">
                         Letti: {{$flat->bed}}
                     </li>
                     <li>
-                        <img src="{{asset('images\room.png')}}" alt="Icon Room">
+                        <img src="{{asset('image\room.png')}}" alt="Icon Room">
                         Stanze: {{$flat->room}}
                     </li>
-                    <li>
-                        <img src="{{asset('images\bath.png')}}" alt="Icon WC">
+                    <li class="float-left wc">
+                        <img src="{{asset('image\bath.png')}}" alt="Icon WC">
                         WC: {{$flat->wc}}
                     </li>
                     <li>
-                        <img src="{{asset('images\plans.png')}}" alt="Icon Mq">
+                        <img src="{{asset('image\plans.png')}}" alt="Icon Mq">
                         Mq: {{$flat->mq}}
                     </li>
                 </ul>
+                <h2>Servizi</h2>
+                <div class="services">
+                    @foreach ($service as $service)
+                        <p class="text-justify">· {{$service->service}}</p>
+                    @endforeach
+                </div>
             </div>
             {{-- TOMTOM & FORM --}}
-            <div class="col-md-7 col-lg-6 padd">
+            <div class="col-md-7 col-lg-6 pos">
                 <h2>Posizione</h2>
                 <p>INSERIRE LA CITTA'</p>
                 <div class="">
                     {{-- INSERIRE TOMTOM --}}
                 </div>
             </div>
-            <div class="col-md-5 offset-lg-1 col-lg-5 padd">
+            <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron pos">
                 <div id="form-messaggio">
                     <h2>Contatta l'host</h2>
                     {{-- STATUS --}}
