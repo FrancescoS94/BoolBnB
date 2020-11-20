@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <div class="row">
@@ -16,8 +16,8 @@
                 @endif
 
                 <h1>{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h1>
-               
-                
+
+
 
                 @if (is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" {{--onsubmit="return validateRegistr()"--}}>
@@ -27,12 +27,12 @@
                             <label for="birthday">La tua data di nascita</label>
                             <input type="date" class="form-control" name="date_of_birth" id="birthday" {{-- value="{{ old('date_of_birth') }}"--}}>
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="avatar">Inserisci una tua fotografia</label>
                             <input type="file" class="form-control-file" name="avatar" id="avatar" {{-- value="{{ old('avatar')}}"--}}>{{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
                         </div>
-                    
+
                         <button type="submit" class="btn btn-primary">Invia il modulo</button>
                     </form>
                 @else
@@ -50,7 +50,7 @@
                             <label for="name">Nome</label>
                             <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="lastname">Cognome</label>
                             <input type="text" class="form-control-file" name="lastname" id="lastname" value="{{ $user->lastname }}">
@@ -60,7 +60,7 @@
                             <label for="birthday">La tua data di nascita</label>
                             <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}">
                         </div>
-                    
+
                         <div class="form-group">
                             <label for="avatar">Inserisci una tua fotografia</label>
                             <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ $user->avatar }}">
@@ -83,9 +83,9 @@
                 @endif
 
 
-                
 
-                
+
+
             </div>
         </div>
         {{-- <script>

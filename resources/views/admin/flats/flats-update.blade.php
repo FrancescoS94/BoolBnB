@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <div class="row">
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Descrizione</label>    
+                        <label for="description">Descrizione</label>
                         <textarea rows="3" type="text" class="form-control-file" name="description" id="description">{{ $flat->description }}</textarea>
                     </div>
 

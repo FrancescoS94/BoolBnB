@@ -1,5 +1,5 @@
 {{-- {{-- PAGINA USER LOGGATO --}}
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 <style>
@@ -71,10 +71,10 @@
         background-image: url('../image/phone_maintenance.png');
     } */
   </style>
-  
+
   <div class="loader_bg">
     <div class="loader">
-        
+
     </div>
   </div>
 
@@ -85,7 +85,7 @@
 
             {{-- esito dell'operazione  --}}
             @if(session('status'))
-                <div class="alert alert-success">{{ session('status') }}</div>  
+                <div class="alert alert-success">{{ session('status') }}</div>
             @endif
 
             <div class="card">
@@ -100,10 +100,10 @@
                       <p class="card-text">Creazione profilo {{$user->created_at}}</p>
                       <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
                       <p class="card-text">Data di nascita{{$user->date_of_birth}}</p>
-                     
+
                       {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
                       <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
-                      
+
                      {{--  rotta show, al momento inutile, NON cancellare!
                            <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
                     </div>
@@ -112,14 +112,14 @@
                 <a class="btn btn-primary" href="{{route('admin.users.edit', $user->id)}}" role="button">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Aggiungi informazioni' : 'Modifica il tuo profilo'}}</a>
 
                 <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
-                    @csrf 
+                    @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Cancella il tuo profilo</button>
                 </form>
-            
+
             </div>
 
-            
+
         </div>
     </div>
     <script>
