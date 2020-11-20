@@ -1,5 +1,5 @@
 {{-- APPARTAMENTI INSERITI DELL'UTENTE LOGGATO --}}
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <div class="row">
@@ -14,7 +14,7 @@
                         <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
                     </a>
                 @endif
-                
+
                  {{-- validazione campi  --}}
                     @if ($errors->any())
                         <div class="alert alert-danger">

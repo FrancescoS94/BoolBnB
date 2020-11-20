@@ -1,5 +1,4 @@
 {{-- LAYOUT PER GLI ADMIN--}}
-{{-- ANCORA NON INIZIATO, Luca --}}
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -14,7 +13,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,38 +21,38 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="glider.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('glider.css')}}">
+
+
+    <!-- aggiunta 18-11 tomtom -->
+    <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps.css'>
+    <link rel='stylesheet' type='text/css' href='{{asset('css/index.css')}}'/>
+    <link rel='stylesheet' type='text/css'
+        href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox.css' />
+    <link rel='stylesheet' type='text/css'
+        href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/css-styles/poi.css' />
 
 </head>
 <body>
-    <header>
-        @include('template.header')
-    </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 aside">
+        <a href="#"> <span><i class="fas fa-users-cog"></i></span>Gestisci il tuo profilo</a>
+        <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span>Gestisci Appartamenti</a>
+        <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-envelope"></i></span>Messaggi Ricevuti</a>
+        <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span>Pagamenti Effettuati</a>
+        <a href="{{ route('logout') }}"> <span><i class="fas fa-sign-out-alt"></i></span>Logout</a>
+      </div>
+
+      <div class=" col-10 main">
         <main>
-          {{-- <p>layout admin</p> --}}
-            {{-- @yield('content') --}}
-
-            <div class="sidenav">
-              <ul>
-                <li>a</li>
-                <li>b</li>
-                <li>c</li>
-                <li>d</li>
-              </ul>
-            </div>
-
-            <div class="provas clearfix">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-
-
-
-
-
+          @yield('content')
         </main>
+      </div>
+    </div>
+  </div>
 
-    <footer>
-        @include('template.footer')
-    </footer>
 </body>
 </html>
