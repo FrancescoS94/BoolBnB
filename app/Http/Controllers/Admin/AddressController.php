@@ -18,10 +18,10 @@ class AddressController extends Controller
 
         $data = $request->all();
 
-        $request->validate([
+        /* $request->validate([
             'address' => 'required|string',
             'position' => 'required|string',
-        ]);
+        ]); */
 
         
 

@@ -43,8 +43,8 @@
                         @csrf
                         @method('POST')
 
-                        <input id="address" hidden type="text" class="form-control" name="address"> 
-                        <input id="position" hidden type="text" class="form-control" name="position">
+                        {{-- <input id="address" hidden type="text" class="form-control" name="address"> 
+                        <input id="position" hidden type="text" class="form-control" name="position"> --}}
         
                         <button type="submit" class="btn btn-primary">Registra l'indirizzo dell'appartamento</button>
                     </form> 

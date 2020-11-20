@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::apiResource('addresses', 'API\AddressController');
+Route::apiResource('flats', 'API\FlatController');
