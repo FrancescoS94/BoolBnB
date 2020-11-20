@@ -220,7 +220,16 @@ main .layout .left-layout .search.container-lg .flat ul,
 main .layout .left-layout .search.container-md .flat ul,
 main .layout .left-layout .search.container-sm .flat ul {
   list-style-type: none;
-  padding-top: 50px;
+  padding-top: 0px;
+  display: inline-block;
+}
+
+main .layout .left-layout .container-fluid.search .flat ul li,
+main .layout .left-layout .search.container-xl .flat ul li,
+main .layout .left-layout .search.container-lg .flat ul li,
+main .layout .left-layout .search.container-md .flat ul li,
+main .layout .left-layout .search.container-sm .flat ul li {
+  margin-right: 10px;
 }
 
 main .layout .left-layout .container-fluid.search .flat ul img,
@@ -283,8 +292,7 @@ main .padd {
 }
 
 .aside {
-  height: 100%;
-  width: 250px;
+  height: 100vh;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -293,11 +301,12 @@ main .padd {
 }
 
 .aside a {
-  padding: 35px 8px 6px 16px;
+  padding: 20px 8px 10px 5px;
   text-decoration: none;
   font-size: 15px;
   color: white;
   display: block;
+  border-bottom: 1px solid darkgray;
 }
 
 .aside a:hover {
@@ -311,8 +320,10 @@ main .padd {
 }
 
 .main {
-  margin-left: 250px;
+  height: 100vh;
   padding: 0px 10px;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 footer {
