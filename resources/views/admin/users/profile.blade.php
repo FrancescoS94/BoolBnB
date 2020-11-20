@@ -70,7 +70,7 @@
     /* body{
         background-image: url('../image/phone_maintenance.png');
     } */
- </style>
+</style>
 
 <div class="loader_bg">
     <div class="loader">

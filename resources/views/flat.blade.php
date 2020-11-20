@@ -17,19 +17,19 @@
                 </div>
                 <ul>
                     <li class="float-left bed">
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="Icon Bed">
+                        <img src="{{ asset('storage/bed.png')}}" alt="Icon Bed">
                         Letti: {{$flat->bed}}
                     </li>
                     <li>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="Icon Room">
+                        <img src="{{ asset('storage/room.png')}}" alt="Icon Room">
                         Stanze: {{$flat->room}}
                     </li>
                     <li class="float-left wc">
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="Icon WC">
+                        <img src="{{ asset('storage/bath.png')}}" alt="Icon WC">
                         WC: {{$flat->wc}}
                     </li>
                     <li>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="Icon Mq">
+                        <img src="{{ asset('storage/plans.png')}}" alt="Icon Mq">
                         Mq: {{$flat->mq}}
                     </li>
                 </ul>
