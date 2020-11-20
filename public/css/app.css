@@ -6,23 +6,8 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 textarea {
   padding: 5px 10px;
-=======
-header #avatar-img {
-  height: 40px;
-  width: 40px;
-}
-
-header .navbar-light {
-  color: black;
-}
-
-header .navbar-light .navbar-brand {
-  color: #ff385c;
-  font-size: 24px;
->>>>>>> Luca17-11
 }
 
 header nav {
@@ -112,12 +97,7 @@ header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
 
 main {
   min-height: calc(100vh - 400px);
-<<<<<<< HEAD
   padding: 155px 0 50px;
-=======
-  margin-top: 80px;
-  background-color: white;
->>>>>>> Luca17-11
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
@@ -252,18 +232,12 @@ main .layout .left-layout .search.container-sm .flat #img-search {
   border-radius: 10px;
 }
 
-main .layout .right-layout {
-  width: 40%;
-  height: 550px;
-  background-color: gray;
-  overflow-y: hidden;
-}
-
-main .flat-show ul {
+main .layout .left-layout .container-fluid.search .flat ul,
+main .layout .left-layout .search.container-xl .flat ul,
+main .layout .left-layout .search.container-lg .flat ul,
+main .layout .left-layout .search.container-md .flat ul,
+main .layout .left-layout .search.container-sm .flat ul {
   list-style-type: none;
-<<<<<<< HEAD
-  padding-top: 10px;
-=======
   padding-top: 0px;
   display: inline-block;
 }
@@ -274,7 +248,27 @@ main .layout .left-layout .search.container-lg .flat ul li,
 main .layout .left-layout .search.container-md .flat ul li,
 main .layout .left-layout .search.container-sm .flat ul li {
   margin-right: 10px;
->>>>>>> Luca17-11
+}
+
+main .layout .left-layout .container-fluid.search .flat ul img,
+main .layout .left-layout .search.container-xl .flat ul img,
+main .layout .left-layout .search.container-lg .flat ul img,
+main .layout .left-layout .search.container-md .flat ul img,
+main .layout .left-layout .search.container-sm .flat ul img {
+  height: 25px;
+  padding: 0px 5px 5px 0px;
+}
+
+main .layout .right-layout {
+  width: 40%;
+  height: 550px;
+  background-color: gray;
+  overflow-y: hidden;
+}
+
+main .flat-show ul {
+  list-style-type: none;
+  padding-top: 10px;
 }
 
 main .flat-show ul img {
@@ -286,7 +280,6 @@ main .flat-show ul .bed {
   padding-right: 20px;
 }
 
-<<<<<<< HEAD
 main .flat-show ul .wc {
   padding-right: 30px;
 }
@@ -332,48 +325,6 @@ main .flat-title h1 {
   font-size: 30px;
   font-weight: bold;
   padding: 15px 0px;
-=======
-main .flat-show ul {
-  list-style-type: none;
-  padding-top: 50px;
-}
-
-main .flat-show ul img {
-  height: 25px;
-  padding: 0px 5px 5px 0px;
-}
-
-main .flat-show button {
-  background-color: #ff385c;
-  padding: 7px 15px;
-  margin-bottom: 20px;
-}
-
-main .flat-show .col-12,
-main .flat-show .col-md-6,
-main .flat-show .col-md-7,
-main .flat-show .col-lg-5,
-main .flat-show .col-lg-6 {
-  padding-left: 0px;
-}
-
-main .flat-title h1 {
-  font-size: 30px;
-  font-weight: bold;
-  padding: 15px 0px;
-}
-
-main .flat-img img {
-  padding: 0px;
-}
-
-main .flat-descr {
-  padding-top: 50px;
-  padding-right: 20px;
-}
-
-main .padd {
-  padding-top: 50px;
 }
 
 .aside {
@@ -409,7 +360,6 @@ main .padd {
   padding: 0px 10px;
   overflow-y: scroll;
   scrollbar-width: none;
->>>>>>> Luca17-11
 }
 
 footer {
