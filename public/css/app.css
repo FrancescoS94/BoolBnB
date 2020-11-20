@@ -6,23 +6,8 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-header #avatar-img {
-  /* height: 40px; */
-  width: 40px;
-}
-
-header .navbar-light {
-  color: black;
-}
-
-header .navbar-light .navbar-brand {
-  color: #ff385c;
-  font-size: 24px;
-=======
 textarea {
   padding: 5px 10px;
->>>>>>> navbar-e-storage
 }
 
 header nav {
@@ -112,12 +97,7 @@ header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
 
 main {
   min-height: calc(100vh - 400px);
-<<<<<<< HEAD
-  margin-top: 80px;
-  background-color: white;
-=======
   padding: 155px 0 50px;
->>>>>>> navbar-e-storage
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
@@ -139,13 +119,6 @@ main .bg-img {
   padding-top: 129px;
 }
 
-<<<<<<< HEAD
-main .sponsor .col-12,
-main .col-sm-6,
-main .col-md-4,
-main .col-lg-3 {
-  padding: 0px 10px;
-=======
 main .sponsor {
   padding: 50px 0;
 }
@@ -170,7 +143,6 @@ main .sponsor .row .lista.appartamenti {
   overflow-y: hidden;
   overflow-x: hidden;
   /* disattiva la scrollbar perchè ora hai le frecce */
->>>>>>> navbar-e-storage
 }
 
 main .sponsor .row .lista.appartamenti .box-group {
