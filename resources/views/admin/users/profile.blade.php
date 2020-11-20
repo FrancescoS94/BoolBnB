@@ -4,6 +4,8 @@
 
 <style>
 
+
+
     #avatar-img{
         display: none;
     }
@@ -56,6 +58,18 @@
             opacity: 0;
         }
     }
+
+    .bg-white{
+        background-color: #4ea9be !important;
+    }
+
+    .navbar-brand.logo,input{
+        color: white !important;
+    }
+
+    /* body{
+        background-image: url('../image/phone_maintenance.png');
+    } */
   </style>
   
   <div class="loader_bg">
@@ -65,6 +79,7 @@
   </div>
 
 <div class="container">
+    <img src="{{asset('image/phone_maintenance.png')}}" alt="">
     <div class="row justify-content-center">
         <div class="col-md-8">
 
@@ -88,7 +103,7 @@
                      
                       {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
                       <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
-                     
+                      
                      {{--  rotta show, al momento inutile, NON cancellare!
                            <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
                     </div>
