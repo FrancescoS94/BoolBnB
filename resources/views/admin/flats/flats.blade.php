@@ -30,7 +30,7 @@
                     @if(session('status'))
                             <div class="alert alert-success">{{ session('status') }}</div>
                     @endif
-
+                
                  {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}}
                  <table class="table table-dark">
                     <thead>

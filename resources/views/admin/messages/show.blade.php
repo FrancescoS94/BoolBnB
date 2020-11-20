@@ -11,6 +11,7 @@
   <h1>Messaggio ricevuto</h1>
   <div class="dettagli">
     <ul>
+      <li> <strong>Data e ora di ricezione</strong> {{ Carbon\Carbon::parse($message['created_at'])->settings(['toStringFormat' => 'j F Y \a\l\l\e h:i:s', ]) }}</li>
       <li> <strong>Nome</strong> {{ $message['name'] }}</li>
       <li> <strong>Cognome</strong> {{ $message['lastname'] }}</li>
       <li> <strong>Email</strong> {{ $message['email'] }}</li>

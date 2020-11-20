@@ -39,11 +39,23 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-2 aside">
-        <a href="#"> <span><i class="fas fa-users-cog"></i></span>Gestisci il tuo profilo</a>
+        <a href="{{ route('admin.users.index') }}"> <span><i class="fas fa-users-cog"></i></span>Gestisci il tuo profilo</a>
         <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span>Gestisci Appartamenti</a>
-        <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-envelope"></i></span>Messaggi Ricevuti</a>
+        <a href="{{ route('admin.messages.index') }}"> <span><i class="fas fa-envelope"></i></span>Messaggi Ricevuti</a>
         <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span>Pagamenti Effettuati</a>
-        <a href="{{ route('logout') }}"> <span><i class="fas fa-sign-out-alt"></i></span>Logout</a>
+        {{-- INIZIO LOGOUT --}}
+        {{-- link --}}
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+          <span><i class="fas fa-sign-out-alt"></i></span>
+          Logout
+        </a>
+        {{-- chiamata post --}}
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+        {{-- FINE LOGOUT --}}
       </div>
 
       <div class=" col-10 main">
