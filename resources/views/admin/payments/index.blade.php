@@ -1,5 +1,5 @@
 {{-- VISUALIZZI TUTTI I PAGAMENTI DELL'UTENTE LOGGATO --}}
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <h1>Tutti i pagamenti effettuati</h1>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 {{-- UPDATE/MODIFICA DEGLI INDIRIZZI --}}
     <div class="container">
@@ -57,8 +57,8 @@
                     @method('PATCH')
 
                     {{-- passo in un input nascosto l'id dell'address --}}
-                    <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}"> 
-                    
+                    <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}">
+
                     {{-- <div class="form-group">
                         <label for="country">Nazione</label>
                         <input id="country" type="text" class="form-control" name="country" value="{{ $flat->address->country }}">
@@ -73,20 +73,20 @@
                         <label for="address">Indirizzo</label>
                         <input id="address" type="text" class="form-control" name="address" value="{{ $flat->address->address }}">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="cap">CAP</label>
                         <input id="cap" type="text" class="form-control" name="cap" value="{{ $flat->address->cap }}">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="district">Provincia</label>
                         <input id="district" type="text" class="form-control" name="district" value="{{ $flat->address->district }}">
                     </div> --}}
 
-                    <input id="address" hidden type="text" class="form-control" name="address"> 
+                    <input id="address" hidden type="text" class="form-control" name="address">
                     <input id="position" hidden type="text" class="form-control" name="position">
-                    
+
                     <button type="submit" class="btn btn-primary">Invia il modulo</button>
                 </form>
             </div>
@@ -110,7 +110,7 @@
          <script type='text/javascript' src='{{ asset('js/formatters.js')}}'></script>
          <script>
              tt.setProductInfo('search-mappa', '0');
-     
+
              var map = tt.map({
                  key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
                  container: 'map',
@@ -119,23 +119,23 @@
                  style: 'tomtom://vector/1/basic-main',
                  dragPan: !window.isMobileOrTablet()
              });
-     
+
              var infoHint = new InfoHint('info', 'bottom-center', 5000).addTo(document.getElementById('map'));
              var errorHint = new InfoHint('error', 'bottom-center', 5000).addTo(document.getElementById('map'));
-     
+
              // Options for the fuzzySearch service
              var searchOptions = {
                  key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
                  language: 'en-Gb',
                  limit: 5
              };
-     
+
              // Options for the autocomplete service
              var autocompleteOptions = {
                  key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
                  language: 'en-Gb'
              };
-     
+
              var searchBoxOptions = {
                  minNumberOfCharacters: 0,
                  searchOptions: searchOptions,
@@ -143,7 +143,7 @@
              };
              var ttSearchBox = new tt.plugins.SearchBox(tt.services, searchBoxOptions);
              document.querySelector('.tt-side-panel__header').appendChild(ttSearchBox.getSearchBoxHTML());
-     
+
              var state = {
                  previousOptions: {
                      query: null,
@@ -151,21 +151,21 @@
                  },
                  callbackId: null
              };
-     
+
              map.addControl(new tt.FullscreenControl());
              map.addControl(new tt.NavigationControl());
              new SidePanel('.tt-side-panel', map);
              var resultsManager = new ResultsManager();
              var searchMarkersManager = new SearchMarkersManager(map);
-     
+
              map.on('load', handleMapEvent);
              map.on('moveend', handleMapEvent);
-     
+
              ttSearchBox.on('tomtom.searchbox.resultscleared', handleResultsCleared);
              ttSearchBox.on('tomtom.searchbox.resultsfound', handleResultsFound);
              ttSearchBox.on('tomtom.searchbox.resultfocused', handleResultSelection);
              ttSearchBox.on('tomtom.searchbox.resultselected', handleResultSelection);
-     
+
              function handleMapEvent() {
                  // Update search options to provide geobiasing based on current map center
                  var oldSearchOptions = ttSearchBox.getOptions().searchOptions;
@@ -180,17 +180,17 @@
                      { autocompleteOptions: newAutocompleteOptions }
                  ));
              }
-     
+
              function handleResultsCleared() {
                  searchMarkersManager.clear();
                  resultsManager.clear();
              }
-     
+
              function handleResultsFound(event) {
                  // Display fuzzySearch results if request was triggered by pressing enter
                  if (event.data.results && event.data.results.fuzzySearch && event.data.metadata.triggeredBy === 'submit') {
                      var results = event.data.results.fuzzySearch.results;
-     
+
                      if (results.length === 0) {
                          handleNoResults();
                      }
@@ -199,12 +199,12 @@
                      fillResultsList(results);
                      fitToViewport(results);
                  }
-     
+
                  if (event.data.errors) {
                      errorHint.setMessage('There was an error returned by the service.');
                  }
              }
-     
+
              function handleResultSelection(event) {
                  if (isFuzzySearchResult(event)) {
                      // Display selected result on the map
@@ -223,17 +223,17 @@
                      handleFuzzyCallForSegment(event, currentCallbackId);
                  }
              }
-     
+
              function isFuzzySearchResult(event) {
                  return !('matches' in event.data.result);
              }
-     
+
              function stateChangedSinceLastCall(event) {
                  return Object.keys(searchMarkersManager.getMarkers()).length === 0 || !(
                      state.previousOptions.query === event.data.result.value &&
                      state.previousOptions.center.toString() === map.getCenter().toString());
              }
-     
+
              function getBounds(data) {
                  var btmRight;
                  var topLeft;
@@ -243,7 +243,7 @@
                  }
                  return [btmRight, topLeft];
              }
-     
+
              function fitToViewport(markerData) {
                  if (!markerData || markerData instanceof Array && !markerData.length) {
                      return;
@@ -258,18 +258,18 @@
                  }
                  map.fitBounds(bounds, { padding: 100, linear: true });
              }
-     
+
              function handleFuzzyCallForSegment(event, currentCallbackId) {
                  var query = ttSearchBox.getValue();
                  var segmentType = event.data.result.type;
-     
+
                  var commonOptions = Object.assign({}, searchOptions, {
                      query: query,
                      limit: 15,
                      center: map.getCenter(),
                      typeahead: true
                  });
-     
+
                  var filter;
                  if (segmentType === 'category') {
                      filter = { categorySet: event.data.result.id };
@@ -278,7 +278,7 @@
                      filter = { brandSet: event.data.result.value };
                  }
                  var options = Object.assign({}, commonOptions, filter);
-     
+
                  infoHint.setMessage('Loading results...');
                  errorHint.hide();
                  resultsManager.loading();
@@ -313,7 +313,7 @@
                          infoHint.hide();
                      });
              }
-     
+
              function handleNoResults() {
                  resultsManager.clear();
                  resultsManager.resultsNotFound();
@@ -324,7 +324,7 @@
                      '" found nearby. Try changing the viewport.'
                  );
              }
-     
+
              function fillResultsList(results) {
                  resultsManager.clear();
                  var resultList = DomHelpers.createResultList();
@@ -350,10 +350,10 @@
 
 
 
-             
+
              $(document).ready(function(){
                  $(document).on('click','.tt-search-box-result-list', function(){
-                     
+
                      /* var addressLat = document.getElementById("lat").value=lat;
                      var addressLng = document.getElementById("lng").value=lng; */
                      /* var lat1 = $('#lat').val(lat);
@@ -364,8 +364,8 @@
                      var address  = $('.pop-up-content').children('.pop-up-result-address').text();
                      var position = $('.pop-up-content').children('.pop-up-result-position').text();
                      /* alert('ciao'); */
-                     console.log(position);     
-                     
+                     console.log(position);
+
                      //.replWace(' ', '_')
 
                      /* $('#address').val(address); */
@@ -375,13 +375,13 @@
                      /* 'address', 'position' */
                      /* console.log(); */
 
-                     /* <input id="address" hidden type="text" class="form-control" name="address" value=""> 
-                 <input id="country" hidden type="text" class="form-control" name="country" value=""> 
+                     /* <input id="address" hidden type="text" class="form-control" name="address" value="">
+                 <input id="country" hidden type="text" class="form-control" name="country" value="">
 
-                 <input id="lat" hidden type="text" class="form-control" name="lat" value=""> */ 
+                 <input id="lat" hidden type="text" class="form-control" name="lat" value=""> */
 
-                     
-                     
+
+
                      /* <div class="pop-up-result-name">Corso Italia</div>
                      <div class="pop-up-result-address">Corso Italia, 32043 Cortina d'Ampezzo, ITA</div>
                      <div class="pop-up-result-distance">756 km</div>

@@ -1,5 +1,5 @@
 {{-- SHOW DEL SINGOLO MESSAGGIO DELL'UTENTE LOGGATO --}}
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">

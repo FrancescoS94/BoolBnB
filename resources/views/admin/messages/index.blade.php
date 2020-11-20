@@ -1,5 +1,5 @@
 {{-- TUTTI I MESSAGGI RICEVUTI DELL'UTENTE LOGGATO --}}
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -18,14 +18,14 @@
       </tr>
     </thead>
     <tbody>
-      
+
 
       @if($messages != null)
-        @foreach($messages as $message) 
+        @foreach($messages as $message)
         <tr
         @if($message['viewed'] == 0)
           class="font-weight-bold"
-        @endif      
+        @endif
         >
           <td>{{ $message['name'] }}</td>
           <td>{{ $message['lastname'] }}</td>
