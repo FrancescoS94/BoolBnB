@@ -49,111 +49,64 @@ main {
         }
     // *END* BANNER "home.blade"
 
-    // APPARTAMENTI SPONSORIZZATI
-    .sponsor {
-        .col-12, .col-sm-6,
-        .col-md-4, .col-lg-3 {
-            padding: 0px;
-        }
-    }
-
-    .sponsor{
-        padding:50px 0;
-        .row{
-            margin: 10px 0px;
-            @include flex(row,center,center);
-            i{
-              font-size:30px;
+    // APPARTAMENTI SPONSORIZZATI "home.blade"
+        .sponsor {
+            .col-12, .col-sm-6,
+            .col-md-4, .col-lg-3 {
+                padding: 0px;
             }
+        }
 
-            .lista.appartamenti{
-                width:85%;
-                display:flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                padding-right: 45px;
-                padding-left: 5px;
-                overflow-y: hidden;
-                overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
-                .box-group {
-                    margin: 50px 5px;
-                    // border: 1px solid black;
-                    border-radius: 10px;
-                    box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                    &:hover {
-                        transform: scale(1.05);
-                          transition: 0.5s;
-                          z-index: 1;
-                    }
-                    .box-img{
-                      a {
-                          img{
-                              width: 100%;
-                              border-radius: 10px 10px 0px 0px;
-                              // padding: 5px
+        .sponsor{
+            padding:50px 0;
+            .row{
+                margin: 10px 0px;
+                @include flex(row,center,center);
+                i{
+                  font-size:30px;
+                }
+
+                .lista.appartamenti{
+                    width:85%;
+                    display:flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    padding-right: 45px;
+                    padding-left: 5px;
+                    overflow-y: hidden;
+                    overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
+                    .box-group {
+                        margin: 50px 5px;
+                        // border: 1px solid black;
+                        border-radius: 10px;
+                        box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                        &:hover {
+                            transform: scale(1.05);
+                              transition: 0.5s;
+                              z-index: 1;
+                        }
+                        .box-img{
+                          a {
+                              img{
+                                  width: 100%;
+                                  border-radius: 10px 10px 0px 0px;
+                                  // padding: 5px
+                                }
                             }
                         }
                     }
-                }
-                .box-descr{
-                    padding: 5px;
+                    .box-descr{
+                        padding: 5px;
+                    }
                 }
             }
         }
-    }
 
-    .sponsor .row {
-        margin: 0px 0px;
-        padding: 10px 0px;
-    }
-
-
-    // ***SPONSORIZZAZIONI FATTE PRECEDENTEMENTE***
-        // .sponsor .col-12, .col-sm-6,
-        // .col-md-4, .col-lg-3, .col-lg-6 {
-        //     padding: 0px 10px;
-        // }
-        //
-        // .box-group {
-        //     margin: 50px 0px;
-        // }
-        //
-        // .box-img a img {
-        //     width: 100%;
-        //     border-radius: 5px;
-        // }
-        //
-        // .box-group .box-descr {
-        //     position: absolute;
-        //     bottom: 0%;
-        //     color: white;
-        //     width: 94.6%;
-        //     padding: 10px 5px 0px;
-        //     background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.00) 5%, #000 97%);
-        //     word-wrap: break-word;
-        //     border-radius: 0px 0px 5px 5px;
-        // }
-        //
-        // .sponsor .box-group:hover {
-        //     transform: scale(1.1);
-        //     transition: 0.5s;
-        // }
-
-    // DA CANCELLARE
-        // .box-descr {
-        //     position: absolute;
-        //     bottom: 0%;
-        //     color: white;
-        //     width: 94.6%;
-        //     padding: 10px 5px 0px;
-        //     background-image: linear-gradient(-180deg,rgba(0,0,0,0.00) 5%,#000 97%);
-        //     word-wrap: break-word;
-        //     border-radius: 0px 0px 5px 5px;
-        // }
-        // &:hover{
-        //   transform: scale(1.1);
-        //   transition: 0.5s;
-        // }
+        .sponsor .row {
+            margin: 0px 0px;
+            padding: 10px 0px;
+        }
+    // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
 
 
     // PAGINA SEARCH
