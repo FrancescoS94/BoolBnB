@@ -39,7 +39,7 @@
     <div class="row">
 
       {{-- Sidebar --}}
-      <div class="col-2 aside">
+      <div class="col-md-2 col-lg-2 col-xl-2 aside">
 
         {{-- Nome e immagine Avatar --}}
         <div class="utente-dash text-center">
@@ -62,7 +62,7 @@
       </div>
 
       {{-- Lato dx layout, contenuto--}}
-      <div class=" col-10 main">
+      <div class="col-md-10 col-lg-10 col-xl-10 main">
         <main>
           @yield('content')
         </main>
