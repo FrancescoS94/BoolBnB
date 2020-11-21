@@ -11,7 +11,7 @@ textarea {
 }
 
 header nav {
-  background-color: #fff;
+  background-color: #fcfcfc;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -44,7 +44,7 @@ header nav .search .search-text:focus {
 header nav .search a.search-btn {
   text-decoration: none;
   color: white;
-  background: #ff385c;
+  background: #cb1f35;
   float: right;
   width: 40px;
   height: 40px;
@@ -57,9 +57,9 @@ header nav .search a.search-btn {
 }
 
 header nav .search a.search-btn:hover {
-  color: #ff385c;
-  background: #fff;
-  border: 2px solid #ff385c;
+  color: #cb1f35;
+  background: #fcfcfc;
+  border: 2px solid #cb1f35;
 }
 
 header nav .navbar-nav.guest {
@@ -97,22 +97,38 @@ header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
 
 main {
   min-height: calc(100vh - 400px);
-  padding: 106px 0 50px;
+  padding: 107px 0 50px;
   background-color: #e7e9f4;
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
-main .bg-img .jumbotron {
-  background-color: rgba(250, 250, 250, 0.7);
+main .btn-blu {
+  padding: 5px 10px;
+  background-color: #133b55;
+  border: 2px solid #133b55;
+  color: white;
+  border-radius: 4px;
 }
 
-main h1 {
-  text-transform: uppercase;
-  font-size: 50px;
+main .btn-blu:hover {
+  background-color: #fcfcfc;
+  color: #133b55;
+}
+
+main .btn-red {
+  padding: 5px 10px;
+  background-color: #cb1f35;
+  border: 2px solid #cb1f35;
+  color: white;
+  border-radius: 4px;
+}
+
+main .btn-red:hover {
+  background-color: #fcfcfc;
+  color: #cb1f35;
 }
 
 main .bg-img {
-  /* background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg'); */
   background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
   background-repeat: no-repeat;
   background-size: cover;
@@ -121,16 +137,21 @@ main .bg-img {
   padding-top: 129px;
 }
 
-main .sponsor .col-12,
-main .col-sm-6,
-main .col-md-4,
-main .col-lg-3,
-main .col-lg-6 {
-  padding: 0px 10px;
+main .bg-img .jumbotron {
+  background-color: rgba(19, 59, 85, 0.4);
 }
 
-main .box-group {
-  margin: 50px 0px;
+main .bg-img h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #fcfcfc;
+}
+
+main .sponsor .col-12,
+main .sponsor .col-sm-6,
+main .sponsor .col-md-4,
+main .sponsor .col-lg-3 {
+  padding: 0px;
 }
 
 main .sponsor {
@@ -150,24 +171,41 @@ main .sponsor .row i {
 }
 
 main .sponsor .row .lista.appartamenti {
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  padding-right: 45px;
+  padding-left: 5px;
   overflow-y: hidden;
   overflow-x: hidden;
   /* disattiva la scrollbar perchè ora hai le frecce */
 }
 
 main .sponsor .row .lista.appartamenti .box-group {
-  margin: 50px 0px;
-  border: 3px solid red;
-  border-radius: 20px;
+  margin: 50px 5px;
+  border-radius: 10px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+main .sponsor .row .lista.appartamenti .box-group:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+  z-index: 1;
 }
 
 main .sponsor .row .lista.appartamenti .box-group .box-img a img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+main .sponsor .row .lista.appartamenti .box-descr {
+  padding: 5px;
+}
+
+main .sponsor .row {
+  margin: 0px 0px;
+  padding: 10px 0px;
 }
 
 main .container-fluid.search::-webkit-scrollbar,
@@ -283,11 +321,12 @@ main .flat-show ul .bed {
 }
 
 main .flat-show ul .wc {
-  padding-right: 30px;
+  padding-right: 22px;
 }
 
 main .flat-show .flat-img img {
   padding: 0px;
+  margin-bottom: 32px;
 }
 
 main .flat-show .flat-descr {
@@ -300,15 +339,11 @@ main .flat-show .services p {
   padding-right: 15px;
 }
 
-main .flat-show .pos {
-  padding-top: 60px;
-}
-
 main .flat-show .jumbotron {
   background-color: white;
   border: 1px solid #dddddd;
-  box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
-  margin-top: 60px;
+  padding-top: 5px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
 main .flat-show button {
@@ -327,6 +362,42 @@ main .flat-title h1 {
   font-size: 30px;
   font-weight: bold;
   padding: 15px 0px;
+}
+
+main .profile .jumbotron {
+  background-color: #fcfcfc;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  padding: 20px;
+}
+
+main .profile .profile-date {
+  width: 100%;
+}
+
+main .profile .profile-date .profile-title {
+  color: #133b55;
+  font-size: 36px;
+}
+
+main .profile .profile-date .profile-email {
+  font-size: 18px;
+  font-weight: bold;
+  color: #A0A0A0;
+  border-bottom: 2px solid rgba(19, 59, 85, 0.7);
+}
+
+main .profile .profile-date .date .text-right {
+  font-weight: bold;
+  color: #A0A0A0;
+}
+
+main .profile .profile-date .date .col-6 {
+  padding-left: 2px;
+  padding-right: 3px;
+}
+
+main .profile .profile-date a {
+  text-decoration: none;
 }
 
 .aside {
