@@ -97,9 +97,9 @@
                       <p class="card-text">{{$user->lastname}}</p>
                       <p class="card-text">{{$user->status}}</p>
                       <p class="card-text">{{$user->email}}</p>
-                      <p class="card-text">Creazione profilo {{$user->created_at}}</p>
-                      <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
-                      <p class="card-text">Data di nascita{{$user->date_of_birth}}</p>
+                      <p class="card-text">Creazione profilo {{ Carbon\Carbon::parse($user->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
+                      <p class="card-text">Ultima modifica effettuata {{ Carbon\Carbon::parse($user->updated_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
+                      <p class="card-text">Data di nascita {{ Carbon\Carbon::parse($user->date_of_birth)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
 
                       {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
                       <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">

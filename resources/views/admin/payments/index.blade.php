@@ -22,18 +22,10 @@
             <tbody>
                 @foreach($payments as $payment)
                 <tr>
-                    <td>{{ $payment['created_at'] }}</td>
+                    <td>{{ Carbon\Carbon::parse($payment['created_at'])->settings(['toStringFormat' => 'j F Y', ]) }}</td>
                     <td>{{ $payment['flat_id'] }}</td>
-                    <td>
-                        @if($payment['rate_id'] == 1)
-                            {{$payment['created_at']->addHours(24)}}
-                        @elseif($payment['rate_id'] == 2)
-                            {{$payment['created_at']->addHours(72)}}
-                        @elseif($payment['rate_id'] == 3)
-                            {{$payment['created_at']->addHours(144)}}
-                        @endif
-                    </td>
-                    <td>{{ $payment['end_rate'] }}</td>
+                    <td>{{$payment->rate->hours}} ore</td>
+                    <td>{{ Carbon\Carbon::parse($payment['end_rate'])->settings(['toStringFormat' => 'j F Y \a\l\l\e h:i:s', ]) }}</td>
                 </tr>
                 @endforeach
             </tbody>

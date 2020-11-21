@@ -6,9 +6,11 @@
 <div class="container">
   <h1>Tutti i messaggi ricevuti</h1>
 
+  @if($messages != null)
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">Data e ora di ricezione</th>
         <th scope="col">Nome</th>
         <th scope="col">Cognome</th>
         <th scope="col">Email</th>
@@ -18,15 +20,13 @@
       </tr>
     </thead>
     <tbody>
-
-
-      @if($messages != null)
         @foreach($messages as $message)
         <tr
         @if($message['viewed'] == 0)
           class="font-weight-bold"
         @endif
         >
+          <td>{{ Carbon\Carbon::parse($message['created_at'])->settings(['toStringFormat' => 'j F Y \a\l\l\e h:i:s', ]) }}</td>
           <td>{{ $message['name'] }}</td>
           <td>{{ $message['lastname'] }}</td>
           <td>{{ $message['email'] }}</td>
@@ -43,11 +43,13 @@
           </td>
         </tr>
         @endforeach
-        @else
-        Non hai ancora nessun messaggio
-      @endif
+        
     </tbody>
   </table>
+  @else
+    Non hai ancora nessun messaggio
+  @endif
+
   @if($messages != null)
     {{ $messages->links() }}
   @endif
