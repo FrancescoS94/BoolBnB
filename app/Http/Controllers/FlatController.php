@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
 use App\Service;
+use App\Address;
 use Carbon\Carbon;
 
 class FlatController extends Controller
@@ -17,13 +18,13 @@ class FlatController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
+        /* if ($request->ajax()) {
             $messaggio = 'Dati passati';
             dd($messaggio);
             return  view('search',compact('messaggio'));
-        }
+        } */
         // tutti gli appartamenti, per risultato di ricerca
-        $flats = Flat::all();
+       /*  $flats = Flat::all();
         $service = Service::all();
         
         // filtro per appartamenti sponsorizzati
@@ -36,7 +37,12 @@ class FlatController extends Controller
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
         
         // alla view ritorno entrambe le variabili
-        return view('search',compact('flats', 'flatsSpons', 'service'));
+        return view('search',compact('flats', 'flatsSpons', 'service')); */
+
+        $q= $_GET['query_search'];
+        $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get();
+        dd($addresses);
+        return view('search');
     }
 
     /**

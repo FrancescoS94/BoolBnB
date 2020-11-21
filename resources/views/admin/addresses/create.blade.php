@@ -51,8 +51,8 @@
         </div>
     </div>
 
-    {{-- aggiunta 18-11-20 tomtom --}}
-    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
+                {{-- aggiunta 18-11-20 tomtom --}}
+                <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
                 <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
                 <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox-web.js'></script>
                 <script type='text/javascript' src='{{ asset('js/search-marker.js')}}' ></script>

@@ -2,6 +2,13 @@
 @extends('layouts.app')
 @section('content')
 
+<form action="{{route('flats.index')}}" method="GET">
+    <input class="search-text" type="text" name="query_search" placeholder="Inizia la ricerca">
+    <button>Cerca</button>
+</form>
+
+
+
 {{-- BANNER --}}
 <section class="bg-img">
     <div class="container-fluid">
@@ -37,14 +44,13 @@
             @endforeach
         </div>
         <i class="fas fa-chevron-right right"></i>
-
     </div>
 
     <script>
 
        //$("#screenName").on("keyup",function()
 
-        $(document).on('click','a.search-btn',function(){
+        /* $(document).on('click','a.search-btn',function(){
             var search = $('input.search-text').val();
             if(search != ''){
 
@@ -52,82 +58,36 @@
                     type: "GET",
                     url:  "http://localhost:8000/api/addresses",
                     success: function(response){
+                        var list= [];
                         for(var i=0; i<response.length; i++){
                             var indirizzo = response[i]['address'];
 
                             if(indirizzo.toLowerCase().includes(search)){
                                 var obj=response[i];
-                                var objpassato=(JSON.stringify(obj));
-                                //console.log(JSON.stringify(obj));
-
-                                $.ajax({
-                                    type: "POST",
-                                    url: " api/addresses",
-                                    data: obj,
-                                    dataType: "json",
-                                }).done(function(messaggio){
-                                    alert("Successo");
-                                }).fail(function(){
-                                    alert("Errore");
-                                });
+                                list.push(obj);
+                                var objpassato= JSON.stringify(list);
                             }// chiusura if
                         } // chiusura for
+
+                        /* console.log(objpassato); 
+                        $.ajax({
+                            type: "GET",
+                            url: 'api/flats',
+                            data: objpassato,
+                            dataType: "json",
+                            }).done(function(messaggio){
+                                 alert("Successo");
+                            }).fail(function(error){
+                                //alert("Errore");
+                                console.log(error, 'errore interno!!')
+                        });
                     },error: function(error){
                         console.log('errore', error);
                     }
                 })
             }
-        });
-                /* $.ajax({indirizzo.filter(query)
-                type: "GET",
-                url: "http://localhost:8000/api/addresses",
-                data: 
-                success: function (response) {
+        }); */
 
-                    console.log(response); */
-
-                    /* for(var i=0; i<response.length; i++){
-                        var indirizzo = response[i]['address'];
-                        
-                        if(indirizzo.filter(query)){
-                            console.log('okay trovata');
-                        }else{
-                            console.log('non trovato');
-                        }  
-                    } 
-                },error:function(error){
-                    console.log('errore', error)
-                }
-
-                
-            }); */
-
-
-            /* $("#screenName").on("keyup",function(){
-            var screenName=$(this).val();
-
-            if(screenName!='')
-            {
-            $.ajax({
-                    type: 'post',
-                    url:  'screenNameCheck.php',
-                    data: 'Screen_Name=' + screenName,
-
-                    success: function (r) {
-                        $('.screenNameError').html(r);
-                    }
-                })
-            }
-
-            /* {
-                    query: search
-                },
-            }); */
-
-            
-        
-
-        
     </script>
 </section>
 @endsection

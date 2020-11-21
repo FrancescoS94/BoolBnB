@@ -26,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        /* $citta=$_GET['citta'];
+        dd($citta); */
+
         $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at 
         $sponsAttive = Payment::all()->where('end_rate', '>', $momentoAttuale); // memorizzo in una var tutti i pagamenti con end_rate successivo al momento attuale (vuol dire che sono sponsorizzati)
         $flatsIdSpons = [];                                                     // imposto un array vuoto
