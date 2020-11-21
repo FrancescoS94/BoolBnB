@@ -23,6 +23,12 @@ class FlatController extends Controller
 
     function store(Request $request){
 
+        /* $address= Address::all()->last('id'); */
+        /* dd($address); */
+        //prendere l'ultimo indirizzo segnato dall'utente loggato nel db!
+
+
+
         $data = $request->all();
         $request->validate([ #validazione e controllo dei dati passati
  /*            'title' => 'required|string|max:200|min:20',
@@ -133,9 +139,11 @@ class FlatController extends Controller
     }
 
     // NON SERVE PERCHE' VADO ALLA VIEW FLATS-CREATE DIRETTAMENTE DALLO STORE DELL'ADDRESS
-    // public function create(){
-    //     return view('admin.flats.flats-create', compact('address'));
-    // }
+    public function create(){
+        $service= Service::all();
+        $address= Address::all()->last();
+        return view('admin.flats.flats-create',compact('service','address'));
+    }
 
     public function edit(Flat $flat, Address $address, Service $service){
         $service= Service::all();

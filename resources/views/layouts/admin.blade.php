@@ -35,7 +35,6 @@
 
 </head>
 <body>
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-2 aside">
@@ -58,13 +57,14 @@
         {{-- FINE LOGOUT --}}
       </div>
 
-      <div class=" col-10 main">
+      {{-- Lato dx layout, contenuto--}}
+      <div class="col-md-10 col-lg-10 col-xl-10 main">
         <main>
           @yield('content')
         </main>
       </div>
+
     </div>
   </div>
-
 </body>
 </html>

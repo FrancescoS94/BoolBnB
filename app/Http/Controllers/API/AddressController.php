@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Address;
+use App\Service;
 
 class AddressController extends Controller
 {
@@ -15,7 +16,8 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        $addresses= Address::get();
+        return response()->json($addresses,200);
     }
 
     /**
@@ -46,9 +48,9 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Address $address)
     {
-        //
+        return response()->json($address,200);
     }
 
     /**
