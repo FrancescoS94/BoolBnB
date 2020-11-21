@@ -1,92 +1,113 @@
 main {
   min-height: calc(100vh - 400px);
-  padding:106px 0 50px;
+  padding:107px 0 50px;
   background-color: $whiteBnb;
 
-    // BANNER
-    .bg-img {
-        .jumbotron {
-            background-color: rgba(250, 250, 250, 0.7);
+    .btn-blu {
+        padding: 5px 10px;
+        background-color: rgba(19, 59, 85, 1);
+        border: 2px solid rgba(19, 59, 85, 1);
+        color: white;
+        border-radius: 4px;
+        &:hover {
+        background-color: #fcfcfc;
+        color: rgba(19, 59, 85, 1);
+        }
+    }
+    .btn-red {
+        padding: 5px 10px;
+        background-color: $logoColor;
+        border: 2px solid $logoColor;
+        color: white;
+        border-radius: 4px;
+        &:hover {
+        background-color: #fcfcfc;
+        color: $logoColor;
         }
     }
 
-    h1 {
-        text-transform: uppercase;
-        font-size: 50px;
-    }
 
-    .bg-img {
-        /* background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg'); */
-        background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        height: 614px;
-        // margin-top: 80px;
-        padding-top: 129px;
-    }
+    // BANNER "home.blade"
+        .bg-img {
+            // background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg');
+            background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 614px;
+            // margin-top: 80px;
+            padding-top: 129px;
 
-    // APPARTAMENTI SPONSORIZZATI
-    // .sponsor .row {
-    //     margin: 0px 0px;
-    //     padding: 10px 0px;
-    // }
-
-    .sponsor .col-12, .col-sm-6,
-    .col-md-4, .col-lg-3, .col-lg-6 {
-        padding: 0px 10px;
-    }
-
-    .box-group {
-        margin: 50px 0px;
-    }
-
-    .sponsor{
-      padding:50px 0;
-      .row{
-        margin: 10px 0px;
-        @include flex(row,center,center);
-        i{
-          font-size:30px;
-        }
-        .lista.appartamenti{
-          width:80%;
-          display:flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          overflow-y: hidden;
-          overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
-          .box-group {
-            margin: 50px 0px;
-            border:3px solid red;
-            border-radius:20px;
-            .box-img{
-              a{
-                img{
-                  width: 100%;
-                  border-radius: 5px;
-                }
-              }
+            .jumbotron {
+                    background-color: $banner;
             }
-            // .box-descr {
-            //     position: absolute;
-            //     bottom: 0%;
-            //     color: white;
-            //     width: 94.6%;
-            //     padding: 10px 5px 0px;
-            //     background-image: linear-gradient(-180deg,rgba(0,0,0,0.00) 5%,#000 97%);
-            //     word-wrap: break-word;
-            //     border-radius: 0px 0px 5px 5px;
-            // }
-            // &:hover{
-            //   transform: scale(1.1);
-            //   transition: 0.5s;
-            // }
-          }
+
+            h1 {
+                text-transform: uppercase;
+                font-size: 50px;
+                color: $nav;
+            }
+        }
+    // *END* BANNER "home.blade"
+
+    // APPARTAMENTI SPONSORIZZATI "home.blade"
+        .sponsor {
+            .col-12, .col-sm-6,
+            .col-md-4, .col-lg-3 {
+                padding: 0px;
+            }
         }
 
-      }
-    }
+        .sponsor{
+            padding:50px 0;
+            .row{
+                margin: 10px 0px;
+                @include flex(row,center,center);
+                i{
+                  font-size:30px;
+                }
+
+                .lista.appartamenti{
+                    width:85%;
+                    display:flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    padding-right: 45px;
+                    padding-left: 5px;
+                    overflow-y: hidden;
+                    overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
+                    .box-group {
+                        margin: 50px 5px;
+                        // border: 1px solid black;
+                        border-radius: 10px;
+                        box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                        &:hover {
+                            transform: scale(1.05);
+                              transition: 0.5s;
+                              z-index: 1;
+                        }
+                        .box-img{
+                          a {
+                              img{
+                                  width: 100%;
+                                  border-radius: 10px 10px 0px 0px;
+                                  // padding: 5px
+                                }
+                            }
+                        }
+                    }
+                    .box-descr{
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+
+        .sponsor .row {
+            margin: 0px 0px;
+            padding: 10px 0px;
+        }
+    // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
 
 
     // PAGINA SEARCH
@@ -143,69 +164,107 @@ main {
       }
     }
 
-    // SHOW FLAT
-    .flat-show {
+    // SHOW FLAT "flat.blade"
+        .flat-show {
 
-        ul {
-            list-style-type: none;
-            padding-top: 10px;
-            img {
-                height: 25px;
-                padding: 0px 5px 5px 0px;
+            ul {
+                list-style-type: none;
+                padding-top: 10px;
+                img {
+                    height: 25px;
+                    padding: 0px 5px 5px 0px;
+                }
+                .bed {
+                    padding-right: 20px;
+                }
+                .wc {
+                    padding-right: 22px;
+                }
             }
-            .bed {
+
+            .flat-img {;
+                img {
+                    padding: 0px;
+                    margin-bottom: 32px;
+                }
+            }
+
+            .flat-descr {
+                padding-top: 25px;
                 padding-right: 20px;
             }
-            .wc {
-                padding-right: 30px;
+
+            .services p {
+                float: left;
+                padding-right: 15px;
             }
-        }
 
-        .flat-img {;
-            img {
-                padding: 0px;
-            }
-        }
-
-        .flat-descr {
-            padding-top: 25px;
-            padding-right: 20px;
-        }
-
-        .services p {
-            float: left;
-            padding-right: 15px;
-        }
-
-        .pos {
-            padding-top: 60px;
-        }
-
-        .jumbotron {
-            background-color: white;
-            border: 1px solid rgb(221, 221, 221);
-            box-shadow: rgba(20, 96, 58, 0.4) 0px 6px 16px;
-            margin-top: 60px;
-        }
-
-        button {
-            background-color: #ff385c;
-            padding: 7px 15px;
-            color: white;
-            &:hover {
+            .jumbotron {
                 background-color: white;
-                color: #ff385c;
-                border: 2px solid #ff385c;
+                border: 1px solid rgb(221, 221, 221);
+                padding-top: 5px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            }
+
+            button {
+                background-color: #ff385c;
+                padding: 7px 15px;
+                color: white;
+                &:hover {
+                    background-color: white;
+                    color: #ff385c;
+                    border: 2px solid #ff385c;
+                }
             }
         }
-    }
 
-    .flat-title {
-        h1 {
-            font-size: 30px;
-            font-weight: bold;
-            padding: 15px 0px;
+        .flat-title {
+            h1 {
+                font-size: 30px;
+                font-weight: bold;
+                padding: 15px 0px;
+            }
         }
-    }
+    // *END* SHOW FLAT "flat.blade"
+
+    // GESTISCI IL PROFILO profile.blade
+        .box-profile {
+
+        }
+        .profile {
+            .jumbotron {
+                background-color: #fcfcfc;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                padding: 20px;
+            }
+            .profile-date {
+                width: 100%;
+                .profile-title {
+                    color: rgba(19, 59, 85, 1);
+                    font-size: 36px;
+                }
+                .profile-email {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #A0A0A0;
+                    border-bottom: 2px solid rgba(19, 59, 85, 0.7);
+                }
+                .date {
+                    .text-right {
+                        font-weight: bold;
+                        color: #A0A0A0;
+                    }
+                    .col-6 {
+                        padding-left: 2px;
+                        padding-right: 3px;
+                    }
+                }
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    // *END* GESTISCI IL PROFILO profile.blade
+
 
 }

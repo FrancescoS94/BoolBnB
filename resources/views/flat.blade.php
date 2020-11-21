@@ -23,7 +23,7 @@
             box-shadow: none;
             margin-top: 8px;
         }
-    </style>   
+    </style>
 @endsection
 
 @section('content')
@@ -34,7 +34,7 @@
             <div class="col-md-12 col-lg-7">
                 <div class="flat-img">
                     {{-- src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}" --}}
-                    <img class="img-thumbnail border-0" src="https://www.triesteallnews.it/wp-content/images/2019/08/affitti-brevi-appartamenti.jpg"  alt="">
+                    <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt="">
                 </div>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
@@ -44,19 +44,19 @@
                 </div>
                 <ul>
                     <li class="float-left bed">
-                        <img src="{{asset('image\bed.png')}}" alt="Icon Bed">
+                        <img src="{{ asset('storage/bed.png')}}" alt="Icon Bed">
                         Letti: {{$flat->bed}}
                     </li>
                     <li>
-                        <img src="{{asset('image\room.png')}}" alt="Icon Room">
+                        <img src="{{ asset('storage/room.png')}}" alt="Icon Room">
                         Stanze: {{$flat->room}}
                     </li>
                     <li class="float-left wc">
-                        <img src="{{asset('image\bath.png')}}" alt="Icon WC">
+                        <img src="{{ asset('storage/bath.png')}}" alt="Icon WC">
                         WC: {{$flat->wc}}
                     </li>
                     <li>
-                        <img src="{{asset('image\plans.png')}}" alt="Icon Mq">
+                        <img src="{{ asset('storage/plans.png')}}" alt="Icon Mq">
                         Mq: {{$flat->mq}}
                     </li>
                 </ul>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             {{-- TOMTOM & FORM --}}
-            <div class="col-md-7 col-lg-6 pos">
+            <div class="col-md-7 col-lg-6 mt-5">
                 <h2>Posizione</h2>
                 <div id='map' class='map'>
                     <div class='tt-overlay-panel -left-top -medium js-foldable'>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron pos">
+            <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron mt-5">
                 <div id="form-messaggio">
                     <h2>Contatta l'host</h2>
                     {{-- STATUS --}}

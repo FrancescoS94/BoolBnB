@@ -19,7 +19,7 @@
 </section>
 
 <section class="container-fluid sponsor">
-    
+
     {{-- FRANCESCO --}}
     {{-- A: {{ route('flats.show', $flatSpons->id) }} --}}
     {{-- IMG: {{ $flatSpons->image }} --}}
@@ -33,7 +33,7 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
                 <div class="box-img">
                     <a href="{{ route('flats.show', $flatSpons->id) }}">
-                        <img class="" src="{{ asset('storage/' . $flatSpons->image) }}" alt="">
+                        <img class="" src="https://static.nexilia.it/vologratis/2018/05/come-prenotare-casa-vacanze-airbnb.jpg" alt="">
                     </a>
                 </div>
                 <div class="box-descr">
@@ -87,6 +87,57 @@
                 })
             }
         }); */
+
+        });
+                /* $.ajax({indirizzo.filter(query)
+                type: "GET",
+                url: "http://localhost:8000/api/addresses",
+                data:
+                success: function (response) {
+
+                    console.log(response); */
+
+                    /* for(var i=0; i<response.length; i++){
+                        var indirizzo = response[i]['address'];
+
+                        if(indirizzo.filter(query)){
+                            console.log('okay trovata');
+                        }else{
+                            console.log('non trovato');
+                        }
+                    }
+                },error:function(error){
+                    console.log('errore', error)
+                }
+
+
+            }); */
+
+
+            /* $("#screenName").on("keyup",function(){
+            var screenName=$(this).val();
+
+            if(screenName!='')
+            {
+            $.ajax({
+                    type: 'post',
+                    url:  'screenNameCheck.php',
+                    data: 'Screen_Name=' + screenName,
+
+                    success: function (r) {
+                        $('.screenNameError').html(r);
+                    }
+                })
+            }
+
+            /* {
+                    query: search
+                },
+            }); */
+
+
+
+
 
     </script>
 </section>
