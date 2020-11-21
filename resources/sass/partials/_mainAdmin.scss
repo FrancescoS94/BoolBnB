@@ -4,28 +4,45 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #354052;
+  padding: 0px !important;
+  text-transform: uppercase;
+  color: $whiteBnb;
+  background-color: #184868;
   a{
-    padding: 20px 8px 10px 5px;
+    padding: 15px 8px 15px 5px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
     color: white;
     display: block;
-    border-bottom: 1px solid darkgray;
     &:hover{
-      color: #f1f1f1;
+      color: white;
+      background-color:$blueBnb;
       text-decoration: none;
     }
     i{
       font-size: 20px;
-      margin-right: 5px;
+      margin: 0px 7px 0px 7px;
+    }
+  }
+  .utente-dash{
+    background-color: $blueBnb;
+    color: white;
+    font-weight: bold;
+    img{
+      margin: 35px 0px 10px 0px;
+      border: 3px solid #184868;
+      height: 100px;
+      width: 100px;
+      // box-shadow: rgba(203,31,53,0.4) 0px 5px 14px;
     }
   }
 }
-
 .main{
   height: 100vh;
-  padding: 0px 10px;
+  // padding: 0px 10px;
+  padding: 0px !important;
   overflow-y: scroll;
   scrollbar-width: none;
 }
