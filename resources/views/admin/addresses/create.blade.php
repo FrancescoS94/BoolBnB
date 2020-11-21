@@ -39,15 +39,12 @@
                 
                 <div>
                     {{-- form creazione indirizzo, punta al controller Admin/AddressController  --}}
-                    <form action="{{ route('admin.addresses.store') }}" method="post">
+                    {{-- <form action="{{ route('admin.addresses.store') }}" method="post">
                         @csrf
                         @method('POST')
-
-                        {{-- <input id="address" hidden type="text" class="form-control" name="address"> 
-                        <input id="position" hidden type="text" class="form-control" name="position"> --}}
-        
                         <button type="submit" class="btn btn-primary">Registra l'indirizzo dell'appartamento</button>
-                    </form> 
+                    </form>  --}}
+                    <a  class="btn btn-primary" href="{{ route('admin.flats.create') }}">Registra l'indirizzo dell'appartamento</a>
                 </div>
 
             </div>
@@ -55,7 +52,7 @@
     </div>
 
     {{-- aggiunta 18-11-20 tomtom --}}
-                <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
                 <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
                 <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox-web.js'></script>
                 <script type='text/javascript' src='{{ asset('js/search-marker.js')}}' ></script>
@@ -351,9 +348,5 @@
                         });
                     });
                 </script>
-
-
-
-
 </div>
 @endsection

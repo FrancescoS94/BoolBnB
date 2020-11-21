@@ -1,13 +1,16 @@
 
-{{-- PAGINA DI RICERCA --}}
+{{-- @dd($messaggio); --}}
+{{-- PAGINA DI RICERCA 
 @extends('layouts.app')
 @section('content')
 
 <h2>Risultati Ricerca</h2>
 
-{{-- RAGA per visualizzare questa parte in homepage dovete
+
+
+ RAGA per visualizzare questa parte in homepage dovete
     1. andare su mysql nella tabella payments
-    2. impostare a qualche pagamento un valore end_rate la data di domani --}}
+    2. impostare a qualche pagamento un valore end_rate la data di domani 
 
 <div class="layout">
 
@@ -49,7 +52,7 @@
                 <ul>
                   <li>{{ $service->service }}</li>
                 </ul>
-                @endforeach --}}
+                @endforeach // chiusedere qui
               </a>
             </div>
 
@@ -69,4 +72,4 @@
 
 
 
-@endsection
+@endsection --}}

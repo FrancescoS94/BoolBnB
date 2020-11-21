@@ -15,8 +15,13 @@ class FlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $messaggio = 'Dati passati';
+            dd($messaggio);
+            return  view('search',compact('messaggio'));
+        }
         // tutti gli appartamenti, per risultato di ricerca
         $flats = Flat::all();
         $service = Service::all();

@@ -36,9 +36,11 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
     this.marker.setPopup(new SearchMarkerPopup(this.poiData, this.options));
 
 
+   var pos= this.poiData['address'];
    var lat= this.poiData['position']['lat'];
    var lng= this.poiData['position']['lng'];
 
+    console.log(pos,lat,lng);
 
     var formData= `address=${this.poiData['address']}`;
     formData += `&lat=${lat}`;
@@ -49,11 +51,13 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
         data : formData,
         success: function(esito)
         {
-            console.log('dati passati'+ esito);
+            console.log('dati passati' + esito);
         },error: function(error){
-            console.log('errore'+ error);
+            console.log('errore' + error);
         }
     });    
+
+    console.log(formData);
 }
 
 

@@ -23,7 +23,7 @@
                     </ul>
                 </div>
                 @endif
-                
+
                 <div>
                     <h2>Descrivi il tuo appartamento a i nostri utenti</h2>
                     
