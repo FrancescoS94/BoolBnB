@@ -1,16 +1,13 @@
-
 {{-- @dd($messaggio); --}}
-{{-- PAGINA DI RICERCA 
+{{-- PAGINA DI RICERCA --}}
 @extends('layouts.app')
 @section('content')
 
 <h2>Risultati Ricerca</h2>
 
-
-
- RAGA per visualizzare questa parte in homepage dovete
+ {{--RAGA per visualizzare questa parte in homepage dovete
     1. andare su mysql nella tabella payments
-    2. impostare a qualche pagamento un valore end_rate la data di domani 
+    2. impostare a qualche pagamento un valore end_rate la data di domani--}}
 
 <div class="layout">
 
@@ -19,7 +16,7 @@
       @foreach ($flatsSpons as $flatSpons)
       <div class="row flat">
         <div class="col-5">
-          <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ $flatSpons->image }}" class="card-img-top" alt="{{ $flatSpons->title}}"></a>
+          <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ asset('storage/'.$flatSpons->image ) }}" class="card-img-top" alt="{{ $flatSpons->title}}"></a>
         </div>
         <div class="col-6">
             <div class="">
@@ -48,11 +45,13 @@
                   </ul>
 
 
-                @foreach($flatSpons->services as $service)
-                <ul>
-                  <li>{{ $service->service }}</li>
-                </ul>
-                @endforeach // chiudere qui
+                    <div class="">
+                      @foreach($flatSpons->services as $service)
+                      <span> {{ $service->service }} </span>
+                      @endforeach
+                    </div>
+
+
               </a>
             </div>
 
@@ -72,4 +71,4 @@
 
 
 
-@endsection --}}
+@endsection
