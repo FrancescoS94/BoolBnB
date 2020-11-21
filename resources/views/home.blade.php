@@ -40,6 +40,22 @@
 
     </div>
 
+{{-- PROVA******** --}}
+    {{-- <div class="row">
+        @foreach ($flatsSpons as $flatSpons)
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="box-img">
+                <a href="#">
+                    <img class="" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg" alt="">
+                </a>
+            </div>
+            <div class="box-descr">
+                <h5>Milano</h5>
+                <h6>Titolo appartamento</h6>
+            </div>
+        </div>
+        @endforeach
+    </div> --}}
 
 </section>
 @endsection

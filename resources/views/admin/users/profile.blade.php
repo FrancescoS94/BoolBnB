@@ -30,7 +30,7 @@
 
     .loader:before, .loader:after{
         content: '';
-        border: 1em solid #ff5733;
+        border: 1em solid #133b55;
         border-radius: 50%;
         width: inherit;
         height: inherit;
@@ -77,51 +77,59 @@
 
     </div>
 </div>
+
+
 {{-- PROFILE --}}
 <div class="container">
     <img src="{{asset('image/phone_maintenance.png')}}" alt="">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-
+    <div class="row justify-content-center profile">
+        <div class="col-md-8 col-lg-8 d-flex justify-content-center jumbotron">
             {{-- esito dell'operazione  --}}
             @if(session('status'))
                 <div class="alert alert-success">{{ session('status') }}</div>
             @endif
 
-            <div class="card">
-                <div class="card-body">
-                   Ciao {{ Auth::user()->name }} qui puoi aggiornare il tuo profilo
-                    <div class="card" style="width: 18rem;">
-                       <div class="card-body">
-                            <h5 class="card-title">{{$user->name}}</h5>
-                            <p class="card-text">{{$user->lastname}}</p>
-                            <p class="card-text">{{$user->status}}</p>
-                            <p class="card-text">{{$user->email}}</p>
-                            <p class="card-text">Creazione profilo {{$user->created_at}}</p>
-                            <p class="card-text">Ultima modifica effettuata {{$user->updated_at}}</p>
-                            <p class="card-text">Data di nascita{{$user->date_of_birth}}</p>
-
-                              {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
-                              <img style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
-
-                             {{--  rotta show, al momento inutile, NON cancellare!
-                                   <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
-                        </div>
+            <div class="text-center profile-date">
+                {{-- Ciao {{ Auth::user()->name }} qui puoi aggiornare il tuo profilo --}}
+                {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
+                <img class="rounded-circle" style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="Immagine del profilo">
+                <h2 class="profile-title">{{$user->name}} {{$user->lastname}}</h2>
+                <p class="profile-email pb-3">{{$user->email}}</p>
+                <div class="row date">
+                    <div class="text-right col-6 pt-3">
+                        <p>Nome:</p>
+                        <p>Cognome:</p>
+                        <p>Data di nascita:</p>
+                        <p>email:</p>
+                        <p>Status:</p>
+                        <p>Creazione profilo:</p>
+                        <p>Ultima modifica:</p>
+                    </div>
+                    <div class="text-left col-6 pt-3">
+                        <p>{{$user->name}}</p>
+                        <p>{{$user->lastname}}</p>
+                        <p>{{$user->date_of_birth}}</p>
+                        <p>{{$user->email}}</p>
+                        <p>{{$user->status}}</p>
+                        <p>{{ Carbon\Carbon::parse($user->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
+                        <p>{{ Carbon\Carbon::parse($user->updated_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
                     </div>
                 </div>
-                <a class="btn btn-primary" href="{{route('admin.users.edit', $user->id)}}" role="button">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Aggiungi informazioni' : 'Modifica il tuo profilo'}}</a>
-
-                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Cancella il tuo profilo</button>
-                </form>
-
+                {{--  rotta show, al momento inutile, NON cancellare!
+                <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
+                <div class="d-flex justify-content-center">
+                    <a class="btn-blu mr-2 mt-3" href="{{route('admin.users.edit', $user->id)}}" role="button">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Aggiungi informazioni' : 'Modifica'}}</a>
+                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn-red ml-2 mt-3" type="submit">Cancella</button>
+                    </form>
+                </div>
             </div>
-
-
         </div>
     </div>
+
+
     <script>
         setTimeout(function(){
             $('.loader_bg').fadeToggle();

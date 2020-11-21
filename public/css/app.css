@@ -101,14 +101,30 @@ main {
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
-main .bg-img .jumbotron {
-  background-color: rgba(19, 59, 85, 0.4);
+main .btn-blu {
+  padding: 5px 10px;
+  background-color: #133b55;
+  border: 2px solid #133b55;
+  color: white;
+  border-radius: 4px;
 }
 
-main h1 {
-  text-transform: uppercase;
-  font-size: 50px;
-  color: #fcfcfc;
+main .btn-blu:hover {
+  background-color: #fcfcfc;
+  color: #133b55;
+}
+
+main .btn-red {
+  padding: 5px 10px;
+  background-color: #cb1f35;
+  border: 2px solid #cb1f35;
+  color: white;
+  border-radius: 4px;
+}
+
+main .btn-red:hover {
+  background-color: #fcfcfc;
+  color: #cb1f35;
 }
 
 main .bg-img {
@@ -118,6 +134,16 @@ main .bg-img {
   background-position: center;
   height: 614px;
   padding-top: 129px;
+}
+
+main .bg-img .jumbotron {
+  background-color: rgba(19, 59, 85, 0.4);
+}
+
+main .bg-img h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #fcfcfc;
 }
 
 main .sponsor .col-12,
@@ -174,6 +200,11 @@ main .sponsor .row .lista.appartamenti .box-group .box-img a img {
 
 main .sponsor .row .lista.appartamenti .box-descr {
   padding: 5px;
+}
+
+main .sponsor .row {
+  margin: 0px 0px;
+  padding: 10px 0px;
 }
 
 main .container-fluid.search::-webkit-scrollbar,
@@ -330,6 +361,42 @@ main .flat-title h1 {
   font-size: 30px;
   font-weight: bold;
   padding: 15px 0px;
+}
+
+main .profile .jumbotron {
+  background-color: #fcfcfc;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  padding: 20px;
+}
+
+main .profile .profile-date {
+  width: 100%;
+}
+
+main .profile .profile-date .profile-title {
+  color: #133b55;
+  font-size: 36px;
+}
+
+main .profile .profile-date .profile-email {
+  font-size: 18px;
+  font-weight: bold;
+  color: #A0A0A0;
+  border-bottom: 2px solid rgba(19, 59, 85, 0.7);
+}
+
+main .profile .profile-date .date .text-right {
+  font-weight: bold;
+  color: #A0A0A0;
+}
+
+main .profile .profile-date .date .col-6 {
+  padding-left: 2px;
+  padding-right: 3px;
+}
+
+main .profile .profile-date a {
+  text-decoration: none;
 }
 
 .aside {
