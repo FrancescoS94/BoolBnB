@@ -97,7 +97,8 @@ header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
 
 main {
   min-height: calc(100vh - 400px);
-  padding: 155px 0 50px;
+  padding: 106px 0 50px;
+  background-color: #e7e9f4;
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
@@ -111,7 +112,8 @@ main h1 {
 }
 
 main .bg-img {
-  background-image: url("https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg");
+  /* background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg'); */
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -333,31 +335,49 @@ main .flat-title h1 {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #354052;
+  padding: 0px !important;
+  text-transform: uppercase;
+  color: #e7e9f4;
+  background-color: #184868;
 }
 
 .aside a {
-  padding: 20px 8px 10px 5px;
+  padding: 15px 8px 15px 5px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
   color: white;
   display: block;
-  border-bottom: 1px solid darkgray;
 }
 
 .aside a:hover {
-  color: #f1f1f1;
+  color: white;
+  background-color: #133b55;
   text-decoration: none;
 }
 
 .aside a i {
   font-size: 20px;
-  margin-right: 5px;
+  margin: 0px 7px 0px 7px;
+}
+
+.aside .utente-dash {
+  background-color: #133b55;
+  color: white;
+  font-weight: bold;
+}
+
+.aside .utente-dash img {
+  margin: 35px 0px 10px 0px;
+  border: 3px solid #184868;
+  height: 100px;
+  width: 100px;
 }
 
 .main {
   height: 100vh;
-  padding: 0px 10px;
+  padding: 0px !important;
   overflow-y: scroll;
   scrollbar-width: none;
 }

@@ -45,11 +45,11 @@
                   </ul>
 
 
-                {{-- @foreach($flatSpons->services as $service)
+                @foreach($flatSpons->services as $service)
                 <ul>
                   <li>{{ $service->service }}</li>
                 </ul>
-                @endforeach --}}
+                @endforeach
               </a>
             </div>
 
