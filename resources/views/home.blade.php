@@ -43,7 +43,7 @@
         <i class="fas fa-chevron-right right"></i>
     </div>
 
-    <script>
+       <script>
 
        //$("#screenName").on("keyup",function()
 
@@ -66,7 +66,7 @@
                             }// chiusura if
                         } // chiusura for
 
-                        /* console.log(objpassato); 
+                        /* console.log(objpassato);
                         $.ajax({
                             type: "GET",
                             url: 'api/flats',

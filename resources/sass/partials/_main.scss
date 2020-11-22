@@ -162,10 +162,11 @@ main {
               border-radius: 10px;
             }
             .flat-text{
+              margin-left: 15px;
               padding-top: 15px;
               p{
                 padding-bottom: 10px;
-                border-bottom: 1px solid $redBnb;
+                border-bottom: 2px solid $redBnb;
               }
               ul{
                 list-style-type: none;
@@ -196,6 +197,10 @@ main {
         overflow-y:hidden;
       }
     }
+
+
+
+
 
     // SHOW FLAT "flat.blade"
         .flat-show {

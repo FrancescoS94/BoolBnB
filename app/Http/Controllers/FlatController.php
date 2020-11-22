@@ -18,30 +18,30 @@ class FlatController extends Controller
      */
     public function index(Request $request)
     {
-        /* if ($request->ajax()) {
+        if ($request->ajax()) {
             $messaggio = 'Dati passati';
             dd($messaggio);
             return  view('search',compact('messaggio'));
-        } */
+        }
         // tutti gli appartamenti, per risultato di ricerca
-       /*  $flats = Flat::all();
+       $flats = Flat::all();
         $service = Service::all();
-        
+
         // filtro per appartamenti sponsorizzati
-        $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at 
+        $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at
         $sponsAttive = Payment::all()->where('end_rate', '>', $momentoAttuale); // memorizzo in una var tutti i pagamenti con end_rate successivo al momento attuale (vuol dire che sono sponsorizzati)
         $flatsIdSpons = [];                                                     // imposto un array vuoto
         foreach($sponsAttive as $sponsAttiva){
             array_push($flatsIdSpons, $sponsAttiva->flat_id);                   // memorizzo nell'array vuoto tutti gli id degli appartamenti sponsorizzati
         }
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
-        
-        // alla view ritorno entrambe le variabili
-        return view('search',compact('flats', 'flatsSpons', 'service')); */
 
-        $q= $_GET['query_search'];
-        $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get();
-        dd($addresses);
+        // alla view ritorno entrambe le variabili
+        return view('search',compact('flats', 'flatsSpons', 'service'));
+
+        // $q= $_GET['query_search'];
+        // $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get();
+        // dd($addresses);
         return view('search');
     }
 
