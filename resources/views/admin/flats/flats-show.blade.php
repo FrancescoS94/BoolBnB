@@ -1,4 +1,3 @@
-
 {{-- SHOW DEL SINGOLO APPARTAMENTO DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 
@@ -66,9 +65,26 @@
         </div>
 
         {{-- prova chart js --}}
+        <div class="container pb-5">
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i>
+                Messaggi ricevuti
+            </div>
+            <div class="card-body">
+                <canvas id="myChartUno" width="100%" height="30"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Aggiornato al momento attuale</div>
+            
+        </div>
         <div class="container">
-            <canvas id="myChartUno"></canvas>
-            <canvas id="myChartDue"></canvas>
+            <div class="card-header">
+                <i class="fa fa-area-chart"></i>
+                Visualizzazioni ricevute
+            </div>
+            <div class="card-body">
+                <canvas id="myChartDue" width="100%" height="30"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Aggiornato al momento attuale</div>
         </div>
 
     </div>
@@ -76,34 +92,68 @@
 
 @section('script-in-body')
 <script>
-    var myChartUno = document.getElementById('myChartUno').getContext('2d');
-    
-    var messagesChart = new Chart(myChartUno, {
-        type: 'line', // tipo di grafico
-        data:{
-            labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-            datasets:[{
-                label: 'Messaggi ricevuti',
-                data:[
-                    1596,
-                    7979,
-                    8273,
-                    8787,
-                    2536,
-                    7643
-                ]
-            }]
-        },
-        options:{
-            title:{
-                display:true,
-                text:'Messaggi ricevuti'
+
+    (function($){
+        var charts = {
+            init:function(){
+                // qui vanno i fonts
+                // qui vanno i coloring
+
+                this.ajaxGetMessagesMonthlyData();
+                
             },
-            legend:{
-                display:false
+            
+            //chiamata ajax per passare i dati da php a json
+            ajaxGetMessagesMonthlyData:function(){
+                var urlPath = 'http://localhost:8000/get-messages-chart-data';
+                var request = $.ajax({
+                    method: 'GET',
+                    url: urlPath,
+                });
+                request.done(function(response){
+                    console.log(response);
+                    charts.createCompletedJobChart(response);
+                });
+            },
+
+            createCompletedJobChart:function(response){
+
+                var myChartUno = document.getElementById('myChartUno').getContext('2d');
+                
+                var messagesChart = new Chart(myChartUno, {
+                    type: 'line', // tipo di grafico
+                    data:{
+                        labels:response.months,
+                        datasets:[{
+                            label: 'Messaggi ricevuti',
+                            data: response.messages_count_data,
+                        }]
+                    },
+                    options:{
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: response.max,
+                                    maxTicksLimit: 5
+                                }
+                            }]
+                        },
+                        title:{
+                            display:false,
+                            text:'Messaggi ricevuti'
+                        },
+                        legend:{
+                            display:false
+                        }
+                    }
+                })
             }
         }
-    })
+        charts.init();
+    })(jQuery);
+
+    
 
     var myChartDue = document.getElementById('myChartDue').getContext('2d');
 
@@ -125,7 +175,7 @@
         },
         options:{
             title:{
-                display:true,
+                display:false,
                 text:'Visualizzazioni ricevute'
             },
             legend:{
