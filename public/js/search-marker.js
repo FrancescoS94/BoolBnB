@@ -20,7 +20,7 @@
  */
 
 function SearchMarker(poiData, options) {   // risultati suggeriti
-    
+
     this.poiData = poiData;
     this.options = options || {};
 
@@ -55,7 +55,7 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
         },error: function(error){
             console.log('errore' + error);
         }
-    });    
+    });
 
     console.log(formData);
 }

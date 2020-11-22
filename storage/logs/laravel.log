@@ -6752,3 +6752,20 @@ Did you mean one of these?
 #44 C:\\mamp_public\\progettoFinale16\\BoolBnB\\server.php(21): require_once('C:\\\\mamp_public\\\\...')
 #45 {main}
 "} 
+[2020-11-21 19:33:29] local.ERROR: Command "reset" is not defined.
+
+Did you mean one of these?
+    auth:clear-resets
+    migrate:reset {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"reset\" is not defined.
+
+Did you mean one of these?
+    auth:clear-resets
+    migrate:reset at D:\\mamp_public\\Progetto-Finale\\BoolBnB\\vendor\\symfony\\console\\Application.php:651)
+[stacktrace]
+#0 D:\\mamp_public\\Progetto-Finale\\BoolBnB\\vendor\\symfony\\console\\Application.php(230): Symfony\\Component\\Console\\Application->find()
+#1 D:\\mamp_public\\Progetto-Finale\\BoolBnB\\vendor\\symfony\\console\\Application.php(142): Symfony\\Component\\Console\\Application->doRun()
+#2 D:\\mamp_public\\Progetto-Finale\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(93): Symfony\\Component\\Console\\Application->run()
+#3 D:\\mamp_public\\Progetto-Finale\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run()
+#4 D:\\mamp_public\\Progetto-Finale\\BoolBnB\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 

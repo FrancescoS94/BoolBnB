@@ -66,7 +66,7 @@
                             }// chiusura if
                         } // chiusura for
 
-                        /* console.log(objpassato); 
+                        /* console.log(objpassato);
                         $.ajax({
                             type: "GET",
                             url: 'api/flats',
@@ -85,7 +85,7 @@
             }
         }); */
 
-        });
+        // });
                 /* $.ajax({indirizzo.filter(query)
                 type: "GET",
                 url: "http://localhost:8000/api/addresses",
