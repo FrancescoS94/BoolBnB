@@ -30,16 +30,13 @@
         <i class="fas fa-chevron-left left"></i>
         <div class="lista appartamenti">
             @foreach ($flatsSpons as $flatSpons)
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
-                <div class="box-img">
-                    <a href="{{ route('flats.show', $flatSpons->id) }}">
-                        <img class="" src="https://static.nexilia.it/vologratis/2018/05/come-prenotare-casa-vacanze-airbnb.jpg" alt="">
-                    </a>
-                </div>
-                <div class="box-descr">
-                    <h5>Milano</h5>
-                    <h6>{{ $flatSpons->title}}</h6>
-                </div>
+            <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+                <a href="{{ route('flats.show', $flatSpons->id) }}">
+                    <div class="box-descr" style="color:#fff">
+                        <h5><span class="badge">Città</span></h5>
+                        <h3>{{ $flatSpons->title}}</h3>
+                    </div>
+                </a>
             </div>
             @endforeach
         </div>
