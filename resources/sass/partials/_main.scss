@@ -1,6 +1,6 @@
 main {
   min-height: calc(100vh - 400px);
-  padding:107px 0 50px;
+  padding-top:107px;
   background-color: $whiteBnb;
 
     .btn-blu {
@@ -51,61 +51,80 @@ main {
     // *END* BANNER "home.blade"
 
     // APPARTAMENTI SPONSORIZZATI "home.blade"
-        .sponsor {
-            .col-12, .col-sm-6,
-            .col-md-4, .col-lg-3 {
-                padding: 0px;
-            }
-        }
+        // .sponsor {
+        //     .col-12, .col-sm-6,
+        //     .col-md-4, .col-lg-3 {
+        //         padding: 0px;
+        //     }
+        // }
 
         .sponsor{
-            padding:50px 0;
+            height:calc(100vh - 107px);
+            background-color: $blueBnb;
+            color:$whiteBnb;
+            padding:50px;
             .row{
-                margin: 10px 0px;
-                @include flex(row,center,center);
+                padding-top: 30px;
+                height:90%;
+                @include flex(row,space-around,center);
                 i{
                   font-size:30px;
+                  color:$redBnb;
                 }
-
                 .lista.appartamenti{
-                    width:85%;
+                    scroll-behavior: smooth;
+                    height:100%;
+                    width:95%;
+                    // margin:0 auto;
                     display:flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
-                    padding-right: 45px;
-                    padding-left: 5px;
+                    // padding-right: 45px;
+                    // padding-left: 5px;
                     overflow-y: hidden;
                     overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
                     .box-group {
-                        margin: 50px 5px;
+                        // height:300px;
+                        // height:90%;
+                        position:relative;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        margin:10px 10px;
+                        // margin: 50px 5px;
                         // border: 1px solid black;
                         border-radius: 10px;
                         box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                        transition: width, 0.5s;
                         &:hover {
-                            transform: scale(1.05);
-                              transition: 0.5s;
-                              z-index: 1;
+                            transform:scale(1.05);
+                            width:100%;
+                            // z-index: 1;
                         }
-                        .box-img{
-                          a {
-                              img{
-                                  width: 100%;
-                                  border-radius: 10px 10px 0px 0px;
-                                  // padding: 5px
+                        // .box-img{
+                        //   a {
+                        //       img{
+                        //           width: 100%;
+                        //           border-radius: 10px 10px 0px 0px;
+                        //           // padding: 5px
+                        //         }
+                        //     }
+                        // }
+                        .box-descr{
+                            padding: 5px;
+                            color:#fff;
+                            position: absolute;
+                            bottom: 10px;
+                            left: 20px;
+                            h5{
+                                .badge{
+                                    background-color: $redBnb;
                                 }
                             }
                         }
                     }
-                    .box-descr{
-                        padding: 5px;
-                    }
                 }
             }
-        }
-
-        .sponsor .row {
-            margin: 0px 0px;
-            padding: 10px 0px;
         }
     // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
 
@@ -182,7 +201,7 @@ main {
                 }
             }
 
-            .flat-img {;
+            .flat-img {
                 img {
                     padding: 0px;
                     margin-bottom: 32px;
@@ -228,9 +247,6 @@ main {
     // *END* SHOW FLAT "flat.blade"
 
     // GESTISCI IL PROFILO profile.blade
-        .box-profile {
-
-        }
         .profile {
             .jumbotron {
                 background-color: #fcfcfc;

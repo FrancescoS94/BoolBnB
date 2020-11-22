@@ -97,7 +97,7 @@ header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
 
 main {
   min-height: calc(100vh - 400px);
-  padding: 107px 0 50px;
+  padding-top: 107px;
   background-color: #e7e9f4;
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
@@ -147,65 +147,65 @@ main .bg-img h1 {
   color: #fcfcfc;
 }
 
-main .sponsor .col-12,
-main .sponsor .col-sm-6,
-main .sponsor .col-md-4,
-main .sponsor .col-lg-3 {
-  padding: 0px;
-}
-
 main .sponsor {
-  padding: 50px 0;
+  height: calc(100vh - 107px);
+  background-color: #133b55;
+  color: #e7e9f4;
+  padding: 50px;
 }
 
 main .sponsor .row {
-  margin: 10px 0px;
+  padding-top: 30px;
+  height: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 main .sponsor .row i {
   font-size: 30px;
+  color: #cb1f35;
 }
 
 main .sponsor .row .lista.appartamenti {
-  width: 85%;
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 95%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding-right: 45px;
-  padding-left: 5px;
   overflow-y: hidden;
   overflow-x: hidden;
   /* disattiva la scrollbar perchè ora hai le frecce */
 }
 
 main .sponsor .row .lista.appartamenti .box-group {
-  margin: 50px 5px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 10px 10px;
   border-radius: 10px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  transition: width, 0.5s;
 }
 
 main .sponsor .row .lista.appartamenti .box-group:hover {
   transform: scale(1.05);
-  transition: 0.5s;
-  z-index: 1;
-}
-
-main .sponsor .row .lista.appartamenti .box-group .box-img a img {
   width: 100%;
-  border-radius: 10px 10px 0px 0px;
 }
 
-main .sponsor .row .lista.appartamenti .box-descr {
+main .sponsor .row .lista.appartamenti .box-group .box-descr {
   padding: 5px;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
 }
 
-main .sponsor .row {
-  margin: 0px 0px;
-  padding: 10px 0px;
+main .sponsor .row .lista.appartamenti .box-group .box-descr h5 .badge {
+  background-color: #cb1f35;
 }
 
 main .container-fluid.search::-webkit-scrollbar,
