@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<style>
+{{-- <style>
 
 
 
@@ -70,13 +70,13 @@
     /* body{
         background-image: url('../image/phone_maintenance.png');
     } */
-</style>
+</style> --}}
 
-<div class="loader_bg">
+{{-- <div class="loader_bg">
     <div class="loader">
 
     </div>
-</div>
+</div> --}}
 
 
 {{-- PROFILE --}}
@@ -130,11 +130,11 @@
     </div>
 
 
-    <script>
+    {{-- <script>
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
             $('#avatar-img').show();
         }, 1500);
-    </script>
+    </script> --}}
 </div>
 @endsection
