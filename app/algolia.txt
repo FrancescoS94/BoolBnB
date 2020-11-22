@@ -1,0 +1,14 @@
+laravel scout, è un driver di informazioni prese dal nostro db.
+algolia cercherà al posto nostro nel nostro db 
+
+passi da seguire:
+
+1. composer require laravel/scout (per eventuali errori controllare composer.lock)
+2. app/config/app.php inserire Laravel\Scout\ScoutServiceProvider::class nel 'providers'
+3. php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider" (Copied File [\vendor\laravel\scout\config\scout.php] To [\config\scout.php])
+4. use Laravel\Scout\Searchable; nella classe -> use Searchable;
+5. creare un account algolia
+6. inserire nel model Flat public function searchableAs(){return 'title';} //-> title è il nome della colonna di ricerca
+7. config/scout.php inserire 'algolia' => ['id' => env('ALGOLIA_APP_ID', 'plHDPE6IE51U'), 'secret' => env('ALGOLIA_SECRET', 'c02168adc162c2fa39785c1012eadae4'),],
+8. composer require algolia/algoliasearch-client-php:^2.2 || composer require algolia/algoliasearch-client-php (versione stabile)
+9. 

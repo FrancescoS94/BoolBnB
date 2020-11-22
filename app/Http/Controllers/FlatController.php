@@ -39,9 +39,9 @@ class FlatController extends Controller
         // alla view ritorno entrambe le variabili
         return view('search',compact('flats', 'flatsSpons', 'service')); */
 
-        $q= $_GET['query_search'];
+       /*  $q= $_GET['query_search'];
         $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get();
-        dd($addresses);
+        dd($addresses); */
         return view('search');
     }
 

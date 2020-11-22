@@ -4,10 +4,12 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
-
+use Laravel\Scout\Searchable;
 
 class Flat extends Model
 {
+    use Searchable;
+
     protected $fillable = [
         'title','room', 'bed', 'wc', 'mq', 'image', 'description'
     ];
@@ -30,5 +32,10 @@ class Flat extends Model
 
     public function address() {
         return $this->belongsTo('App\Address');
+    }
+
+    public function searchableAs() // cerca
+    {
+        return 'title'; // nome colonna table appartamenti
     }
 }
