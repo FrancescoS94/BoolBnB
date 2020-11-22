@@ -249,7 +249,7 @@ main .layout .left-layout .search.container-lg .flat .flat-text p,
 main .layout .left-layout .search.container-md .flat .flat-text p,
 main .layout .left-layout .search.container-sm .flat .flat-text p {
   padding-bottom: 10px;
-  border-bottom: 2px solid #cb1f35;
+  border-bottom: 1px solid #cb1f35;
 }
 
 main .layout .left-layout .container-fluid.search .flat .flat-text ul,
