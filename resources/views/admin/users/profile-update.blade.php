@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 jumbotron">
 
                 {{-- validazione campi  --}}
                 @if ($errors->any())
@@ -15,7 +15,7 @@
                 </div>
                 @endif
 
-                <h1>{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h1>
+                <h1 class="d-flex justify-content-center">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h1>
 
 
 
@@ -23,17 +23,17 @@
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" {{--onsubmit="return validateRegistr()"--}}>
                         @csrf
                         @method('PATCH')
-                        <div class="form-group">
-                            <label for="birthday">La tua data di nascita</label>
+                        <div class="form-group row">
+                            <label for="birthday">Inserisci la tua data di nascita</label>
                             <input type="date" class="form-control" name="date_of_birth" id="birthday" {{-- value="{{ old('date_of_birth') }}"--}}>
                         </div>
 
-                        <div class="form-group">
-                            <label for="avatar">Inserisci una tua fotografia</label>
+                        <div class="form-group row">
+                            <label for="avatar">Inserisci una fotografia</label>
                             <input type="file" class="form-control-file" name="avatar" id="avatar" {{-- value="{{ old('avatar')}}"--}}>{{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Invia il modulo</button>
+                        <button type="submit" class="btn-blu">Invia</button>
                     </form>
                 @else
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
@@ -53,7 +53,7 @@
 
                         <div class="form-group">
                             <label for="lastname">Cognome</label>
-                            <input type="text" class="form-control-file" name="lastname" id="lastname" value="{{ $user->lastname }}">
+                            <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $user->lastname }}">
                         </div>
 
                         <div class="form-group">

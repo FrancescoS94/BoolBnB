@@ -137,7 +137,7 @@
                             console.log('non trovato');
 =======
 
-    
+
     {{-- aggiunta 18-11-20 tomtom --}}
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
@@ -152,8 +152,8 @@
     <script type='text/javascript' src='{{ asset('js/dom-helpers.js')}}'></script>
     <script type='text/javascript' src='{{ asset('js/formatters.js')}}'></script>
 
-      
-    
+
+
       <script>
                     tt.setProductInfo('search-mappa', '0');
 
@@ -248,7 +248,6 @@
 
                         if (event.data.errors) {
                             errorHint.setMessage('There was an error returned by the service.');
->>>>>>> 21-11-20SeraMaik
                         }
                     }
 
@@ -402,7 +401,6 @@
 
 
 
-            
 
 
 
@@ -410,7 +408,8 @@
 
 
 
-   
+
+
 </section>
 @endsection
 
