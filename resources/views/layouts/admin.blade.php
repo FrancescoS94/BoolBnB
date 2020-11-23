@@ -46,53 +46,36 @@
           <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
               @if(Auth::check())
                   <img id="avatar-img" class="rounded-circle " src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
-                  <p> {{Auth::user()->name}}</p>
+                  <p id="name"> {{Auth::user()->name}}</p>
               @endif
           </div>
         </div>
 
         {{-- Link Sidebar--}}
+        <div class="links-box">
 
-      <div class="row">
-        <div class="col-sm-6 col-md-12 col-lg-12 col-xl-12">
-          <a href="{{ route('home') }}"> <span><i class="fas fa-home"></i></span>Homepage</a>
-        </div>
+            <a href="{{ route('home') }}"> <span><i class="fas fa-home"></i></span><span class="link-name">Homepage</span></a>
 
-        <div class="col-sm-6 col-md-12 col-lg-12 col-xl-12">
-          <a href="{{ route('admin.users.index') }}"> <span><i class="fas fa-users-cog"></i></span>Profilo</a>
-        </div>
-      </div>
+            <a href="{{ route('admin.users.index') }}"> <span><i class="fas fa-users-cog"></i></span><span class="link-name">Profilo</span></a>
 
-        <div class="row">
-          <div class="col-sm-6 col-md-12 col-lg-12 col-xl-12">
-            <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span>Appartamenti</a>
-          </div>
+            <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span><span class="link-name">Appartamenti</span></a>
 
-          <div class="col-sm-6 col-md-12 col-lg-12 col-xl-12">
-            <a href="{{ route('admin.messages.index') }}"> <span><i class="fas fa-envelope"></i></span>Messaggi</a>
-          </div>
-        </div>
+            <a href="{{ route('admin.messages.index') }}"> <span><i class="fas fa-envelope"></i></span><span class="link-name">Messaggi</span></a>
 
-        <div class="row">
-          <div class="col-sm-6 col-md-12 col-lg-12 col-xl-12">
-            <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span>Pagamenti</a>
-          </div>
+            <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span><span class="link-name">Pagamenti</span></a>
 
-          <div class="col-sm-6 col-md-12 col-lg-12 col-xl-12">
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
               <span><i class="fas fa-sign-out-alt"></i></span>
-              Logout
+              <span class="link-name ">Logout</span>
             </a>
             {{-- chiamata post --}}
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
-          </div>
+
         </div>
-
-
 
       </div>
 

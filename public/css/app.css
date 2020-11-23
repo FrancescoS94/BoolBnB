@@ -486,6 +486,33 @@ main .profile .profile-date a {
   scrollbar-width: none;
 }
 
+@media screen and (max-width: 576px) {
+  .aside {
+    width: 80px !important;
+  }
+
+  .aside a {
+    text-align: center;
+  }
+
+  .aside .link-name {
+    display: none;
+  }
+
+  .aside .utente-dash img {
+    width: 50px;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .aside .utente-dash #name {
+    display: none;
+  }
+
+  .main {
+    width: 350px !important;
+  }
+}
+
 footer {
   border-top: 1px solid darkgrey;
   padding-top: 35px;
