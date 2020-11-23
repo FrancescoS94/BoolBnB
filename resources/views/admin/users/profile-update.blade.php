@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8 jumbotron">
+            <div class="col-md-8 col-lg-8 jumbotron">
 
                 {{-- validazione campi  --}}
                 @if ($errors->any())
@@ -23,17 +23,24 @@
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" {{--onsubmit="return validateRegistr()"--}}>
                         @csrf
                         @method('PATCH')
-                        <div class="form-group row">
-                            <label for="birthday">Inserisci la tua data di nascita</label>
-                            <input type="date" class="form-control" name="date_of_birth" id="birthday" {{-- value="{{ old('date_of_birth') }}"--}}>
+                        <div class="form-group row d-flex justify-content-center">
+                            <div class="col-7">
+                                <label for="birthday">Inserisci la tua data di nascita</label>
+                                <input type="date" class="form-control" name="date_of_birth" id="birthday" {{-- value="{{ old('date_of_birth') }}"--}}>
+                            </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="avatar">Inserisci una fotografia</label>
-                            <input type="file" class="form-control-file" name="avatar" id="avatar" {{-- value="{{ old('avatar')}}"--}}>{{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
+                        <div class="form-group row d-flex justify-content-center">
+                            <div class="col-7">
+                                <label for="avatar">Inserisci una fotografia</label>
+                                <input type="file" class="form-control-file" name="avatar" id="avatar" {{-- value="{{ old('avatar')}}"--}}>{{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
+                            </div>
                         </div>
-
-                        <button type="submit" class="btn-blu">Invia</button>
+                        <div class="form-group row d-flex justify-content-center pt-4">
+                            <div class="col-7">
+                                <button type="submit" class="btn-blu">Invia</button>
+                            </div>
+                        </div>
                     </form>
                 @else
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
