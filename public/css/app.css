@@ -201,6 +201,7 @@ main .sponsor .row {
 main .sponsor .row i {
   font-size: 30px;
   color: #cb1f35;
+  cursor: pointer;
 }
 
 main .sponsor .row .lista.appartamenti {

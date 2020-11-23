@@ -1,5 +1,10 @@
 {{-- PAGINA INDEX --}}
 @extends('layouts.app')
+
+@section('script-in-header')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+@endsection
+
 @section('content')
 
 <form action="{{route('flats.index')}}" method="GET">
@@ -42,7 +47,10 @@
         </div>
         <i class="fas fa-chevron-right right"></i>
     </div>
-
+</section>
+@endsection
+    
+@section('script-in-body')
     <script>
 
        //$("#screenName").on("keyup",function()
@@ -132,13 +140,9 @@
                 },
             }); */
 
-
-
-
-
     </script>
-</section>
 @endsection
+
 
 
 {{-- <div class="flex-center position-ref full-height">
