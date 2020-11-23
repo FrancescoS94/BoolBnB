@@ -343,47 +343,6 @@
                  });
                  resultsManager.append(resultList);
              }
-
-
-
-
-             $(document).ready(function(){
-                 $(document).on('click','.tt-search-box-result-list', function(){
-
-                     /* var addressLat = document.getElementById("lat").value=lat;
-                     var addressLng = document.getElementById("lng").value=lng; */
-                     /* var lat1 = $('#lat').val(lat);
-                     var lat2 = $('#lng').val(lng); */
-                     /* var i = $('.pop-up-result-position').val();
-                     console.log(i); */
-                     /* var i = $(this).children('.tt-search-box-result-list-bold').val(); */
-                     var address  = $('.pop-up-content').children('.pop-up-result-address').text();
-                     var position = $('.pop-up-content').children('.pop-up-result-position').text();
-                     /* alert('ciao'); */
-                     console.log(position);
-
-                     //.replWace(' ', '_')
-
-                     /* $('#address').val(address); */
-                     document.getElementById('address').value = address;
-                     document.getElementById('position').value = position;
-
-                     /* 'address', 'position' */
-                     /* console.log(); */
-
-                     /* <input id="address" hidden type="text" class="form-control" name="address" value="">
-                 <input id="country" hidden type="text" class="form-control" name="country" value="">
-
-                 <input id="lat" hidden type="text" class="form-control" name="lat" value=""> */
-
-
-
-                     /* <div class="pop-up-result-name">Corso Italia</div>
-                     <div class="pop-up-result-address">Corso Italia, 32043 Cortina d'Ampezzo, ITA</div>
-                     <div class="pop-up-result-distance">756 km</div>
-                     <div class="pop-up-result-position">46.5409, 12.13527</div> */
-                 });
-             });
          </script>
 
 

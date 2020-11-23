@@ -33,7 +33,6 @@ ResultsManager.prototype.resultsNotFound = function() {
 
 ResultsManager.prototype.append = function(element) {
     var append = this.resultsElement.appendChild(element);
-    console.log(append);
 };
 
 ResultsManager.prototype.clear = function() {

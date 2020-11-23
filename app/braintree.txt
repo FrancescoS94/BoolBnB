@@ -1,0 +1,5 @@
+implementazione braintree
+
+1. creare un account
+2. inserire nel file config/services.php le chiavi 'Client Library Key'
+3. composer require braintree/braintree_php
