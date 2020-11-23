@@ -15,10 +15,10 @@
     <div class="container-fluid search">
       @foreach ($flatsSpons as $flatSpons)
       <div class="row flat">
-        <div class="my-auto col-md-12 col-lg-6 col-xl-5">
+        <div class="my-auto col-12 col-sm-12 col-md-6 col-lg-6 col-xl-5">
           <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ asset('storage/'.$flatSpons->image ) }}" class="img-fluid" alt="{{ $flatSpons->title}}"></a>
         </div>
-        <div class="col-md-12 col-lg-5 col-xl-6">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6">
             <div class="flat-text">
               <a href="{{ route('flats.show', $flatSpons->id) }}">
                 <h5 class="card-title">{{ $flatSpons->title}}</h5>

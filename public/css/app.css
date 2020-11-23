@@ -268,6 +268,8 @@ main .layout .left-layout .search.container-xl .flat #img-search,
 main .layout .left-layout .search.container-lg .flat #img-search,
 main .layout .left-layout .search.container-md .flat #img-search,
 main .layout .left-layout .search.container-sm .flat #img-search {
+  width: 305px;
+  height: 200px;
   border-radius: 10px;
 }
 
