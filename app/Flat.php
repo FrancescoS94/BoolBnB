@@ -31,4 +31,9 @@ class Flat extends Model
     public function address() {
         return $this->belongsTo('App\Address');
     }
+    
+    public function views() {
+        return $this->hasMany('App\View');
+    }
+
 }

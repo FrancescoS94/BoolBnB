@@ -8,6 +8,7 @@ use App\Payment;
 use App\Service;
 use App\Address;
 use Carbon\Carbon;
+use App\View;
 
 class FlatController extends Controller
 {
@@ -73,14 +74,12 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function show($id)
-    function show(Flat $flat){
+    function show(Flat $flat, View $view){
         $service = $flat->services;
 
-        $count = $flat->view_count + 1;
-        // dd($count);
-        $flat->view_count = $count;
-        $flat->save();
-        // dd($flat);
+        // ad ogni visualizzazione della pagina flat genero un record della tabella views e gli assegno il flat_id
+        $view['flat_id'] = $flat['id'];
+        $view->save();
 
         return view('flat',compact('flat','service'));
     }
@@ -105,14 +104,7 @@ class FlatController extends Controller
      */
     public function update(Request $request, Flat $flat)
     {
-        dd('ciao');
-        $viewCount = $request->view_count;
-        dd($viewCount);
-        $flat->view_count = $viewCount;
-
-        $flat->save();
-
-        return redirect()->route('flat.show', ['id'=>$id]);
+        //
     }
 
     /**
