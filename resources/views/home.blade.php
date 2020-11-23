@@ -76,7 +76,6 @@
         <i class="fas fa-chevron-right right"></i>
     </div>
 
-<<<<<<< HEAD
     <script>
 
        //$("#screenName").on("keyup",function()
@@ -135,7 +134,6 @@
                             console.log('okay trovata');
                         }else{
                             console.log('non trovato');
-=======
 
     
     {{-- aggiunta 18-11-20 tomtom --}}
@@ -248,7 +246,6 @@
 
                         if (event.data.errors) {
                             errorHint.setMessage('There was an error returned by the service.');
->>>>>>> 21-11-20SeraMaik
                         }
                     }
 

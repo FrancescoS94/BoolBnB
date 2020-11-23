@@ -45,5 +45,7 @@
     <footer>
         @include('template.footer')
     </footer>
+
+    @yield('script')
 </body>
 </html>

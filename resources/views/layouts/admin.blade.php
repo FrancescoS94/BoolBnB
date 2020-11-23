@@ -33,6 +33,7 @@
     <link rel='stylesheet' type='text/css'
         href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/css-styles/poi.css' />
     @yield('script-in-head')
+    @yield('head')
 
 </head>
 <body>
@@ -83,6 +84,8 @@
 
     </div>
   </div>
-  @yield('script-in-body')
+
+
+    @yield('script-in-body')
 </body>
 </html>
