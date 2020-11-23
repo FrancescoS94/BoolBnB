@@ -157,16 +157,16 @@ main {
             padding: 20px 0px;
             border-top: 1px solid darkgrey;
             #img-search{
-              width: 300px;
-              height: 200px;
+              // width: 300px;
+              // height: 200px;
               border-radius: 10px;
             }
             .flat-text{
-              margin-left: 15px;
+              margin-left: 10px;
               padding-top: 15px;
               p{
                 padding-bottom: 10px;
-                border-bottom: 2px solid $redBnb;
+                border-bottom: 1px solid $redBnb;
               }
               ul{
                 list-style-type: none;
