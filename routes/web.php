@@ -37,5 +37,7 @@ Route::resource('flats','FlatController'); // rotte per la pagina searche e per 
 Route::resource('messages','MessageController');
 
 
-// test per dati chartjs
+// rotte e controller per chartjs
 Route::get('/get-messages-chart-data', 'Admin\MessagesChartDataController@getMonthlyMessagesData');
+// Route::get('/get-messages-chart-data/{id}', 'Admin\MessagesChartDataController@getMonthlyMessagesData');
+// Route::get('/test', 'Admin\ViewsChartDataController@getMonthlyViewsData');

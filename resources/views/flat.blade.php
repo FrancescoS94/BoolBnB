@@ -26,15 +26,25 @@
     </style>
 @endsection
 
+@section('script-in-head')
+    <script type='text/javascript' src='{{asset('')}}../assets/js/polyfills.js'></script>
+    <script type='text/javascript' src='{{asset('js/foldable.js')}}'></script>
+    <script type='text/javascript' src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/Minimap/1.0.5//Minimap-web.js'></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
+    <script type='text/javascript' src='{{asset('js/mobile-or-tablet.js')}}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+@endsection
+
 @section('content')
     <div class="container flat-show flat-title">
+
         <h1 class="pt-5">Titolo appartamento</h1>
         <div class="row">
             {{-- IMAGE --}}
             <div class="col-md-12 col-lg-7">
                 <div class="flat-img">
-                    {{-- src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}" --}}
-                    <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt="">
+                    <img class="img-thumbnail border-0" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}">
+                    {{-- <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt=""> --}}
                 </div>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
@@ -152,105 +162,108 @@
             </div>
 
         </div>
-        <script type='text/javascript' src='{{asset('')}}../assets/js/polyfills.js'></script>
-        <script type='text/javascript' src='{{asset('js/foldable.js')}}'></script>
-        <script type='text/javascript' src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/Minimap/1.0.5//Minimap-web.js'></script>
-        <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
-        <script type='text/javascript' src='{{asset('js/mobile-or-tablet.js')}}'></script>
-        <script>
-
-            $.ajax({
-                type: "GET",
-                url: "http://localhost:8000/api/addresses/id",
-                // data: "data",
-                success: function (response) {
-                    console.log(response);
-                },error: function(error){
-                    console.log('errore' + error);
-                }
-            });
-
-
-            // Define your product name and version.
-            tt.setProductInfo('mini_map_flat', '0');
-
-            var map = tt.map({
-                key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
-                container: 'map',
-                style: 'tomtom://vector/1/basic-main',
-                dragPan: !isMobileOrTablet(),
-                center: [-0.12634, 51.50276],
-                zoom: 15
-            });
-
-            var minimapOptions = {
-                ttMapsSdk: tt,
-                zoomOffset: 5,
-                mapOptions: {
-                    key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
-                    style: 'tomtom://vector/1/basic-main',
-                    minZoom: 3,
-                    maxZoom: 15
-                }
-            };
-
-            var minimap = new tt.plugins.Minimap(minimapOptions);
-
-            map.addControl(minimap, 'bottom-right');
-            new Foldable('.js-foldable', 'top-right');
-
-            function updateMinimapZoomLevelCounter() {
-                document.getElementById('minimapZoom').innerText = minimap.getMap().getZoom().toFixed(2);
-            }
-
-            function updateMapZoomLevelCounter() {
-                document.getElementById('mapZoom').innerText = map.getZoom().toFixed(2);
-            }
-
-            function updateMinimapMinZoomLevel() {
-                var minZoom = parseInt(document.getElementById('minZoomSlider').value, 10);
-                document.getElementById('minZoomCounter').innerText = minZoom;
-                minimapOptions = Object.assign({ mapOptions: Object.assign(minimapOptions.mapOptions || {}, {minZoom: minZoom}) },
-                    minimapOptions);
-                minimap.getMap().setMinZoom(minZoom);
-                updateMinimapZoomLevelCounter();
-            }
-
-            function updateMinimapMaxZoomLevel() {
-                var maxZoom = parseInt(document.getElementById('maxZoomSlider').value, 10);
-                document.getElementById('maxZoomCounter').innerText = maxZoom;
-                minimapOptions = Object.assign({mapOptions: Object.assign(minimapOptions.mapOptions || {}, {maxZoom: maxZoom})},
-                    minimapOptions);
-                minimap.getMap().setMaxZoom(maxZoom);
-                updateMinimapZoomLevelCounter();
-            }
-
-            function updateMinimap(minimapOptions) {
-                map.removeControl(minimap);
-                minimap = new tt.plugins.Minimap(minimapOptions);
-                map.addControl(minimap, 'bottom-right');
-                minimap.getMap().on('zoom', updateMinimapZoomLevelCounter);
-                updateMinimapZoomLevelCounter();
-            }
-
-            function updateZoomLevelOffset() {
-                var offset = parseInt(document.getElementById('zoomLevelOffsetSlider').value, 10);
-                document.getElementById('zoomLevelOffsetCounter').innerText = offset;
-                minimapOptions = Object.assign(minimapOptions, {zoomOffset: offset});
-                updateMinimap(minimapOptions);
-            }
-
-            updateMapZoomLevelCounter();
-            updateMinimapZoomLevelCounter();
-
-            map.on('zoom', updateMapZoomLevelCounter);
-            minimap.getMap().on('zoom', updateMinimapZoomLevelCounter);
-            document.getElementById('zoomLevelOffsetSlider').addEventListener('change', updateZoomLevelOffset);
-            document.getElementById('minZoomSlider').addEventListener('change', updateMinimapMinZoomLevel);
-            document.getElementById('maxZoomSlider').addEventListener('change', updateMinimapMaxZoomLevel);
-
-            map.addControl(new tt.FullscreenControl());
-            map.addControl(new tt.NavigationControl());
-        </script>
+       
     </div>
+@endsection
+
+@section('script-in-body')
+    <script>
+
+        // INIZIO script per tomtom
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8000/api/addresses/id",
+            // data: "data",
+            success: function (response) {
+                console.log(response);
+            },error: function(error){
+                console.log('errore' + error);
+            }
+        });
+
+
+        // Define your product name and version.
+        tt.setProductInfo('mini_map_flat', '0');
+
+        var map = tt.map({
+            key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
+            container: 'map',
+            style: 'tomtom://vector/1/basic-main',
+            dragPan: !isMobileOrTablet(),
+            center: [-0.12634, 51.50276],
+            zoom: 15
+        });
+
+        var minimapOptions = {
+            ttMapsSdk: tt,
+            zoomOffset: 5,
+            mapOptions: {
+                key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
+                style: 'tomtom://vector/1/basic-main',
+                minZoom: 3,
+                maxZoom: 15
+            }
+        };
+
+        var minimap = new tt.plugins.Minimap(minimapOptions);
+
+        map.addControl(minimap, 'bottom-right');
+        new Foldable('.js-foldable', 'top-right');
+
+        function updateMinimapZoomLevelCounter() {
+            document.getElementById('minimapZoom').innerText = minimap.getMap().getZoom().toFixed(2);
+        }
+
+        function updateMapZoomLevelCounter() {
+            document.getElementById('mapZoom').innerText = map.getZoom().toFixed(2);
+        }
+
+        function updateMinimapMinZoomLevel() {
+            var minZoom = parseInt(document.getElementById('minZoomSlider').value, 10);
+            document.getElementById('minZoomCounter').innerText = minZoom;
+            minimapOptions = Object.assign({ mapOptions: Object.assign(minimapOptions.mapOptions || {}, {minZoom: minZoom}) },
+                minimapOptions);
+            minimap.getMap().setMinZoom(minZoom);
+            updateMinimapZoomLevelCounter();
+        }
+
+        function updateMinimapMaxZoomLevel() {
+            var maxZoom = parseInt(document.getElementById('maxZoomSlider').value, 10);
+            document.getElementById('maxZoomCounter').innerText = maxZoom;
+            minimapOptions = Object.assign({mapOptions: Object.assign(minimapOptions.mapOptions || {}, {maxZoom: maxZoom})},
+                minimapOptions);
+            minimap.getMap().setMaxZoom(maxZoom);
+            updateMinimapZoomLevelCounter();
+        }
+
+        function updateMinimap(minimapOptions) {
+            map.removeControl(minimap);
+            minimap = new tt.plugins.Minimap(minimapOptions);
+            map.addControl(minimap, 'bottom-right');
+            minimap.getMap().on('zoom', updateMinimapZoomLevelCounter);
+            updateMinimapZoomLevelCounter();
+        }
+
+        function updateZoomLevelOffset() {
+            var offset = parseInt(document.getElementById('zoomLevelOffsetSlider').value, 10);
+            document.getElementById('zoomLevelOffsetCounter').innerText = offset;
+            minimapOptions = Object.assign(minimapOptions, {zoomOffset: offset});
+            updateMinimap(minimapOptions);
+        }
+
+        updateMapZoomLevelCounter();
+        updateMinimapZoomLevelCounter();
+
+        map.on('zoom', updateMapZoomLevelCounter);
+        minimap.getMap().on('zoom', updateMinimapZoomLevelCounter);
+        document.getElementById('zoomLevelOffsetSlider').addEventListener('change', updateZoomLevelOffset);
+        document.getElementById('minZoomSlider').addEventListener('change', updateMinimapMinZoomLevel);
+        document.getElementById('maxZoomSlider').addEventListener('change', updateMinimapMaxZoomLevel);
+
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+
+        // FINE script per tomtom
+    </script>
 @endsection

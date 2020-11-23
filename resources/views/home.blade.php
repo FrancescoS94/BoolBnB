@@ -1,5 +1,24 @@
 {{-- PAGINA INDEX --}}
 @extends('layouts.app')
+
+@section('script-in-header')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+    {{-- aggiunta 18-11-20 tomtom --}}
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox-web.js'></script>
+    <script type='text/javascript' src='{{ asset('js/guest-search-marker.js')}}' ></script>
+    <script type='text/javascript' src='{{ asset('js/search-results-parser.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/search-markers-manager.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/info-hint.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/mobile-or-tablet.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/results-manager.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/side-panel.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/dom-helpers.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/formatters.js')}}'></script>
+@endsection
+
 @section('content')
 
 <style>
@@ -76,7 +95,10 @@
         <i class="fas fa-chevron-right right"></i>
     </div>
 
-<<<<<<< HEAD
+</section>
+@endsection
+    
+@section('script-in-body')
     <script>
 
        //$("#screenName").on("keyup",function()
@@ -135,26 +157,10 @@
                             console.log('okay trovata');
                         }else{
                             console.log('non trovato');
-=======
-
-
-    {{-- aggiunta 18-11-20 tomtom --}}
-    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
-    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
-    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox-web.js'></script>
-    <script type='text/javascript' src='{{ asset('js/guest-search-marker.js')}}' ></script>
-    <script type='text/javascript' src='{{ asset('js/search-results-parser.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/search-markers-manager.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/info-hint.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/mobile-or-tablet.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/results-manager.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/side-panel.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/dom-helpers.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/formatters.js')}}'></script>
 
 
 
-      <script>
+
                     tt.setProductInfo('search-mappa', '0');
 
                     var map = tt.map({
@@ -397,21 +403,8 @@
                         resultsManager.append(resultList);
                     }
                 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</section>
 @endsection
+
 
 
 {{-- <div class="flex-center position-ref full-height">

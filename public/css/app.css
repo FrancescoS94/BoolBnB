@@ -73,26 +73,38 @@ header nav .navbar-nav.guest a {
   padding-left: 20px;
 }
 
-header nav .navbar-toggler {
+header nav .nav-item.dropdown {
+  cursor: pointer;
+}
+
+header nav .nav-item.dropdown .nav-link {
   height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
   border: none;
 }
 
-header nav .navbar-toggler:focus {
+header nav .nav-item.dropdown .nav-link:focus {
   outline: -webkit-focus-ring-color auto 0px;
 }
 
-header nav .navbar-toggler img {
+header nav .nav-item.dropdown .nav-link img {
   height: 55px;
   border-radius: 50%;
+  padding-left: 15px;
 }
 
-header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link {
+header nav .nav-item.dropdown .dropdown-menu .dropdown-item {
   padding-left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
-  background-color: #e5e5e5;
+header nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: #133b55;
+  color: #e7e9f4;
 }
 
 main {
@@ -202,6 +214,7 @@ main .sponsor .row {
 main .sponsor .row i {
   font-size: 30px;
   color: #cb1f35;
+  cursor: pointer;
 }
 
 main .sponsor .row .lista.appartamenti {

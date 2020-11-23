@@ -3,10 +3,18 @@
 
 @section('script-in-head')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 @endsection
 
 @section('content')
-    <div class="container flat-show flat-title">
+    <div class="container flat-show flat-title"> 
+        {{-- TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO --}}
+        {{-- input nascosto per passare l'id dell'appartamento alla chiamata ajax --}}
+        {{-- <form method="post">
+            @csrf
+            <input id="flat" hidden value="{{$flat->id}}">
+        </form> --}}
+        
         <h1 class="pt-5">{{$flat->title}}</h1>
         <div class="row">
             {{-- IMAGE --}}
@@ -92,96 +100,105 @@
 
 @section('script-in-body')
 <script>
-
-    (function($){
-        var charts = {
-            init:function(){
-                // qui vanno i fonts
-                // qui vanno i coloring
-
-                this.ajaxGetMessagesMonthlyData();
+    
+//     // TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO
+        
+//     (function($){
+        
+        
+//         var charts = {
+//             init:function(){
+//                 // qui vanno i fonts
+//                 // qui vanno i coloring
                 
-            },
+//                 this.ajaxGetMessagesMonthlyData();
+                
+//             },
             
-            //chiamata ajax per passare i dati da php a json
-            ajaxGetMessagesMonthlyData:function(){
-                var urlPath = 'http://localhost:8000/get-messages-chart-data';
-                var request = $.ajax({
-                    method: 'GET',
-                    url: urlPath,
-                });
-                request.done(function(response){
-                    console.log(response);
-                    charts.createCompletedJobChart(response);
-                });
-            },
-
-            createCompletedJobChart:function(response){
-
-                var myChartUno = document.getElementById('myChartUno').getContext('2d');
+//             //chiamata ajax per passare i dati da php a json
+//             ajaxGetMessagesMonthlyData:function(){
+//                 var flat_id = $("input#flat").val();
                 
-                var messagesChart = new Chart(myChartUno, {
-                    type: 'line', // tipo di grafico
-                    data:{
-                        labels:response.months,
-                        datasets:[{
-                            label: 'Messaggi ricevuti',
-                            data: response.messages_count_data,
-                        }]
-                    },
-                    options:{
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    min: 0,
-                                    max: response.max,
-                                    maxTicksLimit: 5
-                                }
-                            }]
-                        },
-                        title:{
-                            display:false,
-                            text:'Messaggi ricevuti'
-                        },
-                        legend:{
-                            display:false
-                        }
-                    }
-                })
-            }
-        }
-        charts.init();
-    })(jQuery);
+//                 var urlPath = 'http://localhost:8000/get-messages-chart-data/'+flat_id;
+//                 $.ajax({
+//                     url: urlPath,
+//                     method: 'GET',
+//                     // data: flat_id,
+//                     success: function(response){
+//                         console.log(response);
+//                         charts.createCompletedJobChart(response);
+//                     },
+//                     error: function(){
+//                         console.log('errore');
+//                     }
+//                 });
+//             },
+
+//             createCompletedJobChart:function(response){
+
+//                 var myChartUno = document.getElementById('myChartUno').getContext('2d');
+                
+//                 var messagesChart = new Chart(myChartUno, {
+//                     type: 'line', // tipo di grafico
+//                     data:{
+//                         labels:response.months,
+//                         datasets:[{
+//                             label: 'Messaggi ricevuti',
+//                             data: response.messages_count_data,
+//                         }]
+//                     },
+//                     options:{
+//                         scales: {
+//                             yAxes: [{
+//                                 ticks: {
+//                                     min: 0,
+//                                     max: response.max,
+//                                     maxTicksLimit: 5
+//                                 }
+//                             }]
+//                         },
+//                         title:{
+//                             display:false,
+//                             text:'Messaggi ricevuti'
+//                         },
+//                         legend:{
+//                             display:false
+//                         }
+//                     }
+//                 })
+//             }
+//         }
+//         charts.init();
+//     })(jQuery);
 
     
+//     var myChartDue = document.getElementById('myChartDue').getContext('2d');
 
-    var myChartDue = document.getElementById('myChartDue').getContext('2d');
-
-    var viewsChart = new Chart(myChartDue, {
-        type: 'line', // tipo di grafico
-        data:{
-            labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-            datasets:[{
-                label: 'Visualizzazioni ricevute',
-                data:[
-                    1596,
-                    7979,
-                    8273,
-                    8787,
-                    2536,
-                    7643
-                ]
-            }]
-        },
-        options:{
-            title:{
-                display:false,
-                text:'Visualizzazioni ricevute'
-            },
-            legend:{
-                display:false
-            }
-        }
-    })
-</script>
+//     var viewsChart = new Chart(myChartDue, {
+//         type: 'line', // tipo di grafico
+//         data:{
+//             labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+//             datasets:[{
+//                 label: 'Visualizzazioni ricevute',
+//                 data:[
+//                     1596,
+//                     7979,
+//                     8273,
+//                     8787,
+//                     2536,
+//                     7643
+//                 ]
+//             }]
+//         },
+//         options:{
+//             title:{
+//                 display:false,
+//                 text:'Visualizzazioni ricevute'
+//             },
+//             legend:{
+//                 display:false
+//             }
+//         }
+//     })
+// </script>
 @endsection

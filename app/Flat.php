@@ -38,4 +38,9 @@ class Flat extends Model
     {
         return 'title'; // nome colonna table appartamenti
     }
+    
+    public function views() {
+        return $this->hasMany('App\View');
+    }
+
 }
