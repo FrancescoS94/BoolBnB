@@ -89,7 +89,7 @@
                     </form>
                     <div class="col-12 d-flex justify-content-center pt-4">
                         <p class="">Hai già un account?
-                            <a href="#">Accedi</a>
+                            <a href="{{ route('login') }}">Accedi</a>
                         </p>
                     </div>
                 </div>

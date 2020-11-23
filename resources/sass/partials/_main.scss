@@ -26,10 +26,11 @@ main {
         }
     }
 
-    // REGISTRAZIONE auth register.blade
+    // REGISTRAZIONE/ACCESSO auth register/login/email.blade
         .register {
             .card {
                 border-radius: 8px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
                 .form-control {
                     &:focus {
                         border: rgba(19, 59, 85, 0.8);
@@ -43,7 +44,7 @@ main {
                     color: #133b55;
                     font-weight: bold;
                     &:hover {
-                        text-decoration: none;
+                        text-decoration: underline;
                     }
                 }
             }
@@ -59,7 +60,8 @@ main {
                 font-weight: bold;
             }
         }
-    // *END* REGISTRAZIONE auth register.blade
+    // *END* REGISTRAZIONE/ACCESSO auth register/login/email.blade
+
 
     // BANNER "home.blade"
         .bg-img {

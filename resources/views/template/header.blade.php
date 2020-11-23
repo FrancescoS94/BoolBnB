@@ -1,4 +1,4 @@
-<nav class="container-fluid navbar navbar-light fixed-top">
+<nav class="container-fluid navbar navbar-light fixed-top shadow">
     <a class="navbar-brand logo" href="{{ url('/') }}">
         <img src="{{ asset('storage/images/logo-rossoblu.png')}}" alt="Boolbnb">
     </a>
