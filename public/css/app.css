@@ -487,10 +487,6 @@ main .profile .profile-date a {
 }
 
 @media screen and (max-width: 576px) {
-  .aside {
-    width: 80px !important;
-  }
-
   .aside a {
     text-align: center;
   }
@@ -506,10 +502,6 @@ main .profile .profile-date a {
 
   .aside .utente-dash #name {
     display: none;
-  }
-
-  .main {
-    width: 350px !important;
   }
 }
 
