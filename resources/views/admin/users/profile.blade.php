@@ -108,7 +108,7 @@
                     <div class="text-left col-6 pt-3">
                         <p>{{$user->name}}</p>
                         <p>{{$user->lastname}}</p>
-                        <p>{{$user->date_of_birth}}</p>
+                        <p>{{ Carbon\Carbon::parse($user->date_of_birth)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
                         <p>{{$user->email}}</p>
                         <p>{{$user->status}}</p>
                         <p>{{ Carbon\Carbon::parse($user->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
