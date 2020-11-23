@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-9 col-lg-6 my-4 register">
             <div class="card">
-                <div class="account d-flex justify-content-center p-4">{{ __('Accedi') }}</div>
+                <div class="account d-flex justify-content-center p-4">
+                    {{ __('Accedi') }}
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -60,7 +62,7 @@
                             <div class="col-9 mt-4">
                                 @if (Route::has('password.request'))
                                     <a class="" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Hai dimenticato la password?') }}
                                     </a>
                                 @endif
                             </div>

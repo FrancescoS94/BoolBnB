@@ -26,10 +26,11 @@ main {
         }
     }
 
-    // REGISTRAZIONE/ACCESSO auth register/login.blade
+    // REGISTRAZIONE/ACCESSO auth register/login/email.blade
         .register {
             .card {
                 border-radius: 8px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
                 .form-control {
                     &:focus {
                         border: rgba(19, 59, 85, 0.8);
@@ -59,7 +60,7 @@ main {
                 font-weight: bold;
             }
         }
-    // *END* REGISTRAZIONE/ACCESSO auth register/login.blade
+    // *END* REGISTRAZIONE/ACCESSO auth register/login/email.blade
 
 
     // BANNER "home.blade"
