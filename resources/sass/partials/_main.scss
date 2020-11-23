@@ -26,7 +26,7 @@ main {
         }
     }
 
-    // REGISTRAZIONE auth register.blade
+    // REGISTRAZIONE/ACCESSO auth register/login.blade
         .register {
             .card {
                 border-radius: 8px;
@@ -43,7 +43,7 @@ main {
                     color: #133b55;
                     font-weight: bold;
                     &:hover {
-                        text-decoration: none;
+                        text-decoration: underline;
                     }
                 }
             }
@@ -59,7 +59,8 @@ main {
                 font-weight: bold;
             }
         }
-    // *END* REGISTRAZIONE auth register.blade
+    // *END* REGISTRAZIONE/ACCESSO auth register/login.blade
+
 
     // BANNER "home.blade"
         .bg-img {
