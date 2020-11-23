@@ -28,7 +28,7 @@
                     <h2>Descrivi il tuo appartamento a i nostri utenti</h2>
 
                     {{-- form creazione punta al Admin/controllerFlat  --}}
-                    <form action="{{ route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
+                    <form id="form" action="{{ route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
 
                         @csrf
                         @method('POST')
@@ -83,7 +83,43 @@
                     </form>
                 </div>
 
+                <div id="error" class="alert alert-danger" role="alert"></div>
             </div>
         </div>
+
+
+        <script>
+            const form=  document.getElementById('form');
+            const errorElement= document.getElementById('error')
+
+            const title= document.getElementById('title');
+            const room= document.getElementById('room');
+            const bed= document.getElementById('bed');
+            const wc= document.getElementById('wc');
+            const mq= document.getElementById('mq');
+            const description= document.getElementById('description');
+            const image= document.getElementById('image');
+
+            form.addEventListener('submit', (e) => {
+
+                if(title.value.length < 10){
+                    errorElement.innerHTML = 'titolo troppo corto';
+                    e.preventDefault();
+                }
+
+                if(typeof title.value !== 'string'){
+                    errorElement.innerHTML = 'formato titolo non supportato, non inserire numeri';
+                    e.preventDefault();
+                }
+
+                
+               
+
+
+
+
+                
+            });
+        </script>
     </div>
 @endsection

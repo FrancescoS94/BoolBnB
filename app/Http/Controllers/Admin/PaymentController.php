@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
 use Carbon\Carbon;
-use Braintree\Gateway;
+use \Braintree\Gateway;
 
 
 class PaymentController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +43,7 @@ class PaymentController extends Controller
     public function create()
     {
         
-        $gateway = new Braintree\Gateway([
+        $gateway = new \Braintree\Gateway([
             'environment' => config('sandbox'),
             'merchantId' => config('29n4fm338ryhzsn2'),
             'publicKey' => config('jm8py588xwkkj83n'),
