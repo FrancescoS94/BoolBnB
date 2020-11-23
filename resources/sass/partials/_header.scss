@@ -49,25 +49,29 @@ header {
                 padding-left:20px;
             }
         }
-        .navbar-toggler{
-            height:65px;
-            border:none;
-            &:focus {
-                outline: -webkit-focus-ring-color auto 0px;;
+        .nav-item.dropdown{
+            cursor:pointer;
+            .nav-link{
+                height:65px;
+                @include flex(row,flex-start,center);
+                padding:0;
+                border:none;
+                &:focus {
+                    outline: -webkit-focus-ring-color auto 0px;;
+                }
+                img{
+                    height: 55px;
+                    border-radius: 50%;
+                    padding-left:15px;
+                }
             }
-            img{
-                height: 55px;
-                border-radius: 50%;
-            }
-        }
-        #navbarSupportedContent{
-            .navbar-nav{
-                .nav-item {
-                    .nav-link{
-                        padding-left: 10px;
-                        &:hover {
-                            background-color: #e5e5e5;
-                        }
+            .dropdown-menu{
+                .dropdown-item{
+                    padding-left: 10px;
+                    transition: background-color .3s ease, color .3s ease;
+                    &:hover {
+                        background-color: $blueBnb;
+                        color:$whiteBnb;
                     }
                 }
             }
