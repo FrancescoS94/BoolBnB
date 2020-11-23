@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
 use Carbon\Carbon;
+use Braintree\Gateway;
+
 
 class PaymentController extends Controller
 {
@@ -17,7 +19,7 @@ class PaymentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {    
         $allFlats = Flat::all(); // memorizzo tutti gli appartamenti dell'utente loggato
         $flatsId = [];                                  // creo un array vuoto
         for($i = 0; $i < count($allFlats); $i++){       // per ogni appartamento
@@ -39,8 +41,18 @@ class PaymentController extends Controller
      */
     public function create()
     {
+        
+        $gateway = new Braintree\Gateway([
+            'environment' => config('sandbox'),
+            'merchantId' => config('29n4fm338ryhzsn2'),
+            'publicKey' => config('jm8py588xwkkj83n'),
+            'privateKey' => config('e3b7922ce7ab91923c1c0f4b94659363')
+        ]);
+    
+        $token = $gateway->ClientToken()->generate();
+
         $flats = Flat::all()->where('user_id', Auth::id());
-        return view('admin.payments.create', compact('flats'));
+        return view('admin.payments.create', compact('flats','gateway','token'));
     }
 
     /**

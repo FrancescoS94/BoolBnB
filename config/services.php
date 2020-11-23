@@ -31,7 +31,6 @@ return [
     ],
 
     // inserire qui le chiavi di braintree
-
     'braintree' => [
         'environment' => env('sandbox'),
         'merchantId' => env('29n4fm338ryhzsn2'),

@@ -3,12 +3,3 @@ implementazione braintree
 1. creare un account
 2. inserire nel file config/services.php le chiavi 'Client Library Key'
 3. composer require braintree/braintree_php
-4. copiare in admin/payments/create.blade.php il form e lo script 
-5. nel file web.php inserire:
-    $gateway = new Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-6. 

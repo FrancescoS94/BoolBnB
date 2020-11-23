@@ -28,11 +28,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::resource('flats','FlatController');
     Route::resource('addresses','AddressController');
     Route::resource('payments','PaymentController');
-    Route::resource('messages','MessageController');
-
-
-
-    
+    Route::resource('messages','MessageController'); 
 });
 
 // rotte accessibili a tutti senza autenticazione
@@ -41,21 +37,5 @@ Route::resource('flats','FlatController'); // rotte per la pagina searche e per 
 Route::resource('messages','MessageController');
 
 
-Route::get('/pagamenti', function(){
 
 
-    //return view('pagamenti');
-});
-
-/* $gateway = new Braintree\Gateway([
-    'environment' => config('services.braintree.environment'),
-    'merchantId' => config('services.braintree.merchantId'),
-    'publicKey' => config('services.braintree.publicKey'),
-    'privateKey' => config('services.braintree.privateKey')
-]);
-
-$token = $gateway->ClientToken()->generate();
-
-return view('welcome', [
-    'token' => $token
-]); */
