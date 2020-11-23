@@ -1,6 +1,6 @@
 <div class="container-fluid" id="footer">
   <div class="row">
-    <div class="col-md-6 col-lg-3 col-sm-12">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
       <ul>
         <a href="#"><li><strong>INFORMAZIONI</strong></li></a>
         <a href="#"><li>Newsroom</li></a>
@@ -13,7 +13,7 @@
       </ul>
     </div>
 
-    <div class="col-md-6 col-lg-3 col-sm-12">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
       <ul>
         <a href="#"><li><strong>COMMUNITY</strong></li></a>
         <a href="#"><li>Diversità e appartenenza</li></a>
@@ -26,7 +26,7 @@
       </ul>
     </div>
 
-    <div class="col-md-6 col-lg-3 col-sm-12">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
       <ul>
         <a href="#"><li><strong>OSPITA</strong></li></a>
         <a href="#"><li>Diventa un host</li></a>
@@ -39,7 +39,7 @@
       </ul>
     </div>
 
-    <div class="col-md-6 col-lg-3 col-sm-12">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3">
       <ul>
         <a href="#"><li><strong>ASSISTENZA</strong></li></a>
         <a href="#"><li>La nostra risposta all'emergenza COVID-19</li></a>
