@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-    <div class="container flat-show flat-title">
+    <div class="container flat-show flat-title">   
+        
         <h1 class="pt-5">{{$flat->title}}</h1>
         <div class="row">
             {{-- IMAGE --}}
