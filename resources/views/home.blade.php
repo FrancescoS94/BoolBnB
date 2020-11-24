@@ -19,12 +19,12 @@
 
 </style>
 
-<form action="{{route('flats.index')}}" method="GET">
+{{-- <form action="{{route('flats.index')}}" method="GET">
     <input class="search-text" type="text" name="query_search" placeholder="Inizia la ricerca">
     <button>Cerca</button>
-</form>
+</form> --}}
 
-{{-- aggiunta 18-11-20 tomtom --}}
+{{-- aggiunta 18-11-20 tomtom 
 <div class='map-view'>
     <div class='tt-side-panel' style="height: 40vh;">
         <header class='tt-side-panel__header'>
@@ -40,7 +40,74 @@
         </div>
     </div>
     <div id='map' class='full-map' style="height: 40vh;"></div>
-</div> {{-- fine tomtom --}}
+</div>  fine tomtom --}}
+
+<form action="{{route('flats.index')}}" method="GET">
+    <input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
+    <input id="query_lat" type="text" name="query_lat" hidden>
+    <input id="query_lng" type="text" name="query_lng" hidden>  
+    <button id="clickMe">cerca</button>
+</form>
+
+{{-- <input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
+<input id="querylatlng" type="text" name="query_search" hidden> 
+<button id="clickMe">cerca</button> --}}
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script>
+(function() {
+  var list=[];
+  var placesAutocomplete = places({
+    appId: 'plHDPE6IE51U',
+    apiKey: '13f35e1233e3a7aedf08241d21430869',
+    container: document.querySelector('#city'),
+    templates: {
+      value: function(suggestion){
+        list.push(suggestion);
+        return suggestion.name;
+      }
+    }
+  }).configure({
+    type: 'city',
+    aroundLatLngViaIP: false,
+  });
+    console.log(list);
+    document.getElementById('clickMe').addEventListener('click', function(){
+       var city =  document.getElementById('city').value;
+       for(var i=0; i<list.length; i++){
+           if(list[i]['name'] === city){
+               //console.log(list[i]['latlng']); //latlng: {lat: 41.8948, lng: 12.4853}
+               var lat = list[i]['latlng']['lat'];
+               var lng = list[i]['latlng']['lng']; 
+
+               /* var geo = lat;
+               geo += lng; */
+
+
+                //`${}`'?lat='+lat+'&lng='+lng;
+               var querylat = document.getElementById('query_lat').value =  lat;                       
+               var querylng = document.getElementById('query_lng').value =  lng;
+           }
+       }
+       // 
+       
+    });
+})();
+
+
+
+
+
+
+/* function cerca(){
+
+} */
+
+</script>
+
+
+
+
 
 {{-- BANNER --}}
 <section class="bg-img">
