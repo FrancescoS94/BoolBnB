@@ -1,11 +1,10 @@
 header {
     nav {
-        // height:105px;
         background-color: $nav;
         @include flex(row,space-between,center);
         .navbar-brand {
             img{
-                height:80px;
+                height:65px;
             }
         }
         .search {
@@ -26,7 +25,7 @@ header {
             a.search-btn {
                 text-decoration: none;
                 color: white;
-                background: $logoColor;
+                background: $redBnb;
                 float: right;
                 width: 40px;
                 height: 40px;
@@ -37,9 +36,9 @@ header {
                 align-items: center;
                 cursor: pointer;
                 &:hover{
-                    color: $logoColor;
+                    color: $redBnb;
                     background: $nav;
-                    border: 2px solid $logoColor;
+                    border: 2px solid $redBnb;
                 }
             }
         }
@@ -62,7 +61,7 @@ header {
                 img{
                     height: 55px;
                     border-radius: 50%;
-                    padding-left:15px;
+                    margin-left: 5px;
                 }
             }
             .dropdown-menu{

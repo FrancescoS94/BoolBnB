@@ -7,14 +7,14 @@
 @endsection
 
 @section('content')
-    <div class="container flat-show flat-title"> 
+    <div class="container flat-show flat-title">
         {{-- TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO --}}
         {{-- input nascosto per passare l'id dell'appartamento alla chiamata ajax --}}
         {{-- <form method="post">
             @csrf
             <input id="flat" hidden value="{{$flat->id}}">
         </form> --}}
-        
+
         <h1 class="pt-5">{{$flat->title}}</h1>
         <div class="row">
             {{-- IMAGE --}}
@@ -23,6 +23,7 @@
                     <img class="img-thumbnail border-0" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}">
                     {{-- <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt=""> --}}
                 </div>
+                <span class="pl-3">Data di creazione: {{ Carbon\Carbon::parse($flat->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</span>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
             <div class="col-md-12 col-lg-5 jumbotron">
@@ -58,18 +59,14 @@
                     @endforeach
                 </div>
             </div>
-            <span class="pl-3">Data di creazione: {{ Carbon\Carbon::parse($flat->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</span>
-            {{-- END --}}
-
-            <a class="btn btn-primary" role="button" href="{{route('admin.flats.edit', $flat->id )}}" class="card-link">Modifica</a>
-            <a class="btn btn-primary" role="button" href="{{ route('admin.payments.create', $flat->id)}}" class="card-link">Sponsorizza</a>
-            <td>{{-- distruggi l'appartamento, attraverso l'id --}}
-                <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Cancella</button>
-                </form>
-            </td>
+            <a class="btn-blu ml-2" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
+            <a class="btn-blu mx-3" role="button" href="{{ route('admin.payments.create', $flat->id)}}">Sponsorizza</a>
+            {{-- elimina l'appartamento, attraverso l'id --}}
+            <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn-red">Cancella</button>
+            </form>
         </div>
 
         {{-- prova chart js --}}
@@ -82,7 +79,7 @@
                 <canvas id="myChartUno" width="100%" height="30"></canvas>
             </div>
             <div class="card-footer small text-muted">Aggiornato al momento attuale</div>
-            
+
         </div>
         <div class="container">
             <div class="card-header">
@@ -100,25 +97,25 @@
 
 @section('script-in-body')
 <script>
-    
+
 //     // TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO
-        
+
 //     (function($){
-        
-        
+
+
 //         var charts = {
 //             init:function(){
 //                 // qui vanno i fonts
 //                 // qui vanno i coloring
-                
+
 //                 this.ajaxGetMessagesMonthlyData();
-                
+
 //             },
-            
+
 //             //chiamata ajax per passare i dati da php a json
 //             ajaxGetMessagesMonthlyData:function(){
 //                 var flat_id = $("input#flat").val();
-                
+
 //                 var urlPath = 'http://localhost:8000/get-messages-chart-data/'+flat_id;
 //                 $.ajax({
 //                     url: urlPath,
@@ -137,7 +134,7 @@
 //             createCompletedJobChart:function(response){
 
 //                 var myChartUno = document.getElementById('myChartUno').getContext('2d');
-                
+
 //                 var messagesChart = new Chart(myChartUno, {
 //                     type: 'line', // tipo di grafico
 //                     data:{
@@ -171,7 +168,7 @@
 //         charts.init();
 //     })(jQuery);
 
-    
+
 //     var myChartDue = document.getElementById('myChartDue').getContext('2d');
 
 //     var viewsChart = new Chart(myChartDue, {

@@ -117,7 +117,7 @@
                 {{--  rotta show, al momento inutile, NON cancellare!
                 <a href="{{route('admin.users.update',  $user->id)}}"><button type="button" class="btn btn-success"></button></a> --}}
                 <div class="d-flex justify-content-center">
-                    <a class="btn-blu mr-2 mt-3" href="{{route('admin.users.edit', $user->id)}}" role="button">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Aggiungi informazioni' : 'Modifica'}}</a>
+                    <a class="btn-blu text-decoration-none mr-2 mt-3" href="{{route('admin.users.edit', $user->id)}}" role="button">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Aggiungi informazioni' : 'Modifica'}}</a>
                     <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

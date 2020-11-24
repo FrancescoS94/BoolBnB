@@ -19,7 +19,7 @@ header nav {
 }
 
 header nav .navbar-brand img {
-  height: 80px;
+  height: 65px;
 }
 
 header nav .search {
@@ -94,7 +94,7 @@ header nav .nav-item.dropdown .nav-link:focus {
 header nav .nav-item.dropdown .nav-link img {
   height: 55px;
   border-radius: 50%;
-  padding-left: 15px;
+  margin-left: 5px;
 }
 
 header nav .nav-item.dropdown .dropdown-menu .dropdown-item {
@@ -434,16 +434,8 @@ main .flat-show .jumbotron {
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-main .flat-show button {
-  background-color: #ff385c;
-  padding: 7px 15px;
-  color: white;
-}
-
-main .flat-show button:hover {
-  background-color: white;
-  color: #ff385c;
-  border: 2px solid #ff385c;
+main .flat-show a:hover {
+  text-decoration: none;
 }
 
 main .flat-title h1 {
@@ -488,10 +480,6 @@ main .profile .profile-date .date .col-6 {
   padding-right: 3px;
 }
 
-main .profile .profile-date a {
-  text-decoration: none;
-}
-
 main .update .jumbotron {
   background-color: white;
   padding: 30px;
@@ -512,6 +500,11 @@ main .update label {
 main .update .form-control:focus {
   border: rgba(19, 59, 85, 0.8);
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+}
+
+main .table th,
+main .table td {
+  vertical-align: baseline;
 }
 
 .aside {
