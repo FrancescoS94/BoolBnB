@@ -11,7 +11,6 @@
   </div>
 
   <section class="container-fluid sponsor">
-
     <h2>Scorri i nostri migliori appartamenti</h2>
     <div class="row">
         <i class="fas fa-chevron-left left"></i>
@@ -29,11 +28,58 @@
         </div>
         <i class="fas fa-chevron-right right"></i>
     </div>
-
   </section>
 
 
-</div>
+  <div class="container-fluid ricerca">
+    @foreach ($flatsSpons as $flatSpons)
+    <div class="row search">
+      <div class="col-5">
+        <a href="{{ route('flats.show', $flatSpons->id) }}"><img id="img-search" src="{{ asset('storage/'.$flatSpons->image ) }}" class="img-fluid" alt="{{ $flatSpons->title}}"></a>
+      </div>
+
+      <div class="col-6">
+        <div class="flat-text">
+          <a href="{{ route('flats.show', $flatSpons->id) }}">
+            <h5 class="card-title">{{ $flatSpons->title}}</h5>
+            <p>{{ $flatSpons->address->address }}</p>
+            <ul>
+              <li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                Letti: {{$flatSpons->bed}}
+              </li>
+              <li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                Stanze: {{$flatSpons->room}}
+              </li>
+            </ul>
+              <ul>
+                <li>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                  WC: {{$flatSpons->wc}}
+                </li>
+                <li>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                  Mq: {{$flatSpons->mq}}
+                </li>
+              </ul>
+          </a>
+          <div class="flat-service">
+            @foreach($flatSpons->services as $service)
+            <span> {{ $service->service }} </span>
+            @endforeach
+          </div>
+        </div>
+      </div>
+
+    </div> {{-- chiusura row search--}}
+  @endforeach
+
+</div> {{-- chiusura container-fluid ricerca--}}
+
+
+
+</div> {{-- chiusura layout --}}
 
 
 @endsection

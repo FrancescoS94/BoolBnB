@@ -166,13 +166,52 @@ main {
 
     // PAGINA SEARCH
     .layout {
+      scrollbar-width: none; /*Nasconde scroll firefox*/
+      overflow-y: scroll;
+      padding: 0px !important;
       margin-top: 81px;
       height: 100vh;
       .filters{
         background-color: orange;
       }
-
-
+      .ricerca{
+        scrollbar-width: none; /*Nasconde scroll firefox*/
+        .search{
+          padding: 20px 0px;
+          border-top: 1px solid darkgrey;
+          #img-search{
+            width: 370px;
+            height: 240px;
+            border-radius: 10px;
+          }
+        }
+        .flat-text{
+          margin-left: 10px;
+          padding-top: 15px;
+          p{
+            padding-bottom: 10px;
+            border-bottom: 1px solid $redBnb;
+          }
+          ul{
+            list-style-type: none;
+            padding-top: 0px;
+            display: inline-block;
+            li{
+              margin-right: 10px;
+            }
+            img{
+              height: 30px;
+              padding: 0px 5px 5px 0px;
+            }
+          }
+          .flat-service{
+            color: #404040;
+            span{
+              margin-right: 4px;
+            }
+          }
+        }
+      }
     }
 
 
