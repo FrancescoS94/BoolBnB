@@ -36,8 +36,7 @@
 @endsection
 
 @section('content')
-    <div class="container flat-show flat-title">
-
+    <div class="container flat-show flat-title padd-top">
         <h1 class="pt-5">Titolo appartamento</h1>
         <div class="row">
             {{-- IMAGE --}}
@@ -162,7 +161,7 @@
             </div>
 
         </div>
-       
+
     </div>
 @endsection
 

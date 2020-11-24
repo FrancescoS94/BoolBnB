@@ -1,14 +1,16 @@
 main {
   min-height: calc(100vh - 400px);
-  padding-top:107px;
   background-color: $whiteBnb;
-
+    .padd-top {
+        padding-top:107px;
+    }
     .btn-blu {
         padding: 5px 10px;
         background-color: rgba(19, 59, 85, 1);
         border: 2px solid rgba(19, 59, 85, 1);
         color: white;
         border-radius: 4px;
+        font-weight: bold;
         &:hover {
         background-color: #fcfcfc;
         color: rgba(19, 59, 85, 1);
@@ -16,13 +18,14 @@ main {
     }
     .btn-red {
         padding: 5px 10px;
-        background-color: $logoColor;
-        border: 2px solid $logoColor;
+        background-color: $redBnb;
+        border: 2px solid $redBnb;
         color: white;
         border-radius: 4px;
+        font-weight: bold;
         &:hover {
         background-color: #fcfcfc;
-        color: $logoColor;
+        color: $redBnb;
         }
     }
 
@@ -57,7 +60,7 @@ main {
             .btn-blu {
                 width: 100%;
                 text-transform: uppercase;
-                font-weight: bold;
+                // font-weight: bold;
             }
         }
     // *END* REGISTRAZIONE/ACCESSO auth register/login/email.blade
@@ -87,13 +90,6 @@ main {
     // *END* BANNER "home.blade"
 
     // APPARTAMENTI SPONSORIZZATI "home.blade"
-        // .sponsor {
-        //     .col-12, .col-sm-6,
-        //     .col-md-4, .col-lg-3 {
-        //         padding: 0px;
-        //     }
-        // }
-
         .sponsor{
             height:calc(100vh - 107px);
             background-color: $blueBnb;
@@ -299,6 +295,9 @@ main {
 
     // GESTISCI IL PROFILO profile.blade
         .profile {
+            .rounded-circle {
+                width: 100px;
+            }
             .jumbotron {
                 background-color: #fcfcfc;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
@@ -333,5 +332,29 @@ main {
         }
     // *END* GESTISCI IL PROFILO profile.blade
 
+    // AGGIORNA PROFILO profile-update.blade
+        .update {
+            .jumbotron {
+                background-color: white;
+                padding: 30px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            }
+            h1 {
+                color: #133b55;
+                text-transform: uppercase;
+                padding-bottom: 15px;
+            }
+            label {
+                font-weight: bold;
+                color: #A0A0A0;
+            }
+            .form-control {
+                &:focus {
+                    border: rgba(19, 59, 85, 0.8);
+                    box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+                }
+            }
+        }
+    // *END* AGGIORNA PROFILO profile-update.blade
 
 }

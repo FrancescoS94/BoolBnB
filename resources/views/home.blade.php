@@ -43,7 +43,7 @@
     <button>Cerca</button>
 </form> --}}
 
-{{-- aggiunta 18-11-20 tomtom 
+{{-- aggiunta 18-11-20 tomtom
 <div class='map-view'>
     <div class='tt-side-panel' style="height: 40vh;">
         <header class='tt-side-panel__header'>
@@ -64,12 +64,12 @@
 <form action="{{route('flats.index')}}" method="GET">
     <input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
     <input id="query_lat" type="text" name="query_lat" hidden>
-    <input id="query_lng" type="text" name="query_lng" hidden>  
+    <input id="query_lng" type="text" name="query_lng" hidden>
     <button id="clickMe">cerca</button>
 </form>
 
 {{-- <input type="search" id="city" class="form-control" placeholder="In which city do you live?" />
-<input id="querylatlng" type="text" name="query_search" hidden> 
+<input id="querylatlng" type="text" name="query_search" hidden>
 <button id="clickMe">cerca</button> --}}
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
@@ -97,19 +97,19 @@
            if(list[i]['name'] === city){
                //console.log(list[i]['latlng']); //latlng: {lat: 41.8948, lng: 12.4853}
                var lat = list[i]['latlng']['lat'];
-               var lng = list[i]['latlng']['lng']; 
+               var lng = list[i]['latlng']['lng'];
 
                /* var geo = lat;
                geo += lng; */
 
 
                 //`${}`'?lat='+lat+'&lng='+lng;
-               var querylat = document.getElementById('query_lat').value =  lat;                       
+               var querylat = document.getElementById('query_lat').value =  lat;
                var querylng = document.getElementById('query_lng').value =  lng;
            }
        }
-       // 
-       
+       //
+
     });
 })();
 
@@ -129,6 +129,7 @@
 
 
 {{-- BANNER --}}
+{{-- quando si elimina il form di sopra, aggiungere la class "padd-top" accanto a "map-view" --}}
 <section class="bg-img">
     <div class="container-fluid">
         <div class="jumbotron col-sm-8 col-md-6 col-lg-6">
@@ -164,7 +165,7 @@
 
 </section>
 @endsection
-    
+
 @section('script-in-body')
     <script>
 

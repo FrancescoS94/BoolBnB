@@ -10,7 +10,7 @@
     1. andare su mysql nella tabella payments
     2. impostare a qualche pagamento un valore end_rate la data di domani--}}
 
-<div class="layout">
+<div class="layout padd-top">
 
   <div class="left-layout">
 
