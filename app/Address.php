@@ -7,7 +7,7 @@ use Laravel\Scout\Searchable;
 
 class Address extends Model
 {
-    use Searchable;
+    // use Searchable;
 
     protected $fillable = [
         'address', 'lat', 'lng'

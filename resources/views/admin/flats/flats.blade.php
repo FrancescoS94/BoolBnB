@@ -10,12 +10,12 @@
                 @if(is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
                     <h2>Completa il tuo profilo prima di inserire un appartamento!</h2>
                 @else
-                    {{--<a href="{{ route('admin.addresses.create') }}" class="card-link"> il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create 
+                    {{--<a href="{{ route('admin.addresses.create') }}" class="card-link"> il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create
                         <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
                     </a>--}}
 
-                    <a href="{{ route('admin.addresses.create') }}" class="card-link"> 
-                        <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
+                    <a href="{{ route('admin.addresses.create') }}" class="card-link">
+                        <button type="button" class="btn-blu">Aggiungi un appartamento</button>
                     </a>
                 @endif
 
@@ -34,7 +34,7 @@
                     @if(session('status'))
                         <div class="alert alert-success">{{ session('status') }}</div>
                     @endif
-                
+
                  {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}}
                  <table class="table table-dark">
                     <thead>
