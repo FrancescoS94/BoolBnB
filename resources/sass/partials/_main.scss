@@ -40,9 +40,11 @@ main {
                         box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
                     }
                 }
+
                 p {
                     color: #6c757d;
                 }
+
                 a {
                     color: #133b55;
                     font-weight: bold;
@@ -57,14 +59,13 @@ main {
                 font-weight: bold;
                 color: #133b55;
             }
+
             .btn-blu {
                 width: 100%;
                 text-transform: uppercase;
-                // font-weight: bold;
             }
         }
     // *END* REGISTRAZIONE/ACCESSO auth register/login/email.blade
-
 
     // BANNER "home.blade"
         .bg-img {
@@ -78,7 +79,7 @@ main {
             padding-top: 129px;
 
             .jumbotron {
-                    background-color: $banner;
+                background-color: $banner;
             }
 
             h1 {
@@ -162,90 +163,89 @@ main {
     // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
 
 
-    // PAGINA SEARCH
-
-    /*Nasconde scroll, necessario su Safari e Chrome */
-    .container-fluid.search::-webkit-scrollbar {
-      display: none;
-    }
-
-    .layout {
-      color: black;
-      display: flex;
-      .left-layout {
-        width: 60%;
-        .container-fluid.search{
-          margin-left: 0;
-          height: 550px;
-          overflow-y: scroll;
-          scrollbar-width: none; /*Nasconde scroll firefox*/
-          a{
-            color: #222222;
-            &:hover{
-              color: #404040;
-              text-decoration: none;
+    // PAGINA SEARCH search.blade
+        /*Nasconde scroll, necessario su Safari e Chrome */
+        .container-fluid.search::-webkit-scrollbar {
+          display: none;
+        }
+        .layout {
+          color: black;
+          display: flex;
+          .left-layout {
+            width: 60%;
+            .container-fluid.search{
+              margin-left: 0;
+              height: 550px;
+              overflow-y: scroll;
+              scrollbar-width: none; /*Nasconde scroll firefox*/
+              a{
+                color: #222222;
+                &:hover{
+                  color: #404040;
+                  text-decoration: none;
+                }
+              }
+              .flat{
+                padding: 20px 0px;
+                border-top: 1px solid darkgrey;
+                #img-search{
+                  width: 305px;
+                  height: 200px;
+                  border-radius: 10px;
+                }
+                .flat-text{
+                  margin-left: 10px;
+                  padding-top: 15px;
+                  p{
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid $redBnb;
+                  }
+                  ul{
+                    list-style-type: none;
+                    padding-top: 0px;
+                    display: inline-block;
+                    li{
+                      margin-right: 10px;
+                    }
+                    img{
+                      height: 25px;
+                      padding: 0px 5px 5px 0px;
+                    }
+                  }
+                  .flat-service{
+                    color: #404040;
+                    span{
+                      margin-right: 4px;
+                    }
+                  }
+                }
+              }
             }
           }
-          .flat{
-            padding: 20px 0px;
-            border-top: 1px solid darkgrey;
-            #img-search{
-              width: 305px;
-              height: 200px;
-              border-radius: 10px;
-            }
-            .flat-text{
-              margin-left: 10px;
-              padding-top: 15px;
-              p{
-                padding-bottom: 10px;
-                border-bottom: 1px solid $redBnb;
-              }
-              ul{
-                list-style-type: none;
-                padding-top: 0px;
-                display: inline-block;
-                li{
-                  margin-right: 10px;
-                }
-                img{
-                  height: 25px;
-                  padding: 0px 5px 5px 0px;
-                }
-              }
-              .flat-service{
-                color: #404040;
-                span{
-                  margin-right: 4px;
-                }
-              }
-            }
+          .right-layout{
+            width: 40%;
+            height: 550px;
+            background-color: gray;
+            overflow-y:hidden;
           }
         }
-      }
-      .right-layout{
-        width: 40%;
-        height: 550px;
-        background-color: gray;
-        overflow-y:hidden;
-      }
-    }
-
-
+    // *END* PAGINA SEARCH search.blade
 
     // SHOW FLAT "flat.blade"
         .flat-show {
-
             ul {
                 list-style-type: none;
                 padding-top: 10px;
+
                 img {
                     height: 25px;
                     padding: 0px 5px 5px 0px;
                 }
+
                 .bed {
                     padding-right: 20px;
                 }
+
                 .wc {
                     padding-right: 22px;
                 }
@@ -275,14 +275,9 @@ main {
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
             }
 
-            button {
-                background-color: #ff385c;
-                padding: 7px 15px;
-                color: white;
+            a {
                 &:hover {
-                    background-color: white;
-                    color: #ff385c;
-                    border: 2px solid #ff385c;
+                    text-decoration: none;
                 }
             }
         }
@@ -296,28 +291,34 @@ main {
         }
     // *END* SHOW FLAT "flat.blade"
 
+    // *** ADMIN ***
+
     // GESTISCI IL PROFILO profile.blade
         .profile {
             .rounded-circle {
                 width: 100px;
             }
+
             .jumbotron {
                 background-color: #fcfcfc;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
                 padding: 20px;
             }
+
             .profile-date {
                 width: 100%;
                 .profile-title {
                     color: rgba(19, 59, 85, 1);
                     font-size: 36px;
                 }
+
                 .profile-email {
                     font-size: 18px;
                     font-weight: bold;
                     color: #A0A0A0;
                     border-bottom: 2px solid rgba(19, 59, 85, 0.7);
                 }
+
                 .date {
                     .text-right {
                         font-weight: bold;
@@ -328,29 +329,29 @@ main {
                         padding-right: 3px;
                     }
                 }
-                a {
-                    text-decoration: none;
-                }
             }
         }
     // *END* GESTISCI IL PROFILO profile.blade
 
-    // AGGIORNA PROFILO profile-update.blade
+    // AGGIORNA PROFILO/APPARTAMENTO profile-update/flats-update.blade
         .update {
             .jumbotron {
                 background-color: white;
                 padding: 30px;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
             }
+
             h1 {
                 color: #133b55;
                 text-transform: uppercase;
                 padding-bottom: 15px;
             }
+
             label {
                 font-weight: bold;
                 color: #A0A0A0;
             }
+
             .form-control {
                 &:focus {
                     border: rgba(19, 59, 85, 0.8);
@@ -358,6 +359,11 @@ main {
                 }
             }
         }
-    // *END* AGGIORNA PROFILO profile-update.blade
+    // *END* AGGIORNA PROFILO/APPARTAMENTO profile-update/flats-update.blade
 
+    // AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
+        .table th, .table td {
+            vertical-align: baseline;
+        }
+    // *END* AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
 }

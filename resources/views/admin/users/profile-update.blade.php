@@ -95,14 +95,14 @@
                         </div>
                         {{-- IMMAGINE --}}
                         <div class="form-group row">
-                            <label class="col-9" for="avatar">Inserisci una tua fotografia:</label>
-                            <div class="col-9">
+                            <label class="col-12" for="avatar">Inserisci una tua fotografia:</label>
+                            <div class="col-12">
                                 <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ $user->avatar }}">
                             </div>
                         </div>
                         {{-- BUTTON --}}
-                        <div class="form-group row">
-                            <div class="col-12 mt-4">
+                        <div class="row">
+                            <div class="col-12 mt-3">
                                 <button type="submit" class="btn-blu">Aggiorna</button>
                             </div>
                         </div>

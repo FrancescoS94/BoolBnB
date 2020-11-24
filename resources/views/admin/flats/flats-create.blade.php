@@ -83,7 +83,7 @@
                     </form>
                 </div>
 
-                <div id="error" class="alert alert-danger" role="alert"></div>
+                {{-- <div id="error" class="alert alert-danger" role="alert"></div> --}}
             </div>
         </div>
 
@@ -112,13 +112,13 @@
                     e.preventDefault();
                 }
 
-                
-               
 
 
 
 
-                
+
+
+
             });
         </script>
     </div>
