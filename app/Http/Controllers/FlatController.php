@@ -34,7 +34,7 @@ class FlatController extends Controller
         $addressInRadius=[];            //6371000 metri
 
         $addresses = Address::all();
-        
+
 
         foreach ($addresses as $address){
             $latitudeTo = $address->lat;
@@ -45,15 +45,15 @@ class FlatController extends Controller
             $lonFrom = deg2rad($longitudeFrom);
             $latTo = deg2rad($latitudeTo);
             $lonTo = deg2rad($longitudeTo);
-            
+
             $lonDelta = $lonTo - $lonFrom;
             $a = pow(cos($latTo) * sin($lonDelta), 2) +
                 pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
             $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
-            
+
             $angle = atan2(sqrt($a), $b);
             $result = $angle * $earthRadius;
-            
+
 
             if($result <= 20){
                 array_push($addressInRadius, $address->id);
@@ -62,29 +62,29 @@ class FlatController extends Controller
 
         $flatsInRadius= [];
         $flats = Flat::all();
-        for($i=0; $i < count($addressInRadius); $i++){ 
-            
+        for($i=0; $i < count($addressInRadius); $i++){
+
             foreach($flats as $flat){
                 if($flat->address_id == $addressInRadius[$i]){
                     array_push($flatsInRadius, $flat);
                 }
-            }           
+            }
         }
 
 
         // tutti gli appartamenti, per risultato di ricerca
         $service = Service::all();
-        
+
         // filtro per appartamenti sponsorizzati
-        $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at 
+        $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at
         $sponsAttive = Payment::all()->where('end_rate', '>', $momentoAttuale); // memorizzo in una var tutti i pagamenti con end_rate successivo al momento attuale (vuol dire che sono sponsorizzati)
         $flatsIdSpons = [];                                                     // imposto un array vuoto
         foreach($sponsAttive as $sponsAttiva){
             array_push($flatsIdSpons, $sponsAttiva->flat_id);                   // memorizzo nell'array vuoto tutti gli id degli appartamenti sponsorizzati
         }
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
-        
-        
+
+
         /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
         // alla view ritorno entrambe le variabili

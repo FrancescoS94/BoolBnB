@@ -33,7 +33,6 @@
     img{
       margin: 35px 0px 10px 0px;
       border: 3px solid #184868;
-      height: 100px;
       width: 100px;
       box-shadow: rgba(203,31,53,0.4) 0px 5px 14px;  //DA DECIDERE
     }
@@ -41,8 +40,30 @@
 }
 .main{
   height: 100vh;
-  // padding: 0px 10px;
   padding: 0px !important;
   overflow-y: scroll;
   scrollbar-width: none;
+}
+
+//Media Queries
+@media screen and (max-width:576px) {
+
+  .aside {
+    // min-width: 75px;
+    a{
+      text-align: center;
+    }
+    .link-name{
+      display: none;
+    }
+    .utente-dash {
+      img{
+        width: 50px;
+        margin: 10px 0px 10px 0px;
+      }
+      #name {
+        display: none;
+      }
+    }
+  }
 }

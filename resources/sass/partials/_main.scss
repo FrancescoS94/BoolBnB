@@ -190,11 +190,12 @@ main {
             padding: 20px 0px;
             border-top: 1px solid darkgrey;
             #img-search{
-              width: 300px;
+              width: 305px;
               height: 200px;
               border-radius: 10px;
             }
             .flat-text{
+              margin-left: 10px;
               padding-top: 15px;
               p{
                 padding-bottom: 10px;
@@ -229,6 +230,8 @@ main {
         overflow-y:hidden;
       }
     }
+
+
 
     // SHOW FLAT "flat.blade"
         .flat-show {

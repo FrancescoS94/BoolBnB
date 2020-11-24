@@ -321,7 +321,7 @@ main .layout .left-layout .search.container-xl .flat #img-search,
 main .layout .left-layout .search.container-lg .flat #img-search,
 main .layout .left-layout .search.container-md .flat #img-search,
 main .layout .left-layout .search.container-sm .flat #img-search {
-  width: 300px;
+  width: 305px;
   height: 200px;
   border-radius: 10px;
 }
@@ -331,6 +331,7 @@ main .layout .left-layout .search.container-xl .flat .flat-text,
 main .layout .left-layout .search.container-lg .flat .flat-text,
 main .layout .left-layout .search.container-md .flat .flat-text,
 main .layout .left-layout .search.container-sm .flat .flat-text {
+  margin-left: 10px;
   padding-top: 15px;
 }
 
@@ -555,7 +556,6 @@ main .update .form-control:focus {
 .aside .utente-dash img {
   margin: 35px 0px 10px 0px;
   border: 3px solid #184868;
-  height: 100px;
   width: 100px;
   box-shadow: rgba(203, 31, 53, 0.4) 0px 5px 14px;
 }
@@ -565,6 +565,25 @@ main .update .form-control:focus {
   padding: 0px !important;
   overflow-y: scroll;
   scrollbar-width: none;
+}
+
+@media screen and (max-width: 576px) {
+  .aside a {
+    text-align: center;
+  }
+
+  .aside .link-name {
+    display: none;
+  }
+
+  .aside .utente-dash img {
+    width: 50px;
+    margin: 10px 0px 10px 0px;
+  }
+
+  .aside .utente-dash #name {
+    display: none;
+  }
 }
 
 footer {
