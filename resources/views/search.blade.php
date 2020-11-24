@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 @section('script-in-head')
-  
+    {{-- SCRIPT DI ALGOLIA --}}
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>  
 @endsection
 
 @section('content')
@@ -154,6 +155,7 @@
 
 @section('script-in-body')
 <script>
+
   // SCRIPT DI ALGOLIA
   (function() {
         var list=[];
