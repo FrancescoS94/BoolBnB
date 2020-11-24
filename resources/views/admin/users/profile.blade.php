@@ -78,7 +78,6 @@
     </div>
 </div> --}}
 
-
 {{-- PROFILE --}}
 <div class="container">
     <img src="{{asset('image/phone_maintenance.png')}}" alt="">
@@ -92,7 +91,7 @@
             <div class="text-center profile-date">
                 {{-- Ciao {{ Auth::user()->name }} qui puoi aggiornare il tuo profilo --}}
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
-                <img class="rounded-circle" style="width: 100px" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="Immagine del profilo">
+                <img class="rounded-circle" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="Immagine del profilo">
                 <h2 class="profile-title">{{$user->name}} {{$user->lastname}}</h2>
                 <p class="profile-email pb-3">{{$user->email}}</p>
                 <div class="row date">
@@ -128,7 +127,6 @@
             </div>
         </div>
     </div>
-
 
     {{-- <script>
         setTimeout(function(){

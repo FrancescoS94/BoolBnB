@@ -19,7 +19,7 @@
 
 </style>
 
-<form action="{{route('flats.index')}}" method="GET">
+<form class="padd-top" action="{{route('flats.index')}}" method="GET">
     <input class="search-text" type="text" name="query_search" placeholder="Inizia la ricerca">
     <button>Cerca</button>
 </form>
@@ -43,6 +43,7 @@
 </div> {{-- fine tomtom --}}
 
 {{-- BANNER --}}
+{{-- quando si elimina il form di sopra, aggiungere la class "padd-top" accanto a "map-view" --}}
 <section class="bg-img">
     <div class="container-fluid">
         <div class="jumbotron col-sm-8 col-md-6 col-lg-6">

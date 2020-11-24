@@ -97,9 +97,12 @@ header nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
 
 main {
   min-height: calc(100vh - 400px);
-  padding-top: 107px;
   background-color: #e7e9f4;
   /*Nasconde scroll, necessario su Safari e Chrome */
+}
+
+main .padd-top {
+  padding-top: 107px;
 }
 
 main .btn-blu {
@@ -108,6 +111,7 @@ main .btn-blu {
   border: 2px solid #133b55;
   color: white;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 main .btn-blu:hover {
@@ -121,6 +125,7 @@ main .btn-red {
   border: 2px solid #cb1f35;
   color: white;
   border-radius: 4px;
+  font-weight: bold;
 }
 
 main .btn-red:hover {
@@ -161,7 +166,6 @@ main .register .account {
 main .register .btn-blu {
   width: 100%;
   text-transform: uppercase;
-  font-weight: bold;
 }
 
 main .bg-img {
@@ -434,6 +438,10 @@ main .flat-title h1 {
   padding: 15px 0px;
 }
 
+main .profile .rounded-circle {
+  width: 100px;
+}
+
 main .profile .jumbotron {
   background-color: #fcfcfc;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
@@ -468,6 +476,28 @@ main .profile .profile-date .date .col-6 {
 
 main .profile .profile-date a {
   text-decoration: none;
+}
+
+main .update .jumbotron {
+  background-color: white;
+  padding: 30px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+main .update h1 {
+  color: #133b55;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+}
+
+main .update label {
+  font-weight: bold;
+  color: #A0A0A0;
+}
+
+main .update .form-control:focus {
+  border: rgba(19, 59, 85, 0.8);
+  box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
 }
 
 .aside {
