@@ -27,6 +27,7 @@
 @endsection
 
 @section('script-in-head')
+    
     <script type='text/javascript' src='{{asset('')}}../assets/js/polyfills.js'></script>
     <script type='text/javascript' src='{{asset('js/foldable.js')}}'></script>
     <script type='text/javascript' src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/Minimap/1.0.5//Minimap-web.js'></script>
@@ -167,7 +168,37 @@
 
 @section('script-in-body')
     <script>
+        // SCRIPT DI ALGOLIA
+        (function() {
+            var list=[];
+            var placesAutocomplete = places({
+                appId: 'plHDPE6IE51U',
+                apiKey: '13f35e1233e3a7aedf08241d21430869',
+                container: document.querySelector('#city'),
+                templates: {
+                    value: function(suggestion){
+                        list.push(suggestion);
+                        return suggestion.name;
+                    }
+                }
+            }).configure({
+                type: 'city',
+                aroundLatLngViaIP: false,
+            });
 
+            document.getElementById('clickMe').addEventListener('click', function(){
+                var city =  document.getElementById('city').value;
+                for(var i=0; i<list.length; i++){
+                    if(list[i]['name'] === city){
+                        var lat = list[i]['latlng']['lat'];
+                        var lng = list[i]['latlng']['lng'];
+                        var querylat = document.getElementById('query_lat').value =  lat;
+                        var querylng = document.getElementById('query_lng').value =  lng;
+                    }
+                }
+            });
+        })();
+        
         // INIZIO script per tomtom
 
         $.ajax({

@@ -3,13 +3,6 @@
         <img src="{{ asset('storage/images/logo-rossoblu.png')}}" alt="Boolbnb">
     </a>
 
-    {{-- <div class="search">
-        <input class="search-text" type="text" name="" placeholder="Inizia la ricerca">
-        <a href="#" class="search-btn">
-            <i class="fa fa-search"></i>
-        </a>
-    </div> --}}
-
     <form class="search" action="{{route('flats.index')}}" method="GET">
         <input type="search" id="city" class="search-text form-control" placeholder="Dove sogni di andare?" />
         {{-- NASCOSTO --}}<input id="query_lat" type="text" name="query_lat" hidden>
@@ -63,37 +56,3 @@
 
 {{-- SCRIPT DI ALGOLIA --}}
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-
-<script>
-
-    (function() {
-        var list=[];
-        var placesAutocomplete = places({
-            appId: 'plHDPE6IE51U',
-            apiKey: '13f35e1233e3a7aedf08241d21430869',
-            container: document.querySelector('#city'),
-            templates: {
-                value: function(suggestion){
-                    list.push(suggestion);
-                    return suggestion.name;
-                }
-            }
-        }).configure({
-            type: 'city',
-            aroundLatLngViaIP: false,
-        });
-
-        document.getElementById('clickMe').addEventListener('click', function(){
-            var city =  document.getElementById('city').value;
-            for(var i=0; i<list.length; i++){
-                if(list[i]['name'] === city){
-                    var lat = list[i]['latlng']['lat'];
-                    var lng = list[i]['latlng']['lng'];
-                    var querylat = document.getElementById('query_lat').value =  lat;
-                    var querylng = document.getElementById('query_lng').value =  lng;
-                }
-            }
-        });
-    })();
-
-</script>

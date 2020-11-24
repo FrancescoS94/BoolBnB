@@ -101,46 +101,76 @@
 
 @section('script-in-body')
     <script>
+    // SCRIPT DI ALGOLIA
+        (function() {
+            var list=[];
+            var placesAutocomplete = places({
+                appId: 'plHDPE6IE51U',
+                apiKey: '13f35e1233e3a7aedf08241d21430869',
+                container: document.querySelector('#city'),
+                templates: {
+                    value: function(suggestion){
+                        list.push(suggestion);
+                        return suggestion.name;
+                    }
+                }
+            }).configure({
+                type: 'city',
+                aroundLatLngViaIP: false,
+            });
+
+            document.getElementById('clickMe').addEventListener('click', function(){
+                var city =  document.getElementById('city').value;
+                for(var i=0; i<list.length; i++){
+                    if(list[i]['name'] === city){
+                        var lat = list[i]['latlng']['lat'];
+                        var lng = list[i]['latlng']['lng'];
+                        var querylat = document.getElementById('query_lat').value =  lat;
+                        var querylng = document.getElementById('query_lng').value =  lng;
+                    }
+                }
+            });
+        })();
 
        //$("#screenName").on("keyup",function()
 
-        /* $(document).on('click','a.search-btn',function(){
-            var search = $('input.search-text').val();
-            if(search != ''){
+        // $(document).on('click','a.search-btn',function(){
+        //     var search = $('input.search-text').val();
+        //     if(search != ''){
 
-                $.ajax({
-                    type: "GET",
-                    url:  "http://localhost:8000/api/addresses",
-                    success: function(response){
-                        var list= [];
-                        for(var i=0; i<response.length; i++){
-                            var indirizzo = response[i]['address'];
+        //         $.ajax({
+        //             type: "GET",
+        //             url:  "http://localhost:8000/api/addresses",
+        //             success: function(response){
+        //                 var list= [];
+        //                 for(var i=0; i<response.length; i++){
+        //                     var indirizzo = response[i]['address'];
 
-                            if(indirizzo.toLowerCase().includes(search)){
-                                var obj=response[i];
-                                list.push(obj);
-                                var objpassato= JSON.stringify(list);
-                            }// chiusura if
-                        } // chiusura for
+        //                     if(indirizzo.toLowerCase().includes(search)){
+        //                         var obj=response[i];
+        //                         list.push(obj);
+        //                         var objpassato= JSON.stringify(list);
+        //                     }// chiusura if
+        //                 } // chiusura for
 
-                        /* console.log(objpassato);
-                        $.ajax({
-                            type: "GET",
-                            url: 'api/flats',
-                            data: objpassato,
-                            dataType: "json",
-                            }).done(function(messaggio){
-                                 alert("Successo");
-                            }).fail(function(error){
-                                //alert("Errore");
-                                console.log(error, 'errore interno!!')
-                        });
-                    },error: function(error){
-                        console.log('errore', error);
-                    }
-                })
-            }
-        }); */
+        //                 console.log(objpassato);
+        //                 $.ajax({
+        //                     type: "GET",
+        //                     url: 'api/flats',
+        //                     data: objpassato,
+        //                     dataType: "json",
+        //                     }).done(function(messaggio){
+        //                          alert("Successo");
+        //                     }).fail(function(error){
+        //                         //alert("Errore");
+        //                         console.log(error, 'errore interno!!')
+        //                 });
+        //             },error: function(error){
+        //                 console.log('errore', error);
+        //             }
+        //         })
+        //     }
+        // });
 
         // });
                 /* $.ajax({indirizzo.filter(query)
@@ -358,51 +388,51 @@
                                 fitToViewport(response.results);
                                 /* console.log(response.results) */
 
-                            })
-                            .catch(function (error) {
-                                if (error.data && error.data.errorText) {
-                                    errorHint.setMessage(error.data.errorText);
-                                }
-                                resultsManager.resultsNotFound();
-                            })
-                            .finally(function () {
-                                infoHint.hide();
-                            });
-                    }
+                    //         })
+                    //         .catch(function (error) {
+                    //             if (error.data && error.data.errorText) {
+                    //                 errorHint.setMessage(error.data.errorText);
+                    //             }
+                    //             resultsManager.resultsNotFound();
+                    //         })
+                    //         .finally(function () {
+                    //             infoHint.hide();
+                    //         });
+                    // }
 
-                    function handleNoResults() {
-                        resultsManager.clear();
-                        resultsManager.resultsNotFound();
-                        searchMarkersManager.clear();
-                        infoHint.setMessage(
-                            'No results for "' +
-                            ttSearchBox.getValue() +
-                            '" found nearby. Try changing the viewport.'
-                        );
-                    }
+                    // function handleNoResults() {
+                    //     resultsManager.clear();
+                    //     resultsManager.resultsNotFound();
+                    //     searchMarkersManager.clear();
+                    //     infoHint.setMessage(
+                    //         'No results for "' +
+                    //         ttSearchBox.getValue() +
+                    //         '" found nearby. Try changing the viewport.'
+                    //     );
+                    // }
 
-                    function fillResultsList(results) {
-                        resultsManager.clear();
-                        var resultList = DomHelpers.createResultList();
-                        results.forEach(function (result) {
-                            var distance = SearchResultsParser.getResultDistance(result);
-                            var searchResult = DomHelpers.createSearchResult(
-                                SearchResultsParser.getResultName(result),
-                                SearchResultsParser.getResultAddress(result),
-                                distance ? Formatters.formatAsMetricDistance(distance) : ''
-                            );
-                            var resultItem = DomHelpers.createResultItem();
-                            resultItem.appendChild(searchResult);
-                            resultItem.setAttribute('data-id', result.id);
-                            resultItem.onclick = function (event) {
-                                var id = event.currentTarget.getAttribute('data-id');
-                                searchMarkersManager.openPopup(id);
-                                searchMarkersManager.jumpToMarker(id);
-                            };
-                            resultList.appendChild(resultItem);
-                        });
-                        resultsManager.append(resultList);
-                    }
+                    // function fillResultsList(results) {
+                    //     resultsManager.clear();
+                    //     var resultList = DomHelpers.createResultList();
+                    //     results.forEach(function (result) {
+                    //         var distance = SearchResultsParser.getResultDistance(result);
+                    //         var searchResult = DomHelpers.createSearchResult(
+                    //             SearchResultsParser.getResultName(result),
+                    //             SearchResultsParser.getResultAddress(result),
+                    //             distance ? Formatters.formatAsMetricDistance(distance) : ''
+                    //         );
+                    //         var resultItem = DomHelpers.createResultItem();
+                    //         resultItem.appendChild(searchResult);
+                    //         resultItem.setAttribute('data-id', result.id);
+                    //         resultItem.onclick = function (event) {
+                    //             var id = event.currentTarget.getAttribute('data-id');
+                    //             searchMarkersManager.openPopup(id);
+                    //             searchMarkersManager.jumpToMarker(id);
+                    //         };
+                    //         resultList.appendChild(resultItem);
+                    //     });
+                    //     resultsManager.append(resultList);
+                    // }
                 </script>
 @endsection
 
