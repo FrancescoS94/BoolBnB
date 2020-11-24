@@ -49,7 +49,6 @@
         margin-bottom: 30px;
     }
 </style>
-    </style>
 
 
     <div class="container">
@@ -98,7 +97,7 @@
             <button type="submit" class="btn btn-primary">Sponsorizza l'appartamento</button>
         </form>
 
-        <div class="content">
+        {{-- <div class="content">
             form pagamento
             <form method="post" id="payment-form" action="#">
                 @csrf
@@ -118,11 +117,11 @@
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
                 <button class="button" type="submit"><span>Test Transaction</span></button>
             </form>
-        </div>
+        </div> --}}
     </div>
 
 
-    <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+    {{-- <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
     <script>
         var form = document.querySelector('#payment-form');
         /* var client_token = "{{ $token }}"; */ /* {!! json_encode($token->toArray()) !!}; */  /* "{{ $token }}" */
@@ -150,5 +149,5 @@
             });
           });
         });
-    </script>
+    </script> --}}
 @endsection

@@ -31,35 +31,54 @@ header nav .search {
   line-height: 35px;
 }
 
-header nav .search .search-text {
+header nav .search .algolia-places {
+  width: 80%;
+}
+
+header nav .search .algolia-places button.ap-icon-clear {
+  display: none;
+}
+
+header nav .search .algolia-places button.ap-icon-pin {
+  display: none;
+}
+
+header nav .search .algolia-places input.search-text {
   border: none;
   background: none;
   float: left;
 }
 
-header nav .search .search-text:focus {
+header nav .search .algolia-places input.search-text:focus {
   outline: -webkit-focus-ring-color auto 0px;
+  box-shadow: none;
 }
 
-header nav .search a.search-btn {
+header nav .search button.search-btn {
   text-decoration: none;
   color: white;
   background: #cb1f35;
   float: right;
   width: 40px;
   height: 40px;
+  border: none;
   border-radius: 50%;
   margin-left: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-color: #cb1f35;
   cursor: pointer;
 }
 
-header nav .search a.search-btn:hover {
+header nav .search button.search-btn:hover {
   color: #cb1f35;
-  background: #fcfcfc;
+  background: #fff;
   border: 2px solid #cb1f35;
+}
+
+header nav .search button.search-btn:focus {
+  outline: -webkit-focus-ring-color auto 0px;
 }
 
 header nav .navbar-nav.guest {
@@ -181,7 +200,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

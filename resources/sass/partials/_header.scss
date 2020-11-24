@@ -15,31 +15,46 @@ header {
             padding: 5px;
             padding-left: 15px;
             line-height: 35px;
-            .search-text {
-                border: none;
-                background: none;
-                float: left;
-                &:focus {
-                    outline: -webkit-focus-ring-color auto 0px;;
+            .algolia-places{
+                width:80%;
+                button.ap-icon-clear{
+                    display:none;
+                }
+                button.ap-icon-pin{
+                    display:none;
+                }
+                input.search-text {
+                    border: none;
+                    background: none;
+                    float: left;
+                    &:focus {
+                        outline: -webkit-focus-ring-color auto 0px;
+                        box-shadow:none;
+                    }
                 }
             }
-            a.search-btn {
+            button.search-btn {
                 text-decoration: none;
                 color: white;
-                background: $logoColor;
+                background: $redBnb;
                 float: right;
                 width: 40px;
                 height: 40px;
+                border:none;
                 border-radius: 50%;
                 margin-left: 10px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                border-color: $redBnb;
                 cursor: pointer;
                 &:hover{
-                    color: $logoColor;
-                    background: $nav;
-                    border: 2px solid $logoColor;
+                    color: $redBnb;
+                    background: #fff;
+                    border: 2px solid $redBnb;
+                }
+                &:focus {
+                    outline: -webkit-focus-ring-color auto 0px;
                 }
             }
         }

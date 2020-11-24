@@ -43,17 +43,18 @@ class PaymentController extends Controller
     public function create(Request $request)
     {
         
-       $gateway = new \Braintree\Gateway([
-            'environment' => config('sandbox'),
-            'merchantId' => config('29n4fm338ryhzsn2'),
-            'publicKey' => config('m8tty4tbwv25cwbw'),
-            'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
-        ]);
+    //    $gateway = new \Braintree\Gateway([
+    //         'environment' => config('sandbox'),
+    //         'merchantId' => config('29n4fm338ryhzsn2'),
+    //         'publicKey' => config('m8tty4tbwv25cwbw'),
+    //         'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
+    //     ]);
     
-        $token = $gateway->ClientToken()->generate();
+    //     $token = $gateway->ClientToken()->generate();
 
         $flats = Flat::all()->where('user_id', Auth::id());
-        return view('admin.payments.create', compact('flats','token','gateway'));
+        return view('admin.payments.create', compact('flats'));
+        // return view('admin.payments.create', compact('flats','token','gateway'));
     }
 
     /**
