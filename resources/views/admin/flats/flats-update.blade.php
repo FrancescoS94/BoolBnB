@@ -73,7 +73,7 @@
                     {{-- BUTTON --}}
                     <div class="row">
                         <div class="col-12 mt-3">
-                            <button type="submit" class="btn-blu">Invia il modulo</button>
+                            <button type="submit" class="btn-blu">Invia</button>
                         </div>
                     </div>
                 </form>
