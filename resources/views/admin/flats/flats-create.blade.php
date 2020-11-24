@@ -1,10 +1,10 @@
 {{-- Pagina creazione appartamenti --}}
 @extends('layouts.admin')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>Aggiungi un appartamento</h1>
+    <div class="container update">
+        <div class="row d-flex justify-content-center">
+            <div class="col-11 col-sm-10 col-md-9 col-lg-8 jumbotron my-3">
+                <h2 class="d-flex justify-content-center">Appartamento</h2>
 
                 {{-- status --}}
                 @if(session('status'))
@@ -25,8 +25,6 @@
                 @endif
 
                 <div>
-                    <h2>Descrivi il tuo appartamento a i nostri utenti</h2>
-
                     {{-- form creazione punta al Admin/controllerFlat  --}}
                     <form id="form" action="{{ route('admin.flats.store')}}" method="post" enctype="multipart/form-data">
 
@@ -36,39 +34,40 @@
                         {{-- passo in un input nascosto l'id dell'address --}}
                         <input hidden type="text" class="form-control" name="address" value="{{ $address->id }}">
 
-                        <div class="form-group">
-                            <label for="title">Nome dell'appartamento</label>
-                            <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label for="title">Titolo:</label>
+                                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="room">Stanze</label>
-                            <input type="number" class="form-control" name="room" id="room" value="{{ old('room') }}">
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <label for="room">Stanze:</label>
+                                <input type="number" class="form-control" name="room" id="room" value="{{ old('room') }}">
+                            </div>
+                            <div class="col-6">
+                                <label for="bed">Letti:</label>
+                                <input type="number" class="form-control" name="bed" id="bed" value="{{ old('bed') }}">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="bed">Letti</label>
-                            <input type="number" class="form-control" name="bed" id="bed" value="{{ old('bed') }}">
+                        <div class="form-group row">
+                            <div class="col-6">
+                                <label for="wc">WC:</label>
+                                <input type="number" class="form-control" name="wc" id="wc" value="{{ old('wc') }}">
+                            </div>
+                            <div class="col-6">
+                                <label for="mq">Metri quadrati:</label>
+                                <input type="number" class="form-control" name="mq" id="mq" value="{{ old('mq') }}">
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="wc">WC</label>
-                            <input type="number" class="form-control" name="wc" id="wc" value="{{ old('wc') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mq">Metri quadrati</label>
-                            <input type="number" class="form-control" name="mq" id="mq" value="{{ old('mq') }}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="description">Descrizione</label>
-                            <textarea rows="3" type="text" class="form-control-file" name="description" id="description">{{ old('title') }}</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="image">Inserisci una fotografia dell'appartamento</label>
-                            <input type="file" class="form-control-file" name="image" id="image"  accept="image/*" value="{{ old('image') }}">
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label for="description">Descrizione:</label>
+                                <textarea rows="3" type="text" class="form-control-file" name="description" id="description">{{ old('title') }}</textarea>
+                            </div>
                         </div>
 
                         {{-- aggiunta servizi --}}
@@ -79,7 +78,14 @@
                             @endforeach
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Registra l'appartamento</button>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <label for="image">Inserisci una fotografia dell'appartamento</label>
+                                <input type="file" class="form-control-file" name="image" id="image"  accept="image/*" value="{{ old('image') }}">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-blu mt-2">Registra</button>
                     </form>
                 </div>
 

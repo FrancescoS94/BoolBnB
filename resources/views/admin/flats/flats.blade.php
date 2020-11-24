@@ -1,7 +1,7 @@
 {{-- APPARTAMENTI INSERITI DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 @section('content')
-    <div class="container">
+    <div class="container vh">
         {{-- d-flex justify-content-center --}}
         <div class="row">
             <div class="col-10">

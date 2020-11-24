@@ -42,15 +42,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
                 {{-- <form action="{{ route('admin.addresses.update', $addresses->id)}}" method="post"> --}}
                     <form action="{{ route('admin.addresses.update', $flat->address_id )}}" method="post">
                     @csrf

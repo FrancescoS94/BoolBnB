@@ -4,6 +4,11 @@ main {
     .padd-top {
         padding-top:107px;
     }
+
+    .vh {
+        height: 100vh;
+    }
+
     .btn-blu {
         padding: 5px 10px;
         background-color: rgba(19, 59, 85, 1);
@@ -333,7 +338,7 @@ main {
         }
     // *END* GESTISCI IL PROFILO profile.blade
 
-    // AGGIORNA PROFILO/APPARTAMENTO profile-update/flats-update.blade
+    // AGGIORNA(AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
         .update {
             .jumbotron {
                 background-color: white;
@@ -359,7 +364,7 @@ main {
                 }
             }
         }
-    // *END* AGGIORNA PROFILO/APPARTAMENTO profile-update/flats-update.blade
+    // *END* AGGIORNA (AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
 
     // AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
         .table th, .table td {

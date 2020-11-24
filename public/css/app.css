@@ -79,6 +79,8 @@ header nav .search button.search-btn:hover {
 
 header nav .search button.search-btn:focus {
   outline: -webkit-focus-ring-color auto 0px;
+  background: #fcfcfc;
+  border: 2px solid #cb1f35;
 }
 
 header nav .navbar-nav.guest {
@@ -134,6 +136,10 @@ main {
 
 main .padd-top {
   padding-top: 107px;
+}
+
+main .vh {
+  height: 100vh;
 }
 
 main .btn-blu {
@@ -200,7 +206,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
