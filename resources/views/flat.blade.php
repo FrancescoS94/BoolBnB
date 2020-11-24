@@ -37,7 +37,7 @@
 
 @section('content')
     <div class="container flat-show flat-title padd-top">
-        <h1 class="pt-5">Titolo appartamento</h1>
+        <h1 class="pt-5">{{$flat->title}}</h1>
         <div class="row">
             {{-- IMAGE --}}
             <div class="col-md-12 col-lg-7">
