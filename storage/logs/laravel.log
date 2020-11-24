@@ -3921,8 +3921,8 @@ Did you mean one of these?
 #51 C:\\mamp_public\\progettoFinale16\\BoolBnB\\server.php(21): require_once('C:\\\\mamp_public\\\\...')
 #52 {main}
 "} 
-[2020-11-21 11:11:21] local.ERROR: SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
- (SQL: select * from `payments`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+[2020-11-21 11:11:21] local.ERROR: SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+ (SQL: select * from `payments`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
  (SQL: select * from `payments`) at C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:671)
 [stacktrace]
 #0 C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(631): Illuminate\\Database\\Connection->runQueryCallback()
@@ -3980,7 +3980,7 @@ Did you mean one of these?
 #52 C:\\mamp_public\\progettoFinale16\\BoolBnB\\server.php(21): require_once('C:\\\\mamp_public\\\\...')
 #53 {main}
 
-[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
  at C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:70)
 [stacktrace]
 #0 C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(70): PDO->__construct()
@@ -15822,8 +15822,8 @@ esbot\\carbon\\src\\Carbon\\Traits\\Date.php(776): Carbon\\Carbon->get()
 #23 C:\\mamp_public\\progettoFinale16\\BoolBnB\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
 #24 {main}
 "} 
-[2020-11-23 21:58:52] local.ERROR: SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
- (SQL: select * from `payments`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+[2020-11-23 21:58:52] local.ERROR: SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+ (SQL: select * from `payments`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
  (SQL: select * from `payments`) at C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:671)
 [stacktrace]
 #0 C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(631): Illuminate\\Database\\Connection->runQueryCallback()
@@ -15881,7 +15881,7 @@ esbot\\carbon\\src\\Carbon\\Traits\\Date.php(776): Carbon\\Carbon->get()
 #52 C:\\mamp_public\\progettoFinale16\\BoolBnB\\server.php(21): require_once('C:\\\\mamp_public\\\\...')
 #53 {main}
 
-[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
  at C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:70)
 [stacktrace]
 #0 C:\\mamp_public\\progettoFinale16\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(70): PDO->__construct()
@@ -21469,8 +21469,8 @@ esbot\\carbon\\src\\Carbon\\Traits\\Date.php(776): Carbon\\Carbon->get()
 #48 D:\\mamp_public\\BoolBnB\\server.php(21): require_once('D:\\\\mamp_public\\\\...')
 #49 {main}
 "} 
-[2020-11-23 07:38:39] local.ERROR: SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
- (SQL: select * from `payments`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+[2020-11-23 07:38:39] local.ERROR: SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+ (SQL: select * from `payments`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
  (SQL: select * from `payments`) at D:\\mamp_public\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:671)
 [stacktrace]
 #0 D:\\mamp_public\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(631): Illuminate\\Database\\Connection->runQueryCallback()
@@ -21528,7 +21528,7 @@ esbot\\carbon\\src\\Carbon\\Traits\\Date.php(776): Carbon\\Carbon->get()
 #52 D:\\mamp_public\\BoolBnB\\server.php(21): require_once('D:\\\\mamp_public\\\\...')
 #53 {main}
 
-[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione.
  at D:\\mamp_public\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php:70)
 [stacktrace]
 #0 D:\\mamp_public\\BoolBnB\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connectors\\Connector.php(70): PDO->__construct()

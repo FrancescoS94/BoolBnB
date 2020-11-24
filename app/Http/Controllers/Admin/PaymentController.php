@@ -13,14 +13,14 @@ use \Braintree\Gateway;
 
 class PaymentController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
+    {
         $allFlats = Flat::all(); // memorizzo tutti gli appartamenti dell'utente loggato
         $flatsId = [];                                  // creo un array vuoto
         for($i = 0; $i < count($allFlats); $i++){       // per ogni appartamento
@@ -29,7 +29,7 @@ class PaymentController extends Controller
             }
         }
         // dd($flatsId);
-        
+
         $payments = Payment::all()->whereIn('flat_id', $flatsId);   // memorizzo in payments soltanto con i pagamenti in cui il flat_id è contenuto nell'array in cui ho memorizzato gli id degli appartamenti dell'utente loggato
 
         return view('admin.payments.index', compact('payments'));
@@ -42,19 +42,20 @@ class PaymentController extends Controller
      */
     public function create(Request $request)
     {
-        
-    //    $gateway = new \Braintree\Gateway([
-    //         'environment' => config('sandbox'),
-    //         'merchantId' => config('29n4fm338ryhzsn2'),
-    //         'publicKey' => config('m8tty4tbwv25cwbw'),
-    //         'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
-    //     ]);
-    
-    //     $token = $gateway->ClientToken()->generate();
+
+       // $gateway = new \Braintree\Gateway([
+       //      'environment' => config('sandbox'),
+       //      'merchantId' => config('29n4fm338ryhzsn2'),
+       //      'publicKey' => config('m8tty4tbwv25cwbw'),
+       //      'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
+       //  ]);
+
+        // $token = $gateway->ClientToken()->generate();
 
         $flats = Flat::all()->where('user_id', Auth::id());
         return view('admin.payments.create', compact('flats'));
-        // return view('admin.payments.create', compact('flats','token','gateway'));
+
+
     }
 
     /**
@@ -71,7 +72,7 @@ class PaymentController extends Controller
             'flat_id' => 'required',
             'rate_id' => 'required'
         ]);
-        
+
         $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');
         if($data['rate_id'] == 1){
             $data['end_rate'] = $momentoAttuale->addHours(24);

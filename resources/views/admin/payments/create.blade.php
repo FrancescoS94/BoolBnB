@@ -120,11 +120,11 @@
         </div> --}}
     </div>
 
-
-    {{-- <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+    {{-- {{ $token }} {!! json_encode($token->toArray()) !!} --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
     <script>
         var form = document.querySelector('#payment-form');
-        /* var client_token = "{{ $token }}"; */ /* {!! json_encode($token->toArray()) !!}; */  /* "{{ $token }}" */
+
         braintree.dropin.create({
           authorization: client_token,
           selector: '#bt-dropin',
