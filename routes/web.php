@@ -28,7 +28,7 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
     Route::resource('flats','FlatController');
     Route::resource('addresses','AddressController');
     Route::resource('payments','PaymentController');
-    Route::resource('messages','MessageController'); 
+    Route::resource('messages','MessageController');
 });
 
 // rotte accessibili a tutti senza autenticazione

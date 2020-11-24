@@ -129,7 +129,6 @@ header nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
 main {
   min-height: calc(100vh - 400px);
   background-color: #e7e9f4;
-  /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
 main .padd-top {
@@ -280,137 +279,13 @@ main .sponsor .row .lista.appartamenti .box-group .box-descr h5 .badge {
   background-color: #cb1f35;
 }
 
-main .container-fluid.search::-webkit-scrollbar,
-main .search.container-xl::-webkit-scrollbar,
-main .search.container-lg::-webkit-scrollbar,
-main .search.container-md::-webkit-scrollbar,
-main .search.container-sm::-webkit-scrollbar {
-  display: none;
-}
-
 main .layout {
-  color: black;
-  display: flex;
+  margin-top: 81px;
+  height: 100vh;
 }
 
-main .layout .left-layout {
-  width: 60%;
-}
-
-main .layout .left-layout .container-fluid.search,
-main .layout .left-layout .search.container-xl,
-main .layout .left-layout .search.container-lg,
-main .layout .left-layout .search.container-md,
-main .layout .left-layout .search.container-sm {
-  margin-left: 0;
-  height: 550px;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  /*Nasconde scroll firefox*/
-}
-
-main .layout .left-layout .container-fluid.search a,
-main .layout .left-layout .search.container-xl a,
-main .layout .left-layout .search.container-lg a,
-main .layout .left-layout .search.container-md a,
-main .layout .left-layout .search.container-sm a {
-  color: #222222;
-}
-
-main .layout .left-layout .container-fluid.search a:hover,
-main .layout .left-layout .search.container-xl a:hover,
-main .layout .left-layout .search.container-lg a:hover,
-main .layout .left-layout .search.container-md a:hover,
-main .layout .left-layout .search.container-sm a:hover {
-  color: #404040;
-  text-decoration: none;
-}
-
-main .layout .left-layout .container-fluid.search .flat,
-main .layout .left-layout .search.container-xl .flat,
-main .layout .left-layout .search.container-lg .flat,
-main .layout .left-layout .search.container-md .flat,
-main .layout .left-layout .search.container-sm .flat {
-  padding: 20px 0px;
-  border-top: 1px solid darkgrey;
-}
-
-main .layout .left-layout .container-fluid.search .flat #img-search,
-main .layout .left-layout .search.container-xl .flat #img-search,
-main .layout .left-layout .search.container-lg .flat #img-search,
-main .layout .left-layout .search.container-md .flat #img-search,
-main .layout .left-layout .search.container-sm .flat #img-search {
-  width: 305px;
-  height: 200px;
-  border-radius: 10px;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text,
-main .layout .left-layout .search.container-xl .flat .flat-text,
-main .layout .left-layout .search.container-lg .flat .flat-text,
-main .layout .left-layout .search.container-md .flat .flat-text,
-main .layout .left-layout .search.container-sm .flat .flat-text {
-  margin-left: 10px;
-  padding-top: 15px;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text p,
-main .layout .left-layout .search.container-xl .flat .flat-text p,
-main .layout .left-layout .search.container-lg .flat .flat-text p,
-main .layout .left-layout .search.container-md .flat .flat-text p,
-main .layout .left-layout .search.container-sm .flat .flat-text p {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #cb1f35;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text ul,
-main .layout .left-layout .search.container-xl .flat .flat-text ul,
-main .layout .left-layout .search.container-lg .flat .flat-text ul,
-main .layout .left-layout .search.container-md .flat .flat-text ul,
-main .layout .left-layout .search.container-sm .flat .flat-text ul {
-  list-style-type: none;
-  padding-top: 0px;
-  display: inline-block;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text ul li,
-main .layout .left-layout .search.container-xl .flat .flat-text ul li,
-main .layout .left-layout .search.container-lg .flat .flat-text ul li,
-main .layout .left-layout .search.container-md .flat .flat-text ul li,
-main .layout .left-layout .search.container-sm .flat .flat-text ul li {
-  margin-right: 10px;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text ul img,
-main .layout .left-layout .search.container-xl .flat .flat-text ul img,
-main .layout .left-layout .search.container-lg .flat .flat-text ul img,
-main .layout .left-layout .search.container-md .flat .flat-text ul img,
-main .layout .left-layout .search.container-sm .flat .flat-text ul img {
-  height: 25px;
-  padding: 0px 5px 5px 0px;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text .flat-service,
-main .layout .left-layout .search.container-xl .flat .flat-text .flat-service,
-main .layout .left-layout .search.container-lg .flat .flat-text .flat-service,
-main .layout .left-layout .search.container-md .flat .flat-text .flat-service,
-main .layout .left-layout .search.container-sm .flat .flat-text .flat-service {
-  color: #404040;
-}
-
-main .layout .left-layout .container-fluid.search .flat .flat-text .flat-service span,
-main .layout .left-layout .search.container-xl .flat .flat-text .flat-service span,
-main .layout .left-layout .search.container-lg .flat .flat-text .flat-service span,
-main .layout .left-layout .search.container-md .flat .flat-text .flat-service span,
-main .layout .left-layout .search.container-sm .flat .flat-text .flat-service span {
-  margin-right: 4px;
-}
-
-main .layout .right-layout {
-  width: 40%;
-  height: 550px;
-  background-color: gray;
-  overflow-y: hidden;
+main .layout .filters {
+  background-color: orange;
 }
 
 main .flat-show ul {

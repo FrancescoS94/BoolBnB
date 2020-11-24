@@ -165,19 +165,75 @@ main {
 
 
     // PAGINA SEARCH
-    .layout {
-      margin-top: 81px;
-      height: 100vh;
-      .filters{
-        background-color: orange;
-      }
 
-
+    /*Nasconde scroll, necessario su Safari e Chrome */
+    .container-fluid.search::-webkit-scrollbar {
+      display: none;
     }
 
+    .layout {
+      color: black;
+      display: flex;
+      .left-layout {
+        width: 60%;
+        .container-fluid.search{
+          margin-left: 0;
+          height: 550px;
+          overflow-y: scroll;
+          scrollbar-width: none; /*Nasconde scroll firefox*/
+          a{
+            color: #222222;
+            &:hover{
+              color: #404040;
+              text-decoration: none;
+            }
+          }
+          .flat{
+            padding: 20px 0px;
+            border-top: 1px solid darkgrey;
+            #img-search{
+              width: 305px;
+              height: 200px;
+              border-radius: 10px;
+            }
+            .flat-text{
+              margin-left: 10px;
+              padding-top: 15px;
+              p{
+                padding-bottom: 10px;
+                border-bottom: 1px solid $redBnb;
+              }
+              ul{
+                list-style-type: none;
+                padding-top: 0px;
+                display: inline-block;
+                li{
+                  margin-right: 10px;
+                }
+                img{
+                  height: 25px;
+                  padding: 0px 5px 5px 0px;
+                }
+              }
+              .flat-service{
+                color: #404040;
+                span{
+                  margin-right: 4px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .right-layout{
+        width: 40%;
+        height: 550px;
+        background-color: gray;
+        overflow-y:hidden;
+      }
+    }
 
-
-
+    
 
 
 
