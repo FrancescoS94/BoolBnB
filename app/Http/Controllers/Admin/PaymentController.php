@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
 use Carbon\Carbon;
-use Braintree\Gateway;
+use \Braintree\Gateway;
 
 
 class PaymentController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -39,20 +40,20 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         
-        $gateway = new Braintree\Gateway([
+       $gateway = new \Braintree\Gateway([
             'environment' => config('sandbox'),
             'merchantId' => config('29n4fm338ryhzsn2'),
-            'publicKey' => config('jm8py588xwkkj83n'),
-            'privateKey' => config('e3b7922ce7ab91923c1c0f4b94659363')
+            'publicKey' => config('m8tty4tbwv25cwbw'),
+            'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
         ]);
     
         $token = $gateway->ClientToken()->generate();
 
         $flats = Flat::all()->where('user_id', Auth::id());
-        return view('admin.payments.create', compact('flats','gateway','token'));
+        return view('admin.payments.create', compact('flats','token','gateway'));
     }
 
     /**

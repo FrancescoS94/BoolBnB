@@ -17,15 +17,62 @@ class FlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+
+     public function index(Request $request)
     {
-        if ($request->ajax()) {
-            $messaggio = 'Dati passati';
-            dd($messaggio);
-            return  view('search',compact('messaggio'));
+
+
+        //$q= $_GET['query_search'];
+        $lat = $_GET['query_lat'];
+        $lng = $_GET['query_lng'];
+        //dd($lat,$lng);
+
+
+        $latitudeFrom = $lat;
+        $longitudeFrom = $lng;
+        $earthRadius =  6371;
+        $addressInRadius=[];            //6371000 metri
+
+        $addresses = Address::all();
+        
+
+        foreach ($addresses as $address){
+            $latitudeTo = $address->lat;
+            $longitudeTo = $address->lng;
+
+            // convert from degrees to radians
+            $latFrom = deg2rad($latitudeFrom);
+            $lonFrom = deg2rad($longitudeFrom);
+            $latTo = deg2rad($latitudeTo);
+            $lonTo = deg2rad($longitudeTo);
+            
+            $lonDelta = $lonTo - $lonFrom;
+            $a = pow(cos($latTo) * sin($lonDelta), 2) +
+                pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+            $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+            
+            $angle = atan2(sqrt($a), $b);
+            $result = $angle * $earthRadius;
+            
+
+            if($result <= 20){
+                array_push($addressInRadius, $address->id);
+            }
         }
-        // tutti gli appartamenti, per risultato di ricerca
+
+        $flatsInRadius= [];
         $flats = Flat::all();
+        for($i=0; $i < count($addressInRadius); $i++){ 
+            
+            foreach($flats as $flat){
+                if($flat->address_id == $addressInRadius[$i]){
+                    array_push($flatsInRadius, $flat);
+                }
+            }           
+        }
+
+
+        // tutti gli appartamenti, per risultato di ricerca
         $service = Service::all();
         
         // filtro per appartamenti sponsorizzati
@@ -37,13 +84,11 @@ class FlatController extends Controller
         }
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
         
-        // alla view ritorno entrambe le variabili
-        return view('search',compact('flats', 'flatsSpons', 'service'));
+        
+        /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
-        // $q= $_GET['query_search'];
-        // $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get();
-        // dd($addresses);
-        // return view('search');
+        // alla view ritorno entrambe le variabili
+        return view('search',compact('flatsSpons', 'service','flatsInRadius'));
     }
 
     /**

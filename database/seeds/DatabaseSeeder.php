@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             // FlatsTableSeeder::class,
             // MessagesTableSeeder::class,
             // PaymentsTableSeeder::class,
-            // FlatServiceTableSeeder::class
+            // FlatServiceTableSeeder::class,
+            // ImagesTableSeeder::class
         ]);
     }
 }

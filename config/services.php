@@ -32,10 +32,9 @@ return [
 
     // inserire qui le chiavi di braintree
     'braintree' => [
-        'environment' => env('sandbox'),
+        'environment' => env('BT_ENVIRONMENT','sandbox'),
         'merchantId' => env('29n4fm338ryhzsn2'),
         'publicKey' => env('jm8py588xwkkj83n'),
         'privateKey' => env('e3b7922ce7ab91923c1c0f4b94659363'),
     ]
-
 ];
