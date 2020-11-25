@@ -40,7 +40,6 @@
                 <table class="table">
                     <thead>
                             <tr>
-                                <th scope="col">id</th>
                                 <th class="tb-none" scope="col">Title</th>
                                 <th class="tb-none" scope="col">bed</th>
                                 <th class="tb-none" scope="col">room</th>
@@ -52,8 +51,6 @@
                     <tbody>
                         @foreach ($flats as $flat)
                         <tr>
-                            {{-- TH: FLAT->ID --}}
-                            <th scope="row">{{$flat->id}}</th>
                             <td>{{$flat->title}}</td>
                             <td class="tb-none">{{$flat->bed}}</td>
                             <td class="tb-none">{{$flat->room}}</td>
@@ -64,17 +61,17 @@
                                 {{-- <img class="img-fluid" src="{{ Storage::url("/storage/app/{$flat->image}") }}" alt="{{$flat->title}}"> --}}
                             </td>
                             </div>
-                            <td class="">
+                            <td>
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
                             </td>
                             {{-- <td><a class="btn btn-primary" role="button" href="{{route('admin.addresses.edit', [$flat->id, $flat->address->id] )}}" class="card-link">Modifica</a></td> --}}
-                            <td class="">
+                            <td class="tb-none">
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.show', $flat->id)}}">Visualizza</a>
                             </td>
-                            <td class="">
+                            <td class="tb-none">
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.payments.create', $flat->id)}}">Sponsorizza</a>
                             </td>
-                            <td class="">{{-- elimina l'appartamento, attraverso l'id --}}
+                            <td class="tb-none">{{-- elimina l'appartamento, attraverso l'id --}}
                                 <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
