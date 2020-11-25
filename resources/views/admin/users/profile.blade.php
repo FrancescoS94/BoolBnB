@@ -79,7 +79,7 @@
 </div> --}}
 
 {{-- PROFILE --}}
-<div class="container">
+<div class="container vh">
     <img src="{{asset('image/phone_maintenance.png')}}" alt="">
     <div class="row justify-content-center profile">
         <div class="col-md-8 col-lg-8 d-flex justify-content-center jumbotron mx-4">

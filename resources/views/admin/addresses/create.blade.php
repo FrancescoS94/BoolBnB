@@ -2,10 +2,10 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-        <div class="row">
+<div class="container vh">
+        <div class="row d-flex justify-content-center">
             <div class="col-md-8">
-                <h1>Aggiungi un appartamento</h1>
+                {{-- <h1>Aggiungi un appartamento</h1> --}}
 
                 {{-- controllo errori --}}
                 @if ($errors->any())
@@ -18,9 +18,9 @@
                 </div>
                 @endif
 
-                <h2>Dove si trova l'appartamento che vuoi inserire?</h2>
+                <h2 class="pt-5">Dove si trova l'appartamento che vuoi inserire?</h2>
                 {{-- aggiunta 18-11-20 tomtom --}}
-                <div class='map-view'>
+                <div class='map-view my-3'>
                     <div class='tt-side-panel' style="height: 40vh;">
                         <header class='tt-side-panel__header'>
                         </header>
@@ -44,7 +44,7 @@
                         @method('POST')
                         <button type="submit" class="btn btn-primary">Registra l'indirizzo dell'appartamento</button>
                     </form>  --}}
-                    <a  class="btn btn-primary" href="{{ route('admin.flats.create') }}">Registra l'indirizzo dell'appartamento</a>
+                    <a  class="btn-blu text-decoration-none" href="{{ route('admin.flats.create') }}">Invia</a>
                 </div>
 
             </div>

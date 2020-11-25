@@ -1,7 +1,7 @@
 {{-- VISUALIZZI TUTTI I PAGAMENTI DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 @section('content')
-    <div class="container">
+    <div class="container vh">
         <h1>Tutti i pagamenti effettuati</h1>
 
         @if(session('status'))

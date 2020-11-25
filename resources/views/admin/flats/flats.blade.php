@@ -1,10 +1,10 @@
 {{-- APPARTAMENTI INSERITI DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 @section('content')
-    <div class="container">
+    <div class="container vh">
         {{-- d-flex justify-content-center --}}
         <div class="row">
-            <div class="col-10">
+            <div class="col-12">
 
                 {{-- <h1>Ciao {{ Auth::user()->name }}</h1> --}}
                 {{-- se l'utente non ha completato la registrazione non potrà inserire appartamenti --}}
@@ -37,43 +37,44 @@
                 @endif
 
                 {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}}
-                <table class="table table-active">
+                <table class="table">
                     <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">bed</th>
-                                <th scope="col">room</th>
-                                <th scope="col">wc</th>
-                                <th scope="col">mq</th>
-                                <th scope="col">image</th>
+                                <th class="tb-none" scope="col">Title</th>
+                                <th class="tb-none" scope="col">bed</th>
+                                <th class="tb-none" scope="col">room</th>
+                                <th class="tb-none" scope="col">wc</th>
+                                <th class="tb-none" scope="col">mq</th>
+                                <th class="tb-none" scope="col">image</th>
                             </tr>
                     </thead>
                     <tbody>
                         @foreach ($flats as $flat)
                         <tr>
+                            {{-- TH: FLAT->ID --}}
                             <th scope="row">{{$flat->id}}</th>
                             <td>{{$flat->title}}</td>
-                            <td>{{$flat->bed}}</td>
-                            <td>{{$flat->room}}</td>
-                            <td>{{$flat->wc}}</td>
-                            <td>{{$flat->mq}}</td>
+                            <td class="tb-none">{{$flat->bed}}</td>
+                            <td class="tb-none">{{$flat->room}}</td>
+                            <td class="tb-none">{{$flat->wc}}</td>
+                            <td class="tb-none">{{$flat->mq}}</td>
                             <td>
                                 <img class="img-fluid" src="{{url('storage/'. $flat->image)}}" alt="{{$flat->title}}">
                                 {{-- <img class="img-fluid" src="{{ Storage::url("/storage/app/{$flat->image}") }}" alt="{{$flat->title}}"> --}}
                             </td>
                             </div>
-                            <td>
+                            <td class="">
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
                             </td>
                             {{-- <td><a class="btn btn-primary" role="button" href="{{route('admin.addresses.edit', [$flat->id, $flat->address->id] )}}" class="card-link">Modifica</a></td> --}}
-                            <td>
+                            <td class="">
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.show', $flat->id)}}">Visualizza</a>
                             </td>
-                            <td>
+                            <td class="">
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.payments.create', $flat->id)}}">Sponsorizza</a>
                             </td>
-                            <td>{{-- elimina l'appartamento, attraverso l'id --}}
+                            <td class="">{{-- elimina l'appartamento, attraverso l'id --}}
                                 <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

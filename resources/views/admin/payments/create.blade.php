@@ -51,7 +51,7 @@
 </style>
 
 
-    <div class="container">
+    <div class="container vh">
         <h1>Sponsorizza un appartamento</h1>
 
         {{-- controllo errori --}}

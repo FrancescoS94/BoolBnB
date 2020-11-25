@@ -1,9 +1,14 @@
 main {
   min-height: calc(100vh - 400px);
-  background-color: $whiteBnb;
+  background-color: $whiteNav;
     .padd-top {
         padding-top:107px;
     }
+
+    .vh {
+        height: 100%;
+    }
+
     .btn-blu {
         padding: 5px 10px;
         background-color: rgba(19, 59, 85, 1);
@@ -85,7 +90,7 @@ main {
             h1 {
                 text-transform: uppercase;
                 font-size: 50px;
-                color: $nav;
+                color: $whiteNav;
             }
         }
     // *END* BANNER "home.blade"
@@ -93,8 +98,8 @@ main {
     // APPARTAMENTI SPONSORIZZATI "home.blade"
         .sponsor{
             height:calc(100vh - 107px);
-            background-color: $blueBnb;
-            color:$whiteBnb;
+            background-color: $whiteNav;
+            color:$blueBnb;
             padding:50px;
             .row{
                 padding-top: 30px;
@@ -333,7 +338,7 @@ main {
         }
     // *END* GESTISCI IL PROFILO profile.blade
 
-    // AGGIORNA PROFILO/APPARTAMENTO profile-update/flats-update.blade
+    // AGGIORNA(AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
         .update {
             .jumbotron {
                 background-color: white;
@@ -359,11 +364,37 @@ main {
                 }
             }
         }
-    // *END* AGGIORNA PROFILO/APPARTAMENTO profile-update/flats-update.blade
+    // *END* AGGIORNA (AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
 
     // AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
+        .table {
+            background-color: #fcfcfc;
+        }
         .table th, .table td {
             vertical-align: baseline;
+        }
+
+        @media screen and (max-width: 1080px) {
+            .table {
+                thead, tr, th {
+                    // display: none;
+                    // display: block;
+                    width: 100%;
+                }
+                tbody, tr, td {
+                    display: block;
+                    width: 100%;
+                }
+                .tb-none {
+                    display: none;
+                }
+                .btn-blu, .btn-red {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                }
+            }
+
         }
     // *END* AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
 }

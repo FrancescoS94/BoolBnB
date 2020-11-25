@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container vh">
   <h1>Tutti i messaggi ricevuti</h1>
 
   @if($messages != null)
@@ -43,7 +43,7 @@
           </td>
         </tr>
         @endforeach
-        
+
     </tbody>
   </table>
   @else
