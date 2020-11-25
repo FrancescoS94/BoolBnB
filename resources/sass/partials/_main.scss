@@ -168,73 +168,126 @@ main {
     // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
 
 
-    // PAGINA SEARCH search.blade
-        /*Nasconde scroll, necessario su Safari e Chrome */
-        .container-fluid.search::-webkit-scrollbar {
-          display: none;
+
+
+    // PAGINA SEARCH
+    .layout {
+      scrollbar-width: none; /*Nasconde scroll firefox*/
+      overflow-y: scroll;
+      padding: 0px !important;
+      margin-top: 81px;
+      height: 100vh;
+      .filters{
+        background-color: orange;
+      }
+      .sponsor{
+          height:calc(100vh - 107px);
+          background-color: $blueBnb;
+          color:$whiteBnb;
+          padding:50px;
+          .row{
+              padding-top: 30px;
+              height:90%;
+              @include flex(row,space-around,center);
+              i{
+                font-size:30px;
+                color:$redBnb;
+                cursor:pointer;
+              }
+              .lista.appartamenti{
+                  scroll-behavior: smooth;
+                  height:70%;
+                  width:95%;
+                  display:flex;
+                  flex-direction: row;
+                  flex-wrap: nowrap;
+                  overflow-y: hidden;
+                  overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
+                  .box-group {
+                      position:relative;
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                      background-position: center;
+                      margin:10px 10px;
+                      border-radius: 10px;
+                      box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                      transition: width, 0.5s;
+                      &:hover {
+                          transform:scale(1.05);
+                          width:100%;
+                      }
+                      .box-descr{
+                          padding: 5px;
+                          color:#fff;
+                          position: absolute;
+                          bottom: 10px;
+                          left: 20px;
+                          h5{
+                              .badge{
+                                  background-color: $redBnb;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      .ricerca{
+        scrollbar-width: none; /*Nasconde scroll firefox*/
+        .search{
+          padding: 20px 0px;
+          border-top: 1px solid darkgrey;
+          .foto{
+            padding: 0px;
+          }
+          #img-search{
+            width: 370px;
+            height: 240px;
+            border-radius: 10px;
+          }
         }
-        .layout {
-          color: black;
-          display: flex;
-          .left-layout {
-            width: 60%;
-            .container-fluid.search{
-              margin-left: 0;
-              height: 550px;
-              overflow-y: scroll;
-              scrollbar-width: none; /*Nasconde scroll firefox*/
-              a{
-                color: #222222;
-                &:hover{
-                  color: #404040;
-                  text-decoration: none;
-                }
-              }
-              .flat{
-                padding: 20px 0px;
-                border-top: 1px solid darkgrey;
-                #img-search{
-                  width: 305px;
-                  height: 200px;
-                  border-radius: 10px;
-                }
-                .flat-text{
-                  margin-left: 10px;
-                  padding-top: 15px;
-                  p{
-                    padding-bottom: 10px;
-                    border-bottom: 1px solid $redBnb;
-                  }
-                  ul{
-                    list-style-type: none;
-                    padding-top: 0px;
-                    display: inline-block;
-                    li{
-                      margin-right: 10px;
-                    }
-                    img{
-                      height: 25px;
-                      padding: 0px 5px 5px 0px;
-                    }
-                  }
-                  .flat-service{
-                    color: #404040;
-                    span{
-                      margin-right: 4px;
-                    }
-                  }
-                }
-              }
+        .flat-text{
+          margin-left: 10px;
+          padding-top: 15px;
+          a{
+            color: #222222;
+            &:hover{
+              color: #404040;
+              text-decoration: none;
             }
           }
-          .right-layout{
-            width: 40%;
-            height: 550px;
-            background-color: gray;
-            overflow-y:hidden;
+          p{
+            padding-bottom: 10px;
+            // border-bottom: 1px solid $redBnb;
+          }
+          ul{
+            
+            list-style-type: none;
+            padding-top: 0px;
+            display: inline-block;
+            li{
+              margin-right: 10px;
+            }
+            img{
+              height: 30px;
+              padding: 0px 5px 5px 0px;
+            }
+          }
+          .flat-service{
+            color: #404040;
+            span{
+              margin-right: 4px;
+            }
           }
         }
-    // *END* PAGINA SEARCH search.blade
+      }
+    }
+
+
+
+
+
+
 
     // SHOW FLAT "flat.blade"
         .flat-show {

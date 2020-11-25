@@ -1,0 +1,367 @@
+main {
+  min-height: calc(100vh - 400px);
+  background-color: $whiteBnb;
+    .padd-top {
+        padding-top:107px;
+    }
+    .btn-blu {
+        padding: 5px 10px;
+        background-color: rgba(19, 59, 85, 1);
+        border: 2px solid rgba(19, 59, 85, 1);
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        &:hover {
+        background-color: #fcfcfc;
+        color: rgba(19, 59, 85, 1);
+        }
+    }
+    .btn-red {
+        padding: 5px 10px;
+        background-color: $redBnb;
+        border: 2px solid $redBnb;
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        &:hover {
+        background-color: #fcfcfc;
+        color: $redBnb;
+        }
+    }
+
+    // REGISTRAZIONE/ACCESSO auth register/login/email.blade
+        .register {
+            .card {
+                border-radius: 8px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                .form-control {
+                    &:focus {
+                        border: rgba(19, 59, 85, 0.8);
+                        box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+                    }
+                }
+                p {
+                    color: #6c757d;
+                }
+                a {
+                    color: #133b55;
+                    font-weight: bold;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .account {
+                font-size: 25px;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #133b55;
+            }
+            .btn-blu {
+                width: 100%;
+                text-transform: uppercase;
+                // font-weight: bold;
+            }
+        }
+    // *END* REGISTRAZIONE/ACCESSO auth register/login/email.blade
+
+
+    // BANNER "home.blade"
+        .bg-img {
+            // background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg');
+            background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 614px;
+            // margin-top: 80px;
+            padding-top: 129px;
+
+            .jumbotron {
+                    background-color: $banner;
+            }
+
+            h1 {
+                text-transform: uppercase;
+                font-size: 50px;
+                color: $nav;
+            }
+        }
+    // *END* BANNER "home.blade"
+
+    // APPARTAMENTI SPONSORIZZATI "home.blade"
+        .sponsor{
+            height:calc(100vh - 107px);
+            background-color: $blueBnb;
+            color:$whiteBnb;
+            padding:50px;
+            .row{
+                padding-top: 30px;
+                height:90%;
+                @include flex(row,space-around,center);
+                i{
+                  font-size:30px;
+                  color:$redBnb;
+                  cursor:pointer;
+                }
+                .lista.appartamenti{
+                    scroll-behavior: smooth;
+                    height:100%;
+                    width:95%;
+                    // margin:0 auto;
+                    display:flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    // padding-right: 45px;
+                    // padding-left: 5px;
+                    overflow-y: hidden;
+                    overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
+                    .box-group {
+                        // height:300px;
+                        // height:90%;
+                        position:relative;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        margin:10px 10px;
+                        // margin: 50px 5px;
+                        // border: 1px solid black;
+                        border-radius: 10px;
+                        box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                        transition: width, 0.5s;
+                        &:hover {
+                            transform:scale(1.05);
+                            width:100%;
+                            // z-index: 1;
+                        }
+                        // .box-img{
+                        //   a {
+                        //       img{
+                        //           width: 100%;
+                        //           border-radius: 10px 10px 0px 0px;
+                        //           // padding: 5px
+                        //         }
+                        //     }
+                        // }
+                        .box-descr{
+                            padding: 5px;
+                            color:#fff;
+                            position: absolute;
+                            bottom: 10px;
+                            left: 20px;
+                            h5{
+                                .badge{
+                                    background-color: $redBnb;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
+
+
+
+
+    // PAGINA SEARCH
+
+    /*Nasconde scroll, necessario su Safari e Chrome */
+    .container-fluid.search::-webkit-scrollbar {
+      display: none;
+    }
+
+    .layout {
+      color: black;
+      display: flex;
+      .left-layout {
+        width: 60%;
+        .container-fluid.search{
+          margin-left: 0;
+          height: 550px;
+          overflow-y: scroll;
+          scrollbar-width: none; /*Nasconde scroll firefox*/
+          a{
+            color: #222222;
+            &:hover{
+              color: #404040;
+              text-decoration: none;
+            }
+          }
+          .flat{
+            padding: 20px 0px;
+            border-top: 1px solid darkgrey;
+            #img-search{
+              width: 305px;
+              height: 200px;
+              border-radius: 10px;
+            }
+            .flat-text{
+              margin-left: 10px;
+              padding-top: 15px;
+              p{
+                padding-bottom: 10px;
+                border-bottom: 1px solid $redBnb;
+              }
+              ul{
+                list-style-type: none;
+                padding-top: 0px;
+                display: inline-block;
+                li{
+                  margin-right: 10px;
+                }
+                img{
+                  height: 25px;
+                  padding: 0px 5px 5px 0px;
+                }
+              }
+              .flat-service{
+                color: #404040;
+                span{
+                  margin-right: 4px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .right-layout{
+        width: 40%;
+        height: 550px;
+        background-color: gray;
+        overflow-y:hidden;
+      }
+    }
+
+    
+
+
+
+    // SHOW FLAT "flat.blade"
+        .flat-show {
+
+            ul {
+                list-style-type: none;
+                padding-top: 10px;
+                img {
+                    height: 25px;
+                    padding: 0px 5px 5px 0px;
+                }
+                .bed {
+                    padding-right: 20px;
+                }
+                .wc {
+                    padding-right: 22px;
+                }
+            }
+
+            .flat-img {
+                img {
+                    padding: 0px;
+                    margin-bottom: 32px;
+                }
+            }
+
+            .flat-descr {
+                padding-top: 25px;
+                padding-right: 20px;
+            }
+
+            .services p {
+                float: left;
+                padding-right: 15px;
+            }
+
+            .jumbotron {
+                background-color: white;
+                border: 1px solid rgb(221, 221, 221);
+                padding-top: 5px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            }
+
+            button {
+                background-color: #ff385c;
+                padding: 7px 15px;
+                color: white;
+                &:hover {
+                    background-color: white;
+                    color: #ff385c;
+                    border: 2px solid #ff385c;
+                }
+            }
+        }
+
+        .flat-title {
+            h1 {
+                font-size: 30px;
+                font-weight: bold;
+                padding: 15px 0px;
+            }
+        }
+    // *END* SHOW FLAT "flat.blade"
+
+    // GESTISCI IL PROFILO profile.blade
+        .profile {
+            .rounded-circle {
+                width: 100px;
+            }
+            .jumbotron {
+                background-color: #fcfcfc;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                padding: 20px;
+            }
+            .profile-date {
+                width: 100%;
+                .profile-title {
+                    color: rgba(19, 59, 85, 1);
+                    font-size: 36px;
+                }
+                .profile-email {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #A0A0A0;
+                    border-bottom: 2px solid rgba(19, 59, 85, 0.7);
+                }
+                .date {
+                    .text-right {
+                        font-weight: bold;
+                        color: #A0A0A0;
+                    }
+                    .col-6 {
+                        padding-left: 2px;
+                        padding-right: 3px;
+                    }
+                }
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    // *END* GESTISCI IL PROFILO profile.blade
+
+    // AGGIORNA PROFILO profile-update.blade
+        .update {
+            .jumbotron {
+                background-color: white;
+                padding: 30px;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            }
+            h1 {
+                color: #133b55;
+                text-transform: uppercase;
+                padding-bottom: 15px;
+            }
+            label {
+                font-weight: bold;
+                color: #A0A0A0;
+            }
+            .form-control {
+                &:focus {
+                    border: rgba(19, 59, 85, 0.8);
+                    box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+                }
+            }
+        }
+    // *END* AGGIORNA PROFILO profile-update.blade
+
+}
