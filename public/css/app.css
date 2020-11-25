@@ -292,6 +292,68 @@ main .layout .filters {
   background-color: orange;
 }
 
+main .layout .sponsor {
+  height: calc(100vh - 107px);
+  background-color: #133b55;
+  color: #e7e9f4;
+  padding: 50px;
+}
+
+main .layout .sponsor .row {
+  padding-top: 30px;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main .layout .sponsor .row i {
+  font-size: 30px;
+  color: #cb1f35;
+  cursor: pointer;
+}
+
+main .layout .sponsor .row .lista.appartamenti {
+  scroll-behavior: smooth;
+  height: 70%;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  /* disattiva la scrollbar perchè ora hai le frecce */
+}
+
+main .layout .sponsor .row .lista.appartamenti .box-group {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 10px 10px;
+  border-radius: 10px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  transition: width, 0.5s;
+}
+
+main .layout .sponsor .row .lista.appartamenti .box-group:hover {
+  transform: scale(1.05);
+  width: 100%;
+}
+
+main .layout .sponsor .row .lista.appartamenti .box-group .box-descr {
+  padding: 5px;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+main .layout .sponsor .row .lista.appartamenti .box-group .box-descr h5 .badge {
+  background-color: #cb1f35;
+}
+
 main .layout .ricerca {
   scrollbar-width: none;
   /*Nasconde scroll firefox*/
@@ -300,6 +362,10 @@ main .layout .ricerca {
 main .layout .ricerca .search {
   padding: 20px 0px;
   border-top: 1px solid darkgrey;
+}
+
+main .layout .ricerca .search .foto {
+  padding: 0px;
 }
 
 main .layout .ricerca .search #img-search {
@@ -313,9 +379,17 @@ main .layout .ricerca .flat-text {
   padding-top: 15px;
 }
 
+main .layout .ricerca .flat-text a {
+  color: #222222;
+}
+
+main .layout .ricerca .flat-text a:hover {
+  color: #404040;
+  text-decoration: none;
+}
+
 main .layout .ricerca .flat-text p {
   padding-bottom: 10px;
-  border-bottom: 1px solid #cb1f35;
 }
 
 main .layout .ricerca .flat-text ul {
