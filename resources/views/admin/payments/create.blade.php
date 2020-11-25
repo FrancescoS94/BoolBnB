@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 
-    <style>
-                <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
 <!-- Styles -->
 <style>
     html, body {
@@ -49,7 +46,7 @@
         margin-bottom: 30px;
     }
 </style>
-    </style>
+    
 
 
     <div class="container">
@@ -80,7 +77,6 @@
                     <option>Seleziona un appartamento</option>
                     @foreach($flats as $flat)
                     <option value="{{ $flat->id }}">{{ $flat->title }}</option>
-                    {{-- <option>{{ $flat->id }}</option> --}}
                     @endforeach
                 </select>
             </div>
@@ -121,11 +117,12 @@
         </div>
     </div>
 
+    {{-- /* var client_token = "{{ $token }}"; */ /* {!! json_encode($token->toArray()) !!}; */  /* "{{ $token }}" */ --}}
 
     <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
     <script>
         var form = document.querySelector('#payment-form');
-        /* var client_token = "{{ $token }}"; */ /* {!! json_encode($token->toArray()) !!}; */  /* "{{ $token }}" */
+        var client_token = "{{ $token }}";
         braintree.dropin.create({
           authorization: client_token,
           selector: '#bt-dropin',

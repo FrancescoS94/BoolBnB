@@ -44,10 +44,10 @@ class PaymentController extends Controller
     {
         
        $gateway = new \Braintree\Gateway([
-            'environment' => config('sandbox'),
-            'merchantId' => config('29n4fm338ryhzsn2'),
-            'publicKey' => config('m8tty4tbwv25cwbw'),
-            'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
+            'environment' => 'sandbox',
+            'merchantId' => '29n4fm338ryhzsn2',
+            'publicKey' => 'm8tty4tbwv25cwbw',
+            'privateKey' => 'ac89525f6078c48a79788964b45da2fa'
         ]);
     
         $token = $gateway->ClientToken()->generate();
@@ -62,7 +62,8 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Payment $payment)
+
+     public function store(Request $request, Payment $payment)
     {
         $data = $request->all();
 
