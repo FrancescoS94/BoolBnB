@@ -31,7 +31,7 @@ class FlatController extends Controller
 
         $data = $request->all();
         $request->validate([ #validazione e controllo dei dati passati
- /*            'title' => 'required|string|max:200|min:20',
+            /* 'title' => 'required|string|max:200|min:20',
             'room' => 'required|numeric|max:20|min:1',
             'bed' => 'required|numeric|max:20|min:1',
             'wc' => 'required|numeric|max:10|min:1',

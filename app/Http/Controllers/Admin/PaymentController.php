@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use App\Flat;
 use App\Payment;
 use Carbon\Carbon;
-use \Braintree\Gateway;
-
 
 class PaymentController extends Controller
 {
@@ -40,22 +38,22 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-       // $gateway = new \Braintree\Gateway([
-       //      'environment' => config('sandbox'),
-       //      'merchantId' => config('29n4fm338ryhzsn2'),
-       //      'publicKey' => config('m8tty4tbwv25cwbw'),
-       //      'privateKey' => config('ac89525f6078c48a79788964b45da2fa')
-       //  ]);
-
-        // $token = $gateway->ClientToken()->generate();
-
+        // stampo gli appartamenti sponsorizzabili
         $flats = Flat::all()->where('user_id', Auth::id());
-        return view('admin.payments.create', compact('flats'));
 
+        // credenziali braintree
+        $gateway = new \Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 't88vvm9qkqhd69dx',
+            'publicKey' => '75g7jjmpm723p9q5',
+            'privateKey' => 'da50cb052035c68c347219f1ce616b1f'
+        ]);
+        // generazione token braintree
+        $token = $gateway->ClientToken()->generate();
 
+        return view('admin.payments.create', compact('flats','token', 'gateway'));
     }
 
     /**
@@ -66,32 +64,71 @@ class PaymentController extends Controller
      */
     public function store(Request $request, Payment $payment)
     {
-        $data = $request->all();
+        // credenziali braintree
+        $gateway = new \Braintree\Gateway([
+            'environment' => 'sandbox',
+            'merchantId' => 't88vvm9qkqhd69dx',
+            'publicKey' => '75g7jjmpm723p9q5',
+            'privateKey' => 'da50cb052035c68c347219f1ce616b1f'
+        ]);
 
+        if($request['rate_id'] == 1){
+            $amount = 2.99;
+        } elseif($request['rate_id'] == 2){
+            $amount = 5.99;
+        } elseif($request['rate_id'] == 3){
+            $amount = 9.99;
+        };
+
+        $nonce = $request->payment_method_nonce;
+        
+        $result = $gateway->transaction()->sale([
+            'amount' => $amount,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
+        ]);
+        
         $request->validate([
             'flat_id' => 'required',
             'rate_id' => 'required'
         ]);
 
-        $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');
-        if($data['rate_id'] == 1){
-            $data['end_rate'] = $momentoAttuale->addHours(24);
-        } elseif($data['rate_id'] == 2){
-            $data['end_rate'] = $momentoAttuale->addHours(72);
-        } elseif($data['rate_id'] == 3){
-            $data['end_rate'] = $momentoAttuale->addHours(144);
-        };
 
-        $payment['flat_id'] = $data['flat_id'];
-        $payment['rate_id'] = $data['rate_id'];
-        $payment->fill($data);
+        if ($result->success) {
+            $transaction = $result->transaction;
 
-        $payment->save();
+            $momentoAttuale = Carbon::now()->setTimezone('Europe/Rome');
+            
+            if($request['rate_id'] == 1){
+                $request['end_rate'] = $momentoAttuale->addHours(24);
+            } elseif($request['rate_id'] == 2){
+                $request['end_rate'] = $momentoAttuale->addHours(72);
+            } elseif($request['rate_id'] == 3){
+                $request['end_rate'] = $momentoAttuale->addHours(144);
+            };
 
-        $salvato = $payment->save();
-        if($salvato){
-            return redirect()->route('admin.flats.index')->with('status', 'L\'appartamento ' . $payment->flat_id . ' è sponsorizzato');
-        };
+            $payment['flat_id'] = $request['flat_id'];
+            $payment['rate_id'] = $request['rate_id'];
+            $payment['end_rate'] = $request['end_rate'];
+
+            $payment->save();
+
+            $salvato = $payment->save();
+            if($salvato){
+                return redirect()->route('admin.flats.index')->with('status', 'L\'appartamento ' . $payment->flat->title . ' è sponsorizzato');
+            };
+
+        } else {
+            $errorString = "";
+            
+            foreach($result->errors->deepAll() as $error) {
+                $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+            }
+            
+            return back()->withErrors('Si è verificato un errore con il messaggio: ' . $result->message);
+        }
     }
 
     /**

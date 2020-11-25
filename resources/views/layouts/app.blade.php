@@ -34,6 +34,8 @@
     @yield('head')
     @yield('script-in-head')
 
+    {{-- SCRIPT DI ALGOLIA --}}
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 </head>
 <body>
     <header>

@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Flat;
+use App\Payment;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +23,6 @@ use App\Flat;
 
 Auth::routes();
 
-
-
 // rotte accessibili agli user
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
     Route::resource('users','UserController');
@@ -35,7 +36,6 @@ Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('flats','FlatController'); // rotte per la pagina searche e per gli show dei flat
 Route::resource('messages','MessageController');
-
 
 // rotte e controller per chartjs
 Route::get('/get-messages-chart-data', 'Admin\MessagesChartDataController@getMonthlyMessagesData');

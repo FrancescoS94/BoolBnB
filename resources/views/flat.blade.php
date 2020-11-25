@@ -1,49 +1,37 @@
 @extends('layouts.app')
 
-@section('name')
-    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps.css'>
-    <link rel='stylesheet' type='text/css' href='{{asset('css/index.css')}}'/>
-    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/Minimap/1.0.5//Minimap.css'/>
+@section('head')
+    {{-- STILE MAPPA --}}
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.37.2/maps/maps.css'/>
     <style>
-        .js-foldable {
-            width: 300px;
-        }
-
-        .tt-params-box__header {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        .tt-params-box__content {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        .tt-params-box {
-            box-shadow: none;
-            margin-top: 8px;
+        /* STILE MAPPA */
+        #map {
+            height: 500px;
+            width: 500px;
         }
     </style>
 @endsection
 
 @section('script-in-head')
-    <script type='text/javascript' src='{{asset('')}}../assets/js/polyfills.js'></script>
-    <script type='text/javascript' src='{{asset('js/foldable.js')}}'></script>
-    <script type='text/javascript' src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/Minimap/1.0.5//Minimap-web.js'></script>
-    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
-    <script type='text/javascript' src='{{asset('js/mobile-or-tablet.js')}}'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+ 
+    {{-- SCRIPT TOMTOM PER MAPPA --}}
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.37.2/maps/maps-web.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> --}}
 @endsection
 
 @section('content')
     <div class="container flat-show flat-title padd-top">
+        {{-- input nascosti per passare lat, lng e indirizzo alla mappa --}}
+        <input class="lat" type="text" hidden value="{{$flat->address->lat}}">
+        <input class="lng" type="text" hidden value="{{$flat->address->lng}}">
+        <input class="address" type="text" hidden value="{{$flat->address->address}}">
+
         <h1 class="pt-5">{{$flat->title}}</h1>
         <div class="row">
             {{-- IMAGE --}}
             <div class="col-md-12 col-lg-7">
                 <div class="flat-img">
                     <img class="img-thumbnail border-0" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}">
-                    {{-- <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt=""> --}}
                 </div>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
@@ -79,37 +67,8 @@
             {{-- TOMTOM & FORM --}}
             <div class="col-md-7 col-lg-6 mt-5">
                 <h2>Posizione</h2>
-                <div id='map' class='map'>
-                    <div class='tt-overlay-panel -left-top -medium js-foldable'>
-                        <form>
-                            <label class='tt-form-label'>
-                                Map zoom: <span id='mapZoom'></span>
-                            </label>
-                            <label class='tt-form-label'>
-                                Minimap zoom: <span id='minimapZoom'></span>
-                            </label>
-                            <div class='tt-params-box'>
-                                <header class='tt-params-box__header'>
-                                    Minimap parameters
-                                </header>
-                                <div class='tt-params-box__content'>
-                                    <label class='tt-form-label'>
-                                        Zoom level offset (<span id='zoomLevelOffsetCounter' class='tt-counter'>5</span>)
-                                        <input id='zoomLevelOffsetSlider' class='tt-slider' type='range' min='3' max='8' value='5'/>
-                                    </label>
-                                    <label class='tt-form-label'>
-                                        Minimap min zoom (<span id='minZoomCounter' class='tt-counter'>3</span>)
-                                        <input id='minZoomSlider' class='tt-slider' type='range' min='0' max='6' value='3'/>
-                                    </label>
-                                    <label class='tt-form-label'>
-                                        Minimap max zoom (<span id='maxZoomCounter' class='tt-counter'>15</span>)
-                                        <input id='maxZoomSlider' class='tt-slider' type='range' min='6' max='22' value='15'/>
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                {{-- MAPPA CON MARKER --}}
+                <div id='map'></div>
             </div>
             <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron mt-5">
                 <div id="form-messaggio">
@@ -167,102 +126,69 @@
 
 @section('script-in-body')
     <script>
+        // SCRIPT DI ALGOLIA PER INPUT DI RICERCA
+        (function() {
+            var list=[];                                    // creo un array vuoto in cui inserisco tutti i suggerimenti di algolia
+            var placesAutocomplete = places({
+                appId: 'plHDPE6IE51U',
+                apiKey: '13f35e1233e3a7aedf08241d21430869',
+                container: document.querySelector('#city'),
+                templates: {
+                    value: function(suggestion){
+                        list.push(suggestion);              // man mano che vengono generati inserisco tutti i suggerimenti nell'array
+                        return suggestion.name;
+                    }
+                }
+            }).configure({
+                type: 'city',                               // i risultati devono essere solo città
+                aroundLatLngViaIP: false,                   // non mi interessa partire dalla posizione dell'utente
+            });
 
+            document.getElementById('clickMe').addEventListener('click', function(){        // al click sul bottone
+                var city =  document.getElementById('city').value;                          // memorizzo il valore dell'input
+                for(var i=0; i<list.length; i++){                                           // ciclo l'array di suggerimenti 
+                    if(list[i]['name'] === city){                                           // risalgo al suggerimento selezionato
+                        var lat = list[i]['latlng']['lat'];                                 // estraggo la latitudine
+                        var lng = list[i]['latlng']['lng'];                                 // estraggo la longitudine
+                        var querylat = document.getElementById('query_lat').value =  lat;   // e li memorizzo in due variabili
+                        var querylng = document.getElementById('query_lng').value =  lng;
+                    }
+                }
+            });
+        })();
+        
         // INIZIO script per tomtom
+        // DISPLAYING A MAP WITH LOCATION MARKER WITH TOMTOM
 
-        $.ajax({
-            type: "GET",
-            url: "http://localhost:8000/api/addresses/id",
-            // data: "data",
-            success: function (response) {
-                console.log(response);
-            },error: function(error){
-                console.log('errore' + error);
-            }
-        });
-
-
-        // Define your product name and version.
-        tt.setProductInfo('mini_map_flat', '0');
+        var lat = $('input.lat').val();
+        var lng = $('input.lng').val();
+        
+        var flatLatLng = [lng, lat];                                    // memorizzo le coordinate dell'appartamento in un array
 
         var map = tt.map({
-            key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
             container: 'map',
+            key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
             style: 'tomtom://vector/1/basic-main',
-            dragPan: !isMobileOrTablet(),
-            center: [-0.12634, 51.50276],
-            zoom: 15
+            center: flatLatLng,                                         // le setto come centro della mappa
+            zoom: 5
         });
 
-        var minimapOptions = {
-            ttMapsSdk: tt,
-            zoomOffset: 5,
-            mapOptions: {
-                key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
-                style: 'tomtom://vector/1/basic-main',
-                minZoom: 3,
-                maxZoom: 15
-            }
-        };
+        var marker = new tt.Marker().setLngLat(flatLatLng).addTo(map);  // aggiungo un marker
 
-        var minimap = new tt.plugins.Minimap(minimapOptions);
-
-        map.addControl(minimap, 'bottom-right');
-        new Foldable('.js-foldable', 'top-right');
-
-        function updateMinimapZoomLevelCounter() {
-            document.getElementById('minimapZoom').innerText = minimap.getMap().getZoom().toFixed(2);
+        var popupOffsets = {
+            top: [0, 0],
+            bottom: [0, -70],
+            'bottom-right': [0, -70],
+            'bottom-left': [0, -70],
+            left: [25, -35],
+            right: [-25, -35]
         }
+        
+        var title = $('h1').html();                                     // personalizzo il marker con i dati dell'appartamento
+        var address = $('input.address').val();
 
-        function updateMapZoomLevelCounter() {
-            document.getElementById('mapZoom').innerText = map.getZoom().toFixed(2);
-        }
+        var popup = new tt.Popup({offset: popupOffsets}).setHTML("<h5>" + title + "</h5><span>" + address + "</span>");  
+        marker.setPopup(popup).togglePopup();
 
-        function updateMinimapMinZoomLevel() {
-            var minZoom = parseInt(document.getElementById('minZoomSlider').value, 10);
-            document.getElementById('minZoomCounter').innerText = minZoom;
-            minimapOptions = Object.assign({ mapOptions: Object.assign(minimapOptions.mapOptions || {}, {minZoom: minZoom}) },
-                minimapOptions);
-            minimap.getMap().setMinZoom(minZoom);
-            updateMinimapZoomLevelCounter();
-        }
-
-        function updateMinimapMaxZoomLevel() {
-            var maxZoom = parseInt(document.getElementById('maxZoomSlider').value, 10);
-            document.getElementById('maxZoomCounter').innerText = maxZoom;
-            minimapOptions = Object.assign({mapOptions: Object.assign(minimapOptions.mapOptions || {}, {maxZoom: maxZoom})},
-                minimapOptions);
-            minimap.getMap().setMaxZoom(maxZoom);
-            updateMinimapZoomLevelCounter();
-        }
-
-        function updateMinimap(minimapOptions) {
-            map.removeControl(minimap);
-            minimap = new tt.plugins.Minimap(minimapOptions);
-            map.addControl(minimap, 'bottom-right');
-            minimap.getMap().on('zoom', updateMinimapZoomLevelCounter);
-            updateMinimapZoomLevelCounter();
-        }
-
-        function updateZoomLevelOffset() {
-            var offset = parseInt(document.getElementById('zoomLevelOffsetSlider').value, 10);
-            document.getElementById('zoomLevelOffsetCounter').innerText = offset;
-            minimapOptions = Object.assign(minimapOptions, {zoomOffset: offset});
-            updateMinimap(minimapOptions);
-        }
-
-        updateMapZoomLevelCounter();
-        updateMinimapZoomLevelCounter();
-
-        map.on('zoom', updateMapZoomLevelCounter);
-        minimap.getMap().on('zoom', updateMinimapZoomLevelCounter);
-        document.getElementById('zoomLevelOffsetSlider').addEventListener('change', updateZoomLevelOffset);
-        document.getElementById('minZoomSlider').addEventListener('change', updateMinimapMinZoomLevel);
-        document.getElementById('maxZoomSlider').addEventListener('change', updateMinimapMaxZoomLevel);
-
-        map.addControl(new tt.FullscreenControl());
-        map.addControl(new tt.NavigationControl());
-
-        // FINE script per tomtom
     </script>
 @endsection
