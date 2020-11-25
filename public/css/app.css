@@ -130,7 +130,7 @@ header nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
 
 main {
   min-height: calc(100vh - 400px);
-  background-color: #e7e9f4;
+  background-color: #fcfcfc;
   /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
@@ -226,8 +226,8 @@ main .bg-img h1 {
 
 main .sponsor {
   height: calc(100vh - 107px);
-  background-color: #133b55;
-  color: #e7e9f4;
+  background-color: #fcfcfc;
+  color: #133b55;
   padding: 50px;
 }
 
@@ -635,9 +635,9 @@ main .table td {
 }
 
 footer {
-  border-top: 1px solid darkgrey;
+  border-top: 1px solid #fcfcfc;
   padding-top: 35px;
-  background-color: #f7f7f7;
+  background-color: #133b55;
 }
 
 footer #footer ul {
@@ -649,15 +649,16 @@ footer #footer ul li {
 }
 
 footer #footer ul a {
-  color: #222222;
+  color: #fcfcfc;
 }
 
 footer #footer ul a:hover {
-  color: #404040;
+  color: #fcfcfc;
 }
 
 footer .footer-bottom {
-  border-top: 1px solid darkgrey;
+  color: #fcfcfc;
+  border-top: 1px solid #fcfcfc;
   padding-top: 20px;
 }
 
@@ -666,8 +667,18 @@ footer .footer-bottom-left p {
   margin-right: 15px;
 }
 
+footer .footer-bottom-left .ft:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 footer .footer-bottom-right span {
+  cursor: pointer;
   margin-right: 15px;
+}
+
+footer .footer-bottom-right span:hover {
+  color: rgba(203, 31, 53, 0.8);
 }
 
 footer #social {

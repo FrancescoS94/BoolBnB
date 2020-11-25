@@ -1,6 +1,6 @@
 main {
   min-height: calc(100vh - 400px);
-  background-color: $whiteBnb;
+  background-color: $whiteNav;
     .padd-top {
         padding-top:107px;
     }
@@ -90,7 +90,7 @@ main {
             h1 {
                 text-transform: uppercase;
                 font-size: 50px;
-                color: $nav;
+                color: $whiteNav;
             }
         }
     // *END* BANNER "home.blade"
@@ -98,8 +98,8 @@ main {
     // APPARTAMENTI SPONSORIZZATI "home.blade"
         .sponsor{
             height:calc(100vh - 107px);
-            background-color: $blueBnb;
-            color:$whiteBnb;
+            background-color: $whiteNav;
+            color:$blueBnb;
             padding:50px;
             .row{
                 padding-top: 30px;

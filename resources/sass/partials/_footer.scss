@@ -1,7 +1,7 @@
 footer{
-  border-top: 1px solid darkgrey;
+  border-top: 1px solid $whiteNav;
   padding-top: 35px;
-  background-color: #f7f7f7;
+  background-color: $blueBnb;
   #footer{
     ul{
       list-style: none;
@@ -9,17 +9,19 @@ footer{
         padding-bottom: 12px;
       }
       a{
-        color: #222222;
+        color: $whiteNav;
         &:hover{
-          color: #404040;
+            color: $whiteNav;
+          // color: rgba(203, 31, 53, 0.8);
         }
       }
     }
   }
 
   .footer-bottom{
-    border-top: 1px solid darkgrey;
-    padding-top: 20px;
+      color: $whiteNav;
+      border-top: 1px solid $whiteNav;
+      padding-top: 20px;
   }
 
   .footer-bottom-left {
@@ -27,11 +29,19 @@ footer{
       display: inline-block;
       margin-right: 15px;
     }
+    .ft:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
   }
 
   .footer-bottom-right{
     span{
+        cursor: pointer;
       margin-right: 15px;
+      &:hover {
+          color: rgba(203, 31, 53, 0.8);
+      }
     }
   }
 

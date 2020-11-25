@@ -56,9 +56,9 @@
 
     <div class="col-lg-6 col-md-6 col-sm-12 footer-bottom-left">
       <p>© 2020 Boolbnb, Inc. All rights reserved</p>
-      <p>Privacy</p>
-      <p>Termini</p>
-      <p>Dettagli dell'azienda</p>
+      <p class="ft">Privacy</p>
+      <p class="ft">Termini</p>
+      <p class="ft">Dettagli dell'azienda</p>
     </div>
 
     <div class="offset-lg-3 col-lg-3 col-md-6 col-sm-12 footer-bottom-right">
