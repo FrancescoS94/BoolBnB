@@ -1,14 +1,9 @@
 main {
   min-height: calc(100vh - 400px);
-  background-color: $whiteNav;
+  background-color: $whiteBnb;
     .padd-top {
         padding-top:107px;
     }
-
-    .vh {
-        height: 100%;
-    }
-
     .btn-blu {
         padding: 5px 10px;
         background-color: rgba(19, 59, 85, 1);
@@ -45,11 +40,9 @@ main {
                         box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
                     }
                 }
-
                 p {
                     color: #6c757d;
                 }
-
                 a {
                     color: #133b55;
                     font-weight: bold;
@@ -64,13 +57,14 @@ main {
                 font-weight: bold;
                 color: #133b55;
             }
-
             .btn-blu {
                 width: 100%;
                 text-transform: uppercase;
+                // font-weight: bold;
             }
         }
     // *END* REGISTRAZIONE/ACCESSO auth register/login/email.blade
+
 
     // BANNER "home.blade"
         .bg-img {
@@ -84,13 +78,13 @@ main {
             padding-top: 129px;
 
             .jumbotron {
-                background-color: $banner;
+                    background-color: $banner;
             }
 
             h1 {
                 text-transform: uppercase;
                 font-size: 50px;
-                color: $whiteNav;
+                color: $nav;
             }
         }
     // *END* BANNER "home.blade"
@@ -98,8 +92,8 @@ main {
     // APPARTAMENTI SPONSORIZZATI "home.blade"
         .sponsor{
             height:calc(100vh - 107px);
-            background-color: $whiteNav;
-            color:$blueBnb;
+            background-color: $blueBnb;
+            color:$whiteBnb;
             padding:50px;
             .row{
                 padding-top: 30px;
@@ -107,7 +101,7 @@ main {
                 @include flex(row,space-around,center);
                 i{
                   font-size:30px;
-                  color:$blueBnb;
+                  color:$redBnb;
                   cursor:pointer;
                 }
                 .lista.appartamenti{
@@ -261,7 +255,7 @@ main {
             // border-bottom: 1px solid $redBnb;
           }
           ul{
-            
+
             list-style-type: none;
             padding-top: 0px;
             display: inline-block;
@@ -291,19 +285,17 @@ main {
 
     // SHOW FLAT "flat.blade"
         .flat-show {
+
             ul {
                 list-style-type: none;
                 padding-top: 10px;
-
                 img {
                     height: 25px;
                     padding: 0px 5px 5px 0px;
                 }
-
                 .bed {
                     padding-right: 20px;
                 }
-
                 .wc {
                     padding-right: 22px;
                 }
@@ -333,9 +325,14 @@ main {
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
             }
 
-            a {
+            button {
+                background-color: #ff385c;
+                padding: 7px 15px;
+                color: white;
                 &:hover {
-                    text-decoration: none;
+                    background-color: white;
+                    color: #ff385c;
+                    border: 2px solid #ff385c;
                 }
             }
         }
@@ -349,34 +346,28 @@ main {
         }
     // *END* SHOW FLAT "flat.blade"
 
-    // *** ADMIN ***
-
     // GESTISCI IL PROFILO profile.blade
         .profile {
             .rounded-circle {
                 width: 100px;
             }
-
             .jumbotron {
                 background-color: #fcfcfc;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
                 padding: 20px;
             }
-
             .profile-date {
                 width: 100%;
                 .profile-title {
                     color: rgba(19, 59, 85, 1);
                     font-size: 36px;
                 }
-
                 .profile-email {
                     font-size: 18px;
                     font-weight: bold;
                     color: #A0A0A0;
                     border-bottom: 2px solid rgba(19, 59, 85, 0.7);
                 }
-
                 .date {
                     .text-right {
                         font-weight: bold;
@@ -387,29 +378,29 @@ main {
                         padding-right: 3px;
                     }
                 }
+                a {
+                    text-decoration: none;
+                }
             }
         }
     // *END* GESTISCI IL PROFILO profile.blade
 
-    // AGGIORNA(AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
+    // AGGIORNA PROFILO profile-update.blade
         .update {
             .jumbotron {
                 background-color: white;
                 padding: 30px;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
             }
-
             h1 {
                 color: #133b55;
                 text-transform: uppercase;
                 padding-bottom: 15px;
             }
-
             label {
                 font-weight: bold;
                 color: #A0A0A0;
             }
-
             .form-control {
                 &:focus {
                     border: rgba(19, 59, 85, 0.8);
@@ -417,37 +408,6 @@ main {
                 }
             }
         }
-    // *END* AGGIORNA (AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
+    // *END* AGGIORNA PROFILO profile-update.blade
 
-    // AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
-        .table {
-            background-color: #fcfcfc;
-        }
-        .table th, .table td {
-            vertical-align: baseline;
-        }
-
-        @media screen and (max-width: 1080px) {
-            .table {
-                thead, tr, th {
-                    // display: none;
-                    // display: block;
-                    width: 100%;
-                }
-                tbody, tr, td {
-                    display: block;
-                    width: 100%;
-                }
-                .tb-none {
-                    display: none;
-                }
-                .btn-blu, .btn-red {
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                }
-            }
-
-        }
-    // *END* AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
 }
