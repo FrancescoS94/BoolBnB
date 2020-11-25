@@ -38,7 +38,7 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         // stampo gli appartamenti sponsorizzabili
         $flats = Flat::all()->where('user_id', Auth::id());
@@ -80,7 +80,6 @@ class PaymentController extends Controller
             $amount = 9.99;
         };
 
-        // $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
         
         $result = $gateway->transaction()->sale([
@@ -118,7 +117,7 @@ class PaymentController extends Controller
 
             $salvato = $payment->save();
             if($salvato){
-                return redirect()->route('admin.flats.index')->with('status', 'L\'appartamento ' . $payment->flat_id . ' è sponsorizzato');
+                return redirect()->route('admin.flats.index')->with('status', 'L\'appartamento ' . $payment->flat->title . ' è sponsorizzato');
             };
 
         } else {

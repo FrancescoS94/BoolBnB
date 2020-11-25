@@ -27,7 +27,12 @@
 
         {{-- inserire costi sponsorizzazioni --}}
 
-        <p>Puoi sponsorizzare un appartamento per 1, 3 o 6 giorni.</p>
+        <p>Puoi sponsorizzare un appartamento per:</p>
+        <ul>
+            <li>1 giorno: € 2.99</li>
+            <li>2 giorni: € 5.99</li>
+            <li>3 giorni: € 9.99</li>
+        </ul>
         <p>Il tuo appartamento verrà mostrato in home page e nella pagina di ricerca, in evidenza rispetto agli altri appartamenti, per l'intera durata della sponsorizzazione.</p>
 
         {{-- HOSTED FORM BRAINTREE --}}
@@ -52,65 +57,7 @@
             @endif
             <form action="{{ route('admin.payments.store') }}" method="POST" id="payment-form">
                 @csrf
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="name_on_card">Name on Card</label>
-                    <input type="text" class="form-control" id="name_on_card" name="name_on_card">
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" name="address">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" name="city">
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="province">Province</label>
-                            <input type="text" class="form-control" id="province" name="province">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="postalcode">Postal Code</label>
-                            <input type="text" class="form-control" id="postalcode" name="postalcode">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" class="form-control" id="country" name="country">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="text" class="form-control" id="phone" name="phone">
-                        </div>
-                    </div>
-
-                </div>
-
+                
                 <div class="form-group">
                     <label for="flat_id">Scegli l'appartamento che vuoi sponsorizzare</label>
                     <select class="form-control" id="flat_id" name="flat_id">
@@ -133,7 +80,7 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="cc_number">Credit Card Number</label>
+                        <label for="cc_number">Carta di credito</label>
 
                         <div class="form-group" id="card-number">
 
@@ -141,7 +88,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <label for="expiry">Expiry</label>
+                        <label for="expiry">Scadenza</label>
 
                         <div class="form-group" id="expiration-date">
 
@@ -165,12 +112,11 @@
                 <div class="spacer"></div>
 
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button type="submit" class="btn btn-success">Submit Payment</button>
+                <button type="submit" class="btn btn-success">Paga e sponsorizza</button>
             </form>
         </div>
     </div>
-    {{-- SCRIPT HOSTED FORM --}}
-
+    {{-- SCRIPT HOSTED FORM BRAINTREE --}}
     <script>
       var form = document.querySelector('#payment-form');
       var submit = document.querySelector('input[type="submit"]');

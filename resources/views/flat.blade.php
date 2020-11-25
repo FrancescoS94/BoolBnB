@@ -126,7 +126,7 @@
 
 @section('script-in-body')
     <script>
-        // SCRIPT DI ALGOLIA
+        // SCRIPT DI ALGOLIA PER INPUT DI RICERCA
         (function() {
             var list=[];                                    // creo un array vuoto in cui inserisco tutti i suggerimenti di algolia
             var placesAutocomplete = places({
@@ -163,13 +163,13 @@
         var lat = $('input.lat').val();
         var lng = $('input.lng').val();
         
-        var flatLatLng = [lat, lng];                                    // memorizzo le coordinate dell'appartamento in un array
+        var flatLatLng = [lng, lat];                                    // memorizzo le coordinate dell'appartamento in un array
 
         var map = tt.map({
             container: 'map',
             key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
             style: 'tomtom://vector/1/basic-main',
-            center: flatLatLng,                                         // lo inserisco nell'oggetto di ricerca
+            center: flatLatLng,                                         // le setto come centro della mappa
             zoom: 5
         });
 
@@ -187,7 +187,7 @@
         var title = $('h1').html();                                     // personalizzo il marker con i dati dell'appartamento
         var address = $('input.address').val();
 
-        var popup = new tt.Popup({offset: popupOffsets}).setHTML("<h5>" + title + "</h5><span>" + address + "</span");  
+        var popup = new tt.Popup({offset: popupOffsets}).setHTML("<h5>" + title + "</h5><span>" + address + "</span>");  
         marker.setPopup(popup).togglePopup();
 
     </script>
