@@ -61,11 +61,11 @@
                                 {{-- <img class="img-fluid" src="{{ Storage::url("/storage/app/{$flat->image}") }}" alt="{{$flat->title}}"> --}}
                             </td>
                             </div>
-                            <td>
+                            <td class="tb-none">
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
                             </td>
                             {{-- <td><a class="btn btn-primary" role="button" href="{{route('admin.addresses.edit', [$flat->id, $flat->address->id] )}}" class="card-link">Modifica</a></td> --}}
-                            <td class="tb-none">
+                            <td>
                                 <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.show', $flat->id)}}">Visualizza</a>
                             </td>
                             <td class="tb-none">
