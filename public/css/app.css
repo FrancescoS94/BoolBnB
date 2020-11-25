@@ -139,7 +139,7 @@ main .padd-top {
 }
 
 main .vh {
-  height: 100vh;
+  height: 100%;
 }
 
 main .btn-blu {
@@ -527,9 +527,39 @@ main .update .form-control:focus {
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
 }
 
+main .table {
+  background-color: #fcfcfc;
+}
+
 main .table th,
 main .table td {
   vertical-align: baseline;
+}
+
+@media screen and (max-width: 1080px) {
+  main .table thead,
+  main .table tr,
+  main .table th {
+    width: 100%;
+  }
+
+  main .table tbody,
+  main .table tr,
+  main .table td {
+    display: block;
+    width: 100%;
+  }
+
+  main .table .tb-none {
+    display: none;
+  }
+
+  main .table .btn-blu,
+  main .table .btn-red {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .aside {

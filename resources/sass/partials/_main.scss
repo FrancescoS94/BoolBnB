@@ -6,7 +6,7 @@ main {
     }
 
     .vh {
-        height: 100vh;
+        height: 100%;
     }
 
     .btn-blu {
@@ -367,8 +367,34 @@ main {
     // *END* AGGIORNA (AGGIUNGI) PROFILO/APPARTAMENTO profile-update/flats-update/flats-create.blade
 
     // AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
+        .table {
+            background-color: #fcfcfc;
+        }
         .table th, .table td {
             vertical-align: baseline;
+        }
+
+        @media screen and (max-width: 1080px) {
+            .table {
+                thead, tr, th {
+                    // display: none;
+                    // display: block;
+                    width: 100%;
+                }
+                tbody, tr, td {
+                    display: block;
+                    width: 100%;
+                }
+                .tb-none {
+                    display: none;
+                }
+                .btn-blu, .btn-red {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                }
+            }
+
         }
     // *END* AGGIUNGI APPARTAMENTO/LISTA APPARTAMENTI flats.blade
 }
