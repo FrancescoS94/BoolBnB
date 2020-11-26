@@ -15,8 +15,8 @@
             <input id="flat" hidden value="{{$flat->id}}">
         </form> --}}
 
-        <h1 class="pt-5">{{$flat->title}}</h1>
-        <div class="row">
+        <h2 class="pt-5">{{$flat->title}}</h2>
+        <div class="row show-app">
             {{-- IMAGE --}}
             <div class="col-md-12 col-lg-7">
                 <div class="flat-img">

@@ -3,17 +3,17 @@
 @section('head')
     <style>
         main{
-            height: 120vh;
-            padding-top: 35px;
+            /* height: 120vh;
+            padding-top: 35px; */
         }
     </style>
 @endsection
 
 
 @section('content')
-    <div class="container">
+    <div class="container vh">
         <div class="row d-flex justify-content-center update">
-            <div class="col-11 col-sm-10 col-md-9 col-lg-8 jumbotron mx-5 my-5">
+            <div class="col-md-10 col-lg-9 jumbotron mt-5">
                 {{-- validazione campi  --}}
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -31,7 +31,7 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group row d-flex justify-content-center">
-                            <div class="col-7">
+                            <div class="col-10 col-md-10 col-lg-7">
                                 <label for="birthday">
                                     Inserisci la tua data di nascita
                                 </label>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row d-flex justify-content-center">
-                            <div class="col-7">
+                            <div class="col-10 col-md-10 col-lg-7">
                                 <label for="avatar">
                                     Inserisci una fotografia
                                 </label>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center pt-4">
-                            <div class="col-7">
+                            <div class="col-10 col-md-10 col-lg-7">
                                 <button type="submit" class="btn-blu">
                                     Invia
                                 </button>

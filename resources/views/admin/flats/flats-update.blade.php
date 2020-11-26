@@ -2,7 +2,8 @@
 @section('content')
     <div class="container update vh">
         <div class="row d-flex justify-content-center">
-            <div class="col-11 col-sm-10 col-md-9 col-lg-8 jumbotron my-3">
+            <div class="col-md-10 col-lg-9 jumbotron my-1">
+                <h2 class="d-flex justify-content-center">Modifica</h2>
 
                 {{-- validazione campi  --}}
                 @if ($errors->any())

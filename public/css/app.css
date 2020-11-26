@@ -125,33 +125,29 @@ header nav .nav-item.dropdown .dropdown-menu .dropdown-item {
 
 header nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
   background-color: #133b55;
-  color: #e7e9f4;
+  color: #fcfcfc;
 }
 
 main {
   min-height: calc(100vh - 400px);
   background-color: #fcfcfc;
-  /*Nasconde scroll, necessario su Safari e Chrome */
 }
 
 main .padd-top {
   padding-top: 107px;
 }
 
-main .vh {
-  height: 100%;
-}
-
 main .btn-blu {
   padding: 5px 10px;
   background-color: #133b55;
   border: 2px solid #133b55;
-  color: white;
+  color: #fcfcfc;
   border-radius: 4px;
   font-weight: bold;
 }
 
 main .btn-blu:hover {
+  text-decoration: none;
   background-color: #fcfcfc;
   color: #133b55;
 }
@@ -160,7 +156,7 @@ main .btn-red {
   padding: 5px 10px;
   background-color: #cb1f35;
   border: 2px solid #cb1f35;
-  color: white;
+  color: #fcfcfc;
   border-radius: 4px;
   font-weight: bold;
 }
@@ -302,7 +298,7 @@ main .layout .filters {
 main .layout .sponsor {
   height: calc(100vh - 107px);
   background-color: #133b55;
-  color: #e7e9f4;
+  color: #fcfcfc;
   padding: 50px;
 }
 
@@ -456,17 +452,21 @@ main .flat-show .services p {
 }
 
 main .flat-show .jumbotron {
-  background-color: white;
+  background-color: #fcfcfc;
   border: 1px solid #dddddd;
   padding-top: 5px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-main .flat-show a:hover {
-  text-decoration: none;
+@media screen and (max-width: 1140px) {
+  main .flat-show .show-app .jumbotron {
+    box-shadow: none;
+    border: none;
+  }
 }
 
-main .flat-title h1 {
+main .flat-title h2 {
+  color: #133b55;
   font-size: 30px;
   font-weight: bold;
   padding: 15px 0px;
@@ -479,7 +479,7 @@ main .profile .rounded-circle {
 main .profile .jumbotron {
   background-color: #fcfcfc;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-  padding: 20px;
+  padding: 30px;
 }
 
 main .profile .profile-date {
@@ -508,13 +508,23 @@ main .profile .profile-date .date .col-6 {
   padding-right: 3px;
 }
 
+main .profile .profile-date a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  main .profile .jumbotron {
+    box-shadow: none;
+  }
+}
+
 main .update .jumbotron {
-  background-color: white;
+  background-color: #fcfcfc;
   padding: 30px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-main .update h1 {
+main .update h2 {
   color: #133b55;
   text-transform: uppercase;
   padding-bottom: 15px;
@@ -530,20 +540,28 @@ main .update .form-control:focus {
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
 }
 
-main .table {
-  background-color: #fcfcfc;
+@media screen and (max-width: 768px) {
+  main .update .jumbotron {
+    box-shadow: none;
+  }
 }
 
-main .table th,
+main .flats-list h2 {
+  color: #133b55;
+  text-transform: uppercase;
+}
+
 main .table td {
-  vertical-align: baseline;
+  vertical-align: middle;
 }
 
-@media screen and (max-width: 1080px) {
-  main .table thead,
-  main .table tr,
-  main .table th {
-    width: 100%;
+@media screen and (max-width: 1020px) {
+  main .table thead {
+    display: none;
+  }
+
+  main .table .tb-none {
+    display: none;
   }
 
   main .table tbody,
@@ -553,15 +571,9 @@ main .table td {
     width: 100%;
   }
 
-  main .table .tb-none {
-    display: none;
-  }
-
-  main .table .btn-blu,
-  main .table .btn-red {
+  main .table .btn-blu {
     display: flex;
     justify-content: center;
-    width: 100%;
   }
 }
 
@@ -573,7 +585,7 @@ main .table td {
   left: 0;
   padding: 0px !important;
   text-transform: uppercase;
-  color: #e7e9f4;
+  color: #fcfcfc;
   background-color: #184868;
 }
 

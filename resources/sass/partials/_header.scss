@@ -1,6 +1,6 @@
 header {
     nav {
-        background-color: $whiteNav;
+        background-color: $whiteBnb;
         @include flex(row,space-between,center);
         .navbar-brand {
             img{
@@ -55,7 +55,7 @@ header {
                 }
                 &:focus {
                     outline: -webkit-focus-ring-color auto 0px;
-                    background: $whiteNav;
+                    background: $whiteBnb;
                     border: 2px solid $redBnb;
                 }
             }

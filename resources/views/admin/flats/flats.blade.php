@@ -1,22 +1,18 @@
 {{-- APPARTAMENTI INSERITI DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 @section('content')
-    <div class="container vh">
-        {{-- d-flex justify-content-center --}}
+    <div class="container flats-list vh">
         <div class="row">
             <div class="col-12">
-
                 {{-- <h1>Ciao {{ Auth::user()->name }}</h1> --}}
                 {{-- se l'utente non ha completato la registrazione non potrà inserire appartamenti --}}
                 @if(is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
-                    <h2>Completa il tuo profilo prima di inserire un appartamento!</h2>
+                    <h2 class="py-3">Completa il tuo profilo prima di inserire un appartamento!</h2>
                 @else
-                {{--<a href="{{ route('admin.addresses.create') }}" class="card-link"> il btn crea un appartamento porta a admin.addresses.create e poi a admin.flats.create
-                    <button type="button" class="btn btn-success">Aggiungi un appartamento</button>
-                </a>--}}
-
+                <h2 class="py-3 pb">I tuoi appartamenti</h2>
+                {{-- il btn "aggiungi un appartamento" porta a admin.addresses.create e poi a admin.flats.create --}}
                 <a href="{{ route('admin.addresses.create') }}" class="card-link">
-                    <button type="button" class="btn-blu my-3">Aggiungi un appartamento</button>
+                    <button type="button" class="btn-blu mb-4">Aggiungi</button>
                 </a>
                 @endif
 
@@ -39,14 +35,14 @@
                 {{-- ciclo i valori che ritornano dal controller con il compact! mostro tutti gli appartamenti dell'utente loggato --}}
                 <table class="table">
                     <thead>
-                            <tr>
-                                <th class="tb-none" scope="col">Title</th>
-                                <th class="tb-none" scope="col">bed</th>
-                                <th class="tb-none" scope="col">room</th>
-                                <th class="tb-none" scope="col">wc</th>
-                                <th class="tb-none" scope="col">mq</th>
-                                <th class="tb-none" scope="col">image</th>
-                            </tr>
+                        <tr>
+                            <th class="tb-none" scope="col">Title</th>
+                            <th class="tb-none" scope="col">bed</th>
+                            <th class="tb-none" scope="col">room</th>
+                            <th class="tb-none" scope="col">wc</th>
+                            <th class="tb-none" scope="col">mq</th>
+                            <th class="tb-none" scope="col">image</th>
+                        </tr>
                     </thead>
                     <tbody>
                         @foreach ($flats as $flat)
@@ -58,18 +54,22 @@
                             <td class="tb-none">{{$flat->mq}}</td>
                             <td>
                                 <img class="img-fluid" src="{{url('storage/'. $flat->image)}}" alt="{{$flat->title}}">
-                                {{-- <img class="img-fluid" src="{{ Storage::url("/storage/app/{$flat->image}") }}" alt="{{$flat->title}}"> --}}
                             </td>
                             </div>
                             <td class="tb-none">
-                                <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
+                                <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.edit', $flat->id )}}">
+                                    Modifica
+                                </a>
                             </td>
-                            {{-- <td><a class="btn btn-primary" role="button" href="{{route('admin.addresses.edit', [$flat->id, $flat->address->id] )}}" class="card-link">Modifica</a></td> --}}
                             <td>
-                                <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.show', $flat->id)}}">Visualizza</a>
+                                <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.flats.show', $flat->id)}}">
+                                    Visualizza
+                                </a>
                             </td>
                             <td class="tb-none">
-                                <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.payments.create', $flat->id)}}">Sponsorizza</a>
+                                <a class="btn-blu text-decoration-none" role="button" href="{{route('admin.payments.create', $flat->id)}}">
+                                    Sponsorizza
+                                </a>
                             </td>
                             <td class="tb-none">{{-- elimina l'appartamento, attraverso l'id --}}
                                 <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
