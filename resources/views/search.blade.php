@@ -1,46 +1,67 @@
 {{-- PAGINA DI RICERCA --}}
 @extends('layouts.app')
 @section('content')
+
+<style>
+  .filter{
+    display: flex;
+    width: 50%;
+  }
+
+  .filter-child{
+    width: 20%;
+    padding-left: 10px;
+    margin-right: 30px;
+  }
+
+
+</style>
+
 <div class="container-fluid layout">
   <div>
-    <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" /> {{-- id = city --}}
-    <input class="query_lat" type="text" name="query_lat" hidden> {{-- cambia con id --}}
-    <input class="query_lng" type="text" name="query_lng" hidden>
-    <button id="click" class="btn btn-dark">cerca</button>
+    <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
+    <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
+    <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
+    <button id="click" class="btn btn-dark">cerca per città</button>
   </div>
 
-  <div>
-    <h4>Filtri services</h4>
-    @foreach($service as $service)
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="{{ $service->service }}" value="{{ $service->service }}">
-      <label class="form-check-label" for="{{ $service->service }}">{{ $service->service }}</label>
+  <section class="filter">
+    <div class="filter-child">
+      <h4>Filtri services</h4>
+      <div class="service_each">
+      @foreach($service as $service)
+        <div class="form-check form-check-inline">
+          <input class="form-check-input serviceClick" type="checkbox" id="{{ $service->service }}" value="{{ $service->service }}">
+          <label class="form-check-label" for="{{ $service->service }}">{{ $service->service }}</label>
+        </div>
+      @endforeach
+      </div>
     </div>
-    @endforeach
-  </div>
+  
+    <div class="filter-child">
+        <h4>Filtri flats</h4>
+        <div class="form-group">
+          <label for="room">Stanze</label>
+          <input class="form-control" id="room" type="number">
+        </div>
+        <div class="form-group">
+          <label for="bed">Letti</label>
+          <input class="form-control" id="bed" type="number">
+        </div>
+        <div class="form-group">
+          <label for="wc">Bagni</label>
+          <input  class="form-control" id="wc" type="number">
+        </div>
+        <div class="form-group">
+          <label for="mq">Metri quadrati</label>
+          <input class="form-control" id="mq" type="number">
+        </div>
+        <button id="filtra" type="button" class="btn btn-dark">FILTRA</button>
+    </div>
+    
+  </section>
 
-    <div>
-      <h4>Filtri flats</h4>
-      <div class="form-group">
-      <label for="room">Stanze</label>
-      <input class="form-control" id="room" type="number">
-      </div>
-      <div class="form-group">
-      <label for="bed">Letti</label>
-      <input class="form-control" id="bed" type="number">
-      </div>
-      <div class="form-group">
-      <label for="wc">Bagni</label>
-      <input  class="form-control" id="wc" type="number">
-      </div>
-      <div class="form-group">
-      <label for="mq">Metri quadrati</label>
-      <input class="form-control" id="mq" type="number">
-      </div>
-  </div>
-  {{-- <button id="filtra" type="button" class="btn btn-dark">FILTRA</button> --}} 
-
-  <section class="container-fluid sponsor">
+   <section class="container-fluid sponsor">
     <h2>Scorri i nostri migliori appartamenti</h2>
     <div class="row">
         <i class="fas fa-chevron-left left"></i>
@@ -105,6 +126,60 @@
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
 <script>
+
+
+
+
+
+  $(document).on('click', '#filtra', function(){
+    let list = []; // torna tutti i servizi scelti
+    $('.serviceClick:checked').each(function(){
+      list.push(this.value);
+    });
+
+      // prendo i valori dei filtri flats
+      let room = $('#room').val();
+      let bed = $('#bed').val();
+      let wc = $('#wc').val();
+      let mq = $('#mq').val();
+
+      let lat = $('.query_lat').val();
+      let lng = $('.query_lng').val();
+
+      geo = [
+/*         list,
+        room,
+        bed,
+        wc,
+        mq, */
+        lat,
+        lng
+      ];
+
+      //call(geo) //parte la chiamata ajax!
+    
+      $.ajax({
+        /* cache: false, */
+          type: "GET",
+          url: "http://localhost:8000/flats",
+          data: {
+            data: geo
+          },
+        dataType: "json",
+        }).done(function(response){
+          console.log(response);
+          compiler(response); // richiamo la funzione per compilare il model
+        }).fail(function(error){
+          console.log('errore',error);
+        });
+      /* console.log(geo); */
+  });
+
+    
+
+
+
+
 var list=[]; // array di ricerca
 (function() { // funzione algolia di ricerca
   var placesAutocomplete = places({

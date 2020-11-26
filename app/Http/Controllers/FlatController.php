@@ -24,6 +24,10 @@ class FlatController extends Controller
         // se la richiesta è di tipo ajax
         if($request->ajax())
         {
+
+
+            
+            
             $data= $_GET['lat'];
 
             $lat= $data[0];
@@ -74,21 +78,29 @@ class FlatController extends Controller
                             }
                         }           
                     }
-
-
-                    /* return view('search',compact('flatsInRadius'));
-                    return Response::json($todo); */
-
-                    /* $l = [];
-
-                    array_push($l,$flatsInRadius);
-                    array_push($l, ); */
-
                     
-                    $obj = [                     
+                    $indirizzi=[];
+                    // confrontare i flatsInRadius address_id con gli id di address e prendere gli address con lo stesso id
+                    for ($i=0; $i < count($flatsInRadius); $i++) { 
+                        foreach($addresses as $address){
+                            if($address->id == $flatsInRadius[$i]['address_id']){
+                                array_push($indirizzi,$address);
+                                /* $i= array_merge($indirizzi,$flatsInRadius); */
+                            }
+                        }
+                    }
+
+                    // mostrare tutti i servizi per gli appartamenti di ricerca
+                    /* foreach($flatsInRadius->services as $service){
+                        $serviceApp = $service->service;
+                    } */ 
+
+
+                   // ritorno gli indirizzi e gli appartamenti
+                   $obj = [                    
                         'flats' => $flatsInRadius,
-                        'addresses' => $addresses,
-                        'service' => $service
+                        'addresses' => $indirizzi,
+                        /* 'service' => $serviceApp */
                     ];
             
                 return $obj;
@@ -162,10 +174,11 @@ class FlatController extends Controller
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
 
 
+        
         /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
         // alla view ritorno entrambe le variabili
-        return view('search',compact('flatsSpons','service','flatsInRadius','city'));
+        return view('search',compact('flatsSpons','service','flatsInRadius','city','lat','lng'));
 
 
         // devo tornare qui dalla pagina searh e dirgli di effettuare una ricerca asincrona
