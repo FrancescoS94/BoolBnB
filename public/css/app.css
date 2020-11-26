@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Calibri, Arial, sans-serif;
 }
 
 textarea {
@@ -537,10 +538,6 @@ main .update .form-control:focus {
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
 }
 
-main {
-  height: 100vh;
-}
-
 .aside {
   height: 100vh;
   position: fixed;
@@ -587,7 +584,7 @@ main {
   box-shadow: rgba(203, 31, 53, 0.4) 0px 5px 14px;
 }
 
-.main {
+.lay-dx {
   height: 100vh;
   padding: 0px !important;
   overflow-y: scroll;
@@ -614,9 +611,14 @@ main {
 }
 
 .messaggio-ricevuto {
+  padding-top: 25px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+.messaggio-ricevuto .dettagli {
+  padding: 10px 0px 0px 2px;
 }
 
 .messaggio-ricevuto .dettagli ul {
@@ -624,8 +626,14 @@ main {
 }
 
 .messaggio-ricevuto .testo-messaggio {
-  border-top: 1px solid darkgray;
-  padding-top: 5px;
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
+  padding-top: 7px;
+  padding-left: 2px;
+}
+
+.messaggio-ricevuto .lettura {
+  padding: 15px 2px;
 }
 
 .messaggio-ricevuto .lettura form {
@@ -635,16 +643,6 @@ main {
 .messaggio-ricevuto .lettura form input {
   width: 180px;
   margin: 10px 10px 10px 0px;
-  background-color: #133b55;
-  border: 2px solid #133b55;
-  color: white;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.messaggio-ricevuto .lettura form input:hover {
-  background-color: #fcfcfc;
-  color: #133b55;
 }
 
 footer {

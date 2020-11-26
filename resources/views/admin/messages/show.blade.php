@@ -35,14 +35,14 @@
       <form action="{{ route('admin.messages.update', $message['id']) }}" method="post">
           @csrf
           @method('PATCH')
-          <input class="btn btn-dark" type="submit" value="Segna come da leggere">
+          <input class="btn-blu" type="submit" value="Segna come da leggere">
       </form>
 
     @endif
       <form action="{{ route('admin.messages.destroy', $message['id']) }}" method="post">
           @csrf
           @method('DELETE')
-          <input id="canc-mex"class="btn btn-dark" type="submit" value="Cancella messaggio">
+          <input class="btn-red" type="submit" value="Cancella messaggio">
       </form>
 
   </div>
