@@ -1,4 +1,4 @@
-<div class="container-fluid" id="footer">
+<div class="container" id="footer">
   <div class="row">
     <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
       <ul>
