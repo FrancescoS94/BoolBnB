@@ -65,51 +65,63 @@
 
 
     {{-- appartamenti ricercati  --}}
-    <div class="container-fluid search">
+    <div id="template-container" class="container-fluid search">
       <h2>Appartamenti ricercati </h2>
-      @foreach ($flatsInRadius as $flat)
-      <div class="row flat">
-        <div class="my-auto col-xl-5">
-          <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="card-img-top" alt="{{ $flat->title}}"></a>
-        </div>
-        <div class="col-xl-6">
-            <div class="flat-text">
-              <a href="{{ route('flats.show', $flat->id) }}">
-                <h5 class="card-title">{{ $flat->title}}</h5>
-                <p class="address">{{ $flat->address->address }}</p>
-                <ul>
-                  <li>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
-                    <p class="bed">Letti: {{$flat->bed}}</p> 
-                  </li>
-                  <li>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
-                    <p class="room">Stanze: {{$flat->room}}</p> 
-                  </li>
-                </ul>
+      <div id="search-child">
+        @foreach ($flatsInRadius as $flat)
+        <div class="row flat">
+          <div class="my-auto col-xl-5">
+            <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="card-img-top" alt="{{ $flat->title}}"></a>
+          </div>
+          <div class="col-xl-6">
+              <div class="flat-text">
+                <a href="{{ route('flats.show', $flat->id) }}">
+                  <h5 class="card-title">{{ $flat->title}}</h5>
+                  <p class="address">{{ $flat->address->address }}</p>
                   <ul>
                     <li>
-                      <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
-                      <p class="wc">WC: {{$flat->wc}}</p> 
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                      <p class="bed">Letti: {{$flat->bed}}</p> 
                     </li>
                     <li>
-                      <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
-                      <p class="mq">Mq: {{$flat->mq}}</p>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                      <p class="room">Stanze: {{$flat->room}}</p> 
                     </li>
                   </ul>
-              </a>
-              <div class="flat-service">
-                @foreach($flat->services as $service)
-                <span> {{ $service->service }} </span>
-                @endforeach
+                    <ul>
+                      <li>
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                        <p class="wc">WC: {{$flat->wc}}</p> 
+                      </li>
+                      <li>
+                        <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                        <p class="mq">Mq: {{$flat->mq}}</p>
+                      </li>
+                    </ul>
+                </a>
+                <div class="flat-service">
+                  @foreach($flat->services as $service)
+                  <span> {{ $service->service }} </span>
+                  @endforeach
+                </div>
               </div>
-            </div>
 
+          </div>
         </div>
-      </div>
-      @endforeach
+        @endforeach
+      </div> {{-- fine searh-child --}}
     </div>
-</div>
+
+
+
+    {{-- template --}}
+    {{-- <div id="template-container" class="container-fluid search">
+      <h2>Appartamenti ricercati</h2>
+    </div> --}}
+
+
+
+</div> {{-- fine left-layout --}}
 
   <div class="right-layout">
     <p>Mappa Mappa Mappa Mappa Mappa Mappa</p>
@@ -118,6 +130,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
 <script>
 
 
@@ -144,8 +157,18 @@ var list=[]; // array di ricerca
 
 // funzione click bottone
 $('#clickMe').unbind().bind('click', function(){   /* metodo alternativo document.getElementById('clickMe').addEventListener('click', function(){}); // chiusura evento bottone */
-  var geo= [];
+  
   var city =  document.getElementById('city').value;
+  if(city == ''){
+    document.querySelector('.left-layout').innerHTML = '<h2>Inserisci un città!</h2>';
+  }
+
+  //document.querySelector('.left-layout').innerHTML = '';
+  $('#search-child').empty();
+
+  //reset();  
+  var geo= [];
+  
   for(var i=0; i<list.length; i++){
     if(list[i]['name'] === city){ // se c'è corrispondenza  
 
@@ -160,7 +183,7 @@ $('#clickMe').unbind().bind('click', function(){   /* metodo alternativo documen
         geo.push(querylng);
       }
       
-      document.querySelector('.left-layout').innerHTML = ''; // quando ricerco pulisci la pagina
+      //document.querySelector('.left-layout').innerHTML = ''; // quando ricerco pulisci la pagina
     } // chiusura if list[i]
   } // chiusura for
 
@@ -179,21 +202,81 @@ function call(listageo){
         },
         dataType: "json",
   }).done(function(response){
-    console.log(response);    //trasformarlo in questo  flatsInRadius 
-
     
-    for(let i=0; i < response.length; i++){
-
-      document.querySelector('card-title').value = response[i]['title'];
-      
-      response[i]['description'];
-      response[i]['bed'];
-      response[i]['room'];
-      esponse[i]['wc'];
-      response[i]['room'];
-    }
+      console.log(response);
+      compiler(response); // richiamo la funzione per compilare il model   
   });
 }
+
+function compiler(response){
+  
+  // copia baffi
+  let source = $("#template").html();
+  let template = Handlebars.compile(source);
+
+  for(let i=0; i < response.length; i++){
+    let context={
+      title: response[i].title,
+      address: response[i].address_id,
+      bed: response[i].bed,
+      description: response[i].description,
+      mq: response[i].mq,
+      room: response[i].room,
+      wc: response[i].wc,
+      image: response[i].image,
+      id: response[i].id
+
+    }
+
+    let html = template(context);
+    let temp = $('#search-child').append(html);
+  }
+}
+
+
+/* function reset(){ 
+    $('#city').val('');
+    $('.left-layout').html('');
+}; */
+
+</script>
+
+{{-- modello di riferimento --}}
+<script id="template" type="text/x-handlebars-template">
+  <div class="row flat">
+    <div class="my-auto col-xl-5">
+    <a href="http://localhost:8000/flats/@{{id}}"><img id="img-search" src="storage/@{{{image}}}" class="card-img-top" alt="@{{title}}"></a> 
+    </div>
+    <div class="col-xl-6">
+        <div class="flat-text">
+          <a href="http://localhost:8000/flats/@{{id}}">
+            <h5 class="card-title">@{{title}}</h5> 
+            <p class="address">@{{address}}</p> <!-- prendere l'indirizzo -->
+            <ul>
+              <li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                <p class="bed">Letti: @{{bed}}</p> 
+              </li>
+              <li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                <p class="room">Stanze: @{{room}}</p> 
+              </li>
+            </ul>
+              <ul>
+                <li>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                  <p class="wc">WC: @{{wc}}</p> 
+                </li>
+                <li>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                  <p class="mq">Mq: @{{mq}}</p>
+                </li>
+              </ul>
+          </a>
+        </div>
+    </div>
+  </div>
+  
 </script>
 
 @endsection

@@ -79,16 +79,26 @@ class FlatController extends Controller
                     /* return view('search',compact('flatsInRadius'));
                     return Response::json($todo); */
 
-                
+                    /* $l = [];
 
+                    array_push($l,$flatsInRadius);
+                    array_push($l, ); */
 
-                return response()->json($flatsInRadius); 
+                    $obj = [                     
+                        'flats' => $flatsInRadius,
+                        'addresses' => $addresses,
+                        'service' => $service
+                    ];
+            
+                    return $obj;
+                //return response()->json($flatsInRadius,$addresses);
             }
         } // chiusura  if($request->ajax())
 
 
         $lat = $_GET['query_lat'];
         $lng = $_GET['query_lng'];
+
 
 
         $latitudeFrom = $lat;
@@ -155,8 +165,6 @@ class FlatController extends Controller
 
 
         // devo tornare qui dalla pagina searh e dirgli di effettuare una ricerca asincrona
-
-
     }
     /**
      * Show the form for creating a new resource.
