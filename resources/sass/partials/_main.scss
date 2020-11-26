@@ -410,4 +410,33 @@ main {
         }
     // *END* AGGIORNA PROFILO profile-update.blade
 
+    // LISTA APPARTAMENTI admin flats.blade
+        .table {
+            td {
+                vertical-align: middle;
+            }
+        }
+
+        @media screen and (max-width: 1020px) {
+            .table {
+                thead {
+                    display: none;
+                }
+
+                .tb-none {
+                    display: none;
+                }
+
+                tbody, tr, td {
+                    display: block;
+                    width: 100%;
+                }
+
+                .btn-blu {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    // *END* // LISTA APPARTAMENTI admin flats.blade
 }

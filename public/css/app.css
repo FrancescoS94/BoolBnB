@@ -537,6 +537,32 @@ main .update .form-control:focus {
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
 }
 
+main .table td {
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1020px) {
+  main .table thead {
+    display: none;
+  }
+
+  main .table .tb-none {
+    display: none;
+  }
+
+  main .table tbody,
+  main .table tr,
+  main .table td {
+    display: block;
+    width: 100%;
+  }
+
+  main .table .btn-blu {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .aside {
   height: 100vh;
   position: fixed;
