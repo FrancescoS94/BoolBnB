@@ -6,7 +6,6 @@
 <div class="container vh">
   <h1>Tutti i messaggi ricevuti</h1>
 
-  @if($messages != null)
   <table class="table">
     <thead>
       <tr>
@@ -20,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-        @foreach($messages as $message)
+        @foreach($messagesReceived as $message)
         <tr
         @if($message['viewed'] == 0)
           class="font-weight-bold"
@@ -46,12 +45,6 @@
 
     </tbody>
   </table>
-  @else
-    Non hai ancora nessun messaggio
-  @endif
 
-  @if($messages != null)
-    {{ $messages->links() }}
-  @endif
-</div>
+  </div>
 @endsection
