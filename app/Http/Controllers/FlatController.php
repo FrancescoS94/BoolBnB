@@ -21,11 +21,84 @@ class FlatController extends Controller
      public function index(Request $request)
     {
 
+        // se la richiesta è di tipo ajax
+        if($request->ajax())
+        {
+            $data= $_GET['lat'];
 
-        //$q= $_GET['query_search'];
+            $lat= $data[0];
+            $lng= $data[1];
+
+            if($lat != '' && $lng != '')
+            {
+                $latitudeFrom = $lat;
+                $longitudeFrom = $lng;
+                $earthRadius =  6371;
+                $addressInRadius=[];            //6371000 metri
+
+                $addresses = Address::all();
+                $service = Service::all();
+        
+
+                foreach ($addresses as $address){
+                    $latitudeTo = $address->lat;
+                    $longitudeTo = $address->lng;
+
+                    // convert from degrees to radians
+                    $latFrom = deg2rad($latitudeFrom);
+                    $lonFrom = deg2rad($longitudeFrom);
+                    $latTo = deg2rad($latitudeTo);
+                    $lonTo = deg2rad($longitudeTo);
+                    
+                    $lonDelta = $lonTo - $lonFrom;
+                    $a = pow(cos($latTo) * sin($lonDelta), 2) +
+                        pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+                    $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+                    
+                    $angle = atan2(sqrt($a), $b);
+                    $result = $angle * $earthRadius;
+                    
+
+                    if($result <= 20){
+                        array_push($addressInRadius, $address->id);
+                    }
+                }
+
+                    $flatsInRadius= [];
+                    $flats = Flat::all();
+                    for($i=0; $i < count($addressInRadius); $i++){ 
+            
+                        foreach($flats as $flat){
+                            if($flat->address_id == $addressInRadius[$i]){
+                                array_push($flatsInRadius, $flat);
+                            }
+                        }           
+                    }
+
+
+                    /* return view('search',compact('flatsInRadius'));
+                    return Response::json($todo); */
+
+                    /* $l = [];
+
+                    array_push($l,$flatsInRadius);
+                    array_push($l, ); */
+
+                    $obj = [                     
+                        'flats' => $flatsInRadius,
+                        'addresses' => $addresses,
+                        'service' => $service
+                    ];
+            
+                    return $obj;
+                //return response()->json($flatsInRadius,$addresses);
+            }
+        } // chiusura  if($request->ajax())
+
+
         $lat = $_GET['query_lat'];
         $lng = $_GET['query_lng'];
-        //dd($lat,$lng);
+
 
 
         $latitudeFrom = $lat;
@@ -88,9 +161,11 @@ class FlatController extends Controller
         /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
         // alla view ritorno entrambe le variabili
-        return view('search',compact('flatsSpons', 'service','flatsInRadius'));
-    }
+        return view('search',compact(/* 'flatsSpons', */ 'service','flatsInRadius'));
 
+
+        // devo tornare qui dalla pagina searh e dirgli di effettuare una ricerca asincrona
+    }
     /**
      * Show the form for creating a new resource.
      *

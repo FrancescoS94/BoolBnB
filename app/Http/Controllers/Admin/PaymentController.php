@@ -62,7 +62,8 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Payment $payment)
+
+     public function store(Request $request, Payment $payment)
     {
         // credenziali braintree
         $gateway = new \Braintree\Gateway([
