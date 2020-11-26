@@ -655,48 +655,52 @@ footer {
   background-color: #133b55;
 }
 
-footer #footer ul {
+footer #footer .container .row div ul {
   list-style: none;
 }
 
-footer #footer ul li {
+footer #footer .container .row div ul li {
   padding-bottom: 12px;
 }
 
-footer #footer ul a {
+footer #footer .container .row div ul a {
   color: #fcfcfc;
 }
 
-footer #footer ul a:hover {
+footer #footer .container .row div ul a:hover {
   color: #fcfcfc;
 }
 
-footer .footer-bottom {
+footer #footer hr {
+  background-color: #fff;
+  height: 1px;
+}
+
+footer #footer .footer-bottom {
   color: #fcfcfc;
-  border-top: 1px solid #fcfcfc;
   padding-top: 20px;
 }
 
-footer .footer-bottom-left p {
+footer #footer .footer-bottom .footer-bottom-left p {
   display: inline-block;
   margin-right: 15px;
 }
 
-footer .footer-bottom-left .ft:hover {
+footer #footer .footer-bottom .footer-bottom-left .ft:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-footer .footer-bottom-right span {
+footer #footer .footer-bottom .footer-bottom-right span {
   cursor: pointer;
   margin-right: 15px;
 }
 
-footer .footer-bottom-right span:hover {
+footer #footer .footer-bottom .footer-bottom-right span:hover {
   color: rgba(203, 31, 53, 0.8);
 }
 
-footer #social {
+footer #footer .footer-bottom .footer-bottom-right span #social {
   font-size: 20px;
 }
 
