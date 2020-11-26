@@ -39,5 +39,3 @@ Route::resource('messages','MessageController');
 
 // rotte e controller per chartjs
 Route::get('/get-messages-chart-data', 'Admin\MessagesChartDataController@getMonthlyMessagesData');
-// Route::get('/get-messages-chart-data/{id}', 'Admin\MessagesChartDataController@getMonthlyMessagesData');
-// Route::get('/test', 'Admin\ViewsChartDataController@getMonthlyViewsData');
