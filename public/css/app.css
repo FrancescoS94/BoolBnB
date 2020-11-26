@@ -141,12 +141,13 @@ main .btn-blu {
   padding: 5px 10px;
   background-color: #133b55;
   border: 2px solid #133b55;
-  color: white;
+  color: #fcfcfc;
   border-radius: 4px;
   font-weight: bold;
 }
 
 main .btn-blu:hover {
+  text-decoration: none;
   background-color: #fcfcfc;
   color: #133b55;
 }
@@ -155,7 +156,7 @@ main .btn-red {
   padding: 5px 10px;
   background-color: #cb1f35;
   border: 2px solid #cb1f35;
-  color: white;
+  color: #fcfcfc;
   border-radius: 4px;
   font-weight: bold;
 }
@@ -451,22 +452,10 @@ main .flat-show .services p {
 }
 
 main .flat-show .jumbotron {
-  background-color: white;
+  background-color: #fcfcfc;
   border: 1px solid #dddddd;
   padding-top: 5px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-}
-
-main .flat-show button {
-  background-color: #ff385c;
-  padding: 7px 15px;
-  color: white;
-}
-
-main .flat-show button:hover {
-  background-color: white;
-  color: #ff385c;
-  border: 2px solid #ff385c;
 }
 
 main .flat-title h1 {
@@ -482,7 +471,7 @@ main .profile .rounded-circle {
 main .profile .jumbotron {
   background-color: #fcfcfc;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-  padding: 20px;
+  padding: 30px;
 }
 
 main .profile .profile-date {
@@ -515,13 +504,19 @@ main .profile .profile-date a {
   text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
+  main .profile .jumbotron {
+    box-shadow: none;
+  }
+}
+
 main .update .jumbotron {
-  background-color: white;
+  background-color: #fcfcfc;
   padding: 30px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-main .update h1 {
+main .update h2 {
   color: #133b55;
   text-transform: uppercase;
   padding-bottom: 15px;
@@ -535,6 +530,12 @@ main .update label {
 main .update .form-control:focus {
   border: rgba(19, 59, 85, 0.8);
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+}
+
+@media screen and (max-width: 768px) {
+  main .update .jumbotron {
+    box-shadow: none;
+  }
 }
 
 main .table td {

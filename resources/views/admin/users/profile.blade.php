@@ -82,7 +82,7 @@
 <div class="container vh">
     <img src="{{asset('image/phone_maintenance.png')}}" alt="">
     <div class="row justify-content-center profile">
-        <div class="col-md-8 col-lg-8 d-flex justify-content-center jumbotron mx-4">
+        <div class="col-md-10 col-lg-9 d-flex justify-content-center jumbotron mt-3">
             {{-- esito dell'operazione  --}}
             @if(session('status'))
                 <div class="alert alert-success">{{ session('status') }}</div>
