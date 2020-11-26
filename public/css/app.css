@@ -227,59 +227,41 @@ main .sponsor {
   padding: 50px;
 }
 
-main .sponsor .row {
-  padding-top: 30px;
-  height: 90%;
+main .sponsor .slider {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height: 90%;
 }
 
-main .sponsor .row i {
+main .sponsor .slider .icone {
+  background-color: #fcfcfc;
+}
+
+main .sponsor .slider .icone i {
   font-size: 30px;
   color: #133b55;
   cursor: pointer;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  z-index: 1;
 }
 
-main .sponsor .row .lista.appartamenti {
-  scroll-behavior: smooth;
-  height: 100%;
-  width: 95%;
+main .sponsor .slider .lista.appartamenti {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  /* disattiva la scrollbar perchè ora hai le frecce */
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  z-index: 0;
 }
 
-main .sponsor .row .lista.appartamenti .box-group {
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 10px 10px;
-  border-radius: 10px;
-  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-  transition: width, 0.5s;
-}
-
-main .sponsor .row .lista.appartamenti .box-group:hover {
-  transform: scale(1.05);
-  width: 100%;
-}
-
-main .sponsor .row .lista.appartamenti .box-group .box-descr {
-  padding: 5px;
-  color: #fff;
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-}
-
-main .sponsor .row .lista.appartamenti .box-group .box-descr h5 .badge {
-  background-color: #cb1f35;
+main .sponsor .slider .lista.appartamenti .box-group {
+  height: 90%;
+  width: 30%;
+  margin-right: 20px;
 }
 
 main .layout {

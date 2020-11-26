@@ -11,7 +11,9 @@
   <section class="container-fluid sponsor">
     <h2>Scorri i nostri migliori appartamenti</h2>
     <div class="row">
+      <div class="icone">
         <i class="fas fa-chevron-left left"></i>
+      </div>
         <div class="lista appartamenti">
             @foreach ($flatsSpons as $flatSpons)
             <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
@@ -24,7 +26,9 @@
             </div>
             @endforeach
         </div>
-        <i class="fas fa-chevron-right right"></i>
+        <div class="">icone
+          <i class="fas fa-chevron-right right"></i>
+        </div>
     </div>
   </section>
   <div class="container ricerca">

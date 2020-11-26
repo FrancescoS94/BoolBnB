@@ -68,19 +68,15 @@ main {
 
     // BANNER "home.blade"
         .bg-img {
-            // background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg');
             background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             height: 614px;
-            // margin-top: 80px;
             padding-top: 129px;
-
             .jumbotron {
                     background-color: $banner;
             }
-
             h1 {
                 text-transform: uppercase;
                 font-size: 50px;
@@ -95,69 +91,95 @@ main {
             background-color: $whiteBnb;
             color:$blueBnb;
             padding:50px;
-            .row{
-                padding-top: 30px;
-                height:90%;
+            .slider{
                 @include flex(row,space-around,center);
-                i{
-                  font-size:30px;
-                  color:$blueBnb;
-                  cursor:pointer;
+                height:90%;
+                .icone{
+                    background-color:$whiteBnb;
+                    i{
+                      font-size:30px;
+                      color:$blueBnb;
+                      cursor:pointer;
+                      background-color: $whiteBnb;
+                      border-radius:50%;
+                      z-index:1;
+                    }
                 }
                 .lista.appartamenti{
-                    scroll-behavior: smooth;
+                    @include flex(row,flex-start,center);
+                    width:90%;
                     height:100%;
-                    width:95%;
-                    // margin:0 auto;
-                    display:flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    // padding-right: 45px;
-                    // padding-left: 5px;
-                    overflow-y: hidden;
-                    overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
-                    .box-group {
-                        // height:300px;
-                        // height:90%;
-                        position:relative;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        background-position: center;
-                        margin:10px 10px;
-                        // margin: 50px 5px;
-                        // border: 1px solid black;
-                        border-radius: 10px;
-                        box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                        transition: width, 0.5s;
-                        &:hover {
-                            transform:scale(1.05);
-                            width:100%;
-                            // z-index: 1;
-                        }
-                        // .box-img{
-                        //   a {
-                        //       img{
-                        //           width: 100%;
-                        //           border-radius: 10px 10px 0px 0px;
-                        //           // padding: 5px
-                        //         }
-                        //     }
-                        // }
-                        .box-descr{
-                            padding: 5px;
-                            color:#fff;
-                            position: absolute;
-                            bottom: 10px;
-                            left: 20px;
-                            h5{
-                                .badge{
-                                    background-color: $redBnb;
-                                }
-                            }
-                        }
+                    z-index:0;
+                    .box-group{
+                        height:90%;
+                        width:30%;
+                        margin-right: 20px;
                     }
                 }
             }
+            // .row{
+            //     padding-top: 30px;
+            //     height:90%;
+            //     @include flex(row,space-around,center);
+            //     i{
+            //       font-size:30px;
+            //       color:$blueBnb;
+            //       cursor:pointer;
+            //     }
+            //     .lista.appartamenti{
+            //         scroll-behavior: smooth;
+            //         height:100%;
+            //         width:95%;
+            //         margin:0 auto;
+            //         display:flex;
+            //         flex-direction: row;
+            //         flex-wrap: nowrap;
+            //         padding-right: 45px;
+            //         padding-left: 5px;
+            //         overflow-y: hidden;
+            //         overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
+            //         .box-group {
+            //             height:300px;
+            //             height:90%;
+            //             position:relative;
+            //             background-repeat: no-repeat;
+            //             background-size: cover;
+            //             background-position: center;
+            //             margin:10px 10px;
+            //             margin: 50px 5px;
+            //             border: 1px solid black;
+            //             border-radius: 10px;
+            //             box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            //             transition: width, 0.5s;
+            //             &:hover {
+            //                 transform:scale(1.05);
+            //                 width:100%;
+            //                 z-index: 1;
+            //             }
+            //             .box-img{
+            //               a {
+            //                   img{
+            //                       width: 100%;
+            //                       border-radius: 10px 10px 0px 0px;
+            //                       // padding: 5px
+            //                     }
+            //                 }
+            //             }
+            //             .box-descr{
+            //                 padding: 5px;
+            //                 color:#fff;
+            //                 position: absolute;
+            //                 bottom: 10px;
+            //                 left: 20px;
+            //                 h5{
+            //                     .badge{
+            //                         background-color: $redBnb;
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
         }
     // *END* APPARTAMENTI SPONSORIZZATI "home.blade"
 
