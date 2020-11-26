@@ -13,7 +13,7 @@
 @endsection
 
 @section('script-in-head')
- 
+
     {{-- SCRIPT TOMTOM PER MAPPA --}}
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.37.2/maps/maps-web.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> --}}
@@ -26,7 +26,7 @@
         <input class="lng" type="text" hidden value="{{$flat->address->lng}}">
         <input class="address" type="text" hidden value="{{$flat->address->address}}">
 
-        <h1 class="pt-5">{{$flat->title}}</h1>
+        <h2 class="pt-5">{{$flat->title}}</h2>
         <div class="row">
             {{-- IMAGE --}}
             <div class="col-md-12 col-lg-7">
@@ -146,7 +146,7 @@
 
             document.getElementById('clickMe').addEventListener('click', function(){        // al click sul bottone
                 var city =  document.getElementById('city').value;                          // memorizzo il valore dell'input
-                for(var i=0; i<list.length; i++){                                           // ciclo l'array di suggerimenti 
+                for(var i=0; i<list.length; i++){                                           // ciclo l'array di suggerimenti
                     if(list[i]['name'] === city){                                           // risalgo al suggerimento selezionato
                         var lat = list[i]['latlng']['lat'];                                 // estraggo la latitudine
                         var lng = list[i]['latlng']['lng'];                                 // estraggo la longitudine
@@ -156,13 +156,13 @@
                 }
             });
         })();
-        
+
         // INIZIO script per tomtom
         // DISPLAYING A MAP WITH LOCATION MARKER WITH TOMTOM
 
         var lat = $('input.lat').val();
         var lng = $('input.lng').val();
-        
+
         var flatLatLng = [lng, lat];                                    // memorizzo le coordinate dell'appartamento in un array
 
         var map = tt.map({
@@ -183,11 +183,11 @@
             left: [25, -35],
             right: [-25, -35]
         }
-        
+
         var title = $('h1').html();                                     // personalizzo il marker con i dati dell'appartamento
         var address = $('input.address').val();
 
-        var popup = new tt.Popup({offset: popupOffsets}).setHTML("<h5>" + title + "</h5><span>" + address + "</span>");  
+        var popup = new tt.Popup({offset: popupOffsets}).setHTML("<h5>" + title + "</h5><span>" + address + "</span>");
         marker.setPopup(popup).togglePopup();
 
     </script>

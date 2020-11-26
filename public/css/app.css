@@ -458,7 +458,15 @@ main .flat-show .jumbotron {
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-main .flat-title h1 {
+@media screen and (max-width: 1140px) {
+  main .flat-show .show-app .jumbotron {
+    box-shadow: none;
+    border: none;
+  }
+}
+
+main .flat-title h2 {
+  color: #133b55;
   font-size: 30px;
   font-weight: bold;
   padding: 15px 0px;
@@ -536,6 +544,11 @@ main .update .form-control:focus {
   main .update .jumbotron {
     box-shadow: none;
   }
+}
+
+main .flats-list h2 {
+  color: #133b55;
+  text-transform: uppercase;
 }
 
 main .table td {

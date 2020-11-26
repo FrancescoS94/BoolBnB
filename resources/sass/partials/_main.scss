@@ -316,10 +316,20 @@ main {
                 padding-top: 5px;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
             }
+
+            @media screen and (max-width: 1140px) {
+                .show-app {
+                    .jumbotron {
+                        box-shadow: none;
+                        border: none;
+                    }
+                }
+            }
         }
 
         .flat-title {
-            h1 {
+            h2 {
+                color: $blueBnb;
                 font-size: 30px;
                 font-weight: bold;
                 padding: 15px 0px;
@@ -404,6 +414,12 @@ main {
     // *END* AGGIORNA PROFILO profile-update.blade
 
     // LISTA APPARTAMENTI admin flats.blade
+        .flats-list {
+            h2 {
+                color: $blueBnb;
+                text-transform: uppercase;
+            }
+        }
         .table {
             td {
                 vertical-align: middle;
@@ -432,4 +448,5 @@ main {
             }
         }
     // *END* // LISTA APPARTAMENTI admin flats.blade
+
 }
