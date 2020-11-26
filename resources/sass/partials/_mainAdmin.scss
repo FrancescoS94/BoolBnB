@@ -1,3 +1,4 @@
+// LAYOUT ADMIN
 .aside{
   height: 100vh;
   position: fixed;
@@ -67,3 +68,50 @@
     }
   }
 }
+// FINE LAYOUT ADMIN
+
+
+// SHOW SINGOLO MESSAGGIO
+.messaggio-ricevuto{
+  padding-top: 50px;
+  .dettagli{
+    ul{
+      list-style: none;
+    }
+  }
+  .testo-messaggio{
+    border-top: 1px solid darkgray;
+    padding-top: 5px;
+  }
+  .lettura{
+    form{
+      display: inline-block;
+      input {
+        width: 178px;
+        margin: 10px 10px 10px 0px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FINE SHOW SINGOLO MESSAGGIO

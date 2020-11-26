@@ -130,16 +130,11 @@ header nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
 
 main {
   min-height: calc(100vh - 400px);
-  background-color: #fcfcfc;
-  /*Nasconde scroll, necessario su Safari e Chrome */
+  background-color: #e7e9f4;
 }
 
 main .padd-top {
   padding-top: 107px;
-}
-
-main .vh {
-  height: 100%;
 }
 
 main .btn-blu {
@@ -206,7 +201,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -221,13 +216,13 @@ main .bg-img .jumbotron {
 main .bg-img h1 {
   text-transform: uppercase;
   font-size: 50px;
-  color: #fcfcfc;
+  color: #e7e9f4;
 }
 
 main .sponsor {
   height: calc(100vh - 107px);
-  background-color: #fcfcfc;
-  color: #133b55;
+  background-color: #133b55;
+  color: #e7e9f4;
   padding: 50px;
 }
 
@@ -242,7 +237,7 @@ main .sponsor .row {
 
 main .sponsor .row i {
   font-size: 30px;
-  color: #133b55;
+  color: #cb1f35;
   cursor: pointer;
 }
 
@@ -462,8 +457,16 @@ main .flat-show .jumbotron {
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-main .flat-show a:hover {
-  text-decoration: none;
+main .flat-show button {
+  background-color: #ff385c;
+  padding: 7px 15px;
+  color: white;
+}
+
+main .flat-show button:hover {
+  background-color: white;
+  color: #ff385c;
+  border: 2px solid #ff385c;
 }
 
 main .flat-title h1 {
@@ -508,6 +511,10 @@ main .profile .profile-date .date .col-6 {
   padding-right: 3px;
 }
 
+main .profile .profile-date a {
+  text-decoration: none;
+}
+
 main .update .jumbotron {
   background-color: white;
   padding: 30px;
@@ -528,41 +535,6 @@ main .update label {
 main .update .form-control:focus {
   border: rgba(19, 59, 85, 0.8);
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
-}
-
-main .table {
-  background-color: #fcfcfc;
-}
-
-main .table th,
-main .table td {
-  vertical-align: baseline;
-}
-
-@media screen and (max-width: 1080px) {
-  main .table thead,
-  main .table tr,
-  main .table th {
-    width: 100%;
-  }
-
-  main .table tbody,
-  main .table tr,
-  main .table td {
-    display: block;
-    width: 100%;
-  }
-
-  main .table .tb-none {
-    display: none;
-  }
-
-  main .table .btn-blu,
-  main .table .btn-red {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
 }
 
 .aside {
@@ -635,6 +607,28 @@ main .table td {
   .aside .utente-dash #name {
     display: none;
   }
+}
+
+.messaggio-ricevuto {
+  padding-top: 50px;
+}
+
+.messaggio-ricevuto .dettagli ul {
+  list-style: none;
+}
+
+.messaggio-ricevuto .testo-messaggio {
+  border-top: 1px solid darkgray;
+  padding-top: 5px;
+}
+
+.messaggio-ricevuto .lettura form {
+  display: inline-block;
+}
+
+.messaggio-ricevuto .lettura form input {
+  width: 178px;
+  margin: 10px 10px 10px 0px;
 }
 
 footer {
