@@ -275,7 +275,7 @@ main {
         }
     // *END* PAGINA SERACH
 
-    // SHOW FLAT "flat.blade"
+    // SHOW FLAT & ADMIN SHOW FLAT "flat/flats-show.blade"
         .flat-show {
 
             ul {
@@ -310,11 +310,30 @@ main {
                 padding-right: 15px;
             }
 
+            .form-control {
+                &:focus {
+                    border: rgba(19, 59, 85, 0.8);
+                    box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+                }
+            }
+
             .jumbotron {
                 background-color: $whiteBnb;
                 border: 1px solid rgb(221, 221, 221);
                 padding-top: 5px;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            }
+
+            #map {
+                width: 100%;
+                height: 400px;
+            }
+
+            @media screen and (max-width: 768px) {
+                .jumbotron {
+                    box-shadow: none;
+                    border: none;
+                }
             }
 
             @media screen and (max-width: 1140px) {
@@ -335,7 +354,7 @@ main {
                 padding: 15px 0px;
             }
         }
-    // *END* SHOW FLAT "flat.blade"
+    // *END* SHOW FLAT & ADMIN SHOW FLAT "flat/flats-show.blade"
 
     // GESTISCI IL PROFILO profile.blade
         .profile {

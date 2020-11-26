@@ -3,13 +3,6 @@
 @section('head')
     {{-- STILE MAPPA --}}
     <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.37.2/maps/maps.css'/>
-    <style>
-        /* STILE MAPPA */
-        #map {
-            height: 500px;
-            width: 500px;
-        }
-    </style>
 @endsection
 
 @section('script-in-head')
@@ -65,14 +58,14 @@
                 </div>
             </div>
             {{-- TOMTOM & FORM --}}
-            <div class="col-md-7 col-lg-6 mt-5">
-                <h2>Posizione</h2>
+            <div class="col-md-12 col-lg-6 pt-5">
+                <h2 class="pb-4">Posizione</h2>
                 {{-- MAPPA CON MARKER --}}
                 <div id='map'></div>
             </div>
-            <div class="col-md-5 offset-lg-1 col-lg-5 jumbotron mt-5">
+            <div class="col-md-12 offset-lg-1 col-lg-5 jumbotron mt-5">
                 <div id="form-messaggio">
-                    <h2>Contatta l'host</h2>
+                    <h2 class="">Contatta l'host</h2>
                     {{-- STATUS --}}
                     @if(session('status'))
                         <div class="alert alert-success">
@@ -114,7 +107,7 @@
                             <label for="request">Messaggio</label>
                             <textarea rows="3" name="request" type="text" class="form-control" id="request" placeholder="Invia un messaggio al proprietario">{{ old('request') }}</textarea>
                         </div>
-                        <button type="submit" class="btn">Invia</button>
+                        <button type="submit" class="btn-blu">Invia</button>
                     </form>
                 </div>
             </div>

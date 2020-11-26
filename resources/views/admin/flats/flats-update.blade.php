@@ -55,7 +55,7 @@
                     {{-- DESCRIZIONE --}}
                     <div class="form-group">
                         <label for="description">Descrizione:</label>
-                        <textarea rows="3" type="text" class="form-control-file" name="description" id="description">{{ $flat->description }}</textarea>
+                        <textarea rows="3" type="text" class="form-control" name="description" id="description">{{ $flat->description }}</textarea>
                     </div>
                     {{-- SERVIZI --}}
                     <div class="form-group">
