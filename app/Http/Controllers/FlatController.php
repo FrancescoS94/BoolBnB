@@ -84,6 +84,7 @@ class FlatController extends Controller
                     array_push($l,$flatsInRadius);
                     array_push($l, ); */
 
+                    
                     $obj = [                     
                         'flats' => $flatsInRadius,
                         'addresses' => $addresses,
@@ -98,6 +99,9 @@ class FlatController extends Controller
 
         $lat = $_GET['query_lat'];
         $lng = $_GET['query_lng'];
+        $city = $_GET['city'];
+
+        #dd($city);
 
 
 
@@ -161,7 +165,7 @@ class FlatController extends Controller
         /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
         // alla view ritorno entrambe le variabili
-        return view('search',compact('flatsSpons','service','flatsInRadius'));
+        return view('search',compact('flatsSpons','service','flatsInRadius','city'));
 
 
         // devo tornare qui dalla pagina searh e dirgli di effettuare una ricerca asincrona
