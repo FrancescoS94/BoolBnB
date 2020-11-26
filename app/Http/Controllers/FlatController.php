@@ -90,8 +90,8 @@ class FlatController extends Controller
                         'service' => $service
                     ];
             
-                    return $obj;
-                //return response()->json($flatsInRadius,$addresses);
+                return $obj;
+                //return response()->json($flatsInRadius);
             }
         } // chiusura  if($request->ajax())
 
@@ -161,7 +161,7 @@ class FlatController extends Controller
         /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
         // alla view ritorno entrambe le variabili
-        return view('search',compact(/* 'flatsSpons', */ 'service','flatsInRadius'));
+        return view('search',compact('flatsSpons','service','flatsInRadius'));
 
 
         // devo tornare qui dalla pagina searh e dirgli di effettuare una ricerca asincrona
