@@ -8,16 +8,9 @@
 
 @section('content')
     <div class="container flat-show flat-title">
-        {{-- TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO --}}
+
         {{-- input nascosto per passare l'id dell'appartamento alla chiamata ajax --}}
-        {{-- <form method="post">
-            @csrf
-            <input id="flat" hidden value="{{$flat->id}}">
-        </form> --}}
-        {{-- <form method="post">
-            @csrf --}}
-            <input id="flat" hidden value="{{$flat->id}}">
-        {{-- </form> --}}
+        <input id="flat" hidden value="{{$flat->id}}">
 
         <h1 class="pt-5">{{$flat->title}}</h1>
         <div class="row">
@@ -73,7 +66,7 @@
             </form>
         </div>
 
-        {{-- prova chart js --}}
+        {{-- CHART JS --}}
         <div class="container pb-5">
             <div class="card-header">
                 <i class="fa fa-area-chart"></i>
@@ -111,12 +104,13 @@
                 var flatId = $("input#flat").val();         // memorizzo il flat id prendendolo dall'input nascosto
                 // qui vanno i fonts
                 // qui vanno i colori
-                this.ajaxGetMessagesMonthlyData(flatId);    // lo passo come dato alla chiamata ajax per prendere i messagi solo di questo appartamento
+                this.ajaxGetMessagesMonthlyData(flatId);    // lo passo come dato alla chiamata ajax per prendere i messaggi solo di questo appartamento
+                this.ajaxGetViewsMonthlyData(flatId);       // lo passo come dato alla chiamata ajax per prendere le views solo di questo appartamento
 
             },
 
-            //chiamata ajax per passare i dati da php a json
-            ajaxGetMessagesMonthlyData:function(flatId){    // lo passo come dato alla chiamata ajax per prendere i messagi solo di questo appartamento
+            // MESSAGGI chiamata ajax per passare i dati da php a json
+            ajaxGetMessagesMonthlyData:function(flatId){    // lo passo come dato alla chiamata ajax per prendere i messaggi solo di questo appartamento
                 var urlPath = 'http://localhost:8000/get-messages-chart-data';
                 $.ajax({
                     url: urlPath,
@@ -125,7 +119,7 @@
                         flatId: flatId
                     },
                     success: function(response){
-                        charts.createCompletedJobChart(response);
+                        charts.createCompletedMessagesChart(response);
                     },
                     error: function(){
                         console.log('errore');
@@ -133,7 +127,7 @@
                 });
             },
 
-            createCompletedJobChart:function(response){
+            createCompletedMessagesChart:function(response){
 
                 var myChartUno = document.getElementById('myChartUno').getContext('2d');
 
@@ -165,39 +159,62 @@
                         }
                     }
                 })
+            },
+
+            // VIEWS chiamata ajax per passare i dati da php a json
+            ajaxGetViewsMonthlyData:function(flatId){    // lo passo come dato alla chiamata ajax per prendere le views solo di questo appartamento
+                var urlPath = 'http://localhost:8000/get-views-chart-data';
+                $.ajax({
+                    url: urlPath,
+                    method: 'GET',
+                    data: {
+                        flatId: flatId
+                    },
+                    success: function(response){
+                        charts.createCompletedViewsChart(response);
+                    },
+                    error: function(){
+                        console.log('errore');
+                    }
+                });
+            },
+
+            createCompletedViewsChart:function(response){
+
+                var myChartDue = document.getElementById('myChartDue').getContext('2d');
+
+                var viewsChart = new Chart(myChartDue, {
+                    type: 'line',                                   // tipo di grafico
+                    data:{
+                        labels:response.months,                     // stampa i mesi nell'asse orizzontale
+                        datasets:[{
+                            label: 'Visualizzazioni ricevute',             
+                            data: response.views_count_data,     // stampa il numero di visualizzazioni nell'asse verticale
+                        }]
+                    },
+                    options:{
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: response.max,              // calcolo il valore massimo dei visualizzazioni per rendere il grafico adattabile a diverse moli di dati
+                                    maxTicksLimit: 5
+                                }
+                            }]
+                        },
+                        title:{
+                            display:false,
+                            text:'Visualizzazioni ricevute'
+                        },
+                        legend:{
+                            display:false
+                        }
+                    }
+                })
             }
         }
         charts.init();
     })(jQuery);
-
-
-//     var myChartDue = document.getElementById('myChartDue').getContext('2d');
-
-//     var viewsChart = new Chart(myChartDue, {
-//         type: 'line', // tipo di grafico
-//         data:{
-//             labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-//             datasets:[{
-//                 label: 'Visualizzazioni ricevute',
-//                 data:[
-//                     1596,
-//                     7979,
-//                     8273,
-//                     8787,
-//                     2536,
-//                     7643
-//                 ]
-//             }]
-//         },
-//         options:{
-//             title:{
-//                 display:false,
-//                 text:'Visualizzazioni ricevute'
-//             },
-//             legend:{
-//                 display:false
-//             }
-//         }
-//     })
-// </script>
+    
+    </script>
 @endsection
