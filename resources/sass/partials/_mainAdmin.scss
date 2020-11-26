@@ -1,3 +1,8 @@
+// !!!MOMENTANTEO!!!
+main {
+  height: 100vh;
+}
+
 // LAYOUT ADMIN
 .aside{
   height: 100vh;
@@ -73,7 +78,10 @@
 
 // SHOW SINGOLO MESSAGGIO
 .messaggio-ricevuto{
-  padding-top: 50px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+
   .dettagli{
     ul{
       list-style: none;
@@ -87,8 +95,17 @@
     form{
       display: inline-block;
       input {
-        width: 178px;
+        width: 180px;
         margin: 10px 10px 10px 0px;
+        background-color: rgba(19, 59, 85, 1);
+        border: 2px solid rgba(19, 59, 85, 1);
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        &:hover {
+        background-color: #fcfcfc;
+        color: rgba(19, 59, 85, 1);
+        }
       }
     }
   }

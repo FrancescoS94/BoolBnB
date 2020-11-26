@@ -537,6 +537,10 @@ main .update .form-control:focus {
   box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
 }
 
+main {
+  height: 100vh;
+}
+
 .aside {
   height: 100vh;
   position: fixed;
@@ -610,7 +614,9 @@ main .update .form-control:focus {
 }
 
 .messaggio-ricevuto {
-  padding-top: 50px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
 .messaggio-ricevuto .dettagli ul {
@@ -627,8 +633,18 @@ main .update .form-control:focus {
 }
 
 .messaggio-ricevuto .lettura form input {
-  width: 178px;
+  width: 180px;
   margin: 10px 10px 10px 0px;
+  background-color: #133b55;
+  border: 2px solid #133b55;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.messaggio-ricevuto .lettura form input:hover {
+  background-color: #fcfcfc;
+  color: #133b55;
 }
 
 footer {
