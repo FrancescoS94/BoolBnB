@@ -23,42 +23,30 @@ class MessageController extends Controller
      */
     public function index()
     {
-        /* if(Auth::check()){
-            $allFlats = Flat::all();                        // stampo tutti gli appartamenti in una variabile
-            $flatsId = [];                                  // creo un array vuoto
-            for($i = 0; $i < count($allFlats); $i++){       // per ogni appartamento
-                if($allFlats[$i]['user_id'] == Auth::id()){ // SE lo user_id di quell'appartamento è uguale allo user_id dell'utente loggato
-                    $flatsId[] = $allFlats[$i]['id'];       // inserisco questo id nell'array vuoto
-                }
-            }
-
-            $messages = Message::all();                     // stampo tutti i messaggi
-            // sovrascrivo messages soltanto con i messaggi in cui il flat_id è contenuto nell'array in cui ho memorizzato gli id degli appartamenti dell'utente loggato
-            $messages = Message::where('flat_id', $flatsId)->orderBy('created_at','desc')->paginate(5);
-            return view('admin.messages.index', compact('messages'));
-        
-        }  */
-
-
-        
-
         if(Auth::check()){
             $allFlats = Flat::all();                            // stampo tutti gli appartamenti in una variabile
             $flatsId = [];                                      // creo un array vuoto
-            for($i = 0; $i < count($allFlats); $i++){           // per ogni appartamento
+            $countFlats = count($allFlats);                     // conto quanti sono gli appartamenti
+            for($i = 0; $i < $countFlats; $i++){                // per ogni appartamento
                 if($allFlats[$i]['user_id'] == Auth::id()){     // SE lo user_id di quell'appartamento è uguale allo user_id dell'utente loggato
                     $flatsId[] = $allFlats[$i]['id'];           // inserisco questo id nell'array vuoto
-                    $messages = Message::all();                 // stampo tutti i messaggi
-                     // sovrascrivo messages soltanto con i messaggi in cui il flat_id è contenuto nell'array in cui ho memorizzato gli id degli appartamenti dell'utente loggato
-                    $messages = Message::where('flat_id', $flatsId)->orderBy('created_at','desc')->paginate(5);
-                }else{
-                    $messages= null;
                 }
-            } 
-            return view('admin.messages.index', compact('messages'));
-        }
-        
+            }
+            
+            $messages = Message::all();                         // stampo tutti i messaggi
+            $messagesReceived = [];                             // creo un array vuoto dove andrò a inserire tutti i messaggi ricevuti dall'utente loggato        
+            $countFlatsId = count($flatsId);                    // conto quanti sono gli appartamenti dell'utente loggato
+            
+            for($i=0; $i < $countFlatsId; $i++){                // ciclo gli appartamenti dell'utente loggato
+                foreach($messages as $message){                 // ciclo tutti i messaggi
+                    if($message->flat_id == $flatsId[$i]){      // SE il messaggio è stato inviato per un appartamento dell'utente loggato
+                        array_push($messagesReceived, $message);// inserisco l'oggetto messaggio nell'array vuoto
+                    }
+                }
+            }
 
+            return view('admin.messages.index', compact('messagesReceived'));
+        }
     }
 
     public function show(Message $message){
