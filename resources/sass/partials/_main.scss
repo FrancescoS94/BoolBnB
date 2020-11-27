@@ -68,19 +68,15 @@ main {
 
     // BANNER "home.blade"
         .bg-img {
-            // background-image: url('https://i2.res.24o.it/images2010/Editrice/ILSOLE24ORE/ILSOLE24ORE/2018/02/24/Politica%20e%20societa/ImmaginiWeb/Ritagli/airbnb-los-angeles-kJNB--835x437@IlSole24Ore-Web.jpg');
             background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             height: 614px;
-            // margin-top: 80px;
             padding-top: 129px;
-
             .jumbotron {
                     background-color: $banner;
             }
-
             h1 {
                 text-transform: uppercase;
                 font-size: 50px;
@@ -89,69 +85,59 @@ main {
         }
     // *END* BANNER "home.blade"
 
-    // APPARTAMENTI SPONSORIZZATI "home.blade"
+    // APPARTAMENTI SPONSORIZZATI "home.blade" SLIDER CON FLEX E BOOTSTRAP
         .sponsor{
             height:calc(100vh - 107px);
             background-color: $whiteBnb;
             color:$blueBnb;
             padding:50px;
-            .row{
-                padding-top: 30px;
-                height:90%;
+            .slider{
                 @include flex(row,space-around,center);
+                margin-top:30px;
+                height:90%;
                 i{
-                  font-size:30px;
-                  color:$blueBnb;
-                  cursor:pointer;
+                    font-size:30px;
+                    color:$blueBnb;
+                    cursor:pointer;
+                    background-color: $whiteBnb;
+                    border-radius:50%;
+                    z-index:1;
                 }
                 .lista.appartamenti{
-                    scroll-behavior: smooth;
+                    @include flex(row,flex-start,center);
+                    width:90%;
                     height:100%;
-                    width:95%;
-                    // margin:0 auto;
-                    display:flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    // padding-right: 45px;
-                    // padding-left: 5px;
+                    scroll-behavior: smooth;
+                    overflow-x: hidden;
                     overflow-y: hidden;
-                    overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
-                    .box-group {
-                        // height:300px;
-                        // height:90%;
-                        position:relative;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        background-position: center;
-                        margin:10px 10px;
-                        // margin: 50px 5px;
-                        // border: 1px solid black;
-                        border-radius: 10px;
-                        box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                        transition: width, 0.5s;
-                        &:hover {
-                            transform:scale(1.05);
-                            width:100%;
-                            // z-index: 1;
-                        }
-                        // .box-img{
-                        //   a {
-                        //       img{
-                        //           width: 100%;
-                        //           border-radius: 10px 10px 0px 0px;
-                        //           // padding: 5px
-                        //         }
-                        //     }
-                        // }
-                        .box-descr{
-                            padding: 5px;
-                            color:#fff;
-                            position: absolute;
-                            bottom: 10px;
-                            left: 20px;
-                            h5{
-                                .badge{
-                                    background-color: $redBnb;
+                    div{
+                        height:90%;
+                        float: left;
+                        a{
+                            .box-group{
+                                width:100%;
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: center;
+                                border-radius: 10px;
+                                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                                transition: width, 0.5s;
+                                position:relative;
+                                &:hover {
+                                    transform:scale(1.05);
+                                }
+                                .box-descr{
+                                    height:fit-content;
+                                    padding: 5px;
+                                    color:#fff;
+                                    position: absolute;
+                                    bottom: 10px;
+                                    left: 10px;
+                                    h5{
+                                        .badge{
+                                            background-color: $redBnb;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -163,115 +149,122 @@ main {
 
     // PAGINA SEARCH
         .layout {
-          scrollbar-width: none; /*Nasconde scroll firefox*/
-          overflow-y: scroll;
-          padding: 0px !important;
-          margin-top: 81px;
-          height: 100vh;
-          .filters{
-            background-color: orange;
-          }
-          .sponsor{
-              height:calc(100vh - 107px);
-              background-color: $blueBnb;
-              color:$whiteBnb;
-              padding:50px;
-              .row{
-                  padding-top: 30px;
-                  height:90%;
-                  @include flex(row,space-around,center);
-                  i{
-                    font-size:30px;
-                    color:$redBnb;
-                    cursor:pointer;
-                  }
-                  .lista.appartamenti{
-                      scroll-behavior: smooth;
-                      height:70%;
-                      width:95%;
-                      display:flex;
-                      flex-direction: row;
-                      flex-wrap: nowrap;
-                      overflow-y: hidden;
-                      overflow-x: hidden; /* disattiva la scrollbar perchè ora hai le frecce */
-                      .box-group {
-                          position:relative;
-                          background-repeat: no-repeat;
-                          background-size: cover;
-                          background-position: center;
-                          margin:10px 10px;
-                          border-radius: 10px;
-                          box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                          transition: width, 0.5s;
-                          &:hover {
-                              transform:scale(1.05);
-                              width:100%;
-                          }
-                          .box-descr{
-                              padding: 5px;
-                              color:#fff;
-                              position: absolute;
-                              bottom: 10px;
-                              left: 20px;
-                              h5{
-                                  .badge{
-                                      background-color: $redBnb;
-                                  }
-                              }
-                          }
-                      }
-                  }
-              }
-          }
-          .ricerca{
             scrollbar-width: none; /*Nasconde scroll firefox*/
-            .search{
-              padding: 20px 0px;
-              border-top: 1px solid darkgrey;
-              .foto{
-                padding: 0px;
-              }
-              #img-search{
-                width: 370px;
-                height: 240px;
-                border-radius: 10px;
-              }
+            overflow-y: scroll;
+            padding: 0px !important;
+            margin-top: 81px;
+            height: 100vh;
+            .filters{
+                background-color: orange;
             }
-            .flat-text{
-              margin-left: 10px;
-              padding-top: 15px;
-              a{
-                color: #222222;
-                &:hover{
-                  color: #404040;
-                  text-decoration: none;
+            .sponsor{
+                height:calc(100vh - 107px);
+                background-color: $whiteBnb;
+                color:$blueBnb;
+                padding:50px;
+                .slider{
+                    @include flex(row,space-around,center);
+                    margin-top:30px;
+                    height:90%;
+                    i{
+                        font-size:30px;
+                        color:$blueBnb;
+                        cursor:pointer;
+                        background-color: $whiteBnb;
+                        border-radius:50%;
+                        z-index:1;
+                    }
+                    .lista.appartamenti{
+                        @include flex(row,flex-start,center);
+                        width:90%;
+                        height:100%;
+                        scroll-behavior: smooth;
+                        overflow-x: hidden;
+                        overflow-y: hidden;
+                        div{
+                            height:90%;
+                            float: left;
+                            a{
+                                .box-group{
+                                    width:100%;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                    background-position: center;
+                                    border-radius: 10px;
+                                    box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                                    transition: width, 0.5s;
+                                    position:relative;
+                                    &:hover {
+                                        transform:scale(1.05);
+                                    }
+                                    .box-descr{
+                                        height:fit-content;
+                                        padding: 5px;
+                                        color:#fff;
+                                        position: absolute;
+                                        bottom: 10px;
+                                        left: 10px;
+                                        h5{
+                                            .badge{
+                                                background-color: $redBnb;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-              }
-              p{
-                padding-bottom: 10px;
-                // border-bottom: 1px solid $redBnb;
-              }
-              ul{
+            }
+            .ricerca{
+                scrollbar-width: none; /*Nasconde scroll firefox*/
+                .search{
+                padding: 20px 0px;
+                border-top: 1px solid darkgrey;
+                .foto{
+                    padding: 0px;
+                }
+                #img-search{
+                    width: 370px;
+                    height: 240px;
+                    border-radius: 10px;
+                }
+                }
+                .flat-text{
+                margin-left: 10px;
+                padding-top: 15px;
+                a{
+                    color: #222222;
+                    &:hover{
+                    color: #404040;
+                    text-decoration: none;
+                    }
+                }
+                p{
+                    padding-bottom: 10px;
+                    // border-bottom: 1px solid $redBnb;
+                }
+                ul{
 
-                list-style-type: none;
-                padding-top: 0px;
-                display: inline-block;
-                li{
-                  margin-right: 10px;
+                    list-style-type: none;
+                    padding-top: 0px;
+                    display: inline-block;
+                    li{
+                    margin-right: 10px;
+                    }
+                    img{
+                    height: 30px;
+                    padding: 0px 5px 5px 0px;
+                    }
                 }
-                img{
-                  height: 30px;
-                  padding: 0px 5px 5px 0px;
+                .flat-service{
+                    color: #404040;
+                    span{
+                    margin-right: 4px;
+                    }
                 }
-              }
-              .flat-service{
-                color: #404040;
-                span{
-                  margin-right: 4px;
                 }
-              }
             }
-          }
         }
     // *END* PAGINA SERACH
 

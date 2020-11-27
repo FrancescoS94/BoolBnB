@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row">
             <div class="col-md-8">
-                <img style="width: 800px" src="{{asset('image/errorPage.jpg')}}" alt="pagina di errore">
+                <img style="width: 800px" src="{{asset('storage/image/errorPage.jpg')}}" alt="pagina di errore">
             </div>
         </div>
     </div>

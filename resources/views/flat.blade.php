@@ -170,7 +170,7 @@
             key: '2i5JG6LMTO5fGDQWBZvdwyjIYaoMYrbi',
             style: 'tomtom://vector/1/basic-main',
             center: flatLatLng,                                         // le setto come centro della mappa
-            zoom: 5
+            zoom: 10
         });
 
         var marker = new tt.Marker().setLngLat(flatLatLng).addTo(map);  // aggiungo un marker
@@ -184,7 +184,7 @@
             right: [-25, -35]
         }
 
-        var title = $('h1').html();                                     // personalizzo il marker con i dati dell'appartamento
+        var title = $('h2').html();                                     // personalizzo il marker con i dati dell'appartamento
         var address = $('input.address').val();
 
         var popup = new tt.Popup({offset: popupOffsets}).setHTML("<h5>" + title + "</h5><span>" + address + "</span>");

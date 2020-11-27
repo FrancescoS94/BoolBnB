@@ -55,8 +55,6 @@ class FlatController extends Controller
             $data['image'] = Storage::disk('public')->put('images',$data['image']);
         }
 
-        // dd($data['image']);
-
         $newFlat->fill($data); #rimepio i vari campi dopo la validazione
         $newFlat->save();
 
@@ -69,9 +67,6 @@ class FlatController extends Controller
             if(Auth::user()->status === 0){
                 User::find(Auth::id())->increment('status'); // incrementa il valore status dell'utente loggato
             }   
-        }
-
-        if($newFlat->save()){
             return redirect()->route('admin.flats.index')->with('status', 'Hai aggiunto correttamente un nuovo appartamento');
         }else{
             abort(404);
@@ -124,7 +119,6 @@ class FlatController extends Controller
 
     function show(Flat $flat){
         $service = $flat->services;
-        /* dd($service); */
         return view('admin.flats.flats-show',compact('flat','service'));
     }
 
@@ -132,13 +126,12 @@ class FlatController extends Controller
     {
         $flat->delete();
         $f = Flat::all()->find('user_id');
-        if(is_null($f)){
+        if(is_null($f) && (Auth::user()->status === 1)){
             User::find(Auth::id())->decrement('status');
         } 
         return redirect()->route('admin.flats.index');
     }
 
-    // NON SERVE PERCHE' VADO ALLA VIEW FLATS-CREATE DIRETTAMENTE DALLO STORE DELL'ADDRESS
     public function create(){
         $service= Service::all();
         $address= Address::all()->last();

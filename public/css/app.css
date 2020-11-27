@@ -227,58 +227,68 @@ main .sponsor {
   padding: 50px;
 }
 
-main .sponsor .row {
-  padding-top: 30px;
-  height: 90%;
+main .sponsor .slider {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 30px;
+  height: 90%;
 }
 
-main .sponsor .row i {
+main .sponsor .slider i {
   font-size: 30px;
   color: #133b55;
   cursor: pointer;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  z-index: 1;
 }
 
-main .sponsor .row .lista.appartamenti {
-  scroll-behavior: smooth;
-  height: 100%;
-  width: 95%;
+main .sponsor .slider .lista.appartamenti {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  scroll-behavior: smooth;
   overflow-x: hidden;
-  /* disattiva la scrollbar perchè ora hai le frecce */
+  overflow-y: hidden;
 }
 
-main .sponsor .row .lista.appartamenti .box-group {
-  position: relative;
+main .sponsor .slider .lista.appartamenti div {
+  height: 90%;
+  float: left;
+}
+
+main .sponsor .slider .lista.appartamenti div a .box-group {
+  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin: 10px 10px;
   border-radius: 10px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
   transition: width, 0.5s;
+  position: relative;
 }
 
-main .sponsor .row .lista.appartamenti .box-group:hover {
+main .sponsor .slider .lista.appartamenti div a .box-group:hover {
   transform: scale(1.05);
-  width: 100%;
 }
 
-main .sponsor .row .lista.appartamenti .box-group .box-descr {
+main .sponsor .slider .lista.appartamenti div a .box-group .box-descr {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 5px;
   color: #fff;
   position: absolute;
   bottom: 10px;
-  left: 20px;
+  left: 10px;
 }
 
-main .sponsor .row .lista.appartamenti .box-group .box-descr h5 .badge {
+main .sponsor .slider .lista.appartamenti div a .box-group .box-descr h5 .badge {
   background-color: #cb1f35;
 }
 
@@ -297,63 +307,73 @@ main .layout .filters {
 
 main .layout .sponsor {
   height: calc(100vh - 107px);
-  background-color: #133b55;
-  color: #fcfcfc;
+  background-color: #fcfcfc;
+  color: #133b55;
   padding: 50px;
 }
 
-main .layout .sponsor .row {
-  padding-top: 30px;
-  height: 90%;
+main .layout .sponsor .slider {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 30px;
+  height: 90%;
 }
 
-main .layout .sponsor .row i {
+main .layout .sponsor .slider i {
   font-size: 30px;
-  color: #cb1f35;
+  color: #133b55;
   cursor: pointer;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  z-index: 1;
 }
 
-main .layout .sponsor .row .lista.appartamenti {
-  scroll-behavior: smooth;
-  height: 70%;
-  width: 95%;
+main .layout .sponsor .slider .lista.appartamenti {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+  scroll-behavior: smooth;
   overflow-x: hidden;
-  /* disattiva la scrollbar perchè ora hai le frecce */
+  overflow-y: hidden;
 }
 
-main .layout .sponsor .row .lista.appartamenti .box-group {
-  position: relative;
+main .layout .sponsor .slider .lista.appartamenti div {
+  height: 90%;
+  float: left;
+}
+
+main .layout .sponsor .slider .lista.appartamenti div a .box-group {
+  width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin: 10px 10px;
   border-radius: 10px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
   transition: width, 0.5s;
+  position: relative;
 }
 
-main .layout .sponsor .row .lista.appartamenti .box-group:hover {
+main .layout .sponsor .slider .lista.appartamenti div a .box-group:hover {
   transform: scale(1.05);
-  width: 100%;
 }
 
-main .layout .sponsor .row .lista.appartamenti .box-group .box-descr {
+main .layout .sponsor .slider .lista.appartamenti div a .box-group .box-descr {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 5px;
   color: #fff;
   position: absolute;
   bottom: 10px;
-  left: 20px;
+  left: 10px;
 }
 
-main .layout .sponsor .row .lista.appartamenti .box-group .box-descr h5 .badge {
+main .layout .sponsor .slider .lista.appartamenti div a .box-group .box-descr h5 .badge {
   background-color: #cb1f35;
 }
 
@@ -655,48 +675,52 @@ footer {
   background-color: #133b55;
 }
 
-footer #footer ul {
+footer #footer .container .row div ul {
   list-style: none;
 }
 
-footer #footer ul li {
+footer #footer .container .row div ul li {
   padding-bottom: 12px;
 }
 
-footer #footer ul a {
+footer #footer .container .row div ul a {
   color: #fcfcfc;
 }
 
-footer #footer ul a:hover {
+footer #footer .container .row div ul a:hover {
   color: #fcfcfc;
 }
 
-footer .footer-bottom {
+footer #footer hr {
+  background-color: #fff;
+  height: 1px;
+}
+
+footer #footer .footer-bottom {
   color: #fcfcfc;
-  border-top: 1px solid #fcfcfc;
   padding-top: 20px;
 }
 
-footer .footer-bottom-left p {
+footer #footer .footer-bottom .footer-bottom-left p {
   display: inline-block;
   margin-right: 15px;
 }
 
-footer .footer-bottom-left .ft:hover {
+footer #footer .footer-bottom .footer-bottom-left .ft:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-footer .footer-bottom-right span {
+footer #footer .footer-bottom .footer-bottom-right span {
   cursor: pointer;
   margin-right: 15px;
 }
 
-footer .footer-bottom-right span:hover {
+footer #footer .footer-bottom .footer-bottom-right span:hover {
   color: rgba(203, 31, 53, 0.8);
 }
 
-footer #social {
+footer #footer .footer-bottom .footer-bottom-right span #social {
   font-size: 20px;
 }
 
