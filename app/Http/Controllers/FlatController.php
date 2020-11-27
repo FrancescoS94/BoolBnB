@@ -24,10 +24,87 @@ class FlatController extends Controller
         // se la richiesta è di tipo ajax
         if($request->ajax())
         {
-            $data= $_GET['lat'];
+
+            // prendo i filtri stanza
+            if(empty($_GET['room'])){
+                $room= '';
+            }else{
+                $room=$_GET['room'];
+            }
+
+            if(empty($_GET['bed'])){
+                $bed= '';
+            }else{
+                $bed=$_GET['bed'];
+            }
+
+            if(empty($_GET['wc'])){
+                $wc= '';
+            }else{
+                $wc=$_GET['wc'];
+            }
+
+            if(empty($_GET['mq'])){
+                $mq= '';
+            }else{
+                $mq=$_GET['mq'];
+            }
+
+            if(empty($_GET['selectedMq'])){
+                $selectedMq= '';
+            }else{
+                $selectedMq=$_GET['selectedMq'];
+                $mq = (int)$selectedMq;
+            }
+
+            if(empty($_GET['serviceList'])){
+                $serviceGet= '';
+            }else{
+                $serviceGet=$_GET['serviceList'];
+                $arrayDiValeria = Flat::whereHas('services', function ($query) {
+                    $query->where('service_id', $_GET['serviceList']);
+                })->get(); //-with('services')->get();  #Chiamare a una funzione membro get() sulla stringa
+                
+                return response()->json($arrayDiValeria);
+            }
+
+ 
+
+            /* $arrayDiValeria= Flat::whereHas('services', function($query) {
+                $query->whereIn('service_id', $serviceGet);
+            })->get(); */
+            //$arrayDiValeria= Flat::orderBy('created_at', 'desc')->with('services')->with('flats')->get();
+            
+            //return $arrayDiValeria;
+           
+
+            $data= $_GET['geo'];
 
             $lat= $data[0];
             $lng= $data[1];
+            
+            // mettere un array tutti gli appartamenti in relazione con questi servizi, poi fare un controllo
+            // per verificare se sono presenti anche in flatsRadius
+            //services()
+
+
+            // prendi dalla table flat attraverso la funzione services i service_id e i flat_id
+            /* $arrayDiValeria= [];
+            $serviziSelezionati = count($serviceGet);
+            for($i=0; $i < $serviziSelezionati; $i++){ 
+
+                $flats = Flat::with(array('services' => function($serviceGet){
+                    $serviceGet->where('service_id', $serviceGet[$i]); 
+                }))->get();
+
+                array_push($arrayDiValeria,$flats);
+            }; */
+
+
+            /* user critere */ /* user_critere */
+            /* Undefined variable: serviceGet */
+
+
 
             if($lat != '' && $lng != '')
             {
@@ -74,30 +151,118 @@ class FlatController extends Controller
                             }
                         }           
                     }
+                    
+
+                    // ciclare $flatsInRadius per prendere gli appartamenti filtrati
+                    $appartamentiFiltrati = [];
+                    $q= count($flatsInRadius);
+                    for($i=0; $i < $q; $i++) { 
+                        if($flatsInRadius[$i]['bed'] == $bed &&  $flatsInRadius[$i]['room'] == $room && $flatsInRadius[$i]['wc'] == $wc){        
+                            array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                        }else if($flatsInRadius[$i]['bed'] == $bed ||  $flatsInRadius[$i]['room'] == $room || $flatsInRadius[$i]['wc'] == $wc){
+                            array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                        }
+
+                         switch ($mq) {
+                            case $mq == 50:
+                                if($flatsInRadius[$i]['mq'] <= 50){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                            case $mq == 100:
+                                if($flatsInRadius[$i]['mq'] > 50 &&  $flatsInRadius[$i]['mq'] <= 100){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                            case $mq == 150:
+                                if($flatsInRadius[$i]['mq'] > 100 &&  $flatsInRadius[$i]['mq'] <= 150){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                            case $mq == 200:
+                                if($flatsInRadius[$i]['mq'] > 150 &&  $flatsInRadius[$i]['mq'] <= 200){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                            case $mq == 250:
+                                if($flatsInRadius[$i]['mq'] > 200 &&  $flatsInRadius[$i]['mq'] <= 250){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                            case $mq == 300:
+                                if($flatsInRadius[$i]['mq'] > 250 &&  $flatsInRadius[$i]['mq'] <= 300){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                            case $mq > 300:
+                                if($flatsInRadius[$i]['mq'] > 300){
+                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
+                                } 
+                                break;
+                        }
+                    };
+
+                    $indirizzi=[]; // indirizzi degli appartamenti ricercati senza filtro di ricerca
+                    for($i=0; $i < count($flatsInRadius); $i++) { 
+                        foreach($addresses as $address){
+                            if($address->id == $flatsInRadius[$i]['address_id']){
+                                //$flatsInRadius[$i]['address_id'] = $address;
+                                array_push($indirizzi,$address);
+                            }
+                        }
+                    }
 
 
-                    /* return view('search',compact('flatsInRadius'));
-                    return Response::json($todo); */
+                    $indirizziAppFiltrati=[]; // indirizzi degli appartamenti ricercati CON filti di ricerca
+                    for($i=0; $i < count($appartamentiFiltrati); $i++) { 
+                        foreach($addresses as $address){
+                            if($address->id == $appartamentiFiltrati[$i]['address_id']){
+                               //$appartamentiFiltrati[$i]['address_id'] = $address;
+                                array_push($indirizziAppFiltrati,$address);
+                            }
+                        }
+                    }
 
-                    /* $l = [];
 
-                    array_push($l,$flatsInRadius);
-                    array_push($l, ); */
+                    foreach($appartamentiFiltrati as $appartamento){
+                        foreach($indirizziAppFiltrati as $indirizzo){
+                            if($appartamento['address_id'] == $indirizzo['id']){
+                                $appartamento['description'] = $indirizzo;
+                            }
+                        }
+                    }
 
-                    $obj = [                     
-                        'flats' => $flatsInRadius,
-                        'addresses' => $addresses,
-                        'service' => $service
-                    ];
-            
-                return $obj;
-                //return response()->json($flatsInRadius);
+                    foreach($flatsInRadius as $appartamento){
+                        foreach($indirizzi as $indirizzo){
+                            if($appartamento['address_id'] == $indirizzo['id']){
+                                $appartamento['description'] = $indirizzo;
+                            }
+                        }
+                    }
+ 
+
+                    if(empty($appartamentiFiltrati)){
+                       $risultato = 'nessun risultato, con i filtri di ricerca';
+                       $appartamentiFiltrati =  $risultato;
+                    }
+
+                    
+
+                   $objfilter = [ 
+                    'appartamentiRicercati' => $flatsInRadius,
+                    'appartamentiFiltrati' => $appartamentiFiltrati,
+                  ];
+
+                  return $objfilter;            
             }
         } // chiusura  if($request->ajax())
 
 
         $lat = $_GET['query_lat'];
         $lng = $_GET['query_lng'];
+        $city = $_GET['city'];
+
+        #dd($city);
 
 
 
@@ -158,10 +323,11 @@ class FlatController extends Controller
         $flatsSpons = Flat::all()->whereIn('id', $flatsIdSpons);                // memorizzo in una var tutti gli appartamenti con id contenuto nell'array degli id degli appartamenti sponsorizzati
 
 
+        
         /* $addresses = Address::where('address','LIKE','%' . strtolower($q) . '%')->get(); */
 
         // alla view ritorno entrambe le variabili
-        return view('search',compact('flatsSpons','service','flatsInRadius'));
+        return view('search',compact('flatsSpons','service','flatsInRadius','city','lat','lng'));
 
 
         // devo tornare qui dalla pagina searh e dirgli di effettuare una ricerca asincrona
