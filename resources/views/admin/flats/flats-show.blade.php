@@ -8,11 +8,10 @@
 
 @section('content')
     <div class="container flat-show flat-title">
-
         {{-- input nascosto per passare l'id dell'appartamento alla chiamata ajax --}}
         <input id="flat" hidden value="{{$flat->id}}">
 
-        <h2 class="pt-5">{{$flat->title}}</h2>
+        <h2 class="pt-4">{{$flat->title}}</h2>
         <div class="row show-app">
             {{-- IMAGE --}}
             <div class="col-md-12 col-lg-7">
@@ -20,7 +19,7 @@
                     <img class="img-thumbnail border-0" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}">
                     {{-- <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt=""> --}}
                 </div>
-                <span class="pl-3">Data di creazione: {{ Carbon\Carbon::parse($flat->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</span>
+                <span><span class="cb">Data di creazione:</span> {{ Carbon\Carbon::parse($flat->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</span>
             </div>
             {{-- DESCRIPTION, FEATURES & SERVICES --}}
             <div class="col-md-12 col-lg-5 jumbotron">
@@ -56,8 +55,8 @@
                     @endforeach
                 </div>
             </div>
-            <a class="btn-blu ml-2" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
-            <a class="btn-blu mx-3" role="button" href="{{ route('admin.payments.create', $flat->id)}}">Sponsorizza</a>
+            <a class="btn-blu ml-3" role="button" href="{{route('admin.flats.edit', $flat->id )}}">Modifica</a>
+            <a class="btn-blu mx-2" role="button" href="{{ route('admin.payments.create', $flat->id)}}">Sponsorizza</a>
             {{-- elimina l'appartamento, attraverso l'id --}}
             <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
                 @csrf
@@ -67,28 +66,24 @@
         </div>
 
         {{-- CHART JS --}}
-        <div class="container pb-5">
-            <div class="card-header">
+        <div class="py-5">
+            <div>
                 <i class="fa fa-area-chart"></i>
-                Messaggi ricevuti
+                <h3 class="pb-3">Messaggi</h3>
             </div>
-            <div class="card-body">
+            <div>
                 <canvas id="myChartUno" width="100%" height="30"></canvas>
             </div>
-            <div class="card-footer small text-muted">Aggiornato al momento attuale</div>
-
         </div>
-        <div class="container">
-            <div class="card-header">
+        <div>
+            <div>
                 <i class="fa fa-area-chart"></i>
-                Visualizzazioni ricevute
+                <h3 class="pb-3">Visualizzazioni</h3>
             </div>
-            <div class="card-body">
+            <div>
                 <canvas id="myChartDue" width="100%" height="30"></canvas>
             </div>
-            <div class="card-footer small text-muted">Aggiornato al momento attuale</div>
         </div>
-
     </div>
 @endsection
 
@@ -136,7 +131,8 @@
                     data:{
                         labels:response.months,                     // stampa i mesi nell'asse orizzontale
                         datasets:[{
-                            label: 'Messaggi ricevuti',             
+                            label: 'Messaggi ricevuti',
+                            backgroundColor: "#cb1f35",
                             data: response.messages_count_data,     // stampa il numero di messaggi nell'asse verticale
                         }]
                     },
@@ -188,7 +184,8 @@
                     data:{
                         labels:response.months,                     // stampa i mesi nell'asse orizzontale
                         datasets:[{
-                            label: 'Visualizzazioni ricevute',             
+                            label: 'Visualizzazioni ricevute',
+                            backgroundColor: "#cb1f35",
                             data: response.views_count_data,     // stampa il numero di visualizzazioni nell'asse verticale
                         }]
                     },
@@ -215,6 +212,6 @@
         }
         charts.init();
     })(jQuery);
-    
+
     </script>
 @endsection

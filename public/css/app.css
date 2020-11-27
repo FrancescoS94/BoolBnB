@@ -499,6 +499,11 @@ main .flat-title h2 {
   padding: 15px 0px;
 }
 
+main .flat-title h3,
+main .flat-title .cb {
+  color: #133b55;
+}
+
 main .profile .rounded-circle {
   width: 100px;
 }
