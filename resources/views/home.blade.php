@@ -37,45 +37,24 @@
 <section class="container-fluid sponsor">
 
     <h2>Scopri i nostri migliori appartamenti</h2>
-    
-    {{-- SLIDER CON FLEX E BOOTSTRAP
-    <div class="row">
+    {{-- SLIDER CON FLEX E BOOTSTRAP --}}
+    <div class="slider">
         <i class="fas fa-chevron-left left"></i>
         <div class="lista appartamenti">
             @foreach ($flatsSpons as $flatSpons)
-            <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <a href="{{ route('flats.show', $flatSpons->id) }}">
+                <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="box-group">
                     <div class="box-descr" style="color:#fff">
                         <h5><span class="badge">Città</span></h5>
                         <h3>{{ $flatSpons->title}}</h3>
                     </div>
+                </div>
                 </a>
             </div>
             @endforeach
         </div>
         <i class="fas fa-chevron-right right"></i>
-    </div> --}}
-
-    {{-- SLIDER CON FLEX --}}
-    <div class="slider">
-        <div class="icone">
-            <i class="fas fa-chevron-left left"></i>
-        </div>
-        <div class="lista appartamenti">
-            @foreach ($flatsSpons as $flatSpons)
-            <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="col-12 col-sm-6 col-md-4 col-lg-3 box-group">
-                <a href="{{ route('flats.show', $flatSpons->id) }}">
-                    <div class="box-descr" style="color:#fff">
-                        <h5><span class="badge">Città</span></h5>
-                        <h3>{{ $flatSpons->title}}</h3>
-                    </div>
-                </a>
-            </div>
-            @endforeach
-        </div>
-        <div class="icone">
-            <i class="fas fa-chevron-right right"></i>
-        </div>
     </div>
 
 </section>

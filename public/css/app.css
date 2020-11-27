@@ -232,14 +232,11 @@ main .sponsor .slider {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 30px;
   height: 90%;
 }
 
-main .sponsor .slider .icone {
-  background-color: #fcfcfc;
-}
-
-main .sponsor .slider .icone i {
+main .sponsor .slider i {
   font-size: 30px;
   color: #133b55;
   cursor: pointer;
@@ -255,13 +252,44 @@ main .sponsor .slider .lista.appartamenti {
   align-items: center;
   width: 90%;
   height: 100%;
-  z-index: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-main .sponsor .slider .lista.appartamenti .box-group {
+main .sponsor .slider .lista.appartamenti div {
   height: 90%;
-  width: 30%;
-  margin-right: 20px;
+  float: left;
+}
+
+main .sponsor .slider .lista.appartamenti div a .box-group {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  transition: width, 0.5s;
+  position: relative;
+}
+
+main .sponsor .slider .lista.appartamenti div a .box-group:hover {
+  transform: scale(1.05);
+}
+
+main .sponsor .slider .lista.appartamenti div a .box-group .box-descr {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5px;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+main .sponsor .slider .lista.appartamenti div a .box-group .box-descr h5 .badge {
+  background-color: #cb1f35;
 }
 
 main .layout {
