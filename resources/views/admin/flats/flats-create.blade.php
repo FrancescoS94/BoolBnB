@@ -66,7 +66,7 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <label for="description">Descrizione:</label>
-                                <textarea rows="3" type="text" class="form-control-file" name="description" id="description">{{ old('title') }}</textarea>
+                                <textarea rows="3" type="text" class="form-control" name="description" id="description">{{ old('title') }}</textarea>
                             </div>
                         </div>
 

@@ -58,21 +58,15 @@
 
 @section('content')
 
-
-
-
-    
-
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
     {{-- SCRIPT BRAINTREE --}}
     <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
-    
-    <div class="container vh">
-        <h1>Sponsorizza un appartamento</h1>
 
+    <div class="container vh">
+        <h2>Sponsorizza un appartamento</h2>
         {{-- inserire costi sponsorizzazioni --}}
 
         <p>Puoi sponsorizzare un appartamento per:</p>
@@ -106,7 +100,7 @@
             
             <form action="{{ route('admin.payments.store') }}" method="POST" id="payment-form">
                 @csrf
-                
+
                 <div class="form-group">
                     <label for="flat_id">Scegli l'appartamento che vuoi sponsorizzare</label>
                     <select class="form-control" id="flat_id" name="flat_id">
@@ -161,7 +155,7 @@
                 <div class="spacer"></div>
 
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button type="submit" class="btn btn-success">Paga e sponsorizza</button>
+                <button type="submit" class="btn-blu">Paga adesso</button>
             </form>
         </div>
     </div>
@@ -236,5 +230,5 @@
       });
     </script>
 
-    
+
 @endsection

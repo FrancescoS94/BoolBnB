@@ -4,6 +4,11 @@ main {
     .padd-top {
         padding-top:107px;
     }
+
+    .vh {
+        height: 100vh;
+    }
+
     .btn-blu {
         padding: 5px 10px;
         background-color: $blueBnb;
@@ -31,6 +36,11 @@ main {
     }
 
     // REGISTRAZIONE/ACCESSO auth register/login/email.blade
+        .bg-img2 {
+            background-image: url('../../../public/storage/images/image-illustrator.jpg');
+            background-size: cover;
+            background-position: top;
+        }
         .register {
             .card {
                 border-radius: 8px;
@@ -268,7 +278,7 @@ main {
         }
     // *END* PAGINA SERACH
 
-    // SHOW FLAT "flat.blade"
+    // SHOW FLAT & ADMIN SHOW FLAT "flat/flats-show.blade"
         .flat-show {
 
             ul {
@@ -303,11 +313,30 @@ main {
                 padding-right: 15px;
             }
 
+            .form-control {
+                &:focus {
+                    border: rgba(19, 59, 85, 0.8);
+                    box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+                }
+            }
+
             .jumbotron {
                 background-color: $whiteBnb;
                 border: 1px solid rgb(221, 221, 221);
                 padding-top: 5px;
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            }
+
+            #map {
+                width: 100%;
+                height: 400px;
+            }
+
+            @media screen and (max-width: 768px) {
+                .jumbotron {
+                    box-shadow: none;
+                    border: none;
+                }
             }
 
             @media screen and (max-width: 1140px) {
@@ -318,6 +347,12 @@ main {
                     }
                 }
             }
+
+            .box-chart {
+                position: relative;
+                width: 100%;
+                height: 320px;
+            }
         }
 
         .flat-title {
@@ -327,8 +362,11 @@ main {
                 font-weight: bold;
                 padding: 15px 0px;
             }
+            h3, .cb {
+                color: $blueBnb;
+            }
         }
-    // *END* SHOW FLAT "flat.blade"
+    // *END* SHOW FLAT & ADMIN SHOW FLAT "flat/flats-show.blade"
 
     // GESTISCI IL PROFILO profile.blade
         .profile {

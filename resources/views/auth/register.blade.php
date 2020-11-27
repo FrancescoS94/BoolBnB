@@ -1,96 +1,98 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container padd-top">
-    <div class="row justify-content-center">
-        <div class="col-md-9 col-lg-6 my-4 register">
-            <div class="card">
-                <div class="account d-flex justify-content-center p-4">
-                    {{ __('Crea un Account') }}
-                </div>
+<div class="bg-img2">
+    <div class="container padd-top">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-6 my-4 pb-3 register">
+                <div class="card">
+                    <div class="account d-flex justify-content-center pt-4">
+                        {{ __('Crea un Account') }}
+                    </div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
 
-                        <div class="form-group row d-flex justify-content-center">
-                            {{-- Dentro ogni "label": {{ __('Name') }} --}}
-                            {{-- class di label: col-md-4 col-form-label text-md-right --}}
-                            <label for="name"></label>
+                            <div class="form-group row d-flex justify-content-center">
+                                {{-- Dentro ogni "label": {{ __('Name') }} --}}
+                                {{-- class di label: col-md-4 col-form-label text-md-right --}}
+                                <label for="name"></label>
 
-                            <div class="col-9">
-                                <input id="name" type="text" placeholder="Nome" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <div class="col-9">
+                                    <input id="name" type="text" placeholder="Nome" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row d-flex justify-content-center">
-                            <label for="lastname"></label>
+                            <div class="form-group row d-flex justify-content-center">
+                                <label for="lastname"></label>
 
-                            <div class="col-9">
-                                <input id="lastname" type="text" placeholder="Cognome" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                                <div class="col-9">
+                                    <input id="lastname" type="text" placeholder="Cognome" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
 
-                                @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('lastname')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row d-flex justify-content-center">
-                            <label for="email"></label>
+                            <div class="form-group row d-flex justify-content-center">
+                                <label for="email"></label>
 
-                            <div class="col-9">
-                                <input id="email" type="email" placeholder="Indirizzo Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <div class="col-9">
+                                    <input id="email" type="email" placeholder="Indirizzo Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row d-flex justify-content-center">
-                            <label for="password"></label>
+                            <div class="form-group row d-flex justify-content-center">
+                                <label for="password"></label>
 
-                            <div class="col-9">
-                                <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <div class="col-9">
+                                    <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row d-flex justify-content-center">
-                            <label for="password-confirm"></label>
+                            <div class="form-group row d-flex justify-content-center">
+                                <label for="password-confirm"></label>
 
-                            <div class="col-9">
-                                <input id="password-confirm" type="password" placeholder="Conferma Password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <div class="col-9">
+                                    <input id="password-confirm" type="password" placeholder="Conferma Password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row d-flex justify-content-center">
-                            <div class="col-9 mt-4">
-                                <button type="submit" class="btn-blu">
-                                    {{ __('Iscriviti') }}
-                                </button>
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="col-9 mt-4">
+                                    <button type="submit" class="btn-blu">
+                                        {{ __('Iscriviti') }}
+                                    </button>
+                                </div>
                             </div>
+                        </form>
+                        <div class="col-12 d-flex justify-content-center pt-4">
+                            <p class="">Hai già un account?
+                                <a href="{{ route('login') }}">Accedi</a>
+                            </p>
                         </div>
-                    </form>
-                    <div class="col-12 d-flex justify-content-center pt-4">
-                        <p class="">Hai già un account?
-                            <a href="{{ route('login') }}">Accedi</a>
-                        </p>
                     </div>
                 </div>
             </div>
