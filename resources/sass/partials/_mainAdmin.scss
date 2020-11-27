@@ -72,55 +72,50 @@
 
 
 // SHOW SINGOLO MESSAGGIO
-.messaggio-ricevuto{
-  padding-top: 25px;
-  background-color: white;
-  border-radius: 0px 0px 5px 5px;
-  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 
-  .dettagli{
-    padding: 10px 0px 0px 2px;
-    ul{
-      list-style: none;
-    }
-  }
-  .testo-messaggio{
-    border-top: 1px solid gainsboro;
-    border-bottom: 1px solid gainsboro;
-    padding-top: 7px;
-    padding-left: 2px;
-  }
-  .lettura{
-    padding: 15px 2px;
-    form{
-      display: inline-block;
-      input {
-        width: 180px;
-        margin: 10px 10px 10px 0px;
+.show-messaggio {
+  height: 100vh;
+  .messaggio{
+    .jumbotron {
+      padding-top: 15px;
+      background-color: white;
+      margin-top: 40px;
+      box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+      .dettagli{
+        padding-left: 3px;
+        ul{
+          list-style: none;
+        }
+      }
+      .testo-messaggio{
+        margin-left: 3px;
+        border-top: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro;
+      }
+      .lettura{
+        // padding-top: 20px;
+        form {
+          input{
+            margin-right: 15px;
+            margin-top: 15px;
+            width: 170px;
+          }
+        }
       }
     }
   }
 }
 
+@media screen and (max-width:768px){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .show-messaggio {
+    .messaggio{
+      .jumbotron {
+        margin-top: 0px;
+        box-shadow: none;
+      }
+    }
+  }
+}
 
 // FINE SHOW SINGOLO MESSAGGIO

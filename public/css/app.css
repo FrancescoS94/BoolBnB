@@ -610,39 +610,42 @@ main .update .form-control:focus {
   }
 }
 
-.messaggio-ricevuto {
-  padding-top: 25px;
+.show-messaggio {
+  height: 100vh;
+}
+
+.show-messaggio .messaggio .jumbotron {
+  padding-top: 15px;
   background-color: white;
-  border-radius: 0px 0px 5px 5px;
+  margin-top: 40px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
 }
 
-.messaggio-ricevuto .dettagli {
-  padding: 10px 0px 0px 2px;
+.show-messaggio .messaggio .jumbotron .dettagli {
+  padding-left: 3px;
 }
 
-.messaggio-ricevuto .dettagli ul {
+.show-messaggio .messaggio .jumbotron .dettagli ul {
   list-style: none;
 }
 
-.messaggio-ricevuto .testo-messaggio {
+.show-messaggio .messaggio .jumbotron .testo-messaggio {
+  margin-left: 3px;
   border-top: 1px solid gainsboro;
   border-bottom: 1px solid gainsboro;
-  padding-top: 7px;
-  padding-left: 2px;
 }
 
-.messaggio-ricevuto .lettura {
-  padding: 15px 2px;
+.show-messaggio .messaggio .jumbotron .lettura form input {
+  margin-right: 15px;
+  margin-top: 15px;
+  width: 170px;
 }
 
-.messaggio-ricevuto .lettura form {
-  display: inline-block;
-}
-
-.messaggio-ricevuto .lettura form input {
-  width: 180px;
-  margin: 10px 10px 10px 0px;
+@media screen and (max-width: 768px) {
+  .show-messaggio .messaggio .jumbotron {
+    margin-top: 0px;
+    box-shadow: none;
+  }
 }
 
 footer {
