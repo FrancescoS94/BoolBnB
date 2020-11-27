@@ -103,6 +103,7 @@
                     </ul>
                 </div>
             @endif
+            
             <form action="{{ route('admin.payments.store') }}" method="POST" id="payment-form">
                 @csrf
                 

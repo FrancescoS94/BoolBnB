@@ -42,7 +42,7 @@
         <i class="fas fa-chevron-left left"></i>
         <div class="lista appartamenti">
             @foreach ($flatsSpons as $flatSpons)
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="elemento col-12 col-sm-6 col-md-4 col-lg-3">
                 <a href="{{ route('flats.show', $flatSpons->id) }}">
                 <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="box-group">
                     <div class="box-descr" style="color:#fff">

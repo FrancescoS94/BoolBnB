@@ -37281,13 +37281,13 @@ $(document).ready(function () {
   $('i.right').click(function () {
     var elemDaScrollare = $(this).siblings('.lista');
     var currentPosition = elemDaScrollare.scrollLeft();
-    currentPosition += 390;
+    currentPosition += 290;
     elemDaScrollare.scrollLeft(currentPosition);
   });
   $('i.left').click(function () {
     var elemDaScrollare = $(this).siblings('.lista');
     var currentPosition = elemDaScrollare.scrollLeft();
-    currentPosition -= 390;
+    currentPosition -= 290;
     elemDaScrollare.scrollLeft(currentPosition);
   });
 });
