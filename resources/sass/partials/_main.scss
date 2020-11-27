@@ -37,7 +37,7 @@ main {
 
     // REGISTRAZIONE/ACCESSO auth register/login/email.blade
         .bg-img2 {
-            background-image: url('../../../public/storage/images/image-illustrator.webp');
+            background-image: url('../../../public/storage/images/image-illustrator.jpg');
             background-size: cover;
             background-position: top;
         }
@@ -353,6 +353,12 @@ main {
                         border: none;
                     }
                 }
+            }
+
+            .box-chart {
+                position: relative;
+                width: 100%;
+                height: 320px;
             }
         }
 

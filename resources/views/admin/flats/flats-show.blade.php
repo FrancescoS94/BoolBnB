@@ -71,8 +71,8 @@
                 <i class="fa fa-area-chart"></i>
                 <h3 class="pb-3">Messaggi</h3>
             </div>
-            <div>
-                <canvas id="myChartUno" width="100%" height="30"></canvas>
+            <div class="box-chart">
+                <canvas id="myChartUno"></canvas>
             </div>
         </div>
         <div>
@@ -80,8 +80,8 @@
                 <i class="fa fa-area-chart"></i>
                 <h3 class="pb-3">Visualizzazioni</h3>
             </div>
-            <div>
-                <canvas id="myChartDue" width="100%" height="30"></canvas>
+            <div class="box-chart mb-3">
+                <canvas id="myChartDue"></canvas>
             </div>
         </div>
     </div>
@@ -89,7 +89,6 @@
 
 @section('script-in-body')
 <script>
-
     // TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO
 
     (function($){
@@ -137,6 +136,8 @@
                         }]
                     },
                     options:{
+                        responsive: true,
+                        maintainAspectRatio: false,
                         scales: {
                             yAxes: [{
                                 ticks: {
@@ -190,6 +191,8 @@
                         }]
                     },
                     options:{
+                        responsive: true,
+                        maintainAspectRatio: false,
                         scales: {
                             yAxes: [{
                                 ticks: {
