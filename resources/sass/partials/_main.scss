@@ -31,6 +31,11 @@ main {
     }
 
     // REGISTRAZIONE/ACCESSO auth register/login/email.blade
+        .bg-img2 {
+            background-image: url('../../../public/storage/images/image-illustrator.webp');
+            background-size: cover;
+            background-position: top;
+        }
         .register {
             .card {
                 border-radius: 8px;

@@ -166,6 +166,12 @@ main .btn-red:hover {
   color: #cb1f35;
 }
 
+main .bg-img2 {
+  background-image: url(/images/image-illustrator.webp?6c5bbc26592d82f0512640fb2a9b78c3);
+  background-size: cover;
+  background-position: top;
+}
+
 main .register .card {
   border-radius: 8px;
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
