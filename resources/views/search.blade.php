@@ -22,7 +22,7 @@
     <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
     <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
     <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
-    <button id="click" class="btn btn-dark">cerca per città</button>
+    <button id="click" class="btn btn-dark">cerca per città e filtra</button>
   </div>
 
   <section class="filter">
@@ -31,7 +31,7 @@
       <div class="service_each">
       @foreach($service as $service)
         <div class="form-check form-check-inline">
-          <input class="form-check-input serviceClick" type="checkbox" id="{{ $service->service }}" value="{{ $service->service }}">
+          <input class="form-check-input serviceClick" type="checkbox" id="{{ $service->service }}" value="{{ $service->id }}">
           <label class="form-check-label" for="{{ $service->service }}">{{ $service->service }}</label>
         </div>
       @endforeach
@@ -53,10 +53,18 @@
           <input  class="form-control" id="wc" type="number">
         </div>
         <div class="form-group">
-          <label for="mq">Metri quadrati</label>
-          <input class="form-control" id="mq" type="number">
+          <label for="mq">Quanto spazio cerchi?</label>
+          <select id="mq" class="form-control">
+            <option selected>Metri quadrati</option>
+            <option value="50">0 - 50</option>
+            <option value="100">50 - 100</option>
+            <option value="150">100 - 150</option>
+            <option value="200">150 - 200</option>
+            <option value="250">200 - 250</option>
+            <option value="300">250 - 300</option>
+            <option value="301">>300</option>
+          </select>
         </div>
-        <button id="filtra" type="button" class="btn btn-dark">FILTRA</button>
     </div>
     
   </section>
@@ -127,59 +135,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
 <script>
 
-
-
-
-
-  $(document).on('click', '#filtra', function(){
-    let list = []; // torna tutti i servizi scelti
-    $('.serviceClick:checked').each(function(){
-      list.push(this.value);
-    });
-
-      // prendo i valori dei filtri flats
-      let room = $('#room').val();
-      let bed = $('#bed').val();
-      let wc = $('#wc').val();
-      let mq = $('#mq').val();
-
-      let lat = $('.query_lat').val();
-      let lng = $('.query_lng').val();
-
-      geo = [
-/*         list,
-        room,
-        bed,
-        wc,
-        mq, */
-        lat,
-        lng
-      ];
-
-      //call(geo) //parte la chiamata ajax!
-    
-      $.ajax({
-        /* cache: false, */
-          type: "GET",
-          url: "http://localhost:8000/flats",
-          data: {
-            data: geo
-          },
-        dataType: "json",
-        }).done(function(response){
-          console.log(response);
-          compiler(response); // richiamo la funzione per compilare il model
-        }).fail(function(error){
-          console.log('errore',error);
-        });
-      /* console.log(geo); */
-  });
-
-    
-
-
-
-
 var list=[]; // array di ricerca
 (function() { // funzione algolia di ricerca
   var placesAutocomplete = places({
@@ -197,43 +152,82 @@ var list=[]; // array di ricerca
       aroundLatLngViaIP: false,
   });
 })(); // fine funzione algolia di ricerca
+
+
 // funzione click bottone
 $('#click').unbind().bind('click', function(){   /* metodo alternativo document.getElementById('clickMe').addEventListener('click', function(){}); // chiusura evento bottone */
   var city =  document.getElementById('city1').value;
   if(city == ''){
     document.querySelector('.left-layout').innerHTML = '<h2>Inserisci un città!</h2>';
   }
-  //document.querySelector('.left-layout').innerHTML = '';
+
+
+  let selectedMq = $("select#mq").children("option:selected").val();
+
+  let serviceList = []; // torna tutti i servizi scelti
+    $('.serviceClick:checked').each(function(){
+    serviceList.push(this.value);
+  });
+
+  //console.log(selectedMq, serviceList)
+
   $('.ricerca').empty();
-  //reset();
-  var geo= [];
-  for(var i=0; i<list.length; i++){
+  
+
+  if(list.length != 0){
+    var geo= [];
+    for(var i=0; i<list.length; i++){
     if(list[i]['name'] === city){ // se c'è corrispondenza
       var lat = list[i]['latlng']['lat'];
       var lng = list[i]['latlng']['lng'];
+
       // loro due prendono i valori di latitudine e longitudine e li spediscono al controller!
-      /* var querylat = document.getElementById('query_lat').value =  lat;
-      var querylng = document.getElementById('query_lng').value =  lng; */
       var querylat = document.querySelector('.query_lat').value =  lat;
       var querylng = document.querySelector('.query_lng').value =  lng;
       if(!geo.includes(querylat) && !geo.includes(querylng)){
         geo.push(querylat);
         geo.push(querylng);
       }
-      //document.querySelector('.left-layout').innerHTML = ''; // quando ricerco pulisci la pagina
-    } // chiusura if list[i]
-  } // chiusura for
+
+      } // chiusura if list[i]
+    } // chiusura for
+
+    list= [];
+  }else{
+    let lat = $('.query_lat').val();
+    let lng = $('.query_lng').val();
+
+    geo = [
+      lat,
+      lng
+    ];
+  }
+
+
+  // prendo i valori dei filtri flats
+  let room = $('#room').val();
+  let bed = $('#bed').val();
+  let wc = $('#wc').val();
+  let mq = $('#mq').val();
+
   // richiamo la funzione call ed effettuo la chiamata!
-  call(geo);
+  call(geo,room,bed,wc,mq,selectedMq,serviceList);
 });
 // funzione chiamata ajax con parametro in ingresso
-function call(listageo){
+
+function call(listageo, room='', bed='', wc='', mq='',selectedMq='',serviceList= ''){
   $.ajax({
         /* cache: false, */
         type: "GET",
         url: "http://localhost:8000/flats",
         data: {
-          lat: listageo
+          geo: listageo,
+          room: room,
+          bed: bed,
+          wc: wc,
+          mq: mq,
+          selectedMq: selectedMq,
+          serviceList: serviceList
         },
         dataType: "json",
   }).done(function(response){
@@ -243,6 +237,8 @@ function call(listageo){
     console.log('errore',error);
   });
 }
+
+
 function compiler(response){
   // copia baffi
   let source = $("#template").html();
@@ -263,10 +259,7 @@ function compiler(response){
     let temp = $('.ricerca').append(html);
   }
 }
-/* function reset(){
-    $('#city').val('');
-    $('.left-layout').html('');
-}; */
+
 </script>
 {{-- modello di riferimento --}}
 <script id="template" type="text/x-handlebars-template">
