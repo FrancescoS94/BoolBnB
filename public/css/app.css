@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Calibri, Arial, sans-serif;
 }
 
 textarea {
@@ -212,7 +213,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -227,13 +228,13 @@ main .bg-img .jumbotron {
 main .bg-img h1 {
   text-transform: uppercase;
   font-size: 50px;
-  color: #fcfcfc;
+  color: #e7e9f4;
 }
 
 main .sponsor {
   height: calc(100vh - 107px);
-  background-color: #fcfcfc;
-  color: #133b55;
+  background-color: #133b55;
+  color: #e7e9f4;
   padding: 50px;
 }
 
@@ -248,7 +249,7 @@ main .sponsor .slider {
 
 main .sponsor .slider i {
   font-size: 30px;
-  color: #133b55;
+  color: #cb1f35;
   cursor: pointer;
   background-color: #fcfcfc;
   border-radius: 50%;
@@ -681,7 +682,7 @@ main .table td {
   box-shadow: rgba(203, 31, 53, 0.4) 0px 5px 14px;
 }
 
-.main {
+.lay-dx {
   height: 100vh;
   padding: 0px !important;
   overflow-y: scroll;
@@ -704,6 +705,44 @@ main .table td {
 
   .aside .utente-dash #name {
     display: none;
+  }
+}
+
+.show-messaggio {
+  height: 100vh;
+}
+
+.show-messaggio .messaggio .jumbotron {
+  padding-top: 15px;
+  background-color: white;
+  margin-top: 40px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+.show-messaggio .messaggio .jumbotron .dettagli {
+  padding-left: 3px;
+}
+
+.show-messaggio .messaggio .jumbotron .dettagli ul {
+  list-style: none;
+}
+
+.show-messaggio .messaggio .jumbotron .testo-messaggio {
+  margin-left: 3px;
+  border-top: 1px solid gainsboro;
+  border-bottom: 1px solid gainsboro;
+}
+
+.show-messaggio .messaggio .jumbotron .lettura form input {
+  margin-right: 15px;
+  margin-top: 15px;
+  width: 170px;
+}
+
+@media screen and (max-width: 768px) {
+  .show-messaggio .messaggio .jumbotron {
+    margin-top: 0px;
+    box-shadow: none;
   }
 }
 

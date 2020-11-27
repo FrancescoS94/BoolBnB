@@ -49,33 +49,33 @@ class MessageController extends Controller
         }
     }
 
-    public function show(Message $message){
-        return view('admin.messages.show', compact('message'));
-    }
-    
+      public function show(Message $message){
+          return view('admin.messages.show', compact('message'));
+      }  
+
     public function create(){
         // non serve, il form per creare messaggio è nella pagina flat (FlatController fz show) [non c'entra admin]
     }
-    
+
     public function store(Request $request, Message $message){
         // non serve, il form per creare messaggio è nella pagina flat (FlatController fz show) [non c'entra admin]
     }
-    
+
     public function destroy(Message $message){
         $message->delete();
         return redirect()->route('admin.messages.index')->with('status','Messaggio cancellato correttamente');
     }
-    
+
     public function edit(Post $post){
         // non serve, il messaggio non sarà modificabile
     }
-    
+
     public function update(Message $message){
 
         $message['viewed'] = !$message['viewed'];
 
         $message->update();
-        
+
         return redirect()->route('admin.messages.index');
     }
 }

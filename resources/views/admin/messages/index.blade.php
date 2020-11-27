@@ -1,12 +1,7 @@
+
 {{-- TUTTI I MESSAGGI RICEVUTI DELL'UTENTE LOGGATO --}}
-@extends('layouts.admin')
-
-@section('content')
-
-<div class="container vh">
-  <h1>Tutti i messaggi ricevuti</h1>
-
-  <table class="table">
+@extends('layouts.admin')@section('content')<div class="container vh">
+  <h1>Tutti i messaggi ricevuti</h1>  <table class="table">
     <thead>
       <tr>
         <th scope="col">Data e ora di ricezione</th>
@@ -41,10 +36,6 @@
               </form>
           </td>
         </tr>
-        @endforeach
-
-    </tbody>
-  </table>
-
-  </div>
+        @endforeach    </tbody>
+  </table>  </div>
 @endsection

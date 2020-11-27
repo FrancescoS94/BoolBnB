@@ -1,3 +1,4 @@
+// LAYOUT ADMIN
 .aside{
   height: 100vh;
   position: fixed;
@@ -38,7 +39,7 @@
     }
   }
 }
-.main{
+.lay-dx{
   height: 100vh;
   padding: 0px !important;
   overflow-y: scroll;
@@ -67,3 +68,54 @@
     }
   }
 }
+// FINE LAYOUT ADMIN
+
+
+// SHOW SINGOLO MESSAGGIO
+
+.show-messaggio {
+  height: 100vh;
+  .messaggio{
+    .jumbotron {
+      padding-top: 15px;
+      background-color: white;
+      margin-top: 40px;
+      box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+      .dettagli{
+        padding-left: 3px;
+        ul{
+          list-style: none;
+        }
+      }
+      .testo-messaggio{
+        margin-left: 3px;
+        border-top: 1px solid gainsboro;
+        border-bottom: 1px solid gainsboro;
+      }
+      .lettura{
+        // padding-top: 20px;
+        form {
+          input{
+            margin-right: 15px;
+            margin-top: 15px;
+            width: 170px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px){
+
+  .show-messaggio {
+    .messaggio{
+      .jumbotron {
+        margin-top: 0px;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// FINE SHOW SINGOLO MESSAGGIO

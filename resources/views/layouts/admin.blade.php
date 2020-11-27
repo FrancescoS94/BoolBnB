@@ -82,7 +82,7 @@
       </div>
 
       {{-- Lato dx layout, contenuto--}}
-      <div class="col-9 col-sm-9 col-md-10 col-lg-10 col-xl-10 main">
+      <div class="col-9 col-sm-9 col-md-10 col-lg-10 col-xl-10 lay-dx">
         <main>
           @yield('content')
         </main>
