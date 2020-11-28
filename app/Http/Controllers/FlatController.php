@@ -221,21 +221,18 @@ class FlatController extends Controller
  
                     if(empty($appartamentiFiltrati)){ // se è vuoto appartamenti filtrati
                        /* $risultato = 'nessun risultato, con i filtri di ricerca';
-                       $appartamentiFiltrati =  $risultato; */
-
-                       $objfilter = [ 
-                        'appartamentiRicercati' => $flatsInRadius,
-                        ];
-                
-                        return $objfilter;
+                       $appartamentiFiltrati =  $risultato; */                
+                        return $flatsInRadius;
                     }
 
-                    $objfilter = [ 
-/*                         'appartamentiRicercati' => $flatsInRadius, */
+                    return $appartamentiFiltrati;
+
+/*                     $objfilter = [ 
+                        'appartamentiRicercati' => $flatsInRadius,
                         'appartamentiFiltrati' => $appartamentiFiltrati,
                     ];
                 
-                    return $objfilter;
+                    return $objfilter; */
           
             } //chiusura if($lat != '' && $lng != ''
         } // chiusura  if($request->ajax())
