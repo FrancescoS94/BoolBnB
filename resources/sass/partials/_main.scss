@@ -484,17 +484,13 @@ main {
 
     // PAYMENTS admin create.blade
         #card-number, #cvv, #expiration-date{
-            background:white;
+            background: white;
             height: 38px;
-            border: 1px solid #ced4da;
+            border: 1px solid #e6e9ec;
             padding: .375rem .75rem;
             border-radius: .25rem;
         }
 
-        #card-nuber:focus {
-            border: rgba(19, 59, 85, 0.8);
-            box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
-        }
         .update {
             .flex-column {
                 line-height: 12px;
