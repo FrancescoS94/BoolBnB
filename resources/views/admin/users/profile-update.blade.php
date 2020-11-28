@@ -61,34 +61,34 @@
                         @method('PATCH')
                         {{-- NOME & COGNOME --}}
                         <div class="form-group row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label class="" for="name">Nome:</label>
                                 <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="lastname">Cognome:</label>
                                 <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $user->lastname }}">
                             </div>
                         </div>
                         {{-- NASCITA & EMAIL --}}
                         <div class="form-group row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="birthday">Data di nascita:</label>
                                 <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}">
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="email">Inserisci una nuova email:</label>
                                 <input type="email" class="form-control" name="email" id="email">
                             </div>
                         </div>
                         {{-- PASSWORD --}}
                         <div class="form-group row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="password">Modifica la tua password:</label>
                                 {{-- <small id="emailHelp" class="form-text text-muted">Fai attenzione a quello che metti!</small> --}}
                                 <input type="password" class="form-control" name="password">
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="password">Conferma la modifica:</label>
                                 <input type="password" class="form-control" name="password_confirmation" autocomplete="password">
                             </div>

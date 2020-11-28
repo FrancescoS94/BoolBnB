@@ -175,6 +175,7 @@ main .bg-img2 {
   background-image: url(/images/image-illustrator.jpg?0390b85466778b9a257ac2392a09612e);
   background-size: cover;
   background-position: top;
+  height: 100vh;
 }
 
 main .register .card {
@@ -213,7 +214,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -228,13 +229,13 @@ main .bg-img .jumbotron {
 main .bg-img h1 {
   text-transform: uppercase;
   font-size: 50px;
-  color: #e7e9f4;
+  color: #fcfcfc;
 }
 
 main .sponsor {
   height: calc(100vh - 107px);
-  background-color: #133b55;
-  color: #e7e9f4;
+  background-color: #fcfcfc;
+  color: #133b55;
   padding: 50px;
 }
 
@@ -249,7 +250,7 @@ main .sponsor .slider {
 
 main .sponsor .slider i {
   font-size: 30px;
-  color: #cb1f35;
+  color: #133b55;
   cursor: pointer;
   background-color: #fcfcfc;
   border-radius: 50%;
@@ -634,6 +635,48 @@ main .table td {
     display: flex;
     justify-content: center;
   }
+}
+
+main #card-number,
+main #cvv,
+main #expiration-date {
+  background: white;
+  height: 38px;
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+main #card-nuber:focus {
+  border: rgba(19, 59, 85, 0.8);
+  box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+}
+
+main .update .flex-column {
+  line-height: 12px;
+}
+
+main .update .cb {
+  color: #133b55;
+  font-size: 17px;
+}
+
+main .update .silver {
+  color: #808080;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+main .update .gold {
+  color: #ffbd59;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+main .update .platinum {
+  color: #03989e;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .aside {

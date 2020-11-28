@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-img2">
     <div class="container padd-top">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center pt-5">
             <div class="col-md-9 col-lg-6 my-4 pb-3 register">
                 <div class="card">
                     <div class="account d-flex justify-content-center pt-4">
@@ -60,13 +60,18 @@
                                         {{ __('Accedi') }}
                                     </button>
                                 </div>
-                                <div class="col-9 mt-4">
+                                <div class="col-9 d-flex justify-content-center pt-4">
+                                    <p>Non hai un account?
+                                        <a href="{{ route('register') }}">Registrati</a>
+                                    </p>
+                                </div>
+                                {{-- <div class="col-9 mt-4">
                                     @if (Route::has('password.request'))
                                         <a class="" href="{{ route('password.request') }}">
                                             {{ __('Hai dimenticato la password?') }}
                                         </a>
                                     @endif
-                                </div>
+                                </div> --}}
                             </div>
                         </form>
                     </div>

@@ -1,7 +1,7 @@
 main {
   min-height: calc(100vh - 400px);
   background-color: $whiteBnb;
-  
+
     .padd-top {
         padding-top:107px;
     }
@@ -41,6 +41,7 @@ main {
             background-image: url('../../../public/storage/images/image-illustrator.jpg');
             background-size: cover;
             background-position: top;
+            height: 100vh;
         }
         .register {
             .card {
@@ -481,4 +482,42 @@ main {
         }
     // *END* // LISTA APPARTAMENTI admin flats.blade
 
+    // PAYMENTS admin create.blade
+        #card-number, #cvv, #expiration-date{
+            background:white;
+            height: 38px;
+            border: 1px solid #ced4da;
+            padding: .375rem .75rem;
+            border-radius: .25rem;
+        }
+
+        #card-nuber:focus {
+            border: rgba(19, 59, 85, 0.8);
+            box-shadow: rgba(19, 59, 85, 0.7) 0px 0px 10px 2px;
+        }
+        .update {
+            .flex-column {
+                line-height: 12px;
+            }
+            .cb {
+                color: $blueBnb;
+                font-size: 17px;
+            }
+            .silver {
+                color: #808080;
+                font-weight: bold;
+                font-size: 25px;
+            }
+            .gold {
+                color: #ffbd59;
+                font-weight: bold;
+                font-size: 25px;
+            }
+            .platinum {
+                color: #03989e;
+                font-weight: bold;
+                font-size: 25px;
+            }
+        }
+    // *END* PAYMENTS admin create.blade
 }
