@@ -1,13 +1,13 @@
 <nav class="container-fluid navbar navbar-light fixed-top shadow">
     <a class="navbar-brand logo" href="{{ url('/') }}">
-        <img src="{{ asset('storage/images/logo-rossoblu.png')}}" alt="Boolbnb">
+        <img src="{{ asset('images/logo-boolbnb.png')}}" alt="Boolbnb">
     </a>
 
-    <form class="search" action="{{route('flats.index')}}" method="GET">
+    <form id="form" class="search" action="{{route('flats.index')}}" method="GET">
         <input type="search" id="city" name="city" class="search-text form-control" placeholder="Dove sogni di andare?" />
         {{-- NASCOSTO --}}<input id="query_lat" type="text" name="query_lat" hidden>
         {{-- NASCOSTO --}}<input id="query_lng" type="text" name="query_lng" hidden>
-        <button class="search-btn" id="clickMe"><i class="fa fa-search"></i></button>
+        <button type="submit" class="search-btn" id="clickMe"><i class="fa fa-search"></i></button>
     </form>
 
     @guest
@@ -56,3 +56,4 @@
 
 {{-- SCRIPT DI ALGOLIA --}}
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+

@@ -27,54 +27,59 @@
                     <div class="form-group row">
                         <div class="col-12">
                             <label for="title">Titolo:</label>
-                            <input type="text" class="form-control" name="title" id="title" value="{{ $flat->title }}">
+                            <input type="text" class="form-control" name="title" id="titleField" value="{{ $flat->title }}" required>
+                            <span id="titleError"></span>
                         </div>
                     </div>
                     {{-- STANZE & LETTI --}}
                     <div class="form-group row">
                         <div class="col-6">
                             <label for="room">Stanze:</label>
-                            <input type="number" class="form-control" name="room" id="room" value="{{ $flat->room }}">
+                            <input type="number" class="form-control" name="room" id="roomField" value="{{ $flat->room }}" required>
+                            <span id="roomError"></span>
                         </div>
                         <div class="col-6">
                             <label for="bed">Letti:</label>
-                            <input type="number" class="form-control" name="bed" id="bed" value="{{ $flat->bed }}">
+                            <input type="number" class="form-control" name="bed" id="bedField" value="{{ $flat->bed }}" required>
+                            <span id="bedError"></span>
                         </div>
                     </div>
                     {{-- WC & MQ --}}
                     <div class="form-group row">
                         <div class="col-6">
                             <label for="wc">WC:</label>
-                            <input type="number" class="form-control" name="wc" id="wc" value="{{ $flat->wc }}">
+                            <input type="number" class="form-control" name="wc" id="wcField" value="{{ $flat->wc }}" required>
+                            <span id="wcError"></span>
                         </div>
                         <div class="col-6">
                             <label for="mq">Metri quadrati:</label>
-                            <input type="number" class="form-control" name="mq" id="mq" value="{{ $flat->mq }}">
+                            <input type="number" class="form-control" name="mq" id="mqField" value="{{ $flat->mq }}" required>
+                            <span id="mqError"></span>
                         </div>
                     </div>
                     {{-- DESCRIZIONE --}}
                     <div class="form-group">
                         <label for="description">Descrizione:</label>
-                        <textarea rows="3" type="text" class="form-control" name="description" id="description">{{ $flat->description }}</textarea>
+                        <textarea rows="3" type="text" class="form-control" name="description" id="description" required>{{ $flat->description }}</textarea>
                     </div>
                     {{-- SERVIZI --}}
                     <div class="form-group">
                         @foreach ($service as $service)
                             <label for="tag">{{ $service->service }}</label>
-                            <input type="checkbox" name="service[]" value="{{ $service->id }}">
+                            <input type="checkbox" name="service[]" value="{{ $service->id }}" required>
                         @endforeach
                     </div>
                     {{-- IMMAGINE --}}
                     <div class="form-group row">
                         <div class="col-12">
                             <label for="image">Inserisci una fotografia dell'appartamento:</label>
-                            <input type="file" class="form-control-file" name="image" id="image" value="{{ $flat->image }}">
+                            <input type="file" class="form-control-file" name="image" id="image" value="{{ $flat->image }}" required>
                         </div>
                     </div>
                     {{-- BUTTON --}}
                     <div class="row">
                         <div class="col-12 mt-3">
-                            <button type="submit" class="btn-blu">Invia</button>
+                            <button id="buttonSubmit" type="submit" class="btn-blu">Invia</button>
                         </div>
                     </div>
                 </form>

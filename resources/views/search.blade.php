@@ -55,7 +55,7 @@
         <div class="form-group">
           <label for="mq">Quanto spazio cerchi?</label>
           <select id="mq" class="form-control">
-            <option selected>Metri quadrati</option>
+            <option selected value="">Metri quadrati</option>
             <option value="50">0 - 50</option>
             <option value="100">50 - 100</option>
             <option value="150">100 - 150</option>
@@ -66,6 +66,8 @@
           </select>
         </div>
     </div>
+
+    <div id="filtroRicerca" hidden>Nessun risultato con questi filtri</div>
     
   </section>
 
@@ -209,14 +211,13 @@ $('#click').unbind().bind('click', function(){   /* metodo alternativo document.
   let room = $('#room').val();
   let bed = $('#bed').val();
   let wc = $('#wc').val();
-  let mq = $('#mq').val();
 
   // richiamo la funzione call ed effettuo la chiamata!
-  call(geo,room,bed,wc,mq,selectedMq,serviceList);
+  call(geo,room,bed,wc,selectedMq,serviceList);
 });
 // funzione chiamata ajax con parametro in ingresso
 
-function call(listageo, room='', bed='', wc='', mq='',selectedMq='',serviceList= ''){
+function call(listageo, room='', bed='', wc='', selectedMq='',serviceList= ''){
   $.ajax({
         /* cache: false, */
         type: "GET",
@@ -226,7 +227,6 @@ function call(listageo, room='', bed='', wc='', mq='',selectedMq='',serviceList=
           room: room,
           bed: bed,
           wc: wc,
-          mq: mq,
           selectedMq: selectedMq,
           serviceList: serviceList
         },
@@ -261,6 +261,7 @@ function compiler(response){
   }
 }
 </script>
+
 {{-- modello di riferimento --}}
 <script id="template" type="text/x-handlebars-template">
   <div class="row flat">
