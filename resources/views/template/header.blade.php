@@ -1,6 +1,6 @@
 <nav class="container-fluid navbar navbar-light fixed-top shadow">
     <a class="navbar-brand logo" href="{{ url('/') }}">
-        <img src="{{ asset('storage/images/logo-rossoblu.png')}}" alt="Boolbnb">
+        <img src="{{ asset('images/logo-boolbnb.png')}}" alt="Boolbnb">
     </a>
 
     <form id="form" class="search" action="{{route('flats.index')}}" method="GET">

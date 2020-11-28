@@ -44,12 +44,6 @@ class FlatController extends Controller
                 $wc=$_GET['wc'];
             }
 
-            if(empty($_GET['mq'])){
-                $mq= '';
-            }else{
-                $mq=$_GET['mq'];
-            }
-
             if(empty($_GET['selectedMq'])){
                 $selectedMq= '';
             }else{
@@ -57,54 +51,12 @@ class FlatController extends Controller
                 $mq = (int)$selectedMq;
             }
 
-            if(empty($_GET['serviceList'])){
-                $serviceGet= '';
-            }else{
-                $serviceGet=$_GET['serviceList'];
-                /* $arrayDiValeria = Flat::whereHas('services', function ($query) {
-                    $query->where('service_id', $_GET['serviceList']);
-                })->get(); //-with('services')->get();  #Chiamare a una funzione membro get() sulla stringa
-                
-                return response()->json($arrayDiValeria); */
-            }
-
- 
-
-            /* $arrayDiValeria= Flat::whereHas('services', function($query) {
-                $query->whereIn('service_id', $serviceGet);
-            })->get(); */
-            //$arrayDiValeria= Flat::orderBy('created_at', 'desc')->with('services')->with('flats')->get();
-            
-            //return $arrayDiValeria;
-           
 
             $data= $_GET['geo'];
 
             $lat= $data[0];
             $lng= $data[1];
             
-            // mettere un array tutti gli appartamenti in relazione con questi servizi, poi fare un controllo
-            // per verificare se sono presenti anche in flatsRadius
-            //services()
-
-
-            // prendi dalla table flat attraverso la funzione services i service_id e i flat_id
-            /* $arrayDiValeria= [];
-            $serviziSelezionati = count($serviceGet);
-            for($i=0; $i < $serviziSelezionati; $i++){ 
-
-                $flats = Flat::with(array('services' => function($serviceGet){
-                    $serviceGet->where('service_id', $serviceGet[$i]); 
-                }))->get();
-
-                array_push($arrayDiValeria,$flats);
-            }; */
-
-
-            /* user critere */ /* user_critere */
-            /* Undefined variable: serviceGet */
-
-
 
             if($lat != '' && $lng != '')
             {
@@ -151,62 +103,89 @@ class FlatController extends Controller
                             }
                         }           
                     }
-                    
+
+
+                    //for($i=0; $i < )
+                    if(empty($_GET['serviceList'])){
+                        $flatsServices = $flatsInRadius;
+                    }else{
+                        $serviceGet=$_GET['serviceList'];
+                        $flatsServices = Flat::whereHas('services', function ($query) {
+                            $query->where('service_id',$_GET['serviceList']);
+                        })->get(); //-with('services')->get();  #Chiamare a una funzione membro get() sulla stringa
+                    }
+
+
+                    $serviceRadius = [];
+
+
+
+                    foreach ($flatsServices as $flatService) {
+                        foreach ($flatsInRadius as $flatInRadius) {
+                            if($flatService['id'] == $flatInRadius['id'] ){
+                                array_push($serviceRadius,$flatInRadius);
+                            }
+                        }
+                    }
 
                     // ciclare $flatsInRadius per prendere gli appartamenti filtrati
                     $appartamentiFiltrati = [];
-                    $q= count($flatsInRadius);
-                    for($i=0; $i < $q; $i++) { 
-                        if($flatsInRadius[$i]['bed'] == $bed &&  $flatsInRadius[$i]['room'] == $room && $flatsInRadius[$i]['wc'] == $wc){        
-                            array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                        }else if($flatsInRadius[$i]['bed'] == $bed ||  $flatsInRadius[$i]['room'] == $room || $flatsInRadius[$i]['wc'] == $wc){
-                            array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                        }
+                    $flatRadius= count($serviceRadius); #$flatsInRadius
+                    for($i=0; $i < $flatRadius; $i++){ 
+                        if($serviceRadius[$i]['bed'] == $bed &&  $serviceRadius[$i]['room'] == $room && $serviceRadius[$i]['wc'] == $wc){        
+                            array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                        }else if($serviceRadius[$i]['bed'] == $bed ||  $serviceRadius[$i]['room'] == $room || $serviceRadius[$i]['wc'] == $wc){
+                            array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                        }/* else if(){ 
 
-                         switch ($mq) {
-                            case $mq == 50:
-                                if($flatsInRadius[$i]['mq'] <= 50){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
-                            case $mq == 100:
-                                if($flatsInRadius[$i]['mq'] > 50 &&  $flatsInRadius[$i]['mq'] <= 100){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
-                            case $mq == 150:
-                                if($flatsInRadius[$i]['mq'] > 100 &&  $flatsInRadius[$i]['mq'] <= 150){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
-                            case $mq == 200:
-                                if($flatsInRadius[$i]['mq'] > 150 &&  $flatsInRadius[$i]['mq'] <= 200){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
-                            case $mq == 250:
-                                if($flatsInRadius[$i]['mq'] > 200 &&  $flatsInRadius[$i]['mq'] <= 250){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
-                            case $mq == 300:
-                                if($flatsInRadius[$i]['mq'] > 250 &&  $flatsInRadius[$i]['mq'] <= 300){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
-                            case $mq > 300:
-                                if($flatsInRadius[$i]['mq'] > 300){
-                                    array_push($appartamentiFiltrati, $flatsInRadius[$i]);
-                                } 
-                                break;
+                        } */
+
+                        if(isset($mq)){
+                            switch ($mq) {
+                                case $mq == 50:
+                                    if($serviceRadius[$i]['mq'] <= 50){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                case $mq == 100:
+                                    if($serviceRadius[$i]['mq'] > 50 &&  $serviceRadius[$i]['mq'] <= 100){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                case $mq == 150:
+                                    if($serviceRadius[$i]['mq'] > 100 &&  $serviceRadius[$i]['mq'] <= 150){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                case $mq == 200:
+                                    if($serviceRadius[$i]['mq'] > 150 &&  $serviceRadius[$i]['mq'] <= 200){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                case $mq == 250:
+                                    if($serviceRadius[$i]['mq'] > 200 &&  $serviceRadius[$i]['mq'] <= 250){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                case $mq == 300:
+                                    if($serviceRadius[$i]['mq'] > 250 &&  $serviceRadius[$i]['mq'] <= 300){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                case $mq > 300:
+                                    if($serviceRadius[$i]['mq'] > 300){
+                                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                    } 
+                                    break;
+                                default:
+                            } /* chiusura switch */ 
                         }
                     };
 
                     $indirizzi=[]; // indirizzi degli appartamenti ricercati senza filtro di ricerca
-                    for($i=0; $i < count($flatsInRadius); $i++) { 
+                    for($i=0; $i < count($serviceRadius); $i++) {  #flatsInRadius
                         foreach($addresses as $address){
-                            if($address->id == $flatsInRadius[$i]['address_id']){
-                                //$flatsInRadius[$i]['address_id'] = $address;
+                            if($address->id == $serviceRadius[$i]['address_id']){
                                 array_push($indirizzi,$address);
                             }
                         }
@@ -217,7 +196,6 @@ class FlatController extends Controller
                     for($i=0; $i < count($appartamentiFiltrati); $i++) { 
                         foreach($addresses as $address){
                             if($address->id == $appartamentiFiltrati[$i]['address_id']){
-                               //$appartamentiFiltrati[$i]['address_id'] = $address;
                                 array_push($indirizziAppFiltrati,$address);
                             }
                         }
@@ -232,7 +210,7 @@ class FlatController extends Controller
                         }
                     }
 
-                    foreach($flatsInRadius as $appartamento){
+                    foreach($flatsInRadius as $appartamento){  #flatsInRadius
                         foreach($indirizzi as $indirizzo){
                             if($appartamento['address_id'] == $indirizzo['id']){
                                 $appartamento['description'] = $indirizzo['address'];
@@ -242,18 +220,24 @@ class FlatController extends Controller
  
  
                     if(empty($appartamentiFiltrati)){ // se è vuoto appartamenti filtrati
-                       $risultato = 'nessun risultato, con i filtri di ricerca';
-                       $appartamentiFiltrati =  $risultato;
+                       /* $risultato = 'nessun risultato, con i filtri di ricerca';
+                       $appartamentiFiltrati =  $risultato; */
+
+                       $objfilter = [ 
+                        'appartamentiRicercati' => $flatsInRadius,
+                        ];
+                
+                        return $objfilter;
                     }
 
                     $objfilter = [ 
+/*                         'appartamentiRicercati' => $flatsInRadius, */
                         'appartamentiFiltrati' => $appartamentiFiltrati,
-                        'appartamentiRicercati' => $flatsInRadius,
                     ];
-                    
+                
                     return $objfilter;
           
-            }
+            } //chiusura if($lat != '' && $lng != ''
         } // chiusura  if($request->ajax())
 
 

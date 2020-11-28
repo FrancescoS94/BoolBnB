@@ -3,7 +3,7 @@
 
 @section('head')
     <style>
-        #erroreRicerca{
+        #erroreRicerca{ 
             width: 6rem;
             position: relative;
             left: 42%;
@@ -93,7 +93,7 @@
                 form.addEventListener('submit', (e) => {
 
                     if(list.length == 0){
-                        document.getElementById('erroreRicerca').innerHTML = 'Inserisci una città!';
+                        let city =document.getElementById('city').value = 'Inserisci una città!';
                         e.preventDefault(); 
                     }
 

@@ -35,7 +35,7 @@
                                 <label for="birthday">
                                     Inserisci la tua data di nascita
                                 </label>
-                                <input type="date" class="form-control" name="date_of_birth" id="birthday" {{-- value="{{ old('date_of_birth') }}"--}}>
+                                <input type="date" max="2002-12-31" class="form-control" name="date_of_birth" id="birthday" required {{-- value="{{ old('date_of_birth') }}"--}}>
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                                 <label for="avatar">
                                     Inserisci una fotografia
                                 </label>
-                                <input type="file" class="form-control-file" name="avatar" id="avatar" {{-- value="{{ old('avatar')}}"--}}>{{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
+                                <input type="file" class="form-control-file" name="avatar" id="avatar" required {{-- value="{{ old('avatar')}}"--}}>{{-- non mettere old qui, ancora non esiste! Eccezione Use of undefined constant old - assumed 'old' (this will throw an Error in a future version of PHP)   --}}
                             </div>
                         </div>
                         <div class="form-group row d-flex justify-content-center pt-4">
@@ -63,12 +63,12 @@
                         <div class="form-group row">
                             <div class="col-6">
                                 <label class="name" for="name">Nome:</label>
-                                <input type="text" class="form-control" name="name" id="nameField" placeholder="{{ $user->name }}" value="" required> 
+                                <input type="text" class="form-control" name="name" id="nameField" value="{{ $user->name }}" required> 
                                 <span id="nameError"></span>
                             </div>
                             <div class="col-6">
                                 <label for="lastname">Cognome:</label>
-                                <input type="text" class="form-control" name="lastname" id="lastnameField" placeholder="{{ $user->lastname }}" value="" required>
+                                <input type="text" class="form-control" name="lastname" id="lastnameField" value="{{ $user->lastname }}" required>
                                 <span id="lastnameError"></span>
                             </div>
                         </div>
@@ -76,11 +76,11 @@
                         <div class="form-group row">
                             <div class="col-6">
                                 <label for="birthday">Data di nascita:</label>
-                                <input type="date" class="form-control" max="2002-12-31" name="date_of_birth" id="date_of_birth" placeholder="{{ $user->date_of_birth }}" value="" required>
+                                <input type="date" class="form-control" max="2002-12-31" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}" required>
                             </div>
                             <div class="col-6">
                                 <label for="email">Inserisci una nuova email:</label>
-                                <input type="email" class="form-control" name="email" id="emailField" value="" required>
+                                <input type="email" class="form-control" name="email" id="emailField" value="{{ $user->email }}" required>
                                 <span id="emailError"></span>
                             </div>
                         </div>
@@ -89,19 +89,19 @@
                             <div class="col-6">
                                 <label for="password">Modifica la tua password:</label>
                                 <small id="emailHelp" class="form-text text-muted">La password deve contenere almeno un carattere alfabetico minuscolo, uno maiuscolo, un numero e un carattere speciale. Deve essere di otto caratteri o più lunga</small>
-                                <input type="password" class="form-control" name="password" value="" id="passwordField" required>
+                                <input type="password" class="form-control" name="password" id="passwordField" required>
                                 <span id="passwordError"></span>
                             </div>
                             <div class="col-6">
                                 <label for="password">Conferma la modifica password:</label>
-                                <input type="password" class="form-control" name="password_confirmation" autocomplete="password" value="" required>
+                                <input type="password" class="form-control" name="password_confirmation" autocomplete="password" required>
                             </div>
                         </div>
                         {{-- IMMAGINE --}}
                         <div class="form-group row">
                             <label class="col-12" for="avatar">Inserisci una tua fotografia:</label>
                             <div class="col-12">
-                                <input type="file" class="form-control-file" name="avatar" id="avatar" placeholder="{{ $user->avatar }}" value="" required>
+                                <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ $user->avatar }}" required>
                             </div>
                         </div>
                         {{-- BUTTON --}}
