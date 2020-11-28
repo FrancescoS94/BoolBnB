@@ -46,7 +46,7 @@
   scrollbar-width: none;
 }
 
-//Media Queries
+//MEDIA QUERIES LAYOUT ADMIN
 @media screen and (max-width:576px) {
 
   .aside {
@@ -72,7 +72,6 @@
 
 
 // SHOW SINGOLO MESSAGGIO
-
 .show-messaggio {
   height: 100vh;
   .messaggio{
@@ -105,7 +104,7 @@
     }
   }
 }
-
+// MEDIA QUERIES SHOW SINGOLO MESSAGGIO
 @media screen and (max-width:768px){
 
   .show-messaggio {
@@ -117,5 +116,48 @@
     }
   }
 }
-
 // FINE SHOW SINGOLO MESSAGGIO
+
+
+// LISTA MESSAGGI
+.lista-messaggi{
+  // height: 100vh;
+  background-color: #ffffff !important;
+  margin: 40px;
+  padding: 15px !important;
+  padding-bottom: 15px !important;
+  font-size: 15px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  p{
+    margin: 5px;
+  }
+  .dettagli-messaggio {
+    border-top: 1px solid gainsboro;
+  }
+  .buttons-dettagli{
+    padding-left: 15px !important;
+    padding-top:10px;
+    padding-bottom:15px;
+    span{
+      display: inline-block;
+      margin: 0px 10px 0px 0px;
+
+    }
+  }
+}
+
+// MEDIA QUERIES LISTA MESSAGGI
+@media screen and (max-width:768px){
+
+  .lista-messaggi{
+    // height: 100vh;
+    margin: 0px;
+    box-shadow: none;
+    .buttons-dettagli{
+      span{
+        display: inline-block;
+        margin: 0px 10px 0px 5px;
+      }
+    }
+  }
+}

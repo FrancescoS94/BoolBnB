@@ -37,7 +37,7 @@
       @endforeach
       </div>
     </div>
-  
+
     <div class="filter-child">
         <h4>Filtri flats</h4>
         <div class="form-group">
@@ -66,7 +66,7 @@
           </select>
         </div>
     </div>
-    
+
   </section>
 
    <section class="container-fluid sponsor">
@@ -90,48 +90,62 @@
       <i class="fas fa-chevron-right right"></i>
     </div>
   </section>
-  <div class="container ricerca">
-    @foreach ($flatsInRadius as $flat)
-    <div class="row search">
-      <div class="foto col-9 col-sm-6 col-md-6 col-lg-6 col-xl-5 ">
-        <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
-      </div>
-      <div class="my-auto col-9 col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
-        <div class="flat-text">
-          <a href="{{ route('flats.show', $flat->id) }}">
-            <h5 class="card-title">{{ $flat->title}}</h5>
-            <p>{{ $flat->address->address }}</p>
-            <ul>
-              <li>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
-                Letti: {{$flat->bed}}
-              </li>
-              <li>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
-                Stanze: {{$flat->room}}
-              </li>
-            </ul>
+  <div class="container-fluid row">
+
+    <div class="col-3 filtri">
+      <ul>
+        <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+        <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+        
+
+      </ul>
+    </div>
+
+    <div class="ricerca col-9">
+      @foreach ($flatsInRadius as $flat)
+      <div class="row search">
+        <div class="foto col-9 col-sm-6 col-md-6 col-lg-6 col-xl-5 ">
+          <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
+        </div>
+        <div class="my-auto col-9 col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+          <div class="flat-text">
+            <a href="{{ route('flats.show', $flat->id) }}">
+              <h5 class="card-title">{{ $flat->title}}</h5>
+              <p>{{ $flat->address->address }}</p>
               <ul>
                 <li>
-                  <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
-                  WC: {{$flat->wc}}
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                  Letti: {{$flat->bed}}
                 </li>
                 <li>
-                  <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
-                  Mq: {{$flat->mq}}
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                  Stanze: {{$flat->room}}
                 </li>
               </ul>
-          </a>
-          <div class="flat-service">
-            @foreach($flat->services as $service)
-            <span> {{ $service->service }} </span>
-            @endforeach
+                <ul>
+                  <li>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                    WC: {{$flat->wc}}
+                  </li>
+                  <li>
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                    Mq: {{$flat->mq}}
+                  </li>
+                </ul>
+            </a>
+            <div class="flat-service">
+              @foreach($flat->services as $service)
+              <span> {{ $service->service }} </span>
+              @endforeach
+            </div>
           </div>
         </div>
-      </div>
-    </div> {{-- chiusura row search--}}
-    @endforeach
-  </div> {{-- chiusura container-fluid ricerca--}}
+      </div> {{-- chiusura row search--}}
+      @endforeach
+    </div> {{-- chiusura container-fluid ricerca--}}
+
+
+  </div>
 </div> {{-- chiusura layout --}}
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
@@ -173,7 +187,7 @@ $('#click').unbind().bind('click', function(){   /* metodo alternativo document.
   //console.log(selectedMq, serviceList)
 
   $('.ricerca').empty();
-  
+
 
   if(list.length != 0){
     var geo= [];

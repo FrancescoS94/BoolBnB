@@ -1,7 +1,7 @@
 main {
   min-height: calc(100vh - 400px);
   background-color: $whiteBnb;
-  
+
     .padd-top {
         padding-top:107px;
     }
@@ -227,55 +227,68 @@ main {
                     }
                 }
             }
-            .ricerca{
-                scrollbar-width: none; /*Nasconde scroll firefox*/
-                .search{
-                padding: 20px 0px;
-                border-top: 1px solid darkgrey;
-                .foto{
-                    padding: 0px;
-                }
-                #img-search{
-                    width: 370px;
-                    height: 240px;
-                    border-radius: 10px;
-                }
-                }
-                .flat-text{
-                margin-left: 10px;
-                padding-top: 15px;
-                a{
-                    color: #222222;
-                    &:hover{
-                    color: #404040;
-                    text-decoration: none;
-                    }
-                }
-                p{
-                    padding-bottom: 10px;
-                    // border-bottom: 1px solid $redBnb;
-                }
-                ul{
+            .container-fluid.row{
+              height: 100vh;
+              .filtri {
+                // height: 100vh;
+              }
+              .ricerca{
+                  /*scrollbar-width: none; /*Nasconde scroll firefox*/
+                  // overflow-y: scroll;
+                  // height: 100vh;
+                  background-color: beige;
+                  .search{
+                  padding: 20px 0px;
+                  border-top: 1px solid darkgrey;
+                  .tite{
+                    background-color: red;
+                  }
+                  .foto{
+                      padding: 0px;
+                  }
+                  #img-search{
+                      width: 370px;
+                      height: 240px;
+                      border-radius: 10px;
+                  }
+                  }
+                  .flat-text{
+                  margin-left: 10px;
+                  padding-top: 15px;
+                  a{
+                      color: #222222;
+                      &:hover{
+                      color: #404040;
+                      text-decoration: none;
+                      }
+                  }
+                  p{
+                      padding-bottom: 10px;
+                      // border-bottom: 1px solid $redBnb;
+                  }
+                  ul{
 
-                    list-style-type: none;
-                    padding-top: 0px;
-                    display: inline-block;
-                    li{
-                    margin-right: 10px;
-                    }
-                    img{
-                    height: 30px;
-                    padding: 0px 5px 5px 0px;
-                    }
-                }
-                .flat-service{
-                    color: #404040;
-                    span{
-                    margin-right: 4px;
-                    }
-                }
-                }
+                      list-style-type: none;
+                      padding-top: 0px;
+                      display: inline-block;
+                      li{
+                      margin-right: 10px;
+                      }
+                      img{
+                      height: 30px;
+                      padding: 0px 5px 5px 0px;
+                      }
+                  }
+                  .flat-service{
+                      color: #404040;
+                      span{
+                      margin-right: 4px;
+                      }
+                  }
+                  }
+              }
             }
+
         }
     // *END* PAGINA SERACH
 
