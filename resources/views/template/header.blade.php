@@ -3,11 +3,11 @@
         <img src="{{ asset('storage/images/logo-rossoblu.png')}}" alt="Boolbnb">
     </a>
 
-    <form class="search" action="{{route('flats.index')}}" method="GET">
+    <form id="form" class="search" action="{{route('flats.index')}}" method="GET">
         <input type="search" id="city" name="city" class="search-text form-control" placeholder="Dove sogni di andare?" />
         {{-- NASCOSTO --}}<input id="query_lat" type="text" name="query_lat" hidden>
         {{-- NASCOSTO --}}<input id="query_lng" type="text" name="query_lng" hidden>
-        <button class="search-btn" id="clickMe"><i class="fa fa-search"></i></button>
+        <button type="submit" class="search-btn" id="clickMe"><i class="fa fa-search"></i></button>
     </form>
 
     @guest
@@ -56,3 +56,4 @@
 
 {{-- SCRIPT DI ALGOLIA --}}
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+

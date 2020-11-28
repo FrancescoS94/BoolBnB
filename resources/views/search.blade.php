@@ -261,6 +261,7 @@ function compiler(response){
   }
 }
 </script>
+
 {{-- modello di riferimento --}}
 <script id="template" type="text/x-handlebars-template">
   <div class="row flat">
