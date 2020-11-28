@@ -56,139 +56,152 @@
                         </div>
                     </form>
                 @else
-                    <form id="form" method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
+                    <form id="formcheck" method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         {{-- NOME & COGNOME --}}
                         <div class="form-group row">
                             <div class="col-6">
-                                <label class="" for="name">Nome:</label>
-                                <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}">
+                                <label class="name" for="name">Nome:</label>
+                                <input type="text" class="form-control" name="name" id="nameField" placeholder="{{ $user->name }}" value="" required> 
+                                <span id="nameError"></span>
                             </div>
                             <div class="col-6">
                                 <label for="lastname">Cognome:</label>
-                                <input type="text" class="form-control" name="lastname" id="lastname" value="{{ $user->lastname }}">
+                                <input type="text" class="form-control" name="lastname" id="lastnameField" placeholder="{{ $user->lastname }}" value="" required>
+                                <span id="lastnameError"></span>
                             </div>
                         </div>
                         {{-- NASCITA & EMAIL --}}
                         <div class="form-group row">
                             <div class="col-6">
                                 <label for="birthday">Data di nascita:</label>
-                                <input type="date" class="form-control" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}">
+                                <input type="date" class="form-control" max="2002-12-31" name="date_of_birth" id="date_of_birth" placeholder="{{ $user->date_of_birth }}" value="" required>
                             </div>
                             <div class="col-6">
                                 <label for="email">Inserisci una nuova email:</label>
-                                <input type="email" class="form-control" name="email" id="email">
+                                <input type="email" class="form-control" name="email" id="emailField" value="" required>
+                                <span id="emailError"></span>
                             </div>
                         </div>
                         {{-- PASSWORD --}}
                         <div class="form-group row">
                             <div class="col-6">
                                 <label for="password">Modifica la tua password:</label>
-                                {{-- <small id="emailHelp" class="form-text text-muted">Fai attenzione a quello che metti!</small> --}}
-                                <input type="password" class="form-control" name="password">
+                                <small id="emailHelp" class="form-text text-muted">La password deve contenere almeno un carattere alfabetico minuscolo, uno maiuscolo, un numero e un carattere speciale. Deve essere di otto caratteri o più lunga</small>
+                                <input type="password" class="form-control" name="password" value="" id="passwordField" required>
+                                <span id="passwordError"></span>
                             </div>
                             <div class="col-6">
-                                <label for="password">Conferma la modifica:</label>
-                                <input type="password" class="form-control" name="password_confirmation" autocomplete="password">
+                                <label for="password">Conferma la modifica password:</label>
+                                <input type="password" class="form-control" name="password_confirmation" autocomplete="password" value="" required>
                             </div>
                         </div>
                         {{-- IMMAGINE --}}
                         <div class="form-group row">
                             <label class="col-12" for="avatar">Inserisci una tua fotografia:</label>
                             <div class="col-12">
-                                <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ $user->avatar }}">
+                                <input type="file" class="form-control-file" name="avatar" id="avatar" placeholder="{{ $user->avatar }}" value="" required>
                             </div>
                         </div>
                         {{-- BUTTON --}}
                         <div class="row">
                             <div class="col-12 mt-3">
-                                <button type="submit" class="btn-blu">Aggiorna</button>
+                                <button id="buttonSubmit" type="submit" class="btn-blu" disabled>Aggiorna</button>
                             </div>
                         </div>
                     </form>
-                    {{-- <div id="error" class="alert alert-danger" role="alert"></div> --}}
                 @endif
             </div>
         </div>
 
         <script>
 
-            const email= document.getElementById('email');
-            const name= document.getElementById('name');
-            const lastname= document.getElementById('lastname');
-            const date_of_birth= document.getElementById('date_of_birth');
-            const avatar= document.getElementById('avatar');
-            const passwrod= document.getElementById('password');
-            const password_confirm= document.getElementById('password_confirm');
 
-            const form = document.getElementById('form');
-            const errorElement= document.getElementById('error')
+        // variabili elementi input
+        const emailField = document.getElementById('emailField');
+        const passwordField = document.getElementById('passwordField');
+        const nameField= document.getElementById('nameField');       
+        const lastnameField=document.getElementById('lastnameField');
 
-            form.addEventListener('submit', (e) => {
+        // bottone form
+        const okButton = document.getElementById('buttonSubmit');
 
-                let regexname = RegExp("[a-zA-Z]+");
-                let regexemail = RegExp("[A-z0-9\.\+_-]+@[A-z0-9\._-]+\.[A-z]{2,6}");
-                let strongRegex = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-                /* let date_of_birth = RegExp("/^([0-9]{2})-([0-9]{2})-([0-9]{4})$/"); */
+        // variabili di errore
+        const emailError= document.getElementById('emailError');
+        const passwordError= document.getElementById('passwordError');
+        const nameError= document.getElementById('nameError');
+        const lastNameError= document.getElementById('lastnameError');
 
-                 // controllo lunghezza nome e cognome
-                 if(name.value.length < 2 ||  name.value.length > 85){
-                    errorElement.innerHTML = 'il campo nome o cognome è oltre il range supportato';
-                    e.preventDefault();
-                 }
+        // check email
+        emailField.addEventListener('keyup', function (event) {
+        isValidEmail = emailField.checkValidity();
+  
+            if(isValidEmail){
+                okButton.disabled = false;
+            }else{
+                emailError.innerHTML = 'inserisci un email valida, altrimenti non passi';
+                okButton.disabled = true;
+            }
+        });
 
-                 if(regexname.test(name.value) == false){
-                    errorElement.innerHTML = 'errore di compilazione, non utilizzare numeri e caratteri speciali';
-                    e.preventDefault();
-                }
+        // check email
+        passwordField.addEventListener('keyup', function (event) {
 
-                if(passwrod.value.length < 8){
-                    errorElement.innerHTML = 'password debole';
-                    e.preventDefault();
-                }
+         const strongRegex = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        
+            if(strongRegex.test(passwordField.value)){
+                okButton.disabled = false;
+            }else{
+                passwordError.innerHTML = 'inserisci un password sicura, rispetta le indicazioni';
+                okButton.disabled = true;
+            }
 
-                // espressione password
-                if(strongRegex.test(passwrod.value) == false){
-                    errorElement.innerHTML = 'errore formato password';
-                    e.preventDefault();
-                }
-
-                // espressione emal
-                if(regexemail.test(email.value) == false){
-                    errorElement.innerHTML = 'errore formato email';
-                    e.preventDefault();
-                }
-
-                // espressione data di nascita
-                /* if(date_of_birth.test(date_of_birth.value) == false){
-                    errorElement.innerHTML = 'errore formato data di nascita';
-                    e.preventDefault();
-                } */
-
-
-                // spiegazione nome
-                // accetta caratteri minuscoli e maiuscoli, no numeri iniziali
-
-               // mM134?@32eth5TD non cancellare!
-
-                // spiegazione password forte
+            // mM134?@32eth5TD non cancellare!
+             // spiegazione password forte
                 /*  (?=.*[a-z])	La stringa deve contenere almeno 1 carattere alfabetico minuscolo
                     (?=.*[A-Z]) La stringa deve contenere almeno 1 carattere alfabetico maiuscolo
                     (?=.*[0-9])	La stringa deve contenere almeno 1 carattere numerico
                     (?=.*[!@#$%^&*])	La stringa deve contenere almeno un carattere speciale, ma stiamo sfuggendo ai caratteri RegEx riservati per evitare conflitti
                     (?=. {8,})	La stringa deve essere di otto caratteri o più lunga
                 */
+        });
 
-                // spiegazione email
-                /*
-                    In sostanza questa espressione regolare verifica che prima della chiocciola ci sia un blocco di caratteri alfanumerici (con l’aggiunta eventuale di “.”, “+”, “_” e “-“),
-                    che dopo di essa invece ci sia almeno un blocco di caratteri alfanumerici (più “_” e  “-“),  separati da un “.”, ed infine un’estensione di almeno due lettere.
-                */
+        //check name
+        nameField.addEventListener('keyup', function (event) {
+
+            const regexName = /^[a-zA-Z ]{2,30}$/;
+
+            if(regexName.test(nameField.value)){
+                okButton.disabled = false;
+            }else{
+                nameError.innerHTML = 'Veramente ti chiami così? Non inserire numeri o caratteri speciali';
+                okButton.disabled = true;
+            }
+
+            // spiegazione name regex
+            /*  
+                /^[a-zA-Z ]{2,30}$/ caratteri ammessi minuscole e maiuscole, niente numeri o caratteri speciali, lunghezza minima 2 e max 30
+            */
+        });
+
+
+        //check lastname
+        lastnameField.addEventListener('keyup', function (event) {
+
+            const regexLastname = /^[a-zA-Z ]{2,30}$/;
+
+            if(regexLastname.test(lastnameField.value)){
+                okButton.disabled = false;
+            }else{
+                lastNameError.innerHTML = 'Bel cognome, ricordati di non inserire numeri o caratteri speciali';
+                okButton.disabled = true;
+            }
+        });
 
 
 
-            });
+        //let regexemail = RegExp("[A-z0-9\.\+_-]+@[A-z0-9\._-]+\.[A-z]{2,6}");
         </script>
     </div>
 @endsection

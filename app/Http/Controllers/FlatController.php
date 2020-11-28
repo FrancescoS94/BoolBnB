@@ -61,11 +61,11 @@ class FlatController extends Controller
                 $serviceGet= '';
             }else{
                 $serviceGet=$_GET['serviceList'];
-                $arrayDiValeria = Flat::whereHas('services', function ($query) {
+                /* $arrayDiValeria = Flat::whereHas('services', function ($query) {
                     $query->where('service_id', $_GET['serviceList']);
                 })->get(); //-with('services')->get();  #Chiamare a una funzione membro get() sulla stringa
                 
-                return response()->json($arrayDiValeria);
+                return response()->json($arrayDiValeria); */
             }
 
  
@@ -227,7 +227,7 @@ class FlatController extends Controller
                     foreach($appartamentiFiltrati as $appartamento){
                         foreach($indirizziAppFiltrati as $indirizzo){
                             if($appartamento['address_id'] == $indirizzo['id']){
-                                $appartamento['description'] = $indirizzo;
+                                $appartamento['description'] = $indirizzo['address'];
                             }
                         }
                     }
@@ -235,25 +235,24 @@ class FlatController extends Controller
                     foreach($flatsInRadius as $appartamento){
                         foreach($indirizzi as $indirizzo){
                             if($appartamento['address_id'] == $indirizzo['id']){
-                                $appartamento['description'] = $indirizzo;
+                                $appartamento['description'] = $indirizzo['address'];
                             }
                         }
                     }
  
-
-                    if(empty($appartamentiFiltrati)){
+ 
+                    if(empty($appartamentiFiltrati)){ // se è vuoto appartamenti filtrati
                        $risultato = 'nessun risultato, con i filtri di ricerca';
                        $appartamentiFiltrati =  $risultato;
                     }
 
+                    $objfilter = [ 
+                        'appartamentiFiltrati' => $appartamentiFiltrati,
+                        'appartamentiRicercati' => $flatsInRadius,
+                    ];
                     
-
-                   $objfilter = [ 
-                    'appartamentiRicercati' => $flatsInRadius,
-                    'appartamentiFiltrati' => $appartamentiFiltrati,
-                  ];
-
-                  return $objfilter;            
+                    return $objfilter;
+          
             }
         } // chiusura  if($request->ajax())
 
