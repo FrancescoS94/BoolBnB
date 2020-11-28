@@ -396,13 +396,24 @@ main .layout .row.container-sm {
   height: 100vh;
 }
 
+main .layout .container-fluid.row .filtri,
+main .layout .row.container-xl .filtri,
+main .layout .row.container-lg .filtri,
+main .layout .row.container-md .filtri,
+main .layout .row.container-sm .filtri {
+  height: 100vh;
+  border: 1px solid black;
+}
+
 main .layout .container-fluid.row .ricerca,
 main .layout .row.container-xl .ricerca,
 main .layout .row.container-lg .ricerca,
 main .layout .row.container-md .ricerca,
 main .layout .row.container-sm .ricerca {
-  /*scrollbar-width: none; /*Nasconde scroll firefox*/
-  background-color: beige;
+  scrollbar-width: none;
+  /*Nasconde scroll firefox*/
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 main .layout .container-fluid.row .ricerca .search,
@@ -410,7 +421,7 @@ main .layout .row.container-xl .ricerca .search,
 main .layout .row.container-lg .ricerca .search,
 main .layout .row.container-md .ricerca .search,
 main .layout .row.container-sm .ricerca .search {
-  padding: 20px 0px;
+  padding: 20px 20px;
   border-top: 1px solid darkgrey;
 }
 

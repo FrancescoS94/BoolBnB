@@ -230,15 +230,15 @@ main {
             .container-fluid.row{
               height: 100vh;
               .filtri {
-                // height: 100vh;
+                height: 100vh;
+                border: 1px solid black;
               }
               .ricerca{
-                  /*scrollbar-width: none; /*Nasconde scroll firefox*/
-                  // overflow-y: scroll;
-                  // height: 100vh;
-                  background-color: beige;
+                  scrollbar-width: none; /*Nasconde scroll firefox*/
+                  overflow-y: scroll;
+                  height: 100vh;
                   .search{
-                  padding: 20px 0px;
+                  padding: 20px 20px;
                   border-top: 1px solid darkgrey;
                   .tite{
                     background-color: red;
@@ -250,7 +250,7 @@ main {
                       width: 370px;
                       height: 240px;
                       border-radius: 10px;
-                  }
+                    }
                   }
                   .flat-text{
                   margin-left: 10px;

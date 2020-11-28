@@ -2,7 +2,7 @@
 @extends('layouts.app')
 @section('content')
 
-<style>
+{{-- <style>
   .filter{
     display: flex;
     width: 50%;
@@ -13,62 +13,10 @@
     padding-left: 10px;
     margin-right: 30px;
   }
+</style> --}}
 
-
-</style>
 
 <div class="container-fluid layout">
-  <div>
-    <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
-    <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
-    <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
-    <button id="click" class="btn btn-dark">cerca per città e filtra</button>
-  </div>
-
-  <section class="filter">
-    <div class="filter-child">
-      <h4>Filtri services</h4>
-      <div class="service_each">
-      @foreach($service as $service)
-        <div class="form-check form-check-inline">
-          <input class="form-check-input serviceClick" type="checkbox" id="{{ $service->service }}" value="{{ $service->id }}">
-          <label class="form-check-label" for="{{ $service->service }}">{{ $service->service }}</label>
-        </div>
-      @endforeach
-      </div>
-    </div>
-
-    <div class="filter-child">
-        <h4>Filtri flats</h4>
-        <div class="form-group">
-          <label for="room">Stanze</label>
-          <input class="form-control" id="room" type="number">
-        </div>
-        <div class="form-group">
-          <label for="bed">Letti</label>
-          <input class="form-control" id="bed" type="number">
-        </div>
-        <div class="form-group">
-          <label for="wc">Bagni</label>
-          <input  class="form-control" id="wc" type="number">
-        </div>
-        <div class="form-group">
-          <label for="mq">Quanto spazio cerchi?</label>
-          <select id="mq" class="form-control">
-            <option selected>Metri quadrati</option>
-            <option value="50">0 - 50</option>
-            <option value="100">50 - 100</option>
-            <option value="150">100 - 150</option>
-            <option value="200">150 - 200</option>
-            <option value="250">200 - 250</option>
-            <option value="300">250 - 300</option>
-            <option value="301">>300</option>
-          </select>
-        </div>
-    </div>
-
-  </section>
-
    <section class="container-fluid sponsor">
     <h2>Scorri i nostri migliori appartamenti</h2>
     <div class="row">
@@ -93,21 +41,65 @@
   <div class="container-fluid row">
 
     <div class="col-3 filtri">
-      <ul>
-        <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        
+      <div>
+        <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
+        <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
+        <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
+        <button id="click" class="btn btn-dark">cerca per città e filtra</button>
+      </div>
 
-      </ul>
+      <section class="filter">
+        <div class="filter-child">
+          <h4>Filtri services</h4>
+          <div class="service_each">
+          @foreach($service as $service)
+            <div class="form-check form-check-inline">
+              <input class="form-check-input serviceClick" type="checkbox" id="{{ $service->service }}" value="{{ $service->id }}">
+              <label class="form-check-label" for="{{ $service->service }}">{{ $service->service }}</label>
+            </div>
+          @endforeach
+          </div>
+        </div>
+
+        <div class="filter-child">
+            <h4>Filtri flats</h4>
+            <div class="form-group">
+              <label for="room">Stanze</label>
+              <input class="form-control" id="room" type="number">
+            </div>
+            <div class="form-group">
+              <label for="bed">Letti</label>
+              <input class="form-control" id="bed" type="number">
+            </div>
+            <div class="form-group">
+              <label for="wc">Bagni</label>
+              <input  class="form-control" id="wc" type="number">
+            </div>
+            <div class="form-group">
+              <label for="mq">Quanto spazio cerchi?</label>
+              <select id="mq" class="form-control">
+                <option selected>Metri quadrati</option>
+                <option value="50">0 - 50</option>
+                <option value="100">50 - 100</option>
+                <option value="150">100 - 150</option>
+                <option value="200">150 - 200</option>
+                <option value="250">200 - 250</option>
+                <option value="300">250 - 300</option>
+                <option value="301">>300</option>
+              </select>
+            </div>
+        </div>
+
+      </section>
     </div>
 
     <div class="ricerca col-9">
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
-        <div class="foto col-9 col-sm-6 col-md-6 col-lg-6 col-xl-5 ">
+        <div class="foto col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
           <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
         </div>
-        <div class="my-auto col-9 col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+        <div class="my-auto col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
           <div class="flat-text">
             <a href="{{ route('flats.show', $flat->id) }}">
               <h5 class="card-title">{{ $flat->title}}</h5>
