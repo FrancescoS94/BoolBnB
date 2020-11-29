@@ -899,6 +899,30 @@ main .table td {
   }
 }
 
+.lista-pagamenti {
+  background-color: #ffffff !important;
+  margin: 40px;
+  padding: 15px !important;
+  padding-bottom: 15px !important;
+  font-size: 15px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+.lista-pagamenti p {
+  margin: 5px;
+}
+
+.lista-pagamenti .dettagli-pagamento {
+  border-top: 1px solid gainsboro;
+}
+
+@media screen and (max-width: 768px) {
+  .lista-pagamenti {
+    margin: 0px;
+    box-shadow: none;
+  }
+}
+
 footer {
   border-top: 1px solid #fcfcfc;
   padding-top: 35px;

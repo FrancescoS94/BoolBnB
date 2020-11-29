@@ -161,3 +161,31 @@
     }
   }
 }
+
+// LISTA PAGAMENTI
+.lista-pagamenti{
+  // height: 100vh;
+  background-color: #ffffff !important;
+  margin: 40px;
+  padding: 15px !important;
+  padding-bottom: 15px !important;
+  font-size: 15px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+  p{
+    margin: 5px;
+  }
+  .dettagli-pagamento {
+    border-top: 1px solid gainsboro;
+  }
+
+}
+
+// MEDIA QUERIES LISTA PAGAMENTI
+@media screen and (max-width:768px){
+
+  .lista-pagamenti{
+    // height: 100vh;
+    margin: 0px;
+    box-shadow: none;
+  }
+}
