@@ -257,7 +257,11 @@ main .register .btn-blu {
 }
 
 main .bg-img {
+<<<<<<< Updated upstream
   background-image: url(/images/Home-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
+=======
+  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
+>>>>>>> Stashed changes
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -274,6 +278,7 @@ main .bg-img .jumbotron {
   background-color: transparent;
 }
 
+<<<<<<< Updated upstream
 main .bg-img .jumbotron h1 {
   font-size: 42px;
   line-height: 43px;
@@ -300,6 +305,12 @@ main .bg-img i.rotate {
 
 main .bg-img i.rotate.down {
   transform: rotate(180deg);
+=======
+main .bg-img h1 {
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #fcfcfc;
+>>>>>>> Stashed changes
 }
 
 main .sponsor {
