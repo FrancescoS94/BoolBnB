@@ -172,7 +172,7 @@ main .btn-red:hover {
 }
 
 main .bg-img2 {
-  background-image: url(/images/image-illustrator.jpg?0390b85466778b9a257ac2392a09612e);
+  background-image: url(/images/image-illustrator.jpg?02e2ab3ef60e11a36b91f47df1b94af4);
   background-size: cover;
   background-position: top;
 }
@@ -228,13 +228,13 @@ main .bg-img .jumbotron {
 main .bg-img h1 {
   text-transform: uppercase;
   font-size: 50px;
-  color: #e7e9f4;
+  color: #fcfcfc;
 }
 
 main .sponsor {
   height: calc(100vh - 107px);
-  background-color: #133b55;
-  color: #e7e9f4;
+  background-color: #fcfcfc;
+  color: #133b55;
   padding: 50px;
 }
 
@@ -249,7 +249,7 @@ main .sponsor .slider {
 
 main .sponsor .slider i {
   font-size: 30px;
-  color: #cb1f35;
+  color: #133b55;
   cursor: pointer;
   background-color: #fcfcfc;
   border-radius: 50%;
