@@ -256,7 +256,7 @@ function compiler(response){
 </script>
 
 {{-- modello di riferimento --}}
-<script id="template" type="text/x-handlebars-template">
+{{-- <script id="template" type="text/x-handlebars-template">
   <div class="row flat">
     <div class="my-auto col-xl-5">
     <a href="http://localhost:8000/flats/@{{id}}"><img id="img-search" src="storage/@{{{image}}}" class="card-img-top" alt="@{{title}}"></a>
@@ -290,7 +290,53 @@ function compiler(response){
         </div>
     </div>
   </div>
-</script>
+</script> --}}
+
+<script id="template" type="text/x-handlebars-template">
+<div class="ricerca col-12">
+  @foreach ($flatsInRadius as $flat)
+  <div class="row search">
+    <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+      <a href="http://localhost:8000/flats/@{{id}}"><img id="img-search" src="storage/@{{{image}}}" class="img-fluid" alt="@{{title}}"></a>
+    </div>
+    <div class="my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+      <div class="flat-text">
+        <a id="paginaInterna" href="http://localhost:8000/flats/@{{id}}">
+          <h5 class="card-title">@{{title}}</h5>
+          <p>@{{address}}</p>
+          <ul>
+            <li>
+              <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+              Letti: @{{bed}}
+            </li>
+            <li>
+              <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+              Stanze: @{{room}}
+            </li>
+          </ul>
+            <ul>
+              <li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                WC: @{{wc}}
+              </li>
+              <li>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                Mq: @{{mq}}
+              </li>
+            </ul>
+        </a>
+        <div class="flat-service">
+          @foreach($flat->services as $service)
+          <span> {{ $service->service }} </span>
+          @endforeach
+        </div>
+      </div>
+    </div>
+  </div> {{-- chiusura row search--}}
+  @endforeach
+</div> {{-- chiusura container-fluid ricerca--}}
+
+
 
 
 <script>

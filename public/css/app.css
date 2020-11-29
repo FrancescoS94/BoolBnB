@@ -481,6 +481,9 @@ main .layout .row.container-xl .filtri,
 main .layout .row.container-lg .filtri,
 main .layout .row.container-md .filtri,
 main .layout .row.container-sm .filtri {
+  background: gainsboro;
+  background: linear-gradient(90deg, gainsboro 0%, lightgray 35%, darkgray 100%);
+  border-radius: 0px 5px 0px 0px;
   display: flex;
   flex-direction: column;
   height: 100vh;

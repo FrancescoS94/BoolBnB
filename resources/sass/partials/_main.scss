@@ -246,6 +246,11 @@ main {
             .container-fluid.row{
               height: 100vh;
               .filtri {
+                // background: rgb(220,220,220);
+                // background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(169,169,169,1) 35%, rgba(128,128,128,1) 100%);
+                background: rgb(220,220,220);
+                background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(211,211,211,1) 35%, rgba(169,169,169,1) 100%); 
+                border-radius: 0px 5px 0px 0px;
                 display: flex;
                 flex-direction: column;
                 height: 100vh ;
