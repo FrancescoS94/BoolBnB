@@ -40,53 +40,16 @@
                 </div> {{-- fine tomtom --}}
 
 
+                <input id="address_id" hidden type="text" class="form-control" name="{{ $flat->address_id }}" value="{{ $flat->address_id }}">
+                <a href="{{route('admin.flats.index') }}"><button type="submit" class="btn btn-primary">Invia il modulo</button></a> 
 
-
-                {{-- <form action="{{ route('admin.addresses.update', $addresses->id)}}" method="post"> --}}
-                    <form action="{{ route('admin.addresses.update', $flat->address_id )}}" method="post">
-                    @csrf
-                    @method('PATCH')
-
-                    {{-- passo in un input nascosto l'id dell'address --}}
-                    <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}">
-
-                    {{-- <div class="form-group">
-                        <label for="country">Nazione</label>
-                        <input id="country" type="text" class="form-control" name="country" value="{{ $flat->address->country }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="city">Città</label>
-                        <input id="city" type="text" class="form-control" name="city" value="{{ $flat->address->city }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">Indirizzo</label>
-                        <input id="address" type="text" class="form-control" name="address" value="{{ $flat->address->address }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cap">CAP</label>
-                        <input id="cap" type="text" class="form-control" name="cap" value="{{ $flat->address->cap }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="district">Provincia</label>
-                        <input id="district" type="text" class="form-control" name="district" value="{{ $flat->address->district }}">
-                    </div> --}}
-
-                    <input id="address" hidden type="text" class="form-control" name="address">
-                    <input id="position" hidden type="text" class="form-control" name="position">
-
-                    <button type="submit" class="btn btn-primary">Invia il modulo</button>
-                </form>
             </div>
         </div>
          {{-- aggiunta 18-11-20 tomtom --}}
          <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
          <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
          <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox-web.js'></script>
-         <script type='text/javascript' src='{{ asset('js/search-marker.js')}}' ></script>
+         <script type='text/javascript' src='{{ asset('js/search-marker-update.js')}}' ></script>
          <script type='text/javascript' src='{{ asset('js/search-results-parser.js')}}'></script>
          <script type='text/javascript' src='{{ asset('js/search-markers-manager.js')}}'></script>
          <script type='text/javascript' src='{{ asset('js/info-hint.js')}}'></script>

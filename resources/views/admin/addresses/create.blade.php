@@ -38,12 +38,6 @@
                 </div> {{-- fine tomtom --}}
 
                 <div>
-                    {{-- form creazione indirizzo, punta al controller Admin/AddressController  --}}
-                    {{-- <form action="{{ route('admin.addresses.store') }}" method="post">
-                        @csrf
-                        @method('POST')
-                        <button type="submit" class="btn btn-primary">Registra l'indirizzo dell'appartamento</button>
-                    </form>  --}}
                     <a  class="btn-blu text-decoration-none" href="{{ route('admin.flats.create') }}">Invia</a>
                 </div>
 
@@ -306,6 +300,6 @@
                         });
                         resultsManager.append(resultList);
                     }
-                </script>
+        </script>
 </div>
 @endsection

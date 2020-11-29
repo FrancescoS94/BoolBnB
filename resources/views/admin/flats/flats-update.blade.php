@@ -66,7 +66,7 @@
                     <div class="form-group">
                         @foreach ($service as $service)
                             <label for="tag">{{ $service->service }}</label>
-                            <input type="checkbox" name="service[]" value="{{ $service->id }}" required {{(!empty($flat->id) && $flat->services->contains($service->id)) ? 'checked' : '' }}>
+                            <input type="checkbox" name="service[]" value="{{ $service->id }}" {{(!empty($flat->id) && $flat->services->contains($service->id)) ? 'checked' : '' }}>
                         @endforeach
                     </div>
                     {{-- IMMAGINE --}}
