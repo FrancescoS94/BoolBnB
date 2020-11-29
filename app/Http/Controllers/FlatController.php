@@ -119,7 +119,6 @@ class FlatController extends Controller
                     $serviceRadius = [];
 
 
-
                     foreach ($flatsServices as $flatService) {
                         foreach ($flatsInRadius as $flatInRadius) {
                             if($flatService['id'] == $flatInRadius['id'] ){
@@ -136,9 +135,7 @@ class FlatController extends Controller
                             array_push($appartamentiFiltrati, $serviceRadius[$i]);
                         }else if($serviceRadius[$i]['bed'] == $bed ||  $serviceRadius[$i]['room'] == $room || $serviceRadius[$i]['wc'] == $wc){
                             array_push($appartamentiFiltrati, $serviceRadius[$i]);
-                        }/* else if(){ 
-
-                        } */
+                        }
 
                         if(isset($mq)){
                             switch ($mq) {
@@ -175,10 +172,12 @@ class FlatController extends Controller
                                 case $mq > 300:
                                     if($serviceRadius[$i]['mq'] > 300){
                                         array_push($appartamentiFiltrati, $serviceRadius[$i]);
-                                    } 
-                                    break;
-                                default:
+                                    };
                             } /* chiusura switch */ 
+                        }
+
+                        if(empty($appartamentiFiltrati)){
+                            $appartamentiFiltrati = $serviceRadius;
                         }
                     };
 

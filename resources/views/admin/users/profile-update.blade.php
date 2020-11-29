@@ -201,7 +201,7 @@
                 okButton.disabled = true;
             }
 
-            // mM134?@32eth5TD non cancellare!
+            
              // spiegazione password forte
                 /*  (?=.*[a-z])	La stringa deve contenere almeno 1 carattere alfabetico minuscolo
                     (?=.*[A-Z]) La stringa deve contenere almeno 1 carattere alfabetico maiuscolo
