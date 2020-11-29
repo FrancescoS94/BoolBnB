@@ -73,7 +73,6 @@
 
 
 // SHOW SINGOLO MESSAGGIO
-
 .show-messaggio {
   height: 100vh;
   .messaggio{
@@ -118,7 +117,6 @@
     }
   }
 }
-
 // FINE SHOW SINGOLO MESSAGGIO
 
 // LISTA MESSAGGI
@@ -150,7 +148,6 @@
 
 // MEDIA QUERIES LISTA MESSAGGI
 @media screen and (max-width:768px){
-
   .lista-messaggi{
     // height: 100vh;
     margin: 0px;
@@ -179,12 +176,10 @@
   .dettagli-pagamento {
     border-top: 1px solid gainsboro;
   }
-
 }
 
 // MEDIA QUERIES LISTA PAGAMENTI
 @media screen and (max-width:768px){
-
   .lista-pagamenti{
     // height: 100vh;
     margin: 0px;
