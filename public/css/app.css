@@ -11,6 +11,35 @@ textarea {
   padding: 5px 10px;
 }
 
+.btn-blu {
+  padding: 5px 10px;
+  background-color: #133b55;
+  border: 2px solid #133b55;
+  color: #fcfcfc;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-blu:hover {
+  text-decoration: none;
+  background-color: #fcfcfc;
+  color: #133b55;
+}
+
+.btn-red {
+  padding: 5px 10px;
+  background-color: #cb1f35;
+  border: 2px solid #cb1f35;
+  color: #fcfcfc;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-red:hover {
+  background-color: #fcfcfc;
+  color: #cb1f35;
+}
+
 header nav {
   background-color: #fcfcfc;
   display: flex;
@@ -19,13 +48,19 @@ header nav {
   align-items: center;
 }
 
+header nav .navbar-brand {
+  order: 1;
+}
+
 header nav .navbar-brand img {
   height: 65px;
 }
 
 header nav .search {
-  border: 1px solid #e5e5e5;
+  order: 2;
+  width: 300px;
   height: 50px;
+  border: 1px solid #e5e5e5;
   border-radius: 40px;
   padding: 5px;
   padding-left: 15px;
@@ -85,17 +120,27 @@ header nav .search button.search-btn:focus {
 }
 
 header nav .navbar-nav.guest {
+  order: 3;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 
-header nav .navbar-nav.guest a {
-  padding-left: 20px;
+header nav .navbar-nav.guest a.nav-link {
+  font-weight: 600;
+}
+
+header nav .navbar-nav.guest a.nav-link:hover {
+  color: #133b55;
+}
+
+header nav .navbar-nav.guest a.register {
+  margin-left: 20px;
 }
 
 header nav .nav-item.dropdown {
+  order: 3;
   cursor: pointer;
 }
 
@@ -113,8 +158,15 @@ header nav .nav-item.dropdown .nav-link:focus {
   outline: -webkit-focus-ring-color auto 0px;
 }
 
+header nav .nav-item.dropdown .nav-link #nome-utente {
+  font-weight: 600;
+  color: #133b55;
+  margin-right: 5px;
+}
+
 header nav .nav-item.dropdown .nav-link img {
   height: 55px;
+  width: 55px;
   border-radius: 50%;
   margin-left: 5px;
 }
@@ -129,52 +181,45 @@ header nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
   color: #fcfcfc;
 }
 
+@media screen and (max-width: 614px) {
+  header nav .search {
+    order: 3;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+    margin: 10px 0;
+  }
+
+  header nav .nav-item.dropdown,
+  header nav .navbar-nav.guest {
+    order: 2;
+  }
+}
+
 main {
   min-height: calc(100vh - 400px);
   background-color: #fcfcfc;
 }
 
 main .padd-top {
-  padding-top: 107px;
+  padding-top: 160px;
+}
+
+@media screen and (min-width: 614px) {
+  main .padd-top {
+    padding-top: 107px;
+  }
 }
 
 main .vh {
   height: 100vh;
 }
 
-main .btn-blu {
-  padding: 5px 10px;
-  background-color: #133b55;
-  border: 2px solid #133b55;
-  color: #fcfcfc;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-main .btn-blu:hover {
-  text-decoration: none;
-  background-color: #fcfcfc;
-  color: #133b55;
-}
-
-main .btn-red {
-  padding: 5px 10px;
-  background-color: #cb1f35;
-  border: 2px solid #cb1f35;
-  color: #fcfcfc;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-main .btn-red:hover {
-  background-color: #fcfcfc;
-  color: #cb1f35;
-}
-
 main .bg-img2 {
-  background-image: url(/images/image-illustrator.jpg?02e2ab3ef60e11a36b91f47df1b94af4);
+  background-image: url(/images/image-illustrator.jpg?0390b85466778b9a257ac2392a09612e);
   background-size: cover;
   background-position: top;
+  height: 100vh;
 }
 
 main .register .card {
@@ -213,22 +258,49 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
+  background-image: url(/images/Home-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 614px;
+  height: 100vh;
   padding-top: 129px;
+  position: relative;
 }
 
 main .bg-img .jumbotron {
-  background-color: rgba(19, 59, 85, 0.4);
+  position: absolute;
+  top: 42%;
+  left: 10%;
+  transform: translateY(-50%);
+  background-color: transparent;
 }
 
-main .bg-img h1 {
-  text-transform: uppercase;
-  font-size: 50px;
+main .bg-img .jumbotron h1 {
+  font-size: 42px;
+  line-height: 43px;
+  font-weight: 600;
   color: #fcfcfc;
+  font-size: 42px;
+  line-height: 43px;
+  letter-spacing: 3px;
+}
+
+main .bg-img i {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  color: #fcfcfc;
+  font-size: 60px;
+}
+
+main .bg-img i.rotate {
+  transition: all 1s linear;
+}
+
+main .bg-img i.rotate.down {
+  transform: rotate(180deg);
 }
 
 main .sponsor {
@@ -236,6 +308,14 @@ main .sponsor {
   background-color: #fcfcfc;
   color: #133b55;
   padding: 50px;
+}
+
+main .sponsor h2 {
+  position: relative;
+  left: 5%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 main .sponsor .slider {
@@ -317,10 +397,18 @@ main .layout .filters {
 }
 
 main .layout .sponsor {
-  height: calc(100vh - 107px);
+  height: 50vh;
   background-color: #fcfcfc;
   color: #133b55;
   padding: 50px;
+}
+
+main .layout .sponsor h2 {
+  position: relative;
+  left: 5%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 main .layout .sponsor .slider {
@@ -533,6 +621,7 @@ main .flat-title .cb {
 
 main .profile .rounded-circle {
   width: 100px;
+  height: 100px;
 }
 
 main .profile .jumbotron {
@@ -605,6 +694,11 @@ main .update .form-control:focus {
   }
 }
 
+main .flats-list {
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
 main .flats-list h2 {
   color: #133b55;
   text-transform: uppercase;
@@ -633,6 +727,62 @@ main .table td {
   main .table .btn-blu {
     display: flex;
     justify-content: center;
+  }
+}
+
+main #card-number,
+main #cvv,
+main #expiration-date {
+  background: white;
+  height: 38px;
+  border: 1px solid #e6e9ec;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+main .update .flex-column {
+  line-height: 12px;
+}
+
+main .update .cb {
+  color: #133b55;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+main .update .silver {
+  color: #808080;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+main .update .gold {
+  color: #ffbd59;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+main .update .platinum {
+  color: #03989e;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+@media screen and (min-width: 500px) {
+  main .bg-img .jumbotron {
+    top: 53%;
+  }
+
+  main .bg-img .jumbotron h1 {
+    font-size: 80px;
+    line-height: 70px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  main .bg-img .jumbotron h1 {
+    line-height: 90px;
+    font-size: 100px;
   }
 }
 
@@ -676,10 +826,10 @@ main .table td {
 }
 
 .aside .utente-dash img {
+  width: 100px;
+  height: 100px;
   margin: 35px 0px 10px 0px;
   border: 3px solid #184868;
-  width: 100px;
-  box-shadow: rgba(203, 31, 53, 0.4) 0px 5px 14px;
 }
 
 .lay-dx {
@@ -700,6 +850,7 @@ main .table td {
 
   .aside .utente-dash img {
     width: 50px;
+    height: 50px;
     margin: 10px 0px 10px 0px;
   }
 
