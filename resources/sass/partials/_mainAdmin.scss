@@ -9,6 +9,20 @@
   text-transform: uppercase;
   color: $whiteBnb;
   background-color: #184868;
+  .utente-dash{
+    background-color: $blueBnb;
+    color: white;
+    font-weight: bold;
+    .navbar-toggler{
+      height:200px;
+    }
+    img{
+      width: 100px;
+      height: 100px;
+      margin: 35px 0px 10px 0px;
+      border: 3px solid #184868;
+    }
+  }
   a{
     padding: 15px 8px 15px 5px;
     text-decoration: none;
@@ -27,17 +41,6 @@
       margin: 0px 7px 0px 7px;
     }
   }
-  .utente-dash{
-    background-color: $blueBnb;
-    color: white;
-    font-weight: bold;
-    img{
-      width: 100px;
-      height: 100px;
-      margin: 35px 0px 10px 0px;
-      border: 3px solid #184868;
-    }
-  }
 }
 .lay-dx{
   height: 100vh;
@@ -50,14 +53,7 @@
 @media screen and (max-width:576px) {
 
   .aside {
-    // min-width: 75px;
-    a{
-      text-align: center;
-    }
-    .link-name{
-      display: none;
-    }
-    .utente-dash {
+    .utente-dash{
       img{
         width: 50px;
         height: 50px;
@@ -66,6 +62,15 @@
       #name {
         display: none;
       }
+      .navbar-toggler{
+        height:80px;
+      }
+    }
+    a{
+      text-align: center;
+    }
+    .link-name{
+      display: none;
     }
   }
 }

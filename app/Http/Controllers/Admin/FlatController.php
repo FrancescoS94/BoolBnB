@@ -106,7 +106,6 @@ class FlatController extends Controller
         // se è vuoto, creo la relazione pivot e faccio l'update!
         !empty($data['service']) ? $flat->services()->sync($data['service']) : $flat->tags()->detach();
 
-        
         $flat->update($data);
 
         if($flat->update($data)){
@@ -135,7 +134,7 @@ class FlatController extends Controller
     public function create(){
         $service= Service::all();
         $address= Address::all()->last();
-        return view('admin.flats.flats-create',compact('service','address'));
+        return view('admin.flats.flats-create', compact('service','address'));
     }
 
     public function edit(Flat $flat, Address $address, Service $service){

@@ -1,3 +1,5 @@
+{{-- SCRIPT DI ALGOLIA --}}
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 
 <nav class="container-fluid navbar navbar-light fixed-top shadow">
     <a class="navbar-brand logo" href="{{ url('/') }}">
@@ -57,6 +59,3 @@
     </div>
     @endguest
 </nav>
-
-{{-- SCRIPT DI ALGOLIA --}}
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>

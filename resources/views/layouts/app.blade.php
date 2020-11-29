@@ -32,7 +32,6 @@
         href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/css-styles/poi.css' />
 
     @yield('head')
-    @yield('script-in-head')
 
     {{-- SCRIPT DI ALGOLIA --}}
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
@@ -48,6 +47,7 @@
     <footer>
         @include('template.footer')
     </footer>
-@yield('script-in-body')
+
+    @yield('script-in-body')
 </body>
 </html>

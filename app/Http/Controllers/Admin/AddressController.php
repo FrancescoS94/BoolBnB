@@ -27,14 +27,6 @@ class AddressController extends Controller
 
         //dd($data);
 
-        /* $request->validate([ #validazione e controllo dei dati passati
-            'country' => 'required|string',
-            'city' => 'required|string',
-            'address' => 'required|string',
-            'cap' => 'required|numeric',
-            'district' => 'required|string'
-        ]);
-
        #riempio i vari campi dopo la validazione */
         $address->fill($data);
         $address->save();
@@ -50,26 +42,43 @@ class AddressController extends Controller
 
     public function update(Request $request, Address $address, Flat $flats){
 
-        $data= $request->all();
-        /* $request->validate([
-            'country' => 'required|string',
-            'city' => 'required|string',
-            'address' => 'required|string',
-            'cap' => 'required|numeric',
-            'district' => 'required|string'
-        ]); */
-        $request->validate([
-            'address' => 'required|string',
-            'position' => 'required|string',
-        ]);
+        // $data = $request->all();
+        // dd($data);
+        // /* $request->validate([
+        //     'country' => 'required|string',
+        //     'city' => 'required|string',
+        //     'address' => 'required|string',
+        //     'cap' => 'required|numeric',
+        //     'district' => 'required|string'
+        // ]); */
+        // $request->validate([
+        //     'address' => 'required|string',
+        //     'lat' => 'required',
+        //     'lng' => 'required',
+        // ]);
 
-        $address->update($data);
-
-        if($address->update($data)){
-            return redirect()->route('admin.flats.index')->with('status','Complimenti hai modificato correttamente le informazione del tuo appartamento');
-        }else{
-            abort(404);
+        if($request->ajax()){
+            $data->address = $_GET['address'];
+            $data->lat = $_GET['lat'];
+            $data->lng = $_GET['lng'];
+            $address->update($data);
+            
+            // if($address->update($data)){
+            //     return redirect()->route('admin.flats.index')->with('status','Complimenti hai modificato correttamente le informazione del tuo appartamento');
+            // }else{
+            //     abort(404);
+            // }
         }
+        
+        
+        // $address->update($data);
+
+        
+        // if($address->update($data)){
+            //     return redirect()->route('admin.flats.index')->with('status','Complimenti hai modificato correttamente le informazione del tuo appartamento');
+        // }else{
+        //     abort(404);
+        // }
     }
 
     public function edit(Flat $flat, Address $address){

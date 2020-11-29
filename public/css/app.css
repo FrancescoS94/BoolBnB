@@ -798,6 +798,23 @@ main .update .platinum {
   background-color: #184868;
 }
 
+.aside .utente-dash {
+  background-color: #133b55;
+  color: white;
+  font-weight: bold;
+}
+
+.aside .utente-dash .navbar-toggler {
+  height: 200px;
+}
+
+.aside .utente-dash img {
+  width: 100px;
+  height: 100px;
+  margin: 35px 0px 10px 0px;
+  border: 3px solid #184868;
+}
+
 .aside a {
   padding: 15px 8px 15px 5px;
   text-decoration: none;
@@ -819,19 +836,6 @@ main .update .platinum {
   margin: 0px 7px 0px 7px;
 }
 
-.aside .utente-dash {
-  background-color: #133b55;
-  color: white;
-  font-weight: bold;
-}
-
-.aside .utente-dash img {
-  width: 100px;
-  height: 100px;
-  margin: 35px 0px 10px 0px;
-  border: 3px solid #184868;
-}
-
 .lay-dx {
   height: 100vh;
   padding: 0px !important;
@@ -840,14 +844,6 @@ main .update .platinum {
 }
 
 @media screen and (max-width: 576px) {
-  .aside a {
-    text-align: center;
-  }
-
-  .aside .link-name {
-    display: none;
-  }
-
   .aside .utente-dash img {
     width: 50px;
     height: 50px;
@@ -855,6 +851,18 @@ main .update .platinum {
   }
 
   .aside .utente-dash #name {
+    display: none;
+  }
+
+  .aside .utente-dash .navbar-toggler {
+    height: 80px;
+  }
+
+  .aside a {
+    text-align: center;
+  }
+
+  .aside .link-name {
     display: none;
   }
 }

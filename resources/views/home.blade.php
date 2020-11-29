@@ -2,6 +2,12 @@
 @extends('layouts.app')
 
 @section('head')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="js/slider.js" type="text/javascript"></script>
+    <script src="js/icon-scroll.js" type="text/javascript"></script>
+    {{-- SCRIPT DI ALGOLIA --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> --}}
+    <script src="js/algolia.js" type="text/javascript"></script>
     <style>
         #erroreRicerca{ 
             width: 6rem;
@@ -14,10 +20,6 @@
             border-radius: 9px;
         }
     </style>
-@endsection
-
-@section('script-in-head')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 @endsection
 
 @section('content')
@@ -54,62 +56,4 @@
     </div>
 
 </section>
-@endsection
-
-@section('script-in-body')
-<script>
-
-
-    // SCRIPT DI ALGOLIA
-        (function() {
-            var list=[];
-            var placesAutocomplete = places({
-                appId: 'plHDPE6IE51U',
-                apiKey: '13f35e1233e3a7aedf08241d21430869',
-                container: document.querySelector('#city'),
-                templates: {
-                    value: function(suggestion){
-                        list.push(suggestion);
-                        return suggestion.name;
-                    }
-                }
-            }).configure({
-                type: 'city',
-                aroundLatLngViaIP: false,
-            });
-
-            
-
-            document.getElementById('clickMe').addEventListener('click', function(){
-                //var city =  document.getElementById('city').value;
-                const city = document.getElementById('city').value;
-
-                const form = document.getElementById('form');
-                form.addEventListener('submit', (e) => {
-
-                    if(list.length == 0){
-                        let city =document.getElementById('city').value = 'Inserisci una città!';
-                        e.preventDefault(); 
-                    }
-
-                }); 
-
-
-                if(list.length != 0 || city != ''){
-                    for(var i=0; i<list.length; i++){
-                    if(list[i]['name'] === city){
-                        var lat = list[i]['latlng']['lat'];
-                        var lng = list[i]['latlng']['lng'];
-                        var querylat = document.getElementById('query_lat').value =  lat;
-                        var querylng = document.getElementById('query_lng').value =  lng;
-                    }
-                  }    
-                }
-            });
-
-            
-
-
-        })();
-</script>
 @endsection
