@@ -118,8 +118,8 @@
                     <button type="submit" class="btn btn-primary">Invia il modulo</button>
                 </form> --}}
 
-                <input id="address_id" hidden type="text" class="form-control" name="{{ $flat->address_id }}" value="{{ $flat->address_id }}"> 
-                <a class="btn btn-primary" href="{{route('admin.flats.index')}}" role="button">Invia il modulo</a>
+                <input id="address_id" hidden type="text" class="form-control" name="{{ $flat->address_id }}" value="{{ $flat->address_id }}">
+                <a href="{{route('admin.flats.index') }}"><button type="submit" class="btn btn-primary">Invia il modulo</button></a> 
 
             </div>
         </div>
