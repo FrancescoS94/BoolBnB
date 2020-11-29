@@ -184,17 +184,11 @@ main {
             .filters{
                 background-color: orange;
             }
-            // APPARTAMENTI SPONSORIZZATI "search.blade" SLIDER CON FLEX E BOOTSTRAP
             .sponsor{
-                height:50vh;
+                height:calc(100vh - 107px);
                 background-color: $whiteBnb;
                 color:$blueBnb;
                 padding:50px;
-                h2{
-                    position:relative;
-                    left:5%;
-                    width:fit-content;
-                }
                 .slider{
                     @include flex(row,space-around,center);
                     margin-top:30px;
@@ -249,58 +243,89 @@ main {
                     }
                 }
             }
-        // *END* APPARTAMENTI SPONSORIZZATI "search.blade"
-            .ricerca{
-                scrollbar-width: none; /*Nasconde scroll firefox*/
-                .search{
-                padding: 20px 0px;
-                border-top: 1px solid darkgrey;
-                .foto{
-                    padding: 0px;
+            .container-fluid.row{
+              height: 100vh;
+              .filtri {
+                display: flex;
+                flex-direction: column;
+                height: 100vh ;
+                .città-filtri{
+                  padding: 25px 0px;
+                  #city1{
+                    margin-bottom: 10px;
+                    // width: 90%;
+                  }
+                  #click{
+                    width:100%;
+                  }
                 }
-                #img-search{
-                    width: 370px;
-                    height: 240px;
-                    border-radius: 10px;
-                }
-                }
-                .flat-text{
-                margin-left: 10px;
-                padding-top: 15px;
-                a{
-                    color: #222222;
-                    &:hover{
-                    color: #404040;
-                    text-decoration: none;
-                    }
-                }
-                p{
-                    padding-bottom: 10px;
-                    // border-bottom: 1px solid $redBnb;
-                }
-                ul{
+              }
+              .filter{
 
-                    list-style-type: none;
-                    padding-top: 0px;
-                    display: inline-block;
-                    li{
-                    margin-right: 10px;
-                    }
-                    img{
-                    height: 30px;
-                    padding: 0px 5px 5px 0px;
-                    }
+                .filter-child-services{
+                  margin-bottom: 20px;
                 }
-                .flat-service{
-                    color: #404040;
-                    span{
-                    margin-right: 4px;
+              }
+              .ricerca{
+                  scrollbar-width: none; /*Nasconde scroll firefox*/
+                  overflow-y: scroll;
+                  height: 100vh;
+                  .search{
+                  padding: 20px 20px;
+                  border-top: 1px solid darkgrey;
+                  .tite{
+                    background-color: red;
+                  }
+                  .foto{
+                      padding: 0px;
+                  }
+                  #img-search{
+                      width: 370px;
+                      height: 240px;
+                      border-radius: 10px;
                     }
-                }
-                }
+                    .flat-text{
+                    margin-left: 10px;
+                    padding-top: 15px;
+                    a{
+                        color: #222222;
+                        &:hover{
+                        color: #404040;
+                        text-decoration: none;
+                        }
+                    }
+                    p{
+                        padding-bottom: 10px;
+                        border-bottom: 1px solid gainsboro;
+                    }
+                    ul{
+
+                        list-style-type: none;
+                        padding-top: 0px;
+                        display: inline-block;
+                        li{
+                        margin-right: 10px;
+                        }
+                        img{
+                        height: 30px;
+                        padding: 0px 5px 5px 0px;
+                        }
+                    }
+                    .flat-service{
+                        color: #404040;
+                        span{
+                        margin-right: 4px;
+                        }
+                    }
+                  }
+                  }
+
+              }
             }
+
         }
     // *END* PAGINA SERACH
+
 
     // SHOW FLAT & ADMIN SHOW FLAT "flat/flats-show.blade"
         .flat-show {
