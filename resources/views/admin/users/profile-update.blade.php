@@ -25,7 +25,7 @@
                 </div>
                 @endif
 
-                <h2 class="d-flex justify-content-center">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h2>
+                <h2 class="font-weight-bold d-flex justify-content-center">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h2>
                 @if (is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" {{--onsubmit="return validateRegistr()"--}}>
                         @csrf

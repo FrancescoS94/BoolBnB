@@ -4,7 +4,7 @@
     <div class="container update">
         <div class="row d-flex justify-content-center">
             <div class="col-11 col-sm-10 col-md-9 col-lg-8 jumbotron my-3">
-                <h2 class="d-flex justify-content-center">Appartamento</h2>
+                <h2 class="font-weight-bold d-flex justify-content-center">Appartamento</h2>
 
                 {{-- status --}}
                 @if(session('status'))

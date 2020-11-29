@@ -27,7 +27,7 @@
             <div class="col-md-10 col-lg-9 jumbotron">
 
 
-                <h2 class="d-flex justify-content-center pb-4">Sponsorizza un appartamento</h2>
+                <h2 class="font-weight-bold d-flex justify-content-center pb-4">Sponsorizza un appartamento</h2>
                 {{-- inserire costi sponsorizzazioni --}}
                 {{-- <p>Puoi sponsorizzare un appartamento per:</p> --}}
                 <div class="row">
@@ -39,13 +39,13 @@
                     </div>
                     <div class="col-4 d-flex justify-content-center">
                         <div class="flex-column">
-                            <p class="cb">2 giorni:</p>
+                            <p class="cb">3 giorni:</p>
                             <span class="gold">€ 5.99</span>
                         </div>
                     </div>
                     <div class="col-4 d-flex justify-content-center">
                         <div class="flex-column">
-                            <p class="cb">3 giorni:</p>
+                            <p class="cb">6 giorni:</p>
                             <span class="platinum">€ 9.99</span>
                         </div>
                     </div>

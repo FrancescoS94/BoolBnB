@@ -67,6 +67,7 @@
 
         {{-- CHART JS --}}
         <div class="py-5">
+            <h2>Statistiche</h2>
             <div>
                 <i class="fa fa-area-chart"></i>
                 <h3 class="pb-3">Messaggi</h3>
