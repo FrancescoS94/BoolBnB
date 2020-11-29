@@ -73,6 +73,11 @@ class PaymentController extends Controller
             'privateKey' => 'da50cb052035c68c347219f1ce616b1f'
         ]);
 
+        $request->validate([
+            'flat_id' => 'required',
+            'rate_id' => 'required'
+        ]);
+
         if($request['rate_id'] == 1){
             $amount = 2.99;
         } elseif($request['rate_id'] == 2){
@@ -90,12 +95,6 @@ class PaymentController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-        
-        $request->validate([
-            'flat_id' => 'required',
-            'rate_id' => 'required'
-        ]);
-
 
         if ($result->success) {
             $transaction = $result->transaction;

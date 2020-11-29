@@ -1,9 +1,11 @@
 {{-- SHOW DEL SINGOLO APPARTAMENTO DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 
-@section('script-in-head')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+@section('head')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    {{-- SCRIPT CHART JS --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/grafici-chartjs.js')}}"></script>
 @endsection
 
 @section('aside')
@@ -22,17 +24,11 @@
 
         {{-- Link Sidebar--}}
         <div class="links-box">
-
             <a href="{{ route('home') }}"> <span><i class="fas fa-home"></i></span><span class="link-name">Homepage</span></a>
-
             <a href="{{ route('admin.users.index') }}"> <span><i class="fas fa-users-cog"></i></span><span class="link-name">Profilo</span></a>
-
             <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span><span class="link-name">Appartamenti</span></a>
-
             <a href="{{ route('admin.messages.index') }}"> <span><i class="fas fa-envelope"></i></span><span class="link-name">Messaggi</span></a>
-
             <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span><span class="link-name">Pagamenti</span></a>
-
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -43,9 +39,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
-
         </div>
-
       </div>
 @endsection
 
@@ -132,149 +126,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('script-in-body')
-<script>
-    // TENTATIVO PER MOSTRARE STATISTICHE DI MESSAGGI RELATIVI SOLO A QUESTO APPARTAMENTO
-
-    (function($){
-
-        var charts = {
-            init:function(flatId){
-                var flatId = $("input#flat").val();         // memorizzo il flat id prendendolo dall'input nascosto
-                // qui vanno i fonts
-                // qui vanno i colori
-                this.ajaxGetMessagesMonthlyData(flatId);    // lo passo come dato alla chiamata ajax per prendere i messaggi solo di questo appartamento
-                this.ajaxGetViewsMonthlyData(flatId);       // lo passo come dato alla chiamata ajax per prendere le views solo di questo appartamento
-
-            },
-
-            // MESSAGGI chiamata ajax per passare i dati da php a json
-            ajaxGetMessagesMonthlyData:function(flatId){    // lo passo come dato alla chiamata ajax per prendere i messaggi solo di questo appartamento
-                var urlPath = 'http://localhost:8000/get-messages-chart-data';
-                $.ajax({
-                    url: urlPath,
-                    method: 'GET',
-                    data: {
-                        flatId: flatId
-                    },
-                    success: function(response){
-                        charts.createCompletedMessagesChart(response);
-                    },
-                    error: function(){
-                        console.log('grafici vuoti');
-                        $('#chart-empty').removeClass('d-none');
-                        $('#chart-empty').addClass('d-block');
-                    }
-                });
-            },
-
-            createCompletedMessagesChart:function(response){
-
-                $grafico = $('#chart-messaggi');
-                $grafico.removeClass('d-none');
-                $grafico.addClass('d-block');
-
-                var myChartUno = document.getElementById('myChartUno').getContext('2d');
-
-                var messagesChart = new Chart(myChartUno, {
-                    type: 'line',                                   // tipo di grafico
-                    data:{
-                        labels:response.months,                     // stampa i mesi nell'asse orizzontale
-                        datasets:[{
-                            label: 'Messaggi ricevuti',
-                            backgroundColor: "#cb1f35",
-                            data: response.messages_count_data,     // stampa il numero di messaggi nell'asse verticale
-                        }]
-                    },
-                    options:{
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    min: 0,
-                                    max: response.max,              // calcolo il valore massimo dei messaggi per rendere il grafico adattabile a diverse moli di dati
-                                    maxTicksLimit: 5
-                                }
-                            }]
-                        },
-                        title:{
-                            display:false,
-                            text:'Messaggi ricevuti'
-                        },
-                        legend:{
-                            display:false
-                        }
-                    }
-                })
-            },
-
-            // VIEWS chiamata ajax per passare i dati da php a json
-            ajaxGetViewsMonthlyData:function(flatId){    // lo passo come dato alla chiamata ajax per prendere le views solo di questo appartamento
-                var urlPath = 'http://localhost:8000/get-views-chart-data';
-                $.ajax({
-                    url: urlPath,
-                    method: 'GET',
-                    data: {
-                        flatId: flatId
-                    },
-                    success: function(response){
-                        charts.createCompletedViewsChart(response);
-                    },
-                    error: function(){
-                        console.log('grafici vuoti');
-                        $('#chart-empty').removeClass('d-none');
-                        $('#chart-empty').addClass('d-block');
-                    }
-                });
-            },
-
-            createCompletedViewsChart:function(response){
-
-                $grafico = $('#chart-views');
-                $grafico.removeClass('d-none');
-                $grafico.addClass('d-block');
-
-                var myChartDue = document.getElementById('myChartDue').getContext('2d');
-
-                var viewsChart = new Chart(myChartDue, {
-                    type: 'line',                                   // tipo di grafico
-                    data:{
-                        labels:response.months,                     // stampa i mesi nell'asse orizzontale
-                        datasets:[{
-                            label: 'Visualizzazioni ricevute',
-                            backgroundColor: "#cb1f35",
-                            data: response.views_count_data,     // stampa il numero di visualizzazioni nell'asse verticale
-                        }]
-                    },
-                    options:{
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    min: 0,
-                                    max: response.max,              // calcolo il valore massimo dei visualizzazioni per rendere il grafico adattabile a diverse moli di dati
-                                    maxTicksLimit: 5
-                                }
-                            }]
-                        },
-                        title:{
-                            display:false,
-                            text:'Visualizzazioni ricevute'
-                        },
-                        legend:{
-                            display:false
-                        }
-                    }
-                })
-            }
-        }
-        charts.init();
-
-    })(jQuery);
-
-    </script>
 @endsection

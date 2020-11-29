@@ -1,5 +1,12 @@
 @extends('layouts.admin')
 
+@section('head')
+  {{-- SCRIPT BRAINTREE --}}
+    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
+@endsection
+
 @section('script-in-head')
     {{-- STYLE BRAINTREE PER CAMPI DATI CARTA DI CREDITO --}}
     <style>
@@ -29,17 +36,11 @@
 
         {{-- Link Sidebar--}}
         <div class="links-box">
-
             <a href="{{ route('home') }}"> <span><i class="fas fa-home"></i></span><span class="link-name">Homepage</span></a>
-
             <a href="{{ route('admin.users.index') }}"> <span><i class="fas fa-users-cog"></i></span><span class="link-name">Profilo</span></a>
-
             <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span><span class="link-name">Appartamenti</span></a>
-
             <a href="{{ route('admin.messages.index') }}"> <span><i class="fas fa-envelope"></i></span><span class="link-name">Messaggi</span></a>
-
             <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span><span class="link-name">Pagamenti</span></a>
-
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -50,29 +51,17 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
-
         </div>
-
       </div>
 @endsection
 
 @section('content')
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-    {{-- SCRIPT BRAINTREE --}}
-    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
-    <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
-    <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
-
     <div class="container vh update">
         <div class="row d-flex justify-content-center pt-5">
             <div class="col-md-10 col-lg-9 jumbotron">
-
-
                 <h2 class="font-weight-bold d-flex justify-content-center pb-4">Sponsorizza un appartamento</h2>
                 {{-- inserire costi sponsorizzazioni --}}
-                {{-- <p>Puoi sponsorizzare un appartamento per:</p> --}}
                 <div class="row">
                     <div class="col-4 d-flex justify-content-center">
                         <div class="flex-column">
@@ -96,13 +85,7 @@
                         <p class="col-12 col-md-10 col-lg-8">Il tuo appartamento verrà mostrato in home page e nella pagina di ricerca, in evidenza rispetto agli altri appartamenti, per l'intera durata della sponsorizzazione.</p>
                     </div>
                 </div>
-                {{-- <ul>
-                    <li>1 giorno: € 2.99</li>
-                    <li>2 giorni: € 5.99</li>
-                    <li>3 giorni: € 9.99</li>
-                </ul> --}}
-                {{-- <p>Il tuo appartamento verrà mostrato in home page e nella pagina di ricerca, in evidenza rispetto agli altri appartamenti, per l'intera durata della sponsorizzazione.</p> --}}
-
+                
                 {{-- HOSTED FORM BRAINTREE --}}
                 <div class="row d-flex justify-content-center">
                     <div class="col-12 col-md-10 col-lg-8">
@@ -130,7 +113,7 @@
                             <div class="form-group">
                                 <label for="flat_id">Scegli l'appartamento:</label>
                                 <select class="form-control" id="flat_id" name="flat_id">
-                                    <option>Seleziona un appartamento</option>
+                                    <option value="">Seleziona un appartamento</option>
                                     @foreach($flats as $flat)
                                     <option value="{{ $flat->id }}">{{ $flat->title }}</option>
                                     @endforeach
@@ -140,7 +123,7 @@
                             <div class="form-group">
                                 <label for="rate_id">Scegli la tua sponsorizzazione:</label>
                                 <select class="form-control" id="rate_id" name="rate_id">
-                                    <option>Seleziona una tipologia di sponsorizzazione</option>
+                                    <option value="">Seleziona una tipologia di sponsorizzazione</option>
                                     <option value="1">24 ore - 1 giorno</option>
                                     <option value="2">72 ore - 3 giorni</option>
                                     <option value="3">144 ore - 6 giorni</option>
@@ -181,83 +164,81 @@
                             <div class="spacer"></div>
 
                             <input id="nonce" name="payment_method_nonce" type="hidden" />
-                            <button type="submit" class="btn-blu">Paga adesso</button>
+                            {{-- <button type="submit" class="btn-blu">Paga adesso</button> --}}
+                            <input type="submit" class="btn-blu" value="Paga adesso">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {{-- SCRIPT HOSTED FORM BRAINTREE --}}
     <script>
       var form = document.querySelector('#payment-form');
-      var submit = document.querySelector('input[type="submit"]');
+    var submit = document.querySelector('input[type="submit"]');
 
-      braintree.client.create({
+    braintree.client.create({
         authorization: '{{ $token }}'
-      }, function (clientErr, clientInstance) {
+    }, function (clientErr, clientInstance) {
         if (clientErr) {
-          console.error(clientErr);
-          return;
+            console.error(clientErr);
+            return;
         }
 
-        // This example shows Hosted Fields, but you can also use this
-        // client instance to create additional components here, such as
-        // PayPal or Data Collector.
+    // This example shows Hosted Fields, but you can also use this
+    // client instance to create additional components here, such as
+    // PayPal or Data Collector.
 
-        braintree.hostedFields.create({
-          client: clientInstance,
-          styles: {
+    braintree.hostedFields.create({
+        client: clientInstance,
+        styles: {
             'input': {
-              'font-size': '14px'
+                'font-size': '14px'
             },
             'input.invalid': {
-              'color': 'red'
+                'color': 'red'
             },
             'input.valid': {
-              'color': 'green'
+                'color': 'green'
             }
-          },
-          fields: {
+        },
+        fields: {
             number: {
-              selector: '#card-number',
-              placeholder: '4111 1111 1111 1111'
+                selector: '#card-number',
+                placeholder: '4111 1111 1111 1111'
             },
             cvv: {
-              selector: '#cvv',
-              placeholder: '123'
+                selector: '#cvv',
+                placeholder: '123'
             },
             expirationDate: {
-              selector: '#expiration-date',
-              placeholder: '10/2022'
+                selector: '#expiration-date',
+                placeholder: '10/2022'
             }
-          }
-        }, function (hostedFieldsErr, hostedFieldsInstance) {
-          if (hostedFieldsErr) {
-            console.error(hostedFieldsErr);
-            return;
-          }
+        }
+    }, function (hostedFieldsErr, hostedFieldsInstance) {
+        if (hostedFieldsErr) {
+        console.error(hostedFieldsErr);
+        return;
+        }
 
-          form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function (event) {
             event.preventDefault();
 
             hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-              if (tokenizeErr) {
-                console.error(tokenizeErr);
-                return;
-              }
+                if (tokenizeErr) {
+                    console.error(tokenizeErr);
+                    return;
+                }
 
-              // If this was a real integration, this is where you would
-              // send the nonce to your server.
-            //   console.log('Got a nonce: ' + payload.nonce);
+                // If this was a real integration, this is where you would
+                // send the nonce to your server.
+                // console.log('Got a nonce: ' + payload.nonce);
                 // Add the nonce to the form and submit
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
             });
-          }, false);
-        });
-      });
+        }, false);
+    });
+    });
     </script>
-
-
 @endsection

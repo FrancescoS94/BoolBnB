@@ -1,5 +1,23 @@
 @extends('layouts.app')
 
+@section('head')
+    {{-- SCRIPT DI ALGOLIA --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script> --}}
+    <script src="js/algolia.js" type="text/javascript"></script>
+    <style>
+        #erroreRicerca{ 
+            width: 6rem;
+            position: relative;
+            left: 42%;
+            top: -20px;
+            font-size: 18px;
+            width: 180px !important;
+            padding: 15px 13px;
+            border-radius: 9px;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="bg-img2">
     <div class="container padd-top">
@@ -42,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row justify-content-center">
+                            {{-- <div class="form-group row justify-content-center">
                                 <div class="col-9">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -52,7 +70,7 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group row justify-content-center">
                                 <div class="col-9 mt-4">
@@ -80,39 +98,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('script-in-body')
-<script>
-    // SCRIPT DI ALGOLIA
-        (function() {
-            var list=[];
-            var placesAutocomplete = places({
-                appId: 'plHDPE6IE51U',
-                apiKey: '13f35e1233e3a7aedf08241d21430869',
-                container: document.querySelector('#city'),
-                templates: {
-                    value: function(suggestion){
-                        list.push(suggestion);
-                        return suggestion.name;
-                    }
-                }
-            }).configure({
-                type: 'city',
-                aroundLatLngViaIP: false,
-            });
-
-            document.getElementById('clickMe').addEventListener('click', function(){
-                var city =  document.getElementById('city').value;
-                for(var i=0; i<list.length; i++){
-                    if(list[i]['name'] === city){
-                        var lat = list[i]['latlng']['lat'];
-                        var lng = list[i]['latlng']['lng'];
-                        var querylat = document.getElementById('query_lat').value =  lat;
-                        var querylng = document.getElementById('query_lng').value =  lng;
-                    }
-                }
-            });
-        })();
-</script>
 @endsection

@@ -1,6 +1,11 @@
 {{-- Pagina creazione appartamenti --}}
 @extends('layouts.admin')
 
+@section('head')
+    {{-- SCRIPT CONTROLLI FLAT CREATE IN JS --}}
+    <script src="{{asset('js/controlli-flat-create.js')}}"></script>
+@endsection
+
 @section('aside')
     {{-- Sidebar --}}
       <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 aside">
@@ -17,17 +22,11 @@
 
         {{-- Link Sidebar--}}
         <div class="links-box">
-
             <a href="{{ route('home') }}"> <span><i class="fas fa-home"></i></span><span class="link-name">Homepage</span></a>
-
             <a href="{{ route('admin.users.index') }}"> <span><i class="fas fa-users-cog"></i></span><span class="link-name">Profilo</span></a>
-
             <a href="{{ route('admin.flats.index') }}"><span><i class="fas fa-house-user"></i></span><span class="link-name">Appartamenti</span></a>
-
             <a href="{{ route('admin.messages.index') }}"> <span><i class="fas fa-envelope"></i></span><span class="link-name">Messaggi</span></a>
-
             <a href="{{ route('admin.payments.index') }}"> <span><i class="fas fa-credit-card"></i></span><span class="link-name">Pagamenti</span></a>
-
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -38,9 +37,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
-
         </div>
-
       </div>
 @endsection
 
@@ -132,44 +129,7 @@
                         <button type="submit" class="btn-blu mt-2">Registra</button>
                     </form>
                 </div>
-
-                {{-- <div id="error" class="alert alert-danger" role="alert"></div> --}}
             </div>
         </div>
-
-
-        <script>
-            const form=  document.getElementById('form');
-            const errorElement= document.getElementById('error')
-
-            const title= document.getElementById('title');
-            const room= document.getElementById('room');
-            const bed= document.getElementById('bed');
-            const wc= document.getElementById('wc');
-            const mq= document.getElementById('mq');
-            const description= document.getElementById('description');
-            const image= document.getElementById('image');
-
-            form.addEventListener('submit', (e) => {
-
-                if(title.value.length < 10){
-                    errorElement.innerHTML = 'titolo troppo corto';
-                    e.preventDefault();
-                }
-
-                if(typeof title.value !== 'string'){
-                    errorElement.innerHTML = 'formato titolo non supportato, non inserire numeri';
-                    e.preventDefault();
-                }
-
-
-
-
-
-
-
-
-            });
-        </script>
     </div>
 @endsection
