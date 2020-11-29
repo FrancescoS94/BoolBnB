@@ -104,11 +104,11 @@
                 </div> --}}
 
                 {{-- <form action="{{ route('admin.addresses.update', $addresses->id)}}" method="post"> --}}
-                <form action="{{ route('admin.addresses.update', $flat->address_id )}}" method="post">
+{{--                 <form action="{{ route('admin.addresses.update', $flat->address_id )}}" method="post">
                     @csrf
                     @method('PATCH')
 
-                    {{-- passo in un input nascosto l'id dell'address --}}
+                    
                     <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}">
 
                     <input id="address" hidden type="text" class="form-control" name="address">
@@ -116,7 +116,11 @@
                     <input id="lng" hidden type="text" class="form-control" name="lng">
 
                     <button type="submit" class="btn btn-primary">Invia il modulo</button>
-                </form>
+                </form> --}}
+
+                <input id="address_id" hidden type="text" class="form-control" name="{{ $flat->address_id }}" value="{{ $flat->address_id }}"> 
+                <a class="btn btn-primary" href="{{route('admin.flats.index')}}" role="button">Invia il modulo</a>
+
             </div>
         </div>
     </div>

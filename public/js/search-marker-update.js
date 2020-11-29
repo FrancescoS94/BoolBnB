@@ -49,7 +49,7 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
     var formData = `address=${this.poiData['address']}`;
     formData += `&lat=${lat}`;
     formData += `&lng=${lng}`;
-    $.ajax({
+/*     $.ajax({
         type: "PATCH",
         url: `http://localhost:8000/api/addresses/${flat_address_id}`,
         data : formData,
@@ -59,7 +59,8 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
         },error: function(error){
             console.log('errore' + error);
         }
-    });
+    }); */
+    console.log(flat_address_id);
 }
 
 

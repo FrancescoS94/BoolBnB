@@ -74,7 +74,6 @@ class AddressController extends Controller
     public function update(Request $request, Address $address)
     {
         $address->update($request->all());
-        return response()->json($address,201);
     }
 
     /**
