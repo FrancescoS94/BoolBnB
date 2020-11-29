@@ -1,7 +1,7 @@
 
 <nav class="container-fluid navbar navbar-light fixed-top shadow">
     <a class="navbar-brand logo" href="{{ url('/') }}">
-        <img src="{{ asset('images/logo-boolbnb.png')}}" alt="Boolbnb">
+        <img src="{{ asset('storage/images/logo-rossoblu.png')}}" alt="Boolbnb">
     </a>
 
     @if(Request::url() !== 'http://localhost:8000/flats')
@@ -60,5 +60,3 @@
 
 {{-- SCRIPT DI ALGOLIA --}}
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-
-
