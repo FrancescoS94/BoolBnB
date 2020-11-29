@@ -41,16 +41,16 @@
   <div class="container-fluid row">
 
     <div class="col-3 filtri">
-      <div>
+      <div class="città-filtri">
         <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
         <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
         <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
-        <button id="click" class="btn btn-dark">cerca per città e filtra</button>
+        <button id="click" class="btn-blu">Cerca per città e filtra</button>
       </div>
 
       <section class="filter">
-        <div class="filter-child">
-          <h4>Filtri services</h4>
+        <div class="filter-child-services">
+          <h4>Filtra per servizi</h4>
           <div class="service_each">
           @foreach($service as $service)
             <div class="form-check form-check-inline">
@@ -61,8 +61,8 @@
           </div>
         </div>
 
-        <div class="filter-child">
-            <h4>Filtri flats</h4>
+        <div class="filter-child-flats">
+            <h4>Altri Filtri</h4>
             <div class="form-group">
               <label for="room">Stanze</label>
               <input class="form-control" id="room" type="number">

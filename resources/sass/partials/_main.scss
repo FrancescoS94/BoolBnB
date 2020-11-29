@@ -230,8 +230,25 @@ main {
             .container-fluid.row{
               height: 100vh;
               .filtri {
-                height: 100vh;
-                border: 1px solid black;
+                display: flex;
+                flex-direction: column;
+                height: 100vh ;
+                .città-filtri{
+                  padding: 25px 0px;
+                  #city1{
+                    margin-bottom: 10px;
+                    // width: 90%;
+                  }
+                  #click{
+                    width:100%;
+                  }
+                }
+              }
+              .filter{
+
+                .filter-child-services{
+                  margin-bottom: 20px;
+                }
               }
               .ricerca{
                   scrollbar-width: none; /*Nasconde scroll firefox*/
@@ -251,41 +268,42 @@ main {
                       height: 240px;
                       border-radius: 10px;
                     }
-                  }
-                  .flat-text{
-                  margin-left: 10px;
-                  padding-top: 15px;
-                  a{
-                      color: #222222;
-                      &:hover{
-                      color: #404040;
-                      text-decoration: none;
-                      }
-                  }
-                  p{
-                      padding-bottom: 10px;
-                      // border-bottom: 1px solid $redBnb;
-                  }
-                  ul{
+                    .flat-text{
+                    margin-left: 10px;
+                    padding-top: 15px;
+                    a{
+                        color: #222222;
+                        &:hover{
+                        color: #404040;
+                        text-decoration: none;
+                        }
+                    }
+                    p{
+                        padding-bottom: 10px;
+                        border-bottom: 1px solid gainsboro;
+                    }
+                    ul{
 
-                      list-style-type: none;
-                      padding-top: 0px;
-                      display: inline-block;
-                      li{
-                      margin-right: 10px;
-                      }
-                      img{
-                      height: 30px;
-                      padding: 0px 5px 5px 0px;
-                      }
+                        list-style-type: none;
+                        padding-top: 0px;
+                        display: inline-block;
+                        li{
+                        margin-right: 10px;
+                        }
+                        img{
+                        height: 30px;
+                        padding: 0px 5px 5px 0px;
+                        }
+                    }
+                    .flat-service{
+                        color: #404040;
+                        span{
+                        margin-right: 4px;
+                        }
+                    }
                   }
-                  .flat-service{
-                      color: #404040;
-                      span{
-                      margin-right: 4px;
-                      }
                   }
-                  }
+
               }
             }
 

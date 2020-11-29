@@ -1,4 +1,3 @@
-
 {{-- TUTTI I MESSAGGI RICEVUTI DELL'UTENTE LOGGATO --}}
 @extends('layouts.admin')
 @section('content')
@@ -74,7 +73,7 @@
         <form action="{{ route('admin.messages.destroy', $message['id']) }}" method="post">
             @csrf
             @method('DELETE')
-            <button class="btn-red" type="button" name="button">Cancella</button>
+            <button class="btn-red" type="submit" name="button">Cancella</button>
         </form>
       </span>
     </div>
@@ -83,11 +82,5 @@
   @endforeach
 
 </div>  {{--chiusura container-fluid lista-messaggi --}}
-
-
-
-
-
-
 
 @endsection
