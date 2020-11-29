@@ -66,7 +66,8 @@
         </div>
 
         {{-- CHART JS --}}
-        <div class="py-5">
+        <p id="chart-empty" class="d-none">Qui vedrai le statistiche per questo appartamento: visualizzazioni e messaggi ricevuti</p>
+        <div id="chart-messaggi" class="d-none py-1">
             <div>
                 <i class="fa fa-area-chart"></i>
                 <h3 class="pb-3">Messaggi</h3>
@@ -75,7 +76,7 @@
                 <canvas id="myChartUno"></canvas>
             </div>
         </div>
-        <div>
+        <div id="chart-views" class="d-none py-1">
             <div>
                 <i class="fa fa-area-chart"></i>
                 <h3 class="pb-3">Visualizzazioni</h3>
@@ -116,12 +117,18 @@
                         charts.createCompletedMessagesChart(response);
                     },
                     error: function(){
-                        console.log('errore');
+                        console.log('grafici vuoti');
+                        $('#chart-empty').removeClass('d-none');
+                        $('#chart-empty').addClass('d-block');
                     }
                 });
             },
 
             createCompletedMessagesChart:function(response){
+
+                $grafico = $('#chart-messaggi');
+                $grafico.removeClass('d-none');
+                $grafico.addClass('d-block');
 
                 var myChartUno = document.getElementById('myChartUno').getContext('2d');
 
@@ -171,12 +178,18 @@
                         charts.createCompletedViewsChart(response);
                     },
                     error: function(){
-                        console.log('errore');
+                        console.log('grafici vuoti');
+                        $('#chart-empty').removeClass('d-none');
+                        $('#chart-empty').addClass('d-block');
                     }
                 });
             },
 
             createCompletedViewsChart:function(response){
+
+                $grafico = $('#chart-views');
+                $grafico.removeClass('d-none');
+                $grafico.addClass('d-block');
 
                 var myChartDue = document.getElementById('myChartDue').getContext('2d');
 
@@ -214,6 +227,7 @@
             }
         }
         charts.init();
+
     })(jQuery);
 
     </script>

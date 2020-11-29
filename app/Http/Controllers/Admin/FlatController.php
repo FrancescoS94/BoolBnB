@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Schema;
 class FlatController extends Controller
 {
     function index(){
-        $flats = Flat::all()->where('user_id', Auth::id());
-        return view('admin.flats.flats', compact('flats'));
+        $flatsUser = Flat::all()->where('user_id', '=', Auth::id());
+        return view('admin.flats.flats', compact('flatsUser'));
     }
 
     function store(Request $request){

@@ -3,19 +3,23 @@
         <img src="{{ asset('images/logo-boolbnb.png')}}" alt="Boolbnb">
     </a>
 
+    @if(Request::url() !== 'http://localhost:8000/flats')
     <form id="form" class="search" action="{{route('flats.index')}}" method="GET">
         <input type="search" id="city" name="city" class="search-text form-control" placeholder="Dove sogni di andare?" />
         {{-- NASCOSTO --}}<input id="query_lat" type="text" name="query_lat" hidden>
         {{-- NASCOSTO --}}<input id="query_lng" type="text" name="query_lng" hidden>
         <button type="submit" class="search-btn" id="clickMe"><i class="fa fa-search"></i></button>
     </form>
+    @endif
 
     @guest
     <!-- Authentication Links -->
     <div class="navbar-nav guest">
         <a class="nav-link hov" href="{{ route('login') }}">{{ __('Accedi') }}</a>
         @if (Route::has('register'))
-        <a class="nav-link hov" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+            <a class="register" href="{{ route('register') }}">
+                <button class="btn-blu" type="button" name="button">{{ __('Registrati') }}</button>
+            </a>
         @endif
     </div>
     @else
@@ -24,7 +28,7 @@
         <div class="nav-link" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{-- se l'utente è loggato entro nella condizione if --}}
             @if(Auth::check())
-                Ciao {{Auth::user()->name}}
+                <span id="nome-utente">{{Auth::user()->name}}</span>
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
                 <img id="avatar-img" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
                 {{-- <img id="avatar-img" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo"> --}}

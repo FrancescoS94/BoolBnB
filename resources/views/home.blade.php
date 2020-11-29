@@ -23,16 +23,11 @@
 @section('content')
 {{-- BANNER --}}
 {{-- quando si elimina il form di sopra, aggiungere la class "padd-top" accanto a "map-view" --}}
-
-
-
-<section class="bg-img">
-    <div class="container-fluid">
-        <div id="erroreRicerca" class="badge badge-primary text-wrap" style="width: 6rem;"></div>
-        <div class="jumbotron col-sm-8 col-md-6 col-lg-6">
-            <h1>Viaggiare sentendoti a casa tua</h1>
-        </div>
+<section class="container-fluid bg-img">
+    <div class="jumbotron col-sm-12 col-md-6 col-lg-6">
+        <h1>Viaggiare<br>sentendosi<br>a casa</h1>
     </div>
+    <i class="rotate far fa-arrow-alt-circle-down"></i>
 </section>
 
 <section class="container-fluid sponsor">

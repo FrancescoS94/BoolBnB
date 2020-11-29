@@ -37289,7 +37289,26 @@ $(document).ready(function () {
     var currentPosition = elemDaScrollare.scrollLeft();
     currentPosition -= 290;
     elemDaScrollare.scrollLeft(currentPosition);
+  }); // in home: al click sull'icona si scrolla di 100vh e l'icona ruota
+
+  var icon = $('i.rotate');
+  var vheight = $(window).height();
+  var vheight = vheight - 70;
+  $('i.rotate').click(function () {
+    $(this).addClass("down");
+    $('html, body').animate({
+      scrollTop: (Math.floor($(window).scrollTop() / vheight) + 1) * vheight
+    }, 1000);
   });
+
+  window.onscroll = function () {
+    var scrollToTop = $(document).scrollTop();
+
+    if (icon.hasClass("down") && scrollToTop == vheight) {
+      //587
+      $('i.rotate').removeClass("down");
+    }
+  };
 });
 
 /***/ }),
@@ -37346,7 +37365,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleNotFoundError: Module not found: Error: Can't resolve '../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg' in 'C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\resources\\sass'\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\webpack\\lib\\Compilation.js:925:10\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\webpack\\lib\\NormalModuleFactory.js:401:22\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\webpack\\lib\\NormalModuleFactory.js:130:21\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\webpack\\lib\\NormalModuleFactory.js:224:22\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\neo-async\\async.js:2830:7\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\neo-async\\async.js:6877:13\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\webpack\\lib\\NormalModuleFactory.js:214:25\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:213:14\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\UnsafeCachePlugin.js:44:7\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:25:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:67:43\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:25:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:67:43\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:14:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5\n    at eval (eval at create (C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:13:1)\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\DirectoryExistsPlugin.js:27:15\n    at C:\\Users\\Valeria\\Dropbox\\Coding\\Boolean Careers\\Corso\\mamp_public\\lavori-php\\BoolBnB\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:85:15\n    at processTicksAndRejections (internal/process/task_queues.js:79:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

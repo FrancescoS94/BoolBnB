@@ -66,14 +66,15 @@
                     <div class="form-group">
                         @foreach ($service as $service)
                             <label for="tag">{{ $service->service }}</label>
-                            <input type="checkbox" name="service[]" value="{{ $service->id }}" required>
+                            <input type="checkbox" name="service[]" value="{{ $service->id }}" required {{(!empty($flat->id) && $flat->services->contains($service->id)) ? 'checked' : '' }}>
                         @endforeach
                     </div>
                     {{-- IMMAGINE --}}
                     <div class="form-group row">
                         <div class="col-12">
-                            <label for="image">Inserisci una fotografia dell'appartamento:</label>
-                            <input type="file" class="form-control-file" name="image" id="image" value="{{ $flat->image }}" required>
+                            <label for="image">Modifica la fotografia dell'appartamento:</label>
+                            <img class="d-block img-thumbnail mb-2 mt-2" style="width:200px;" src="{{ asset('storage/' . $flat->image) }}" alt="{{ $flat->title }}" required>
+                            <input type="file" class="form-control-file" name="image" id="image">
                         </div>
                     </div>
                     {{-- BUTTON --}}

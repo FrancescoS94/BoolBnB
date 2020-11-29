@@ -3,13 +3,16 @@ header {
         background-color: $whiteBnb;
         @include flex(row,space-between,center);
         .navbar-brand {
+            order:1;
             img{
                 height:65px;
             }
         }
         .search {
-            border: 1px solid #e5e5e5;
+            order:2;
+            width:300px;
             height: 50px;
+            border: 1px solid #e5e5e5;
             border-radius: 40px;
             padding: 5px;
             padding-left: 15px;
@@ -61,12 +64,20 @@ header {
             }
         }
         .navbar-nav.guest{
+            order:3;
             @include flex(row,flex-start,center);
-            a{
-                padding-left:20px;
+            a.nav-link{
+                font-weight: 600;
+                &:hover{
+                    color:$blueBnb;
+                }
+            }
+            a.register{
+                margin-left:20px
             }
         }
         .nav-item.dropdown{
+            order:3;
             cursor:pointer;
             .nav-link{
                 height:65px;
@@ -76,8 +87,14 @@ header {
                 &:focus {
                     outline: -webkit-focus-ring-color auto 0px;;
                 }
+                #nome-utente{
+                    font-weight: 600;
+                    color:$blueBnb;
+                    margin-right: 5px;
+                }
                 img{
                     height: 55px;
+                    width: 55px;
                     border-radius: 50%;
                     margin-left: 5px;
                 }
@@ -91,6 +108,24 @@ header {
                         color:$whiteBnb;
                     }
                 }
+            }
+        }
+    }
+}
+
+// media queries navbar
+@media screen and (max-width:614px){
+    header{
+        nav{
+            .search{
+                order:3;
+                left: 50%;
+                transform: translateX(-50%);
+                position: relative;
+                margin:10px 0;
+            }
+            .nav-item.dropdown, .navbar-nav.guest{
+                order:2;
             }
         }
     }

@@ -72,8 +72,10 @@
   </section>
 
    <section class="container-fluid sponsor">
-    <h2>Scorri i nostri migliori appartamenti</h2>
-    <div class="row">
+
+    <h2>Scopri i nostri migliori appartamenti</h2>
+    {{-- SLIDER CON FLEX E BOOTSTRAP --}}
+    <div class="slider">
         <i class="fas fa-chevron-left left"></i>
         <div class="lista appartamenti">
             @foreach ($flatsSpons as $flatSpons)
@@ -89,9 +91,10 @@
             </div>
             @endforeach
         </div>
-      <i class="fas fa-chevron-right right"></i>
+        <i class="fas fa-chevron-right right"></i>
     </div>
-  </section>
+
+</section>
   <div class="container ricerca">
     @foreach ($flatsInRadius as $flat)
     <div class="row search">
