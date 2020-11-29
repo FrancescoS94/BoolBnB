@@ -8,3 +8,30 @@
 textarea{
     padding: 5px 10px;
 }
+
+.btn-blu {
+    padding: 5px 10px;
+    background-color: $blueBnb;
+    border: 2px solid $blueBnb;
+    color: $whiteBnb;
+    border-radius: 4px;
+    font-weight: bold;
+    &:hover {
+        text-decoration: none;
+    background-color: $whiteBnb;
+    color: $blueBnb;
+    }
+}
+
+.btn-red {
+    padding: 5px 10px;
+    background-color: $redBnb;
+    border: 2px solid $redBnb;
+    color: $whiteBnb;
+    border-radius: 4px;
+    font-weight: bold;
+    &:hover {
+    background-color: $whiteBnb;
+    color: $redBnb;
+    }
+}

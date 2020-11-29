@@ -100,7 +100,7 @@
                         <p>Cognome:</p>
                         <p>Data di nascita:</p>
                         <p>email:</p>
-                        <p>Status:</p>
+                        <p>Appartamenti:</p>
                         <p>Creazione profilo:</p>
                         <p>Ultima modifica:</p>
                     </div>
@@ -109,7 +109,13 @@
                         <p>{{$user->lastname}}</p>
                         <p>{{ Carbon\Carbon::parse($user->date_of_birth)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
                         <p>{{$user->email}}</p>
-                        <p>{{$user->status}}</p>
+                        <p>
+                            @if($user->status == 0)
+                                No
+                            @elseif($user->status == 1)
+                                Sì
+                            @endif
+                        </p>
                         <p>{{ Carbon\Carbon::parse($user->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
                         <p>{{ Carbon\Carbon::parse($user->updated_at)->settings(['toStringFormat' => 'j F Y', ]) }}</p>
                     </div>

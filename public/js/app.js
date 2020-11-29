@@ -37289,7 +37289,26 @@ $(document).ready(function () {
     var currentPosition = elemDaScrollare.scrollLeft();
     currentPosition -= 290;
     elemDaScrollare.scrollLeft(currentPosition);
+  }); // in home: al click sull'icona si scrolla di 100vh e l'icona ruota
+
+  var icon = $('i.rotate');
+  var vheight = $(window).height();
+  var vheight = vheight - 70;
+  $('i.rotate').click(function () {
+    $(this).addClass("down");
+    $('html, body').animate({
+      scrollTop: (Math.floor($(window).scrollTop() / vheight) + 1) * vheight
+    }, 1000);
   });
+
+  window.onscroll = function () {
+    var scrollToTop = $(document).scrollTop();
+
+    if (icon.hasClass("down") && scrollToTop == vheight) {
+      //587
+      $('i.rotate').removeClass("down");
+    }
+  };
 });
 
 /***/ }),
@@ -37357,8 +37376,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\mamp_public\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\mamp_public\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Valeria\Dropbox\Coding\Boolean Careers\Corso\mamp_public\lavori-php\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Valeria\Dropbox\Coding\Boolean Careers\Corso\mamp_public\lavori-php\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

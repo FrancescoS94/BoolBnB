@@ -95,9 +95,10 @@
                         </div>
                         {{-- IMMAGINE --}}
                         <div class="form-group row">
-                            <label class="col-12" for="avatar">Inserisci una tua fotografia:</label>
+                            <label class="col-12" for="avatar">Modifica la tua foto</label>
+                            <img class="d-block img-thumbnail mb-2 mt-2" style="width:200px;" src="{{ asset('storage/' . $user->avatar) }}" alt="{{ $user->name }} {{ $user->lastname }}">
                             <div class="col-12">
-                                <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ $user->avatar }}">
+                                <input type="file" class="form-control-file" name="avatar" id="avatar" value="{{ asset('storage/' . $user->avatar) }}">
                             </div>
                         </div>
                         {{-- BUTTON --}}

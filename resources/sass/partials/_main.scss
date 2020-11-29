@@ -3,38 +3,20 @@ main {
   background-color: $whiteBnb;
   
     .padd-top {
-        padding-top:107px;
+        padding-top:160px;
+    }
+
+    @media screen and (min-width: 614px){
+        .padd-top {
+            padding-top:107px;
+        }
     }
 
     .vh {
         height: 100vh;
     }
 
-    .btn-blu {
-        padding: 5px 10px;
-        background-color: $blueBnb;
-        border: 2px solid $blueBnb;
-        color: $whiteBnb;
-        border-radius: 4px;
-        font-weight: bold;
-        &:hover {
-            text-decoration: none;
-        background-color: $whiteBnb;
-        color: $blueBnb;
-        }
-    }
-    .btn-red {
-        padding: 5px 10px;
-        background-color: $redBnb;
-        border: 2px solid $redBnb;
-        color: $whiteBnb;
-        border-radius: 4px;
-        font-weight: bold;
-        &:hover {
-        background-color: $whiteBnb;
-        color: $redBnb;
-        }
-    }
+    
 
     // REGISTRAZIONE/ACCESSO auth register/login/email.blade
         .bg-img2 {
@@ -79,19 +61,47 @@ main {
 
     // BANNER "home.blade"
         .bg-img {
-            background-image: url('../../../public/storage/images/Home-–-Muhammed-Sajid-5.jpg');
+            background-image: url('../../../public/storage/images/Home-Muhammed-Sajid-5.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            height: 614px;
+            height: 100vh;
             padding-top: 129px;
+            position:relative;
             .jumbotron {
-                    background-color: $banner;
+                position:absolute;
+                top:42%;
+                left:10%;
+                transform: translateY(-50%);
+                background-color: transparent;
+                h1 {
+                    font-size: 42px;
+                    line-height: 43px;
+                    font-weight: 600;
+                    color: #fcfcfc;
+                    font-size: 42px;
+                    line-height: 43px;
+                    letter-spacing: 3px;
+                }
             }
-            h1 {
-                text-transform: uppercase;
-                font-size: 50px;
-                color: $whiteBnb;
+            i{  // icona che scrolla e ruota con funzioni js
+                cursor:pointer;
+                position:absolute;
+                left:50%;
+                bottom:5%;
+                transform: translateX(-50%);
+                color:$whiteBnb;
+                font-size:60px;
+                &.rotate{
+                    -moz-transition: all 1s linear;
+                    -webkit-transition: all 1s linear;
+                    transition: all 1s linear;
+                }
+                &.rotate.down{
+                    -moz-transform:rotate(180deg);
+                    -webkit-transform:rotate(180deg);
+                    transform:rotate(180deg);
+                }
             }
         }
     // *END* BANNER "home.blade"
@@ -102,6 +112,11 @@ main {
             background-color: $whiteBnb;
             color:$blueBnb;
             padding:50px;
+            h2{
+                position:relative;
+                left:5%;
+                width:fit-content;
+            }
             .slider{
                 @include flex(row,space-around,center);
                 margin-top:30px;
@@ -168,11 +183,17 @@ main {
             .filters{
                 background-color: orange;
             }
+            // APPARTAMENTI SPONSORIZZATI "search.blade" SLIDER CON FLEX E BOOTSTRAP
             .sponsor{
-                height:calc(100vh - 107px);
+                height:50vh;
                 background-color: $whiteBnb;
                 color:$blueBnb;
                 padding:50px;
+                h2{
+                    position:relative;
+                    left:5%;
+                    width:fit-content; 
+                }
                 .slider{
                     @include flex(row,space-around,center);
                     margin-top:30px;
@@ -227,6 +248,7 @@ main {
                     }
                 }
             }
+        // *END* APPARTAMENTI SPONSORIZZATI "search.blade"
             .ricerca{
                 scrollbar-width: none; /*Nasconde scroll firefox*/
                 .search{
@@ -373,6 +395,7 @@ main {
         .profile {
             .rounded-circle {
                 width: 100px;
+                height: 100px;
             }
             .jumbotron {
                 background-color: $whiteBnb;
@@ -447,6 +470,8 @@ main {
 
     // LISTA APPARTAMENTI admin flats.blade
         .flats-list {
+            padding-top: 50px;
+            padding-bottom: 30px;
             h2 {
                 color: $blueBnb;
                 text-transform: uppercase;
@@ -480,5 +505,32 @@ main {
             }
         }
     // *END* // LISTA APPARTAMENTI admin flats.blade
+}
 
+// media queries navbar
+@media screen and (min-width:500px){
+    main{
+        .bg-img{
+            .jumbotron{
+                top: 53%;
+                h1{
+                    font-size: 80px;
+                    line-height: 70px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:767px){
+    main{
+        .bg-img{
+            .jumbotron{
+                h1{
+                    line-height: 90px;
+                    font-size: 100px;
+                }
+            }
+        }
+    }
 }
