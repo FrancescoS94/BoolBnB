@@ -2,20 +2,6 @@
 @extends('layouts.app')
 @section('content')
 
-{{-- <style>
-  .filter{
-    display: flex;
-    width: 50%;
-  }
-
-  .filter-child{
-    width: 20%;
-    padding-left: 10px;
-    margin-right: 30px;
-  }
-</style> --}}
-
-
 <div class="container-fluid layout">
    <section class="container-fluid sponsor">
     <h2>Scorri i nostri migliori appartamenti</h2>
@@ -96,10 +82,10 @@
     <div class="ricerca col-9">
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
-        <div class="foto col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+        <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
           <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
         </div>
-        <div class="my-auto col-sm-6 col-md-6 col-lg-6 col-xl-6 ">
+        <div class="my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
           <div class="flat-text">
             <a href="{{ route('flats.show', $flat->id) }}">
               <h5 class="card-title">{{ $flat->title}}</h5>
