@@ -27,7 +27,7 @@
   </section>
   <div class="container-fluid row">
 
-    <div class="col-3 filtri">
+    <div class="filtri col-sm-4 col-md-4 col-lg-3 col-xl-3">
       <div class="città-filtri">
         <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
         <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
@@ -74,6 +74,8 @@
                 <option value="300">250 - 300</option>
                 <option value="301">>300</option>
               </select>
+
+
             </div>
         </div>
 
@@ -82,10 +84,10 @@
       </section>
     </div>
 
-    <div class="ricerca col-9">
+    <div class="ricerca col-sm-8 col-md-8 col-lg-9 col-xl-9">
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
-        <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+        <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6">
           <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
         </div>
         <div class="my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
@@ -292,9 +294,9 @@ function compiler(response){
   </div>
 </script> --}}
 
+{{-- modello di riferimento Luca --}}
 <script id="template" type="text/x-handlebars-template">
 <div class="ricerca col-12">
-  @foreach ($flatsInRadius as $flat)
   <div class="row search">
     <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
       <a href="http://localhost:8000/flats/@{{id}}"><img id="img-search" src="storage/@{{{image}}}" class="img-fluid" alt="@{{title}}"></a>
@@ -325,17 +327,11 @@ function compiler(response){
               </li>
             </ul>
         </a>
-        <div class="flat-service">
-          @foreach($flat->services as $service)
-          <span> {{ $service->service }} </span>
-          @endforeach
-        </div>
       </div>
     </div>
   </div> {{-- chiusura row search--}}
-  @endforeach
 </div> {{-- chiusura container-fluid ricerca--}}
-
+</script>
 
 
 

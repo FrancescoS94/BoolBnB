@@ -185,10 +185,15 @@ main {
                 background-color: orange;
             }
             .sponsor{
-                height:calc(100vh - 107px);
+                height: 50vh;
                 background-color: $whiteBnb;
                 color:$blueBnb;
                 padding:50px;
+                h2{
+                    position:relative;
+                    left:5%;
+                    width:fit-content;
+                }
                 .slider{
                     @include flex(row,space-around,center);
                     margin-top:30px;
@@ -247,13 +252,11 @@ main {
               height: 100vh;
               .filtri {
                 // background: rgb(220,220,220);
-                // background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(169,169,169,1) 35%, rgba(128,128,128,1) 100%);
-                background: rgb(220,220,220);
-                background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(211,211,211,1) 35%, rgba(169,169,169,1) 100%); 
+                // background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(211,211,211,1) 35%, rgba(169,169,169,1) 100%);
+                  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
                 border-radius: 0px 5px 0px 0px;
                 display: flex;
                 flex-direction: column;
-                height: 100vh ;
                 .città-filtri{
                   padding: 25px 0px;
                   #city1{
@@ -264,11 +267,10 @@ main {
                     width:100%;
                   }
                 }
-              }
-              .filter{
-
-                .filter-child-services{
-                  margin-bottom: 20px;
+                .filter{
+                  .filter-child-services{
+                    margin-bottom: 20px;
+                  }
                 }
               }
               .ricerca{

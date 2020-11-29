@@ -397,10 +397,18 @@ main .layout .filters {
 }
 
 main .layout .sponsor {
-  height: calc(100vh - 107px);
+  height: 50vh;
   background-color: #fcfcfc;
   color: #133b55;
   padding: 50px;
+}
+
+main .layout .sponsor h2 {
+  position: relative;
+  left: 5%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 main .layout .sponsor .slider {
@@ -481,12 +489,10 @@ main .layout .row.container-xl .filtri,
 main .layout .row.container-lg .filtri,
 main .layout .row.container-md .filtri,
 main .layout .row.container-sm .filtri {
-  background: gainsboro;
-  background: linear-gradient(90deg, gainsboro 0%, lightgray 35%, darkgray 100%);
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
   border-radius: 0px 5px 0px 0px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
 }
 
 main .layout .container-fluid.row .filtri .città-filtri,
@@ -513,11 +519,11 @@ main .layout .row.container-sm .filtri .città-filtri #click {
   width: 100%;
 }
 
-main .layout .container-fluid.row .filter .filter-child-services,
-main .layout .row.container-xl .filter .filter-child-services,
-main .layout .row.container-lg .filter .filter-child-services,
-main .layout .row.container-md .filter .filter-child-services,
-main .layout .row.container-sm .filter .filter-child-services {
+main .layout .container-fluid.row .filtri .filter .filter-child-services,
+main .layout .row.container-xl .filtri .filter .filter-child-services,
+main .layout .row.container-lg .filtri .filter .filter-child-services,
+main .layout .row.container-md .filtri .filter .filter-child-services,
+main .layout .row.container-sm .filtri .filter .filter-child-services {
   margin-bottom: 20px;
 }
 
