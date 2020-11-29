@@ -216,7 +216,7 @@ main .vh {
 }
 
 main .bg-img2 {
-  background-image: url(/images/image-illustrator.jpg?02e2ab3ef60e11a36b91f47df1b94af4);
+  background-image: url(/images/image-illustrator.jpg?0390b85466778b9a257ac2392a09612e);
   background-size: cover;
   background-position: top;
   height: 100vh;
@@ -258,7 +258,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
+  background-image: url(/images/Home-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -728,6 +728,25 @@ main .table td {
     display: flex;
     justify-content: center;
   }
+}
+
+main .tt-search-box-input-container {
+  box-shadow: none;
+}
+
+main .tt-side-panel {
+  height: 40vh;
+  background: #fcfcfc;
+  box-shadow: none;
+}
+
+main .tt-search-box-input-container {
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+main .full-map {
+  height: 40vh;
 }
 
 main #card-number,

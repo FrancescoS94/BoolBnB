@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 @section('content')
 {{-- UPDATE/MODIFICA DEGLI INDIRIZZI --}}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
+    <div class="container update vh">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10 col-lg-9 jumbotron mt-5">
 
                 {{-- validazione campi  --}}
                 @if ($errors->any())
@@ -18,12 +18,10 @@
 
                 {{-- arrivo da addressControllEdit --}}
                 {{-- per ciascun appartamento posso modificare i valori grazie all'id --}}
-                <div>Modifica indirizzo</div>
+                <h2 class="font-weight-bold">Modifica indirizzo</h2>
 
-
-
-                <div class='map-view'>
-                    <div class='tt-side-panel' style="height: 40vh;">
+                <div class="map-view row">
+                    <div class="tt-side-panel col-md-12 col-lg-6">
                         <header class='tt-side-panel__header'>
                         </header>
                         <div class='tt-tabs js-tabs'>
@@ -36,10 +34,10 @@
                             </div>
                         </div>
                     </div>
-                    <div id='map' class='full-map' style="height: 40vh;"></div>
+                    <div class="col-md-12 col-lg-6">
+                        <div id='map' class='full-map'></div>
+                    </div>
                 </div> {{-- fine tomtom --}}
-
-
 
 
                 {{-- <form action="{{ route('admin.addresses.update', $addresses->id)}}" method="post"> --}}
@@ -78,7 +76,7 @@
                     <input id="address" hidden type="text" class="form-control" name="address">
                     <input id="position" hidden type="text" class="form-control" name="position">
 
-                    <button type="submit" class="btn btn-primary">Invia il modulo</button>
+                    <button type="submit" class="btn-blu mt-5">Invia</button>
                 </form>
             </div>
         </div>
@@ -335,9 +333,6 @@
                  resultsManager.append(resultList);
              }
          </script>
-
-
-
 
 
 

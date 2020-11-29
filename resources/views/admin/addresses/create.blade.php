@@ -2,9 +2,9 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container vh">
+<div class="container update vh">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10 col-lg-9 jumbotron mt-5">
                 {{-- <h1>Aggiungi un appartamento</h1> --}}
 
                 {{-- controllo errori --}}
@@ -18,10 +18,10 @@
                 </div>
                 @endif
 
-                <h2 class="pt-5">Dove si trova l'appartamento che vuoi inserire?</h2>
+                <h2 class="font-weight-bold">Dove si trova l'appartamento che vuoi inserire?</h2>
                 {{-- aggiunta 18-11-20 tomtom --}}
-                <div class='map-view my-3'>
-                    <div class='tt-side-panel' style="height: 40vh;">
+                <div class='map-view row my-3'>
+                    <div class="tt-side-panel col-md-12 col-lg-6">
                         <header class='tt-side-panel__header'>
                         </header>
                         <div class='tt-tabs js-tabs'>
@@ -34,7 +34,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id='map' class='full-map' style="height: 40vh;"></div>
+                    <div class="col-md-12 col-lg-6">
+                        <div id='map' class='full-map'></div>
+                    </div>
                 </div> {{-- fine tomtom --}}
 
                 <div>
