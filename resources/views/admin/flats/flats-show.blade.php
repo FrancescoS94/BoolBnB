@@ -66,23 +66,26 @@
         </div>
 
         {{-- CHART JS --}}
-        <p id="chart-empty" class="d-none">Qui vedrai le statistiche per questo appartamento: visualizzazioni e messaggi ricevuti</p>
-        <div id="chart-messaggi" class="d-none py-1">
-            <div>
-                <i class="fa fa-area-chart"></i>
-                <h3 class="pb-3">Messaggi</h3>
+        <div>
+            <h2>Statistiche</h2>
+            <p id="chart-empty" class="d-none">Qui vedrai le statistiche per questo appartamento: visualizzazioni e messaggi ricevuti</p>
+            <div id="chart-messaggi" class="d-none py-1">
+                <div>
+                    <i class="fa fa-area-chart"></i>
+                    <h3 class="pb-3">Messaggi</h3>
+                </div>
+                <div class="box-chart">
+                    <canvas id="myChartUno"></canvas>
+                </div>
             </div>
-            <div class="box-chart">
-                <canvas id="myChartUno"></canvas>
-            </div>
-        </div>
-        <div id="chart-views" class="d-none py-1">
-            <div>
-                <i class="fa fa-area-chart"></i>
-                <h3 class="pb-3">Visualizzazioni</h3>
-            </div>
-            <div class="box-chart mb-3">
-                <canvas id="myChartDue"></canvas>
+            <div id="chart-views" class="d-none py-1">
+                <div>
+                    <i class="fa fa-area-chart"></i>
+                    <h3 class="pb-3">Visualizzazioni</h3>
+                </div>
+                <div class="box-chart mb-3">
+                    <canvas id="myChartDue"></canvas>
+                </div>
             </div>
         </div>
     </div>

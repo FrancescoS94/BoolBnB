@@ -25,7 +25,7 @@
                 </div>
                 @endif
 
-                <h2 class="d-flex justify-content-center">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h2>
+                <h2 class="font-weight-bold d-flex justify-content-center">{{ is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth )  ? 'Completa il tuo profilo' : 'Aggiorna il tuo profilo'}}</h2>
                 @if (is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
                     <form method="post" action="{{ route('admin.users.update', $user->id)}}" enctype="multipart/form-data" {{--onsubmit="return validateRegistr()"--}}>
                         @csrf
@@ -61,12 +61,12 @@
                         @method('PATCH')
                         {{-- NOME & COGNOME --}}
                         <div class="form-group row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label class="name" for="name">Nome:</label>
-                                <input type="text" class="form-control" name="name" id="nameField" value="{{ $user->name }}" required> 
+                                <input type="text" class="form-control" name="name" id="nameField" value="{{ $user->name }}" required>
                                 <span id="nameError"></span>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="lastname">Cognome:</label>
                                 <input type="text" class="form-control" name="lastname" id="lastnameField" value="{{ $user->lastname }}" required>
                                 <span id="lastnameError"></span>
@@ -74,11 +74,11 @@
                         </div>
                         {{-- NASCITA & EMAIL --}}
                         <div class="form-group row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="birthday">Data di nascita:</label>
                                 <input type="date" class="form-control" max="2002-12-31" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}" required>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="email">Inserisci una nuova email:</label>
                                 <input type="email" class="form-control" name="email" id="emailField" value="{{ $user->email }}" required>
                                 <span id="emailError"></span>
@@ -86,13 +86,13 @@
                         </div>
                         {{-- PASSWORD --}}
                         <div class="form-group row">
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="password">Modifica la tua password:</label>
                                 <small id="emailHelp" class="form-text text-muted">La password deve contenere almeno un carattere alfabetico minuscolo, uno maiuscolo, un numero e un carattere speciale. Deve essere di otto caratteri o più lunga</small>
                                 <input type="password" class="form-control" name="password" id="passwordField" required>
                                 <span id="passwordError"></span>
                             </div>
-                            <div class="col-6">
+                            <div class="col-sm-12 col-md-6">
                                 <label for="password">Conferma la modifica password:</label>
                                 <input type="password" class="form-control" name="password_confirmation" autocomplete="password" required>
                             </div>
@@ -122,7 +122,7 @@
         // variabili elementi input
         const emailField = document.getElementById('emailField');
         const passwordField = document.getElementById('passwordField');
-        const nameField= document.getElementById('nameField');       
+        const nameField= document.getElementById('nameField');
         const lastnameField=document.getElementById('lastnameField');
 
         // bottone form
@@ -137,7 +137,7 @@
         // check email
         emailField.addEventListener('keyup', function (event) {
         isValidEmail = emailField.checkValidity();
-  
+
             if(isValidEmail){
                 okButton.disabled = false;
             }else{
@@ -150,7 +150,7 @@
         passwordField.addEventListener('keyup', function (event) {
 
          const strongRegex = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-        
+
             if(strongRegex.test(passwordField.value)){
                 okButton.disabled = false;
             }else{
@@ -183,7 +183,7 @@
             }
 
             // spiegazione name regex
-            /*  
+            /*
                 /^[a-zA-Z ]{2,30}$/ caratteri ammessi minuscole e maiuscole, niente numeri o caratteri speciali, lunghezza minima 2 e max 30
             */
         });

@@ -1,7 +1,7 @@
 main {
   min-height: calc(100vh - 400px);
   background-color: $whiteBnb;
-  
+
     .padd-top {
         padding-top:160px;
     }
@@ -16,13 +16,14 @@ main {
         height: 100vh;
     }
 
-    
+
 
     // REGISTRAZIONE/ACCESSO auth register/login/email.blade
         .bg-img2 {
             background-image: url('../../../public/storage/images/image-illustrator.jpg');
             background-size: cover;
             background-position: top;
+            height: 100vh;
         }
         .register {
             .card {
@@ -192,7 +193,7 @@ main {
                 h2{
                     position:relative;
                     left:5%;
-                    width:fit-content; 
+                    width:fit-content;
                 }
                 .slider{
                     @include flex(row,space-around,center);
@@ -507,6 +508,43 @@ main {
     // *END* // LISTA APPARTAMENTI admin flats.blade
 }
 
+    // PAYMENTS admin create.blade
+        #card-number, #cvv, #expiration-date{
+            background: white;
+            height: 38px;
+            border: 1px solid #e6e9ec;
+            padding: .375rem .75rem;
+            border-radius: .25rem;
+        }
+
+        .update {
+            .flex-column {
+                line-height: 12px;
+            }
+            .cb {
+                color: $blueBnb;
+                font-size: 17px;
+                font-weight: bold;
+            }
+            .silver {
+                color: #808080;
+                font-weight: bold;
+                font-size: 25px;
+            }
+            .gold {
+                color: #ffbd59;
+                font-weight: bold;
+                font-size: 25px;
+            }
+            .platinum {
+                color: #03989e;
+                font-weight: bold;
+                font-size: 25px;
+            }
+        }
+    // *END* PAYMENTS admin create.blade
+}
+
 // media queries navbar
 @media screen and (min-width:500px){
     main{
@@ -520,7 +558,6 @@ main {
             }
         }
     }
-}
 
 @media screen and (min-width:767px){
     main{

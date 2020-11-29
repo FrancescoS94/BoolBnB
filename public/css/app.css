@@ -219,6 +219,7 @@ main .bg-img2 {
   background-image: url(/images/image-illustrator.jpg?02e2ab3ef60e11a36b91f47df1b94af4);
   background-size: cover;
   background-position: top;
+  height: 100vh;
 }
 
 main .register .card {
@@ -257,11 +258,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-<<<<<<< Updated upstream
-  background-image: url(/images/Home-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
-=======
   background-image: url(/images/Home-–-Muhammed-Sajid-5.jpg?75ecfa7b8ccf6f2d3bdd6b9044f97dc6);
->>>>>>> Stashed changes
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -310,7 +307,6 @@ main .bg-img h1 {
   text-transform: uppercase;
   font-size: 50px;
   color: #fcfcfc;
->>>>>>> Stashed changes
 }
 
 main .sponsor {
@@ -740,22 +736,42 @@ main .table td {
   }
 }
 
-@media screen and (min-width: 500px) {
-  main .bg-img .jumbotron {
-    top: 53%;
-  }
-
-  main .bg-img .jumbotron h1 {
-    font-size: 80px;
-    line-height: 70px;
-  }
+main #card-number,
+main #cvv,
+main #expiration-date {
+  background: white;
+  height: 38px;
+  border: 1px solid #e6e9ec;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
 }
 
-@media screen and (min-width: 767px) {
-  main .bg-img .jumbotron h1 {
-    line-height: 90px;
-    font-size: 100px;
-  }
+main .update .flex-column {
+  line-height: 12px;
+}
+
+main .update .cb {
+  color: #133b55;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+main .update .silver {
+  color: #808080;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+main .update .gold {
+  color: #ffbd59;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+main .update .platinum {
+  color: #03989e;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .aside {

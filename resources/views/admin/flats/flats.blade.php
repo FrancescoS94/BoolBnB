@@ -8,9 +8,9 @@
                 {{-- <h1>Ciao {{ Auth::user()->name }}</h1> --}}
                 {{-- se l'utente non ha completato la registrazione non potrà inserire appartamenti --}}
                 @if(is_null(Auth::user()->avatar) || is_null(Auth::user()->date_of_birth ))
-                    <h2 class="py-3">Completa il tuo profilo prima di inserire un appartamento!</h2>
+                    <h2 class="font-weight-bold py-3">Completa il tuo profilo prima di inserire un appartamento!</h2>
                 @else
-                    <h2 class="py-3 pb">I tuoi appartamenti</h2>
+                    <h2 class="font-weight-bold py-3 pb">I tuoi appartamenti</h2>
                     {{-- il btn "aggiungi un appartamento" porta a admin.addresses.create e poi a admin.flats.create --}}
                     <a href="{{ route('admin.addresses.create') }}" class="card-link">
                         <button type="button" class="btn-blu mb-4">Aggiungi</button>
