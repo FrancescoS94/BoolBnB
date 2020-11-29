@@ -219,7 +219,7 @@ main .bg-img2 {
   background-image: url(/images/image-illustrator.jpg?02e2ab3ef60e11a36b91f47df1b94af4);
   background-size: cover;
   background-position: top;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 main .register .card {

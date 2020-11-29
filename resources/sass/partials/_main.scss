@@ -23,7 +23,7 @@ main {
             background-image: url('../../../public/storage/images/image-illustrator.jpg');
             background-size: cover;
             background-position: top;
-            height: 100vh;
+            min-height: 100vh;
         }
         .register {
             .card {

@@ -4,7 +4,7 @@
 <div class="bg-img2">
     <div class="container padd-top">
         <div class="row justify-content-center">
-            <div class="col-md-9 col-lg-6 pt-4 mt-1 register">
+            <div class="col-md-9 col-lg-6 py-4 mb-3 register">
                 <div class="card">
                     <div class="account d-flex justify-content-center pt-4">
                         {{ __('Crea un Account') }}
