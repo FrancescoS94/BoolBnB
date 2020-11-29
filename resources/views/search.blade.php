@@ -273,7 +273,7 @@ function compiler(response){
     </div>
     <div class="col-xl-6">
         <div class="flat-text">
-          <a href="http://localhost:8000/flats/@{{id}}">
+          <a id="paginaInterna" href="http://localhost:8000/flats/@{{id}}"> <!-- http://localhost:8000/flats/@{{id}} -->
             <h5 class="card-title">@{{title}}</h5>
             <p class="address">@{{address}}</p> <!-- prendere l'indirizzo -->
             <ul>
@@ -300,5 +300,39 @@ function compiler(response){
         </div>
     </div>
   </div>
+</script>
+
+
+<script>
+/*   document.getElementById('paginaInterna').addEventListener('click', function(){
+    alert('ciao');
+  }); */
+
+  $(document).on("click", "#paginaInterna", function(){
+
+    var city =  document.getElementById('city1').value;
+    let lat = document.querySelector('.query_lat').value; //$('.query_lat').val(); 
+    let lng = document.querySelector('.query_lng').value; //$('.query_lng').val();
+    var link = $(this).attr('href');
+
+    let geo = [
+      lat,
+      lng,
+      city
+    ];
+
+    //console.log(geo);
+    //console.log(link, city, lat, lng);
+/*     $.ajax({
+        type: "get",
+        url: link,       //"http://localhost:8000/flats/" + 
+        data: {
+          geo: geo 
+        },
+        dataType: "json", 
+        success: function (response){}
+    }); */
+
+  });
 </script>
 @endsection

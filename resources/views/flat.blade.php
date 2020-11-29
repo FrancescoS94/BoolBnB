@@ -1,3 +1,4 @@
+{{-- @dd($data) --}}
 @extends('layouts.app')
 
 @section('head')
@@ -13,11 +14,16 @@
 @endsection
 
 @section('content')
+
     <div class="container flat-show flat-title padd-top">
         {{-- input nascosti per passare lat, lng e indirizzo alla mappa --}}
         <input class="lat" type="text" hidden value="{{$flat->address->lat}}">
         <input class="lng" type="text" hidden value="{{$flat->address->lng}}">
         <input class="address" type="text" hidden value="{{$flat->address->address}}">
+
+{{--         <input class="latAjax" type="text" hidden value="{{$lat}}">
+        <input class="lngAjax" type="text" hidden value="{{$lng}}">
+        <input class="cityAjax" type="text" hidden value="{{$city}}"> --}}
 
         <h2 class="pt-5">{{$flat->title}}</h2>
         <div class="row">

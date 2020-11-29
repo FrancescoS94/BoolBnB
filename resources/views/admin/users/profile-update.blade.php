@@ -166,6 +166,8 @@
                     (?=.*[!@#$%^&*])	La stringa deve contenere almeno un carattere speciale, ma stiamo sfuggendo ai caratteri RegEx riservati per evitare conflitti
                     (?=. {8,})	La stringa deve essere di otto caratteri o più lunga
                 */
+
+                //6iGqFZtyocieZh6C4GuW1StbYdJVEC69l7F65rVo
         });
 
         //check name

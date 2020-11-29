@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 @section('content')
 
-{<style>
+<style>
 
 
 
@@ -136,7 +136,7 @@
         setTimeout(function(){
             $('.loader_bg').fadeToggle();
             $('#avatar-img').show();
-        }, 1500);
+        }, 2000);
     </script>
 </div>
 @endsection

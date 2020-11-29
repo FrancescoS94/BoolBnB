@@ -1,3 +1,4 @@
+
 <nav class="container-fluid navbar navbar-light fixed-top shadow">
     <a class="navbar-brand logo" href="{{ url('/') }}">
         <img src="{{ asset('images/logo-boolbnb.png')}}" alt="Boolbnb">
@@ -31,7 +32,6 @@
                 <span id="nome-utente">{{Auth::user()->name}}</span>
                 {{-- Condizione logica sulla presenza o meno di un immagine di profilo, di default c'è un immagine --}}
                 <img id="avatar-img" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. Auth::user()->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo">
-                {{-- <img id="avatar-img" src="{{ !is_null(Auth::user()->avatar)  ? asset('storage/'. $user->avatar)  : 'https://cdn.onlinewebfonts.com/svg/img_181369.png' }}" alt="immagine profilo"> --}}
             @endif
         </div>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -60,4 +60,5 @@
 
 {{-- SCRIPT DI ALGOLIA --}}
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
 

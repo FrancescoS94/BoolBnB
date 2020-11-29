@@ -340,12 +340,27 @@ class FlatController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function show($id)
-    function show(Flat $flat, View $view){
+    function show(Flat $flat, View $view, Request $request){
         $service = $flat->services;
 
         // ad ogni visualizzazione della pagina flat genero un record della tabella views e gli assegno il flat_id
         $view['flat_id'] = $flat['id'];
         $view->save();
+
+        if($request->ajax()){
+            #dd($_GET['geo']);
+            $data= $_GET['geo'];
+
+            //return $data;
+
+            $lat= $data[0];
+            $lng= $data[1];
+            $city= $data[2];
+
+            #dd($_GET['geo']);
+            return view('flat',compact('lat', 'lng', 'city'));
+
+        }
 
         return view('flat',compact('flat','service'));
     }
