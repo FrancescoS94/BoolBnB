@@ -124,58 +124,77 @@ class FlatController extends Controller
                 }
 
                 // ciclare $flatsInRadius per prendere gli appartamenti filtrati
-                $appartamentiFiltrati = [];
-                $flatRadius= count($serviceRadius); #$flatsInRadius
+                // $appartamentiFiltrati = [];
+                $appartamentiFiltratiUno = [];
+                $flatRadius = count($serviceRadius); #$flatsInRadius
                 for($i=0; $i < $flatRadius; $i++){ 
-                    if($serviceRadius[$i]['bed'] == $bed &&  $serviceRadius[$i]['room'] == $room && $serviceRadius[$i]['wc'] == $wc){        
-                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
-                    }else if($serviceRadius[$i]['bed'] == $bed ||  $serviceRadius[$i]['room'] == $room || $serviceRadius[$i]['wc'] == $wc){
-                        array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                    if($serviceRadius[$i]['bed'] == $bed && $serviceRadius[$i]['room'] == $room && $serviceRadius[$i]['wc'] == $wc){        
+                        // array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                        array_push($appartamentiFiltratiUno, $serviceRadius[$i]);
+                    }else if($serviceRadius[$i]['bed'] == $bed || $serviceRadius[$i]['room'] == $room || $serviceRadius[$i]['wc'] == $wc){
+                        // array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                        array_push($appartamentiFiltratiUno, $serviceRadius[$i]);
                     }
+                };
 
+                if(empty($appartamentiFiltratiUno)){
+                    $appartamentiFiltratiUno = $serviceRadius;
+                };
+
+                $appartamentiFiltratiDue = [];
+
+                for($i=0; $i < count($appartamentiFiltratiUno); $i++){ 
                     if(isset($mq)){
                         switch ($mq) {
                             case $mq == 50:
-                                if($serviceRadius[$i]['mq'] <= 50){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] <= 50){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 } 
                                 break;
                             case $mq == 100:
-                                if($serviceRadius[$i]['mq'] > 50 &&  $serviceRadius[$i]['mq'] <= 100){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] > 50 && $serviceRadius[$i]['mq'] <= 100){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 } 
                                 break;
                             case $mq == 150:
-                                if($serviceRadius[$i]['mq'] > 100 &&  $serviceRadius[$i]['mq'] <= 150){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] > 100 &&  $serviceRadius[$i]['mq'] <= 150){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 } 
                                 break;
                             case $mq == 200:
-                                if($serviceRadius[$i]['mq'] > 150 &&  $serviceRadius[$i]['mq'] <= 200){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] > 150 &&  $serviceRadius[$i]['mq'] <= 200){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 } 
                                 break;
                             case $mq == 250:
-                                if($serviceRadius[$i]['mq'] > 200 &&  $serviceRadius[$i]['mq'] <= 250){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] > 200 &&  $serviceRadius[$i]['mq'] <= 250){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 } 
                                 break;
                             case $mq == 300:
-                                if($serviceRadius[$i]['mq'] > 250 &&  $serviceRadius[$i]['mq'] <= 300){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] > 250 &&  $serviceRadius[$i]['mq'] <= 300){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 } 
                                 break;
                             case $mq > 300:
-                                if($serviceRadius[$i]['mq'] > 300){
-                                    array_push($appartamentiFiltrati, $serviceRadius[$i]);
+                                if($appartamentiFiltratiUno[$i]['mq'] > 300){
+                                    array_push($appartamentiFiltratiDue, $appartamentiFiltratiUno[$i]);
                                 };
                         } /* chiusura switch */ 
                     }
-
-                    if(empty($appartamentiFiltrati)){
-                        $appartamentiFiltrati = $serviceRadius;
-                    }
                 };
+
+                // print_r($appartamentiFiltratiDue);
+                // return $appartamentiFiltratiDue;
+
+                if(empty($appartamentiFiltratiDue)){
+                    $appartamentiFiltratiDue = $appartamentiFiltratiUno;
+                };
+                //     if(empty($appartamentiFiltrati)){
+                //         $appartamentiFiltrati = $serviceRadius;
+                //     }
+                // };
+
 
                 $indirizzi=[]; // indirizzi degli appartamenti ricercati senza filtro di ricerca
                 for($i=0; $i < count($serviceRadius); $i++) {  #flatsInRadius
@@ -188,16 +207,16 @@ class FlatController extends Controller
 
 
                 $indirizziAppFiltrati=[]; // indirizzi degli appartamenti ricercati CON filti di ricerca
-                for($i=0; $i < count($appartamentiFiltrati); $i++) { 
+                for($i=0; $i < count($appartamentiFiltratiDue); $i++) { 
                     foreach($addresses as $address){
-                        if($address->id == $appartamentiFiltrati[$i]['address_id']){
+                        if($address->id == $appartamentiFiltratiDue[$i]['address_id']){
                             array_push($indirizziAppFiltrati,$address);
                         }
                     }
                 }
 
 
-                foreach($appartamentiFiltrati as $appartamento){
+                foreach($appartamentiFiltratiDue as $appartamento){
                     foreach($indirizziAppFiltrati as $indirizzo){
                         if($appartamento['address_id'] == $indirizzo['id']){
                             $appartamento['description'] = $indirizzo['address'];
@@ -214,13 +233,13 @@ class FlatController extends Controller
                 }
 
 
-                if(empty($appartamentiFiltrati)){ // se è vuoto appartamenti filtrati
+                if(empty($appartamentiFiltratiDue)){ // se è vuoto appartamenti filtrati
                     /* $risultato = 'nessun risultato, con i filtri di ricerca';
                     $appartamentiFiltrati =  $risultato; */                
                     return $flatsInRadius;
                 }
 
-                return $appartamentiFiltrati;
+                return $appartamentiFiltratiDue;
 
                 /*  $objfilter = [ 
                         'appartamentiRicercati' => $flatsInRadius,

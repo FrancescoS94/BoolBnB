@@ -41,19 +41,19 @@ $(document).ready(function() {
     if(list.length != 0){
         var geo= [];
         for(var i=0; i<list.length; i++){
-        if(list[i]['name'] === city){ // se c'è corrispondenza
-        var lat = list[i]['latlng']['lat'];
-        var lng = list[i]['latlng']['lng'];
+            if(list[i]['name'] === city){ // se c'è corrispondenza
+            var lat = list[i]['latlng']['lat'];
+            var lng = list[i]['latlng']['lng'];
 
-        // loro due prendono i valori di latitudine e longitudine e li spediscono al controller!
-        var querylat = document.querySelector('.query_lat').value =  lat;
-        var querylng = document.querySelector('.query_lng').value =  lng;
-        if(!geo.includes(querylat) && !geo.includes(querylng)){
-            geo.push(querylat);
-            geo.push(querylng);
-        }
+            // loro due prendono i valori di latitudine e longitudine e li spediscono al controller!
+            var querylat = document.querySelector('.query_lat').value =  lat;
+            var querylng = document.querySelector('.query_lng').value =  lng;
+            if(!geo.includes(querylat) && !geo.includes(querylng)){
+                geo.push(querylat);
+                geo.push(querylng);
+            }
 
-        } // chiusura if list[i]
+            } // chiusura if list[i]
         } // chiusura for
 
         list= [];
@@ -107,15 +107,15 @@ $(document).ready(function() {
     let template = Handlebars.compile(source);
     for(let i=0; i < response.length; i++){
         let context={
-        title: response[i].title,
-        address: response[i].address_id,
-        bed: response[i].bed,
-        description: response[i].description,
-        mq: response[i].mq,
-        room: response[i].room,
-        wc: response[i].wc,
-        image: response[i].image,
-        id: response[i].id
+            title: response[i].title,
+            address: response[i].address_id,
+            bed: response[i].bed,
+            description: response[i].description,
+            mq: response[i].mq,
+            room: response[i].room,
+            wc: response[i].wc,
+            image: response[i].image,
+            id: response[i].id
         }
         let html = template(context);
         let temp = $('.ricerca').append(html);
