@@ -248,29 +248,34 @@ main {
                     }
                 }
             }
+
+
             .container-fluid.row{
               height: 100vh;
+              .ap-input-icon.ap-icon-pin{
+                display: none;
+              }
               .filtri {
                 // background: rgb(220,220,220);
                 // background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(211,211,211,1) 35%, rgba(169,169,169,1) 100%);
-                  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                border-radius: 0px 5px 0px 0px;
-                display: flex;
-                flex-direction: column;
+                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                // border-radius: 0px 5px 0px 0px;
+                // display: flex;
+                // flex-direction: column;
                 .città-filtri{
                   padding: 25px 0px;
                   #city1{
                     margin-bottom: 10px;
                     // width: 90%;
                   }
-                  #click{
-                    width:100%;
-                  }
                 }
                 .filter{
                   .filter-child-services{
                     margin-bottom: 20px;
                   }
+                }
+                .filter-child-flats{
+
                 }
               }
               .ricerca{
@@ -280,17 +285,15 @@ main {
                   .search{
                   padding: 20px 20px;
                   border-top: 1px solid darkgrey;
-                  .tite{
-                    background-color: red;
-                  }
                   .foto{
-                      padding: 0px;
+
+                    #img-search{
+                        width: 370px;
+                        height: 240px;
+                        border-radius: 10px;
+                      }
                   }
-                  #img-search{
-                      width: 370px;
-                      height: 240px;
-                      border-radius: 10px;
-                    }
+
                     .flat-text{
                     margin-left: 10px;
                     padding-top: 15px;
@@ -331,6 +334,14 @@ main {
             }
 
         }
+
+        @media screen and (max-width: 768px) {
+          .container-fluid.row{
+            margin: 0px !important;
+            padding: 0px !important;
+          }
+        }
+
     // *END* PAGINA SERACH
 
 

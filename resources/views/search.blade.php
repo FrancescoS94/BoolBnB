@@ -25,6 +25,7 @@
         <i class="fas fa-chevron-right right"></i>
     </div>
   </section>
+
   <div class="container-fluid row">
 
     <div class="filtri col-sm-4 col-md-4 col-lg-3 col-xl-3">
@@ -32,10 +33,10 @@
         <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
         <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
         <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
-        <button id="click" class="btn-blu">Cerca per città e filtra</button>
       </div>
 
       <section class="filter">
+
         <div class="filter-child-services">
           <h4>Filtra per servizi</h4>
           <div class="service_each">
@@ -49,23 +50,24 @@
         </div>
 
         <div class="filter-child-flats">
-            <h4>Altri Filtri</h4>
-            <div class="form-group">
+          <h4>Altri Filtri</h4>
+          <div class="row">
+            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
               <label for="room">Stanze</label>
               <input class="form-control" id="room" type="number">
             </div>
-            <div class="form-group">
+            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
               <label for="bed">Letti</label>
               <input class="form-control" id="bed" type="number">
             </div>
-            <div class="form-group">
+            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
               <label for="wc">Bagni</label>
               <input  class="form-control" id="wc" type="number">
             </div>
-            <div class="form-group">
-              <label for="mq">Quanto spazio cerchi?</label>
+            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+              <label for="mq">Mq</label>
               <select id="mq" class="form-control">
-                <option selected>Metri quadrati</option>
+                <option selected>Mq</option>
                 <option value="50">0 - 50</option>
                 <option value="100">50 - 100</option>
                 <option value="150">100 - 150</option>
@@ -74,10 +76,16 @@
                 <option value="300">250 - 300</option>
                 <option value="301">>300</option>
               </select>
-
-
             </div>
-        </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <button id="click" class="btn-blu">Cerca per città e filtra</button>
+            </div>
+          </div>
+
+        </div> {{--Chiusura filter-child-flats --}}
 
         <div id="filtroRicerca" hidden>Nessun risultato con questi filtri</div>
 
@@ -87,7 +95,7 @@
     <div class="ricerca col-sm-8 col-md-8 col-lg-9 col-xl-9">
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
-        <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6  ">
           <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
         </div>
         <div class="my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">

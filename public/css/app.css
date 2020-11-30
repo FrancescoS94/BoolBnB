@@ -484,15 +484,20 @@ main .layout .row.container-sm {
   height: 100vh;
 }
 
+main .layout .container-fluid.row .ap-input-icon.ap-icon-pin,
+main .layout .row.container-xl .ap-input-icon.ap-icon-pin,
+main .layout .row.container-lg .ap-input-icon.ap-icon-pin,
+main .layout .row.container-md .ap-input-icon.ap-icon-pin,
+main .layout .row.container-sm .ap-input-icon.ap-icon-pin {
+  display: none;
+}
+
 main .layout .container-fluid.row .filtri,
 main .layout .row.container-xl .filtri,
 main .layout .row.container-lg .filtri,
 main .layout .row.container-md .filtri,
 main .layout .row.container-sm .filtri {
   box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-  border-radius: 0px 5px 0px 0px;
-  display: flex;
-  flex-direction: column;
 }
 
 main .layout .container-fluid.row .filtri .città-filtri,
@@ -509,14 +514,6 @@ main .layout .row.container-lg .filtri .città-filtri #city1,
 main .layout .row.container-md .filtri .città-filtri #city1,
 main .layout .row.container-sm .filtri .città-filtri #city1 {
   margin-bottom: 10px;
-}
-
-main .layout .container-fluid.row .filtri .città-filtri #click,
-main .layout .row.container-xl .filtri .città-filtri #click,
-main .layout .row.container-lg .filtri .città-filtri #click,
-main .layout .row.container-md .filtri .città-filtri #click,
-main .layout .row.container-sm .filtri .città-filtri #click {
-  width: 100%;
 }
 
 main .layout .container-fluid.row .filtri .filter .filter-child-services,
@@ -547,27 +544,11 @@ main .layout .row.container-sm .ricerca .search {
   border-top: 1px solid darkgrey;
 }
 
-main .layout .container-fluid.row .ricerca .search .tite,
-main .layout .row.container-xl .ricerca .search .tite,
-main .layout .row.container-lg .ricerca .search .tite,
-main .layout .row.container-md .ricerca .search .tite,
-main .layout .row.container-sm .ricerca .search .tite {
-  background-color: red;
-}
-
-main .layout .container-fluid.row .ricerca .search .foto,
-main .layout .row.container-xl .ricerca .search .foto,
-main .layout .row.container-lg .ricerca .search .foto,
-main .layout .row.container-md .ricerca .search .foto,
-main .layout .row.container-sm .ricerca .search .foto {
-  padding: 0px;
-}
-
-main .layout .container-fluid.row .ricerca .search #img-search,
-main .layout .row.container-xl .ricerca .search #img-search,
-main .layout .row.container-lg .ricerca .search #img-search,
-main .layout .row.container-md .ricerca .search #img-search,
-main .layout .row.container-sm .ricerca .search #img-search {
+main .layout .container-fluid.row .ricerca .search .foto #img-search,
+main .layout .row.container-xl .ricerca .search .foto #img-search,
+main .layout .row.container-lg .ricerca .search .foto #img-search,
+main .layout .row.container-md .ricerca .search .foto #img-search,
+main .layout .row.container-sm .ricerca .search .foto #img-search {
   width: 370px;
   height: 240px;
   border-radius: 10px;
@@ -649,6 +630,17 @@ main .layout .row.container-lg .ricerca .search .flat-text .flat-service span,
 main .layout .row.container-md .ricerca .search .flat-text .flat-service span,
 main .layout .row.container-sm .ricerca .search .flat-text .flat-service span {
   margin-right: 4px;
+}
+
+@media screen and (max-width: 768px) {
+  main .container-fluid.row,
+  main .row.container-xl,
+  main .row.container-lg,
+  main .row.container-md,
+  main .row.container-sm {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
 }
 
 main .flat-show ul {
