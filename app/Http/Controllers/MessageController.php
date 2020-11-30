@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Message;
 use Illuminate\Http\Request;
 use App\Flat;
+use Carbon\Carbon;
 
 class MessageController extends Controller
 {
@@ -45,6 +46,8 @@ class MessageController extends Controller
         ]);
         
         $message['flat_id'] = $data['flat'];
+        $message['created_at'] = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at
+        $message['updated_at'] = Carbon::now()->setTimezone('Europe/Rome');            // memorizzo in una var data e ora attuale, nello stesso formato del created_at
 
         $message->fill($data);
         $salvato = $message->save();

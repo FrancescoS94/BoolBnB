@@ -3,10 +3,8 @@ $(document).ready(function() {
 (function($){
 
     var charts = {
-        init:function(flatId){
+        init:function(){
             var flatId = $("input#flat").val();         // memorizzo il flat id prendendolo dall'input nascosto
-            // qui vanno i fonts
-            // qui vanno i colori
             this.ajaxGetMessagesMonthlyData(flatId);    // lo passo come dato alla chiamata ajax per prendere i messaggi solo di questo appartamento
             this.ajaxGetViewsMonthlyData(flatId);       // lo passo come dato alla chiamata ajax per prendere le views solo di questo appartamento
 

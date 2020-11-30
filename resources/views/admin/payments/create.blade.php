@@ -7,19 +7,6 @@
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 @endsection
 
-@section('script-in-head')
-    {{-- STYLE BRAINTREE PER CAMPI DATI CARTA DI CREDITO --}}
-    <style>
-        /* #card-number, #cvv, #expiration-date{
-            background:white;
-            height: 38px;
-            border: 1px solid #ced4da;
-            padding: .375rem .75rem;
-            border-radius: .25rem;
-        } */
-    </style>
-@endsection
-
 @section('aside')
     {{-- Sidebar --}}
       <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 aside">

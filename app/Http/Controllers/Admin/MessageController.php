@@ -10,7 +10,6 @@ use App\Flat;
 
 class MessageController extends Controller
 {
-    // 12-11 struttura superflua
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,7 +32,7 @@ class MessageController extends Controller
                 }
             }
             
-            $messages = Message::all();                         // stampo tutti i messaggi
+            $messages = Message::orderBy('created_at','desc')->get();                         // stampo tutti i messaggi
             $messagesReceived = [];                             // creo un array vuoto dove andrò a inserire tutti i messaggi ricevuti dall'utente loggato        
             $countFlatsId = count($flatsId);                    // conto quanti sono gli appartamenti dell'utente loggato
             
