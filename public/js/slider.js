@@ -5,14 +5,14 @@ $(document).ready(function(){
     $('i.right').click(function(){
         var elemDaScrollare = $(this).siblings('.lista');
         var currentPosition = elemDaScrollare.scrollLeft();
-        currentPosition += 290;
+        currentPosition += 410;
         elemDaScrollare.scrollLeft(currentPosition);
     });
 
     $('i.left').click(function(){
         var elemDaScrollare = $(this).siblings('.lista');
         var currentPosition = elemDaScrollare.scrollLeft();
-        currentPosition -= 290;
+        currentPosition -= 410;
         elemDaScrollare.scrollLeft(currentPosition);
     });
 

@@ -27,7 +27,7 @@
                 <a href="{{ route('flats.show', $flatSpons->id) }}">
                 <div style="background-image: url({{asset('storage/'. $flatSpons->image)}});" class="box-group">
                     <div class="box-descr" style="color:#fff">
-                        <h5><span class="badge">Città</span></h5>
+                        {{-- <h5><span class="badge">Città</span></h5> --}}
                         <h3>{{ $flatSpons->title}}</h3>
                     </div>
                 </div>

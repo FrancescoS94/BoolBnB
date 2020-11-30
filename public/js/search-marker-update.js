@@ -60,7 +60,7 @@ function SearchMarker(poiData, options) {   // risultati suggeriti
             console.log('errore' + error);
         }
     });
-    //console.log(flat_address_id);
+    console.log(flat_address_id);
 }
 
 

@@ -62,10 +62,10 @@
 
 @section('content')
 {{-- UPDATE/MODIFICA DEGLI INDIRIZZI --}}
-    <div class="container">
-        <div class="row">
+<div class="container vh">
+        <div class="row d-flex justify-content-center">
             <div class="col-md-8">
-
+​
                 {{-- validazione campi  --}}
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -76,12 +76,12 @@
                     </ul>
                 </div>
                 @endif
-
+​
                 {{-- arrivo da addressControllEdit --}}
                 {{-- per ciascun appartamento posso modificare i valori grazie all'id --}}
-                <div>Modifica indirizzo</div>
-
-                <div class='map-view'>
+                <h2 class="pt-5">Modifica indirizzo</h2>
+​
+                <div class='map-view my-3'>
                     <div class='tt-side-panel' style="height: 40vh;">
                         <header class='tt-side-panel__header'>
                         </header>
@@ -98,28 +98,12 @@
                     <div id='map' class='full-map' style="height: 40vh;"></div>
                 </div> {{-- fine tomtom --}}
 
-                {{-- TENTATIVO PER AGGIUSTARE FLAT UPDATE --}}
-                {{-- <div>
-                    <a  class="btn-blu text-decoration-none" href="{{ route('admin.flats.create') }}">Invia</a>
-                </div> --}}
-
-                {{-- <form action="{{ route('admin.addresses.update', $addresses->id)}}" method="post"> --}}
-{{--                 <form action="{{ route('admin.addresses.update', $flat->address_id )}}" method="post">
-                    @csrf
-                    @method('PATCH')
-
-                    
-                    <input hidden type="text" class="form-control" name="address" value="{{ $flat->id }}">
-
-                    <input id="address" hidden type="text" class="form-control" name="address">
-                    <input id="lat" hidden type="text" class="form-control" name="lat">
-                    <input id="lng" hidden type="text" class="form-control" name="lng">
-
-                    <button type="submit" class="btn btn-primary">Invia il modulo</button>
-                </form> --}}
-
                 <input id="address_id" hidden type="text" class="form-control" name="{{ $flat->address_id }}" value="{{ $flat->address_id }}">
-                <a href="{{route('admin.flats.index') }}"><button type="submit" class="btn btn-primary">Invia il modulo</button></a>
+                {{-- <a href="#"> --}}
+                <a href="{{route('admin.flats.index') }}">
+                    {{-- <button type="button" class="btn btn-primary">Invia il modulo</button> --}}
+                    <button type="submit" class="btn btn-primary">Invia il modulo</button>
+                </a>
             </div>
         </div>
     </div>

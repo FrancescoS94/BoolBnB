@@ -916,6 +916,46 @@ main .table td {
   }
 }
 
+main .lista-messaggi {
+  background-color: #FFFFFF !important;
+  margin: 40px;
+  padding: 15px !important;
+  padding-bottom: 15px !important;
+  font-size: 15px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+main .lista-messaggi p {
+  margin: 5px;
+}
+
+main .lista-messaggi .dettagli-messaggio {
+  border-top: 1px solid gainsboro;
+}
+
+main .lista-messaggi .buttons-dettagli {
+  padding-left: 15px !important;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+main .lista-messaggi .buttons-dettagli span {
+  display: inline-block;
+  margin: 0px 10px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  main .lista-messaggi {
+    margin: 0px;
+    box-shadow: none;
+  }
+
+  main .lista-messaggi .buttons-dettagli span {
+    display: inline-block;
+    margin: 0px 10px 0px 5px;
+  }
+}
+
 main #card-number,
 main #cvv,
 main #expiration-date {
@@ -952,6 +992,25 @@ main .update .platinum {
   color: #03989e;
   font-weight: bold;
   font-size: 25px;
+}
+
+main .tt-search-box-input-container {
+  box-shadow: none;
+}
+
+main .tt-side-panel {
+  height: 40vh;
+  background: #fcfcfc;
+  box-shadow: none;
+}
+
+main .tt-search-box-input-container {
+  border-radius: 5px;
+  background-color: #FFFFFF;
+}
+
+main .full-map {
+  height: 40vh;
 }
 
 @media screen and (min-width: 500px) {
