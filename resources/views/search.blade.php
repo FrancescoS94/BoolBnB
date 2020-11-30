@@ -80,7 +80,7 @@
             <div class="form-group col-3 col-sm-3 col-md-6 col-lg-12 col-xl-12">
               <label for="mq">Mq</label>
               <select id="mq" class="form-control">
-                <option selected>Mq</option>
+                <option value="" selected>Seleziona i metri quadrati</option>
                 <option value="50">0 - 50</option>
                 <option value="100">50 - 100</option>
                 <option value="150">100 - 150</option>
@@ -109,9 +109,11 @@
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
         <div class="foto col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-xl-1 offset-lg-0 offset-md-0 offset-sm-0 ">
-          <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
+          <a href="{{ route('flats.show', $flat->id) }}">
+            <img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}">
+          </a>
         </div>
-        <div class="my-auto col-sm-12 col-md-12 col-lg-6 col-xl-5 offset-lg-0 offset-md-0 offset-sm-0 ">
+        <div class="destra my-auto col-sm-12 col-md-12 col-lg-6 col-xl-5 offset-lg-0 offset-md-0 offset-sm-0 ">
           <div class="flat-text">
             <div class="santa">
               <a href="{{ route('flats.show', $flat->id) }}">
@@ -156,7 +158,7 @@
 </div> {{-- chiusura layout --}}
 
 {{-- modello di riferimento handlebars --}}
-<script id="template" type="text/x-handlebars-template">
+{{-- <script id="template" type="text/x-handlebars-template">
   <div class="row flat">
     <div class="my-auto col-xl-5">
     <a href="http://localhost:8000/flats/@{{id}}"><img id="img-search" src="storage/@{{{image}}}" class="card-img-top" alt="@{{title}}"></a>
@@ -197,34 +199,38 @@
 <div class="ricerca col-12">
   <div class="row search">
     <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
-      <a href="http://localhost:8000/flats/@{{id}}"><img id="img-search" src="storage/@{{{image}}}" class="img-fluid" alt="@{{title}}"></a>
+      <a href="http://localhost:8000/flats/@{{id}}">
+        <img id="img-search" src="storage/@{{{image}}}" class="img-fluid" alt="@{{title}}">
+      </a>
     </div>
-    <div class="my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+    <div class="destra my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
       <div class="flat-text">
-        <a id="paginaInterna" href="http://localhost:8000/flats/@{{id}}">
-          <h5 class="card-title">@{{title}}</h5>
-          <p>@{{address}}</p>
-          <ul>
-            <li>
-              <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
-              Letti: @{{bed}}
-            </li>
-            <li>
-              <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
-              Stanze: @{{room}}
-            </li>
-          </ul>
+        <div class="santa">
+          <a id="paginaInterna" href="http://localhost:8000/flats/@{{id}}">
+            <h5 class="card-title">@{{title}}</h5>
+            <p>@{{address}}</p>
             <ul>
               <li>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
-                WC: @{{wc}}
+                <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                Letti: @{{bed}}
               </li>
               <li>
-                <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
-                Mq: @{{mq}}
+                <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                Stanze: @{{room}}
               </li>
             </ul>
-        </a>
+              <ul>
+                <li>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                  WC: @{{wc}}
+                </li>
+                <li>
+                  <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                  Mq: @{{mq}}
+                </li>
+              </ul>
+          </a>
+        </div>
       </div>
     </div>
   </div> {{-- chiusura row search--}}

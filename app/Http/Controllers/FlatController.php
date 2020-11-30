@@ -184,17 +184,9 @@ class FlatController extends Controller
                     }
                 };
 
-                // print_r($appartamentiFiltratiDue);
-                // return $appartamentiFiltratiDue;
-
                 if(empty($appartamentiFiltratiDue)){
                     $appartamentiFiltratiDue = $appartamentiFiltratiUno;
                 };
-                //     if(empty($appartamentiFiltrati)){
-                //         $appartamentiFiltrati = $serviceRadius;
-                //     }
-                // };
-
 
                 $indirizzi=[]; // indirizzi degli appartamenti ricercati senza filtro di ricerca
                 for($i=0; $i < count($serviceRadius); $i++) {  #flatsInRadius
@@ -204,7 +196,6 @@ class FlatController extends Controller
                         }
                     }
                 }
-
 
                 $indirizziAppFiltrati=[]; // indirizzi degli appartamenti ricercati CON filti di ricerca
                 for($i=0; $i < count($appartamentiFiltratiDue); $i++) { 
@@ -233,9 +224,7 @@ class FlatController extends Controller
                 }
 
 
-                if(empty($appartamentiFiltratiDue)){ // se è vuoto appartamenti filtrati
-                    /* $risultato = 'nessun risultato, con i filtri di ricerca';
-                    $appartamentiFiltrati =  $risultato; */                
+                if(empty($appartamentiFiltratiDue)){ // se è vuoto appartamenti filtrati              
                     return $flatsInRadius;
                 }
 

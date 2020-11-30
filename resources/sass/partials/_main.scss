@@ -177,12 +177,15 @@ main {
     // PAGINA SEARCH
         .layout {
             scrollbar-width: none; /*Nasconde scroll firefox*/
+            /*Nasconde scroll, necessario su Safari e Chrome */
+            scrollbar-width: none; /*Nasconde scroll firefox*/
             overflow-y: scroll;
             padding: 0px !important;
             margin-top: 81px;
             height: 100vh;
-            .filters{
-                background-color: orange;
+            /*Nasconde scroll, necessario su Safari e Chrome */
+            &::-webkit-scrollbar {
+                display: none;
             }
             .sponsor{
                 height: 50vh;
@@ -248,94 +251,96 @@ main {
                     }
                 }
             }
-
-
+            // fine slider sponsor
             .container-fluid.row{
-              height: 100vh;
-              .ap-input-icon.ap-icon-pin{
-                display: none;
-              }
-              .filtri {
-                box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                .città-filtri{
-                  padding: 25px 0px;
-                  #city1{
-                    margin-bottom: 10px;
-                  }
+                height: 100vh;
+                .filtri {
+                    box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+                    .città-filtri{
+                        padding: 25px 0px;
+                        #city1{
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .filter{
+                        .filter-child-services{
+                            margin-bottom: 20px;
+                        }
+                    }
+                    .filter-child-flats{
+                        .row{
+                            .cont-bott{
+                                display: flex;
+                                #click{
+                                width: 100%;
+                                margin-top: 10px;
+                                margin-bottom: 20px;
+                                }
+                            }
+                        }
+                    }
                 }
-                .filter{
-                  .filter-child-services{
-                    margin-bottom: 20px;
-                  }
+                .ricerca{
+                    scrollbar-width: none; /*Nasconde scroll firefox*/
+                    overflow-y: scroll;
+                    height: 100vh;
+                    .search{
+                        padding: 20px 20px;
+                        border-top: 1px solid gainsboro;
+                        .foto{
+                            a{
+                                #img-search{
+                                    width: 370px;
+                                    height: 240px;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                        .destra{
+                            .flat-text{
+                                // display: flex;
+                                // justify-content: center;
+                                margin-left: 10px;
+                                padding-top: 15px;
+                                .santa{
+                                    a{
+                                        color: #222222;
+                                        &:hover{
+                                        color: #404040;
+                                        text-decoration: none;
+                                        }
+                                        p{
+                                            padding-bottom: 10px;
+                                            border-bottom: 1px solid gainsboro;
+                                        }
+                                        ul{
+                                            list-style-type: none;
+                                            padding-top: 0px;
+                                            display: inline-block;
+                                            li{
+                                                margin-right: 10px;
+                                                img{
+                                                    height: 30px;
+                                                    padding: 0px 5px 5px 0px;
+                                                }
+                                            }
+                                        }
+                                    }   
+                                    .flat-service{
+                                        color: #404040;
+                                        span{
+                                            margin-right: 4px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                    
                 }
-                .filter-child-flats{
-                  .cont-bott{
-                    display: flex;
-                    #click{
-                      width: 100%;
-                      margin-top: 10px;
-                      margin-bottom: 20px;
-                    }
-                  }
-                }
-              }
-              .ricerca{
-                  scrollbar-width: none; /*Nasconde scroll firefox*/
-                  overflow-y: scroll;
-                  height: 100vh;
-                  .search{
-                  padding: 20px 20px;
-                  border-top: 1px solid gainsboro;
-                  .foto{
 
-                    #img-search{
-                        width: 370px;
-                        height: 240px;
-                        border-radius: 10px;
-                      }
-                  }
-
-                    .flat-text{
-                    // display: flex;
-                    // justify-content: center;
-                    margin-left: 10px;
-                    padding-top: 15px;
-                    a{
-                        color: #222222;
-                        &:hover{
-                        color: #404040;
-                        text-decoration: none;
-                        }
-                    }
-                    p{
-                        padding-bottom: 10px;
-                        border-bottom: 1px solid gainsboro;
-                    }
-                    ul{
-
-                        list-style-type: none;
-                        padding-top: 0px;
-                        display: inline-block;
-                        li{
-                        margin-right: 10px;
-                        }
-                        img{
-                        height: 30px;
-                        padding: 0px 5px 5px 0px;
-                        }
-
-                    }
-
-                    .flat-service{
-                        color: #404040;
-                        span{
-                        margin-right: 4px;
-                        }
-                    }
-                  }
-                  }
-
-              }
+                // }
             }
 
         }
@@ -369,10 +374,10 @@ main {
 
                 }
             }
-            .flat-text{
+            // .flat-text{
 
-              // margin-left: 30px !important;
-            }
+            //   // margin-left: 30px !important;
+            // }
           }
           .container-fluid.row{
             margin: 0px !important;

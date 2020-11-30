@@ -35,3 +35,28 @@ textarea{
     color: $redBnb;
     }
 }
+
+.ap-input-icon.ap-icon-pin{
+    display: none;
+}
+
+/* scroll bar */
+
+::-webkit-scrollbar {/* width */
+  width: 5px;
+  height:5px;
+}
+
+::-webkit-scrollbar-track {/* Track */
+  background: $whiteBnb;
+}
+
+::-webkit-scrollbar-thumb {/* Handle */
+  background: $blueBnb;
+}
+
+::-webkit-scrollbar-thumb:hover {/* Handle on hover */
+  background: $blueBnb;
+}
+
+/* fine scroll bar */
