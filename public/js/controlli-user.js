@@ -34,7 +34,7 @@ $(document).ready(function(){
         if(strongRegex.test(passwordField.value)){
             okButton.disabled = false;
         }else{
-            passwordError.innerHTML = 'inserisci un password sicura, rispetta le indicazioni';
+            passwordError.innerHTML = 'inserisci una password sicura, rispetta le indicazioni';
             okButton.disabled = true;
         }
             // spiegazione password forte

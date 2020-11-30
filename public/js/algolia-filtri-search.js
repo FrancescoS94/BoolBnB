@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     // funzione click bottone
     $('#click').unbind().bind('click', function(){   /* metodo alternativo document.getElementById('clickMe').addEventListener('click', function(){}); // chiusura evento bottone */
+    $('.ricerca').empty();
     var city =  document.getElementById('city1').value;
     if(city == ''){
         document.querySelector('.left-layout').innerHTML = '<h2>Inserisci un città!</h2>';
@@ -33,9 +34,8 @@ $(document).ready(function() {
         serviceList.push(this.value);
     });
 
-    //console.log(selectedMq, serviceList)
-
-    $('.ricerca').empty();
+   
+    
     
 
     if(list.length != 0){
