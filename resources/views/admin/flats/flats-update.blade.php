@@ -38,7 +38,7 @@
 @section('content')
     <div class="container update vh">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-10 col-lg-9 jumbotron my-1">
+            <div class="col-md-10 col-lg-9 jumbotron my-5">
                 <h2 class="font-weight-bold d-flex justify-content-center">Modifica</h2>
 
                 {{-- validazione campi  --}}

@@ -916,6 +916,25 @@ main .table td {
   }
 }
 
+main .tt-search-box-input-container {
+  box-shadow: none;
+}
+
+main .tt-side-panel {
+  height: 40vh;
+  background: #fcfcfc;
+  box-shadow: none;
+}
+
+main .tt-search-box-input-container {
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+main .full-map {
+  height: 40vh;
+}
+
 main #card-number,
 main #cvv,
 main #expiration-date {

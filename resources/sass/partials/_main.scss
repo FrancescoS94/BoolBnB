@@ -596,6 +596,27 @@ main {
         }
     // *END* // LISTA APPARTAMENTI admin flats.blade
 
+    // AGGIUNGI E MODIFICA APPARTAMENTO address create/update.blade
+        .tt-search-box-input-container {
+            box-shadow: none;
+        }
+
+        .tt-side-panel {
+            height: 40vh;
+            background: $whiteBnb;
+            box-shadow: none;
+        }
+
+        .tt-search-box-input-container {
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+        
+        .full-map {
+            height: 40vh;
+        }
+    // *END* AGGIUNGI E MODIFICA APPARTAMENTO address create/update.blade
+
     // PAYMENTS admin create.blade
         #card-number, #cvv, #expiration-date{
             background: white;
