@@ -37,39 +37,40 @@
 @endsection
 
 @section('content')
-    <div class="container vh">
-        <h1>Tutti i pagamenti effettuati</h1>
+    <div class="jumbotron lista-pagamenti">
+        <h1>PAGAMENTI</h1>
 
         @if(count($payments) == 0)
             <p>Non hai ancora sponsorizzato nessun appartamento.</p>
         @elseif(count($payments) > 0)
-
-            @if(session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Data pagamento</th>
-                        <th scope="col">Appartamento</th>
-                        <th scope="col">Durata sponsorizzazione</th>
-                        <th scope="col">Fine sponsorizzazione</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($payments as $payment)
-                    <tr>
-                        <td>{{ Carbon\Carbon::parse($payment['created_at'])->settings(['toStringFormat' => 'j F Y', ]) }}</td>
-                        <td>{{ $payment['flat_id'] }}</td>
-                        <td>{{$payment->rate->hours}} ore</td>
-                        <td>{{ Carbon\Carbon::parse($payment['end_rate'])->settings(['toStringFormat' => 'j F Y \a\l\l\e h:i:s', ]) }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
         @endif
-    </div>
+
+        @if(session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @foreach($payments as $payment)
+        <div class="row d-flex justify-content-center dettagli-pagamento">
+
+          <div class="col-md-2 col-lg-2 col-xl-2 left-dettagli">
+            <p> <strong>Appartamento:</strong> {{ $payment['flat_id'] }} </p>
+          </div>
+
+          <div class="col-md-3 col-lg-3 col-xl-3 left-dettagli">
+            <p> <strong>Data pagamento:</strong> {{ Carbon\Carbon::parse($payment['created_at'])->settings(['toStringFormat' => 'j F Y', ]) }} </p>
+          </div>
+
+          <div class="col-md-3 col-lg-3 col-xl-3 left-dettagli">
+            <p><strong>Durata sponsorizzazione:</strong> {{$payment->rate->hours}} ore</p>
+          </div>
+
+          <div class="col-md-4 col-lg-4 col-xl-4 center-dettagli">
+            <p><strong>Fine sponsorizzazione:</strong> {{ Carbon\Carbon::parse($payment['end_rate'])->settings(['toStringFormat' => 'j F Y \a\l\l\e h:i:s', ]) }}</p>
+          </div>
+
+        </div>
+        @endforeach
+
 @endsection

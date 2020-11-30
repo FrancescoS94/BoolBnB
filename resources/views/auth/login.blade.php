@@ -22,7 +22,7 @@
 <div class="bg-img2">
     <div class="container padd-top">
         <div class="row justify-content-center pt-5">
-            <div class="col-md-9 col-lg-6 my-4 pb-3 register">
+            <div class="col-md-9 col-lg-6 my-4 pb-5 register">
                 <div class="card">
                     <div class="account d-flex justify-content-center pt-4">
                         {{ __('Accedi') }}

@@ -219,7 +219,7 @@ main .bg-img2 {
   background-image: url(/images/image-illustrator.jpg?02e2ab3ef60e11a36b91f47df1b94af4);
   background-size: cover;
   background-position: top;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 main .register .card {
@@ -258,7 +258,7 @@ main .register .btn-blu {
 }
 
 main .bg-img {
-  background-image: url(/images/Home-Muhammed-Sajid-5.jpg?f184d28dfd7a9637f1026093f8da351d);
+  background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -476,65 +476,222 @@ main .layout .sponsor .slider .lista.appartamenti div a .box-group .box-descr h5
   background-color: #cb1f35;
 }
 
-main .layout .ricerca {
+main .layout .container-fluid.row,
+main .layout .row.container-xl,
+main .layout .row.container-lg,
+main .layout .row.container-md,
+main .layout .row.container-sm {
+  height: 100vh;
+}
+
+main .layout .container-fluid.row .ap-input-icon.ap-icon-pin,
+main .layout .row.container-xl .ap-input-icon.ap-icon-pin,
+main .layout .row.container-lg .ap-input-icon.ap-icon-pin,
+main .layout .row.container-md .ap-input-icon.ap-icon-pin,
+main .layout .row.container-sm .ap-input-icon.ap-icon-pin {
+  display: none;
+}
+
+main .layout .container-fluid.row .filtri,
+main .layout .row.container-xl .filtri,
+main .layout .row.container-lg .filtri,
+main .layout .row.container-md .filtri,
+main .layout .row.container-sm .filtri {
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+main .layout .container-fluid.row .filtri .città-filtri,
+main .layout .row.container-xl .filtri .città-filtri,
+main .layout .row.container-lg .filtri .città-filtri,
+main .layout .row.container-md .filtri .città-filtri,
+main .layout .row.container-sm .filtri .città-filtri {
+  padding: 25px 0px;
+}
+
+main .layout .container-fluid.row .filtri .città-filtri #city1,
+main .layout .row.container-xl .filtri .città-filtri #city1,
+main .layout .row.container-lg .filtri .città-filtri #city1,
+main .layout .row.container-md .filtri .città-filtri #city1,
+main .layout .row.container-sm .filtri .città-filtri #city1 {
+  margin-bottom: 10px;
+}
+
+main .layout .container-fluid.row .filtri .filter .filter-child-services,
+main .layout .row.container-xl .filtri .filter .filter-child-services,
+main .layout .row.container-lg .filtri .filter .filter-child-services,
+main .layout .row.container-md .filtri .filter .filter-child-services,
+main .layout .row.container-sm .filtri .filter .filter-child-services {
+  margin-bottom: 20px;
+}
+
+main .layout .container-fluid.row .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-xl .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-lg .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-md .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-sm .filtri .filter-child-flats .cont-bott {
+  display: flex;
+}
+
+main .layout .container-fluid.row .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-xl .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-lg .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-md .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-sm .filtri .filter-child-flats .cont-bott #click {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+main .layout .container-fluid.row .ricerca,
+main .layout .row.container-xl .ricerca,
+main .layout .row.container-lg .ricerca,
+main .layout .row.container-md .ricerca,
+main .layout .row.container-sm .ricerca {
   scrollbar-width: none;
   /*Nasconde scroll firefox*/
+  overflow-y: scroll;
+  height: 100vh;
 }
 
-main .layout .ricerca .search {
-  padding: 20px 0px;
-  border-top: 1px solid darkgrey;
+main .layout .container-fluid.row .ricerca .search,
+main .layout .row.container-xl .ricerca .search,
+main .layout .row.container-lg .ricerca .search,
+main .layout .row.container-md .ricerca .search,
+main .layout .row.container-sm .ricerca .search {
+  padding: 20px 20px;
+  border-top: 1px solid gainsboro;
 }
 
-main .layout .ricerca .search .foto {
-  padding: 0px;
-}
-
-main .layout .ricerca .search #img-search {
+main .layout .container-fluid.row .ricerca .search .foto #img-search,
+main .layout .row.container-xl .ricerca .search .foto #img-search,
+main .layout .row.container-lg .ricerca .search .foto #img-search,
+main .layout .row.container-md .ricerca .search .foto #img-search,
+main .layout .row.container-sm .ricerca .search .foto #img-search {
   width: 370px;
   height: 240px;
   border-radius: 10px;
 }
 
-main .layout .ricerca .flat-text {
+main .layout .container-fluid.row .ricerca .search .flat-text,
+main .layout .row.container-xl .ricerca .search .flat-text,
+main .layout .row.container-lg .ricerca .search .flat-text,
+main .layout .row.container-md .ricerca .search .flat-text,
+main .layout .row.container-sm .ricerca .search .flat-text {
   margin-left: 10px;
   padding-top: 15px;
 }
 
-main .layout .ricerca .flat-text a {
+main .layout .container-fluid.row .ricerca .search .flat-text a,
+main .layout .row.container-xl .ricerca .search .flat-text a,
+main .layout .row.container-lg .ricerca .search .flat-text a,
+main .layout .row.container-md .ricerca .search .flat-text a,
+main .layout .row.container-sm .ricerca .search .flat-text a {
   color: #222222;
 }
 
-main .layout .ricerca .flat-text a:hover {
+main .layout .container-fluid.row .ricerca .search .flat-text a:hover,
+main .layout .row.container-xl .ricerca .search .flat-text a:hover,
+main .layout .row.container-lg .ricerca .search .flat-text a:hover,
+main .layout .row.container-md .ricerca .search .flat-text a:hover,
+main .layout .row.container-sm .ricerca .search .flat-text a:hover {
   color: #404040;
   text-decoration: none;
 }
 
-main .layout .ricerca .flat-text p {
+main .layout .container-fluid.row .ricerca .search .flat-text p,
+main .layout .row.container-xl .ricerca .search .flat-text p,
+main .layout .row.container-lg .ricerca .search .flat-text p,
+main .layout .row.container-md .ricerca .search .flat-text p,
+main .layout .row.container-sm .ricerca .search .flat-text p {
   padding-bottom: 10px;
+  border-bottom: 1px solid gainsboro;
 }
 
-main .layout .ricerca .flat-text ul {
+main .layout .container-fluid.row .ricerca .search .flat-text ul,
+main .layout .row.container-xl .ricerca .search .flat-text ul,
+main .layout .row.container-lg .ricerca .search .flat-text ul,
+main .layout .row.container-md .ricerca .search .flat-text ul,
+main .layout .row.container-sm .ricerca .search .flat-text ul {
   list-style-type: none;
   padding-top: 0px;
   display: inline-block;
 }
 
-main .layout .ricerca .flat-text ul li {
+main .layout .container-fluid.row .ricerca .search .flat-text ul li,
+main .layout .row.container-xl .ricerca .search .flat-text ul li,
+main .layout .row.container-lg .ricerca .search .flat-text ul li,
+main .layout .row.container-md .ricerca .search .flat-text ul li,
+main .layout .row.container-sm .ricerca .search .flat-text ul li {
   margin-right: 10px;
 }
 
-main .layout .ricerca .flat-text ul img {
+main .layout .container-fluid.row .ricerca .search .flat-text ul img,
+main .layout .row.container-xl .ricerca .search .flat-text ul img,
+main .layout .row.container-lg .ricerca .search .flat-text ul img,
+main .layout .row.container-md .ricerca .search .flat-text ul img,
+main .layout .row.container-sm .ricerca .search .flat-text ul img {
   height: 30px;
   padding: 0px 5px 5px 0px;
 }
 
-main .layout .ricerca .flat-text .flat-service {
+main .layout .container-fluid.row .ricerca .search .flat-text .flat-service,
+main .layout .row.container-xl .ricerca .search .flat-text .flat-service,
+main .layout .row.container-lg .ricerca .search .flat-text .flat-service,
+main .layout .row.container-md .ricerca .search .flat-text .flat-service,
+main .layout .row.container-sm .ricerca .search .flat-text .flat-service {
   color: #404040;
 }
 
-main .layout .ricerca .flat-text .flat-service span {
+main .layout .container-fluid.row .ricerca .search .flat-text .flat-service span,
+main .layout .row.container-xl .ricerca .search .flat-text .flat-service span,
+main .layout .row.container-lg .ricerca .search .flat-text .flat-service span,
+main .layout .row.container-md .ricerca .search .flat-text .flat-service span,
+main .layout .row.container-sm .ricerca .search .flat-text .flat-service span {
   margin-right: 4px;
+}
+
+@media screen and (max-width: 991px) {
+  main .ricerca .foto #img-search {
+    width: 530px !important;
+    height: 340px !important;
+    border-radius: 10px;
+    margin-left: 25px;
+  }
+
+  main .ricerca .flat-text {
+    margin-left: 26px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  main .ricerca .foto {
+    display: flex;
+    justify-content: center;
+  }
+
+  main .ricerca .foto #img-search {
+    width: 450px !important;
+    height: 290px !important;
+    border-radius: 10px;
+    margin-left: 0px;
+  }
+
+  main .container-fluid.row,
+  main .row.container-xl,
+  main .row.container-lg,
+  main .row.container-md,
+  main .row.container-sm {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
+  main .container-fluid.row .filtri,
+  main .row.container-xl .filtri,
+  main .row.container-lg .filtri,
+  main .row.container-md .filtri,
+  main .row.container-sm .filtri {
+    box-shadow: none !important;
+  }
 }
 
 main .flat-show ul {
@@ -901,6 +1058,70 @@ main .update .platinum {
 @media screen and (max-width: 768px) {
   .show-messaggio .messaggio .jumbotron {
     margin-top: 0px;
+    box-shadow: none;
+  }
+}
+
+.lista-messaggi {
+  background-color: #ffffff !important;
+  margin: 40px;
+  padding: 15px !important;
+  padding-bottom: 15px !important;
+  font-size: 15px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+.lista-messaggi p {
+  margin: 5px;
+}
+
+.lista-messaggi .dettagli-messaggio {
+  border-top: 1px solid gainsboro;
+}
+
+.lista-messaggi .buttons-dettagli {
+  padding-left: 15px !important;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.lista-messaggi .buttons-dettagli span {
+  display: inline-block;
+  margin: 0px 10px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .lista-messaggi {
+    margin: 0px;
+    box-shadow: none;
+  }
+
+  .lista-messaggi .buttons-dettagli span {
+    display: inline-block;
+    margin: 0px 10px 0px 5px;
+  }
+}
+
+.lista-pagamenti {
+  background-color: #ffffff !important;
+  margin: 40px;
+  padding: 15px !important;
+  padding-bottom: 15px !important;
+  font-size: 15px;
+  box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+}
+
+.lista-pagamenti p {
+  margin: 5px;
+}
+
+.lista-pagamenti .dettagli-pagamento {
+  border-top: 1px solid gainsboro;
+}
+
+@media screen and (max-width: 768px) {
+  .lista-pagamenti {
+    margin: 0px;
     box-shadow: none;
   }
 }
