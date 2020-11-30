@@ -650,7 +650,7 @@ main .layout .row.container-sm .ricerca .search .flat-text .flat-service span {
   margin-right: 4px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
   main .ricerca .foto #img-search {
     width: 530px !important;
     height: 340px !important;
@@ -664,15 +664,16 @@ main .layout .row.container-sm .ricerca .search .flat-text .flat-service span {
 }
 
 @media screen and (max-width: 767px) {
+  main .ricerca .foto {
+    display: flex;
+    justify-content: center;
+  }
+
   main .ricerca .foto #img-search {
     width: 450px !important;
     height: 290px !important;
     border-radius: 10px;
     margin-left: 0px;
-  }
-
-  main .ricerca .flat-text {
-    margin-left: 0px !important;
   }
 
   main .container-fluid.row,

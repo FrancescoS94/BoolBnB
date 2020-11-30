@@ -30,7 +30,7 @@
 
     <div class="filtri col-sm-12 col-md-4 col-lg-3 col-xl-3">
       <div class="città-filtri">
-        <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
+        <input type="search" id="city1" class="form-control" placeholder="Dove sogni di andare?" value="{{$city}}" /> {{-- id = city --}}
         <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
         <input class="query_lng" type="text" name="query_lng" hidden value="{{$lng}}">
       </div>
@@ -95,39 +95,42 @@
     <div class="ricerca col-sm-12 col-md-8 col-lg-9 col-xl-9">
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
-        <div class="foto col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-xl-1">
+        <div class="foto col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-xl-1 offset-lg-0 offset-md-0 offset-sm-0 ">
           <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
         </div>
-        <div class="my-auto col-sm-12 col-md-12 col-lg-6 col-xl-5 ">
+        <div class="my-auto col-sm-12 col-md-12 col-lg-6 col-xl-5 offset-lg-0 offset-md-0 offset-sm-0 ">
           <div class="flat-text">
-            <a href="{{ route('flats.show', $flat->id) }}">
-              <h5 class="card-title">{{ $flat->title}}</h5>
-              <p>{{ $flat->address->address }}</p>
-              <ul>
-                <li>
-                  <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
-                  Letti: {{$flat->bed}}
-                </li>
-                <li>
-                  <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
-                  Stanze: {{$flat->room}}
-                </li>
-              </ul>
+            <div class="santa">
+              <a href="{{ route('flats.show', $flat->id) }}">
+                <h5 class="card-title">{{ $flat->title}}</h5>
+                <p>{{ $flat->address->address }}</p>
                 <ul>
                   <li>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
-                    WC: {{$flat->wc}}
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/2286/2286105.svg" alt="">
+                    Letti: {{$flat->bed}}
                   </li>
                   <li>
-                    <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
-                    Mq: {{$flat->mq}}
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/578/578059.svg" alt="">
+                    Stanze: {{$flat->room}}
                   </li>
                 </ul>
-            </a>
-            <div class="flat-service">
-              @foreach($flat->services as $service)
-              <span> {{ $service->service }} </span>
-              @endforeach
+                  <ul>
+                    <li>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/3030/3030330.svg" alt="">
+                      WC: {{$flat->wc}}
+                    </li>
+                    <li>
+                      <img src="https://www.flaticon.com/svg/static/icons/svg/515/515159.svg" alt="">
+                      Mq: {{$flat->mq}}
+                    </li>
+                  </ul>
+              </a>
+
+              <div class="flat-service">
+                @foreach($flat->services as $service)
+                    <span> {{ $service->service }} </span>
+                @endforeach
+              </div>
             </div>
           </div>
         </div>
