@@ -16,8 +16,7 @@ class MessagesChartDataController extends Controller
     function getMonthlyMessagesData(){
 
         $flatId = $_GET['flatId'];                          // prendo il flat id dalla chiamata ajax con una variabile superglobale
-        // $flatId = 1;                          // prendo il flat id dalla chiamata ajax con una variabile superglobale
-
+        
         // >>>> 1 - inserisco tutti i mesi in un array (getAllMonths)
         
         $month_array = [];                                  // creo un array vuoto dove pushare tutti i mesi in cui ho ricevuto dei messaggi per questo appartamento

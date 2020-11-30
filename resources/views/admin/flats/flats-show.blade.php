@@ -54,7 +54,6 @@
             <div class="col-md-12 col-lg-7">
                 <div class="flat-img">
                     <img class="img-thumbnail border-0" src="{{asset('storage/'. $flat->image)}}"  alt="{{$flat->title}}">
-                    {{-- <img class="img-thumbnail border-0" src="https://martinaway.com/wp-content/uploads/2019/05/Airbnb-San-Francisco-1.jpg"  alt=""> --}}
                 </div>
                 <span><span class="cb">Data di creazione:</span> {{ Carbon\Carbon::parse($flat->created_at)->settings(['toStringFormat' => 'j F Y', ]) }}</span>
             </div>
