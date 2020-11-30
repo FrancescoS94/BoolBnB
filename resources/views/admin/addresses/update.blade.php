@@ -5,7 +5,7 @@
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js'></script>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js'></script>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/2.24.2//SearchBox-web.js'></script>
-    <script type='text/javascript' src='{{ asset('js/search-marker.js')}}' ></script>
+    <script type='text/javascript' src='{{ asset('js/search-marker-update.js')}}' ></script>
     <script type='text/javascript' src='{{ asset('js/search-results-parser.js')}}'></script>
     <script type='text/javascript' src='{{ asset('js/search-markers-manager.js')}}'></script>
     <script type='text/javascript' src='{{ asset('js/info-hint.js')}}'></script>
@@ -119,8 +119,7 @@
                 </form> --}}
 
                 <input id="address_id" hidden type="text" class="form-control" name="{{ $flat->address_id }}" value="{{ $flat->address_id }}">
-                <a href="{{route('admin.flats.index') }}"><button type="submit" class="btn btn-primary">Invia il modulo</button></a> 
-
+                <a href="{{route('admin.flats.index') }}"><button type="submit" class="btn btn-primary">Invia il modulo</button></a>
             </div>
         </div>
     </div>
