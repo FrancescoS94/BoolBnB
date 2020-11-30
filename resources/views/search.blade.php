@@ -28,7 +28,7 @@
 
   <div class="container-fluid row">
 
-    <div class="filtri col-sm-4 col-md-4 col-lg-3 col-xl-3">
+    <div class="filtri col-sm-12 col-md-4 col-lg-3 col-xl-3">
       <div class="città-filtri">
         <input type="search" id="city1" class="form-control" placeholder="In which city do you live?" value="{{$city}}" /> {{-- id = city --}}
         <input class="query_lat" type="text" name="query_lat" hidden value="{{$lat}}"> {{-- cambia con id --}}
@@ -52,19 +52,19 @@
         <div class="filter-child-flats">
           <h4>Altri Filtri</h4>
           <div class="row">
-            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+            <div class="form-group col-3 col-sm-3 col-md-6 col-lg-12 col-xl-12">
               <label for="room">Stanze</label>
               <input class="form-control" id="room" type="number">
             </div>
-            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+            <div class="form-group col-3 col-sm-3 col-md-6 col-lg-12 col-xl-12">
               <label for="bed">Letti</label>
               <input class="form-control" id="bed" type="number">
             </div>
-            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+            <div class="form-group col-3 col-sm-3 col-md-6 col-lg-12 col-xl-12">
               <label for="wc">Bagni</label>
               <input  class="form-control" id="wc" type="number">
             </div>
-            <div class="form-group col-3 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+            <div class="form-group col-3 col-sm-3 col-md-6 col-lg-12 col-xl-12">
               <label for="mq">Mq</label>
               <select id="mq" class="form-control">
                 <option selected>Mq</option>
@@ -80,7 +80,7 @@
           </div>
 
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 cont-bott">
               <button id="click" class="btn-blu">Cerca per città e filtra</button>
             </div>
           </div>
@@ -92,13 +92,13 @@
       </section>
     </div>
 
-    <div class="ricerca col-sm-8 col-md-8 col-lg-9 col-xl-9">
+    <div class="ricerca col-sm-12 col-md-8 col-lg-9 col-xl-9">
       @foreach ($flatsInRadius as $flat)
       <div class="row search">
-        <div class="foto col-sm-12 col-md-6 col-lg-6 col-xl-6  ">
+        <div class="foto col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-xl-1">
           <a href="{{ route('flats.show', $flat->id) }}"><img id="img-search" src="{{ asset('storage/'.$flat->image ) }}" class="img-fluid" alt="{{ $flat->title}}"></a>
         </div>
-        <div class="my-auto col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+        <div class="my-auto col-sm-12 col-md-12 col-lg-6 col-xl-5 ">
           <div class="flat-text">
             <a href="{{ route('flats.show', $flat->id) }}">
               <h5 class="card-title">{{ $flat->title}}</h5>

@@ -256,17 +256,11 @@ main {
                 display: none;
               }
               .filtri {
-                // background: rgb(220,220,220);
-                // background: linear-gradient(90deg, rgba(220,220,220,1) 0%, rgba(211,211,211,1) 35%, rgba(169,169,169,1) 100%);
                 box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
-                // border-radius: 0px 5px 0px 0px;
-                // display: flex;
-                // flex-direction: column;
                 .città-filtri{
                   padding: 25px 0px;
                   #city1{
                     margin-bottom: 10px;
-                    // width: 90%;
                   }
                 }
                 .filter{
@@ -275,7 +269,14 @@ main {
                   }
                 }
                 .filter-child-flats{
-
+                  .cont-bott{
+                    display: flex;
+                    #click{
+                      width: 100%;
+                      margin-top: 10px;
+                      margin-bottom: 20px;
+                    }
+                  }
                 }
               }
               .ricerca{
@@ -284,7 +285,7 @@ main {
                   height: 100vh;
                   .search{
                   padding: 20px 20px;
-                  border-top: 1px solid darkgrey;
+                  border-top: 1px solid gainsboro;
                   .foto{
 
                     #img-search{
@@ -335,10 +336,42 @@ main {
 
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 992px){
+          .ricerca{
+            .foto{
+              #img-search{
+                  width: 530px !important;
+                  height: 340px !important;
+                  border-radius: 10px;
+                  margin-left: 25px;
+                }
+            }
+            .flat-text{
+              margin-left: 26px !important;
+            }
+          }
+        }
+
+        @media screen and (max-width: 767px) {
+          .ricerca{
+            .foto{
+              #img-search{
+                  width: 450px !important;
+                  height: 290px !important;
+                  border-radius: 10px;
+                  margin-left: 0px;
+                }
+            }
+            .flat-text{
+              margin-left: 0px !important;
+            }
+          }
           .container-fluid.row{
             margin: 0px !important;
             padding: 0px !important;
+            .filtri{
+              box-shadow: none !important;
+            }
           }
         }
 

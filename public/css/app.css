@@ -524,6 +524,24 @@ main .layout .row.container-sm .filtri .filter .filter-child-services {
   margin-bottom: 20px;
 }
 
+main .layout .container-fluid.row .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-xl .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-lg .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-md .filtri .filter-child-flats .cont-bott,
+main .layout .row.container-sm .filtri .filter-child-flats .cont-bott {
+  display: flex;
+}
+
+main .layout .container-fluid.row .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-xl .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-lg .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-md .filtri .filter-child-flats .cont-bott #click,
+main .layout .row.container-sm .filtri .filter-child-flats .cont-bott #click {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 main .layout .container-fluid.row .ricerca,
 main .layout .row.container-xl .ricerca,
 main .layout .row.container-lg .ricerca,
@@ -541,7 +559,7 @@ main .layout .row.container-lg .ricerca .search,
 main .layout .row.container-md .ricerca .search,
 main .layout .row.container-sm .ricerca .search {
   padding: 20px 20px;
-  border-top: 1px solid darkgrey;
+  border-top: 1px solid gainsboro;
 }
 
 main .layout .container-fluid.row .ricerca .search .foto #img-search,
@@ -632,7 +650,31 @@ main .layout .row.container-sm .ricerca .search .flat-text .flat-service span {
   margin-right: 4px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
+  main .ricerca .foto #img-search {
+    width: 530px !important;
+    height: 340px !important;
+    border-radius: 10px;
+    margin-left: 25px;
+  }
+
+  main .ricerca .flat-text {
+    margin-left: 26px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  main .ricerca .foto #img-search {
+    width: 450px !important;
+    height: 290px !important;
+    border-radius: 10px;
+    margin-left: 0px;
+  }
+
+  main .ricerca .flat-text {
+    margin-left: 0px !important;
+  }
+
   main .container-fluid.row,
   main .row.container-xl,
   main .row.container-lg,
@@ -640,6 +682,14 @@ main .layout .row.container-sm .ricerca .search .flat-text .flat-service span {
   main .row.container-sm {
     margin: 0px !important;
     padding: 0px !important;
+  }
+
+  main .container-fluid.row .filtri,
+  main .row.container-xl .filtri,
+  main .row.container-lg .filtri,
+  main .row.container-md .filtri,
+  main .row.container-sm .filtri {
+    box-shadow: none !important;
   }
 }
 
