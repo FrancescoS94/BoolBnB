@@ -596,26 +596,45 @@ main {
         }
     // *END* // LISTA APPARTAMENTI admin flats.blade
 
-    // AGGIUNGI E MODIFICA APPARTAMENTO address create/update.blade
-        .tt-search-box-input-container {
-            box-shadow: none;
+    // LISTA MESSAGGI
+        .lista-messaggi{
+            // height: 100vh;
+            background-color: #FFFFFF !important;
+            margin: 40px;
+            padding: 15px !important;
+            padding-bottom: 15px !important;
+            font-size: 15px;
+            box-shadow: rgba(19, 59, 85, 0.4) 0px 6px 16px;
+            p{
+                margin: 5px;
+            }
+            .dettagli-messaggio {
+                border-top: 1px solid gainsboro;
+            }
+            .buttons-dettagli{
+                padding-left: 15px !important;
+                padding-top:10px;
+                padding-bottom:15px;
+                span{
+                display: inline-block;
+                margin: 0px 10px 0px 0px;
+                }
+            }
         }
-
-        .tt-side-panel {
-            height: 40vh;
-            background: $whiteBnb;
-            box-shadow: none;
+        // MEDIA QUERIES LISTA MESSAGGI
+        @media screen and (max-width:768px){
+            .lista-messaggi{
+                // height: 100vh;
+                margin: 0px;
+                box-shadow: none;
+                .buttons-dettagli{
+                    span{
+                        display: inline-block;
+                        margin: 0px 10px 0px 5px;
+                    }
+                }
+            }
         }
-
-        .tt-search-box-input-container {
-            border-radius: 5px;
-            background-color: #ffffff;
-        }
-        
-        .full-map {
-            height: 40vh;
-        }
-    // *END* AGGIUNGI E MODIFICA APPARTAMENTO address create/update.blade
 
     // PAYMENTS admin create.blade
         #card-number, #cvv, #expiration-date{
@@ -652,6 +671,24 @@ main {
             }
         }
     // *END* PAYMENTS admin create.blade
+
+    // AGGIUNGI E MODIFICA APPARTAMENTO address create/update.blade
+        .tt-search-box-input-container {
+            box-shadow: none;
+        }
+        .tt-side-panel {
+            height: 40vh;
+            background: $whiteBnb;
+            box-shadow: none;
+        }
+        .tt-search-box-input-container {
+            border-radius: 5px;
+            background-color: #FFFFFF;
+        }
+        .full-map {
+            height: 40vh;
+        }
+    // *END* AGGIUNGI E MODIFICA APPARTAMENTO address create/update.blade
 }
 
 // media queries navbar
